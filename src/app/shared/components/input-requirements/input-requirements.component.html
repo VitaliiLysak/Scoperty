@@ -1,0 +1,17 @@
+<div [attr.class]="{ block: _name, element: 'requirements', mods: {mode: mode}} | bem">
+  <div
+    *ngFor="let requirementElement of requirementElementList; trackBy: trackByRequirementElement;"
+    [attr.class]="{ block: _name, element: 'requirement', mods: {mode: mode}} | bem"
+  >
+    <!-- Label -->
+    <ng-container *ngTemplateOutlet="requirementElement.templateRef"></ng-container>
+
+    <!-- Icon -->
+    <div
+      *ngIf="mode !== 'small' && isRequirementFulfilled(requirementElement.requirement) ? 1 : 0"
+      [attr.class]="{ block: _name, element: 'icon', mods: {mode: mode}} | bem"
+    >
+      <mat-icon svgIcon="check_circle_outline"></mat-icon>
+    </div>
+  </div>
+</div>

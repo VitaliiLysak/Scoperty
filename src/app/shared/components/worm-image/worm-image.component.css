@@ -1,0 +1,23 @@
+:host {
+  display: inline-block;
+}
+
+.worm-image__container {
+ display: inline-block;
+}
+
+.worm-image__container--color-dark-green {
+  color: var(--brand-dark-green-color);
+}
+
+.worm-image__container--color-green {
+  color: var(--brand-light-blue-color);
+}
+
+.worm-image__container--color-green-blue {
+  color: var(--brand-green-blue-color);
+}
+
+.worm-image__container--color-light-blue {
+  color: var(--brand-light-blue-color);
+}

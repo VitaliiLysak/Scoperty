@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="26"
+   height="26"
+   viewBox="0 0 26 26"
+   version="1.1"
+   id="svg53"
+   sodipodi:docname="checklist-selected.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata57">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview55"
+     showgrid="false"
+     inkscape:zoom="22.85"
+     inkscape:cx="12.516411"
+     inkscape:cy="20"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg53" />
+  <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title44">Global_Icon_Checkbox_S_selected</title>
+  <desc
+     id="desc46">Created with Sketch.</desc>
+  <defs
+     id="defs48" />
+  <g
+     id="Global_Icon_Checkbox_S_selected"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(1.0833333,0,0,1.0833333,-8.6666667,-8.6666667)">
+    <circle
+       id="Oval-5"
+       cx="20"
+       cy="20"
+       r="12"
+       style="fill:#009ba9" />
+    <path
+       d="m 14.677159,20.820016 h 11.142857 c 0.473387,0 0.857143,0.383756 0.857143,0.857143 0,0.473387 -0.383756,0.857143 -0.857143,0.857143 H 13.534302 c -0.473387,0 -0.857143,-0.383756 -0.857143,-0.857143 0,-0.02311 9.15e-4,-0.04601 0.0027,-0.06867 -0.0018,-0.0245 -0.0027,-0.04924 -0.0027,-0.07419 v -5.714286 c 0,-0.552284 0.447716,-1 1,-1 0.552285,0 1,0.447716 1,1 z"
+       id="Combined-Shape"
+       transform="rotate(-45,19.677159,18.677159)"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff" />
+  </g>
+</svg>

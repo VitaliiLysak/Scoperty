@@ -1,0 +1,1192 @@
+<div [attr.class]="{block: _name, element: 'wrapper'} | bem">
+  <div [attr.class]="{block: _name, element: 'container'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      <span>Datenschutzinformationen der Scoperty GmbH</span>
+    </div>
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        Datenschutzinformationen der Scoperty GmbH - Kurzfassung
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre personenbezogenen Daten, um
+        </span>
+        <ul [attr.class]="{block: _name, element: 'list'} | bem">
+          <li>Informationen zu Immobilien in ganz Deutschland auf unserer Plattform darzustellen,</li>
+          <li>Ihnen die Plattform zur Verfügung zu stellen (registrierten Bereich und nicht-registrierten Bereich),</li>
+          <li>Ihre Kontaktanfragen zu bearbeiten, und</li>
+          <li>Ihnen auf Wunsch Informationen, z.&nbsp;B. zu unseren Produkten, zuzusenden,</li>
+          <li>
+            auf Ihren Wunsch Ihre Daten auch an Immobilienmakler weiterzugeben, mit denen wir kooperieren,
+            um Sie beim Verkauf Ihrer Immobilie zu unterstützen, sowie an verbundene Unternehmen,
+            um Ihnen bei der Baufinanzierung zu helfen, sowie
+          </li>
+          <li>
+            zu gewährleisten, dass die Plattform ordnungsgemäß funktioniert und um nachzuvollziehen,
+            wie Sie die Website nutzen, damit wir Ihre Nutzererfahrung verbessern können.
+          </li>
+        </ul>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Grundsätzlich werden auf der Plattform zu allen Grundstücken, die auf der Plattform dargestellt sind,
+          grundstücksbezogene Informationen verarbeitet. Diese Daten können pseudonymen Personenbezug haben,
+          weil ein Grundstück immer irgendeinen Eigentümer und vielleicht sogar Mieter hat.
+          Als Eigentümer und - soweit keine Interessen anderer entgegenstehen - auch als Mieter können Sie
+          <a
+            app-button
+            buttonStyle="link"
+            color="green"
+            size="medium"
+            tabindex="0"
+            (click)="openContradictionPossibility()"
+          >
+            hier
+          </a>
+          jederzeit und ohne besonderen Grund der Darstellung der Informationen zu Ihrer Immobilie auf unserer Plattform widersprechen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Zudem werden weitere personenbezogenen Daten von Ihnen verarbeitet, wenn Sie sich bei uns registrieren oder mit der Website interagieren.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie weitere Informationen über die Verarbeitung Ihrer personenbezogenen Daten sowie über
+          Ihre diesbezüglichen Rechte erhalten möchten, lesen Sie bitte unten die Langversion unserer Datenschutzinformationen durch.
+          Dort finden Sie auch unsere Kontaktinformationen.
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        Datenschutzinformationen der Scoperty GmbH - Langfassung
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Die folgenden Informationen erläutern Ihnen, wie wir, die Scoperty GmbH,
+          Ihre personenbezogenen Daten im Zusammenhang mit der Scoperty-Plattform
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Plattform</span>“), abrufbar unter
+          <a app-button buttonStyle="link" size="medium" color="green" href="http://www.scoperty.de" target="_blank">scoperty.de</a>,
+          verarbeiten. Sie erfahren, zu welchen Zwecken und auf welcher Rechtsgrundlage wir Ihre personenbezogenen Daten verarbeiten,
+          wie lange wir diese speichern und welche Rechte Sie in Bezug auf Ihre Daten haben. Außerdem informieren wir Sie darüber,
+          mit wem wir Ihre Daten teilen und wie Sie uns bei Fragen kontaktieren können.
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        1. Wer ist für die Datenverarbeitung verantwortlich und an wen können Sie sich wenden? Wie erreichen Sie den Datenschutzbeauftragten?
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <p>Verantwortliche Stelle ist:</p>
+          <p>Scoperty GmbH, Prannerstr. 6, 80333 München,
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              [href]="contactTelLink"
+            >
+              Telefon: +49 (0)89/124794 -100
+            </a>,
+            E-Mail:
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              [href]="contactMailToLink"
+            >
+              kontakt@scoperty.de
+            </a>.
+          </p>
+          Sie erreichen unseren Datenschutzbeauftragten unter:
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            [href]="dataProtectionMailToLink"
+          >
+            datenschutz@scoperty.de
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        2. Wie verarbeiten wir welche personenbezogene Daten und aus welchen Quellen stammen sie?
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten personenbezogene Daten, die wir von Ihnen erhalten,
+          und auch solche, die wir aus allgemein zugänglichen Quellen (z.&nbsp;B. aus Adressverzeichnissen,
+          Geobasisinformationen des jeweiligen Bundeslandes und Kartendaten von Google) zulässigerweise erhalten,
+          soweit dies für die Erbringung unserer Leistung, insbesondere für die Darstellung auf der Plattform, erforderlich ist.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+            1. Grundsätzliche datenschutzrechtliche Begriffe
+          </span>
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          „<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Personenbezogene Daten</span>“
+          im Sinne dieser Datenschutzinformationen, sind Informationen,
+          die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen.
+          Zum Beispiel sind auch Informationen zu einem Grundstück „personenbezogene Daten“, auch wenn der Name des Eigentümers nicht genannt ist.
+          Diese Informationen sind dann „pseudonyme personenbezogene Daten“, die aber auch dem Schutz der Datenschutzgesetze unterfallen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          „<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Verarbeiten</span>“
+          ist jeder mit oder ohne Hilfe automatisierter Verfahren ausgeführter Vorgang im Zusammenhang
+          mit personenbezogenen Daten wie z.&nbsp;B. das Erheben, die Speicherung, die Anpassung oder Veränderung,
+          die Verwendung oder die Offenlegung durch Übermittlung.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+            2. Konkret verarbeiten wir folgende personenbezogene Daten für folgende Zwecke
+          </span>
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          a) Zur Bereitstellung von Daten zu sämtlichen Immobilien auf der Plattform
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Auf der Deutschlandkarte auf unserer Plattform veröffentlichen wir Immobilienpreise sowie sonstige
+          Informationen zu Immobilien in ganz Deutschland. Die auf der Plattform dargestellten Immobilienpreise sind
+          Schätzwerte, die wir anhand eines Schätzalgorithmus auf Basis von Daten aus einer Immobiliendatenbank,
+          Adressverzeichnisse, Geobasisinformationen des jeweiligen Bundeslandes und Kartendaten von Google berechnen.
+          Wir verarbeiten folgende Daten zu Ihrer Immobilie
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Immobiliendaten</span>“):
+          Pseudonymisierte und öffentlich verfügbare Daten zu Ihrer Immobilie (insbesondere z.&nbsp;B. Standortdaten,
+          Merkmale der Immobilien, Merkmale von Vergleichsobjekten, Adresse, Baujahr, Fläche des Grundstücks,
+          Wohnfläche, Flurstücksumrisse, Anzahl der Wohnungen in einem Mehrfamilienhaus, Umgebungsdaten wie Lärm,
+          Kriminalitätsstatistik, und Preisentwicklungen). Wir stellen diese Immobiliendaten für alle Internetnutzer
+          auf der Plattform frei zur Verfügung, unabhängig davon, ob Sie sich auf unserer Plattform registriert und uns
+          Informationen zu Ihrer Immobilie zur Verfügung gestellt haben oder nicht.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten diese Immobiliendaten auf Basis des Art. 6 Abs. 1 lit. f DSGVO (Interessenabwägung),
+          um mehr Transparenz auf dem Immobilienmarkt zu schaffen und unser Produkt „Scoperty“ anbieten zu können.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Immobiliendaten nur so lange, bis der vorgenannte Zweck erreicht wurde oder Sie widersprochen haben.
+          Darüber hinaus verarbeiten wir Ihre Immobiliendaten nur noch zur Erfüllung etwaiger gesetzlicher
+          Aufbewahrungspflichten oder um uns gegen Rechtsansprüche zu verteidigen oder solche geltend zu machen.
+          Die im Handelsgesetzbuch (HGB) und der Abgabenordnung (AO) vorgegebenen Fristen zur Aufbewahrung bzw.
+          Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Als Eigentümer und, soweit keine Interessen anderer entgegenstehen, auch als Mieter,
+          können Sie jederzeit und ohne besonderen Grund der Veröffentlichung der Daten zu Ihrer
+          Immobilie (einschließlich der Immobiliendaten und Eigentümerdaten) auf unserer Plattform widersprechen.
+          Sie können hierzu unser
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            tabindex="0"
+            (click)="openContradictionPossibility()"
+          >
+            Widerspruchsformular
+          </a>
+          verwenden. Weitere Informationen zum Ablauf des Widerspruchsverfahrens finden Sie unter
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            [routerLink]="linkToHowItWorks"
+            queryParamsHandling="merge"
+            target="_blank"
+          >
+            So funktioniert´s
+          </a>
+          in den FAQs
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          b) Beim Besuch der Plattform
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten die sogenannten Logfiles unseres Webservers. Diese Weblogs enthalten Informationen zu Ihrer Nutzung der Website
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Nutzungsdaten</span>“),
+          u. a. Zugriffszeit, Name der abgerufenen Website bzw. -datei, übertragene Datenmenge, Status des Abrufs,
+          Browsertyp und –version, Betriebssystemtyp und –version und IP-Adresse.
+          Wir verarbeiten diese Nutzungsdaten zum Betrieb der Plattform und zur Gewährleistung der IT-Sicherheit.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Nutzungsdaten auf Basis von Art. 6 Abs. 1 lit. f DSGVO (Interessenabwägung),
+          da wir ein Interesse daran haben, die Website funktionstüchtig und sicher zur Verfügung zu stellen.
+          Dies entspricht auch Ihren Interessen, die Seite optimal nutzen zu können,
+          sodass Ihre Interessen der Verarbeitung nicht entgegenstehen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Nutzungsdaten nur so lange, wie wir sie zu Zwecken der IT-Sicherheit benötigen.
+          Darüber hinaus verarbeiten wir Ihre Nutzungsdaten nur noch zur Erfüllung etwaiger gesetzlicher Aufbewahrungsfristen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir nutzen auf der Website der Plattform außerdem Cookies und ähnliche Technologien („Cookies“).
+          Was Cookies sind, wie Sie unsere Nutzung von Cookies steuern können und welche Cookies wir wie nutzen,
+          erfahren Sie in Ziffer 3 dieser Datenschutzerklärung.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          c) Wenn Sie Kontakt zu uns aufnehmen
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie Kontakt mit uns aufnehmen und sich mit Ihren  Fragen an uns wenden,
+          oder wenn Sie in unserem Formular eine Anfrage stellen, Sie zu informieren,
+          sobald die Plattform auch für Ihre Stadt verfügbar ist, verarbeiten wir personenbezogene Daten,
+          wie z.&nbsp;B. Name, E-Mail-Adresse, Postleitzahl sowie den Inhalt Ihrer Anfrage
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Kontaktanfragedaten</span>“).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Kontaktanfragedaten auf Basis des Art. 6 Abs. 1 lit. f DSGVO (Interessenabwägung),
+          da wir Ihre Anfrage gerne beantworten möchten.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Kontaktanfragedaten nur so lange, bis wir Ihre Anfrage abschließend beantwortet haben.
+          Darüber hinaus verarbeiten wir diese Kontaktanfragedaten nur noch zur Erfüllung etwaiger gesetzlicher
+          Aufbewahrungspflichten oder um uns gegen Rechtsansprüche zu verteidigen oder solche geltend zu machen.
+          Die im Handelsgesetzbuch (HGB) und der Abgabenordnung (AO) vorgegebenen Fristen zur Aufbewahrung bzw.
+          Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          d) Bei der Registrierung auf der Plattform
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie sich auf der Plattform registrieren, verarbeiten wir Ihren Namen,
+          Ihre E-Mail-Adresse und Ihr Passwort
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Registrierungsdaten</span>“).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Registrierungsdaten auf Basis von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung),
+          um Ihnen den Zugang zum registrierten Bereich und die damit verbundenen Dienstleistungen bereitzustellen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Registrierungsdaten nur so lange, wie wir sie zur Vertragserfüllung und - abwicklung benötigen.
+          Darüber hinaus verarbeiten wir Ihre Daten nur noch zur Erfüllung etwaiger gesetzlicher
+          Aufbewahrungspflichten oder um uns gegen Rechtsansprüche zu verteidigen oder solche geltend zu machen.
+          Die im Handelsgesetzbuch (HGB) und der Abgabenordnung (AO) vorgegebenen Fristen zur Aufbewahrung bzw.
+          Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          e) Zur Kommunikation mit anderen Nutzern
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie sich registriert haben, verarbeiten wir außerdem Ihre Kommunikation mit anderen
+          registrierten Nutzern auf der Plattform sowie die Abgabe von Angeboten zu Immobilien bzw.
+          Einsicht dieser Angebote
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Kommunikationsdaten</span>“).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Kommunikationsdaten auf Basis von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung),
+          um Ihnen die Kommunikation mit Immobilieneigentümern bzw. Kaufinteressenten und Angebotsabgabe für Immobilien zu ermöglichen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Kommunikationsdaten nur so lange, wie wir sie zur
+          Vertragserfüllung und - abwicklung benötigen. Darüber hinaus verarbeiten wir Ihre Daten nur noch zur
+          Erfüllung etwaiger gesetzlicher Aufbewahrungspflichten oder um uns gegen Rechtsansprüche zu
+          verteidigen oder solche geltend zu machen. Die im Handelsgesetzbuch (HGB) und der Abgabenordnung
+          (AO) vorgegebenen Fristen zur Aufbewahrung bzw. Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          f) Zur Bereitstellung von weiteren Daten zur Immobilie
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie sich auf der Plattform registriert und als Immobilieneigentümer verifiziert haben,
+          können Sie weitere Daten zur Immobilie erfassen, um die Qualität der Daten zur
+          Immobilie sowie des dargestellten Schätzwertes weiter zu erhöhen.
+          Hierzu verarbeiten wir die von Ihnen bereitgestellte Wohnfläche, das Baujahr,
+          die Anzahl der Zimmer sowie hochgeladene Fotos und weitere von Ihnen bereitgestellte Angaben zur Immobilie,
+          wie sie in einem branchenüblichen Exposé aufgeführt sind. Diese weiteren Daten umfassen
+          Angaben zur Beschreibung, Qualität, Lage und Ausstattung der Immobilie
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Eigentümerdaten</span>“).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Eigentümerdaten auf Basis von Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung),
+          um die Angaben zu Ihrer Immobilie auf unserer Plattform zu verfeinern.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Eigentümerdaten nur so lange, wie wir sie zur
+          Vertragserfüllung und -abwicklung benötigen. Darüber hinaus verarbeiten wir Ihre Daten
+          nur noch zur Erfüllung etwaiger gesetzlicher Aufbewahrungspflichten oder um uns gegen
+          Rechtsansprüche zu verteidigen oder solche geltend zu machen. Die im Handelsgesetzbuch
+          (HGB) und der Abgabenordnung (AO) vorgegebenen Fristen zur Aufbewahrung bzw.
+          Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          g) Zur Vermittlung von Immobilienmaklern
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie sich auf der Plattform registriert und als Immobilieneigentümer
+          oder als Immobilien-Suchender registriert haben, verarbeiten wir auf Ihren Wunsch Ihre Daten,
+          nehmen mit Ihnen telefonisch und/oder in Form einer Email Kontakt auf,
+          <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">um Sie anlassbezogen beim Verkauf Ihrer
+          oder Kauf einer Immobilie zu unterstützen, zum Beispiel</span> um für Sie einen Immobilienmakler,
+          der ein Kooperationspartner von uns ist und Sie beim Kauf oder Verkauf Ihrer Immobilie unterstützen wird,
+          herauszusuchen und diesem Ihre Daten zu übermitteln. Der Immobilienmakler nimmt dann mit Ihnen Kontakt auf
+          und unterstützt Sie bei dem Kauf oder Verkauf Ihrer Immobilie. Hierzu verarbeiten wir Ihren Namen,
+          Ihre Email-Adresse, Ihre Anschrift, Ihre Telefonnummer
+          und Ihr Geschlecht („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Maklervermittlungsdaten</span>“).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Maklervermittlungsdaten und übermitteln diese an Immobilienmakler
+          nur auf Basis Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Sie haben das Recht, eine erteilte
+          Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen. Die Rechtmäßigkeit von bis zu diesem
+          Zeitpunkt auf Basis der Einwilligung vorgenommenen Datenverarbeitungen bleibt hiervon unberührt.
+          Informationen darüber, wie die Immobilienmakler Ihre personenbezogenen Daten verarbeiten, finden
+          Sie in den Datenschutzerklärungen der jeweiligen Immobilienmakler.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Maklervermittlungsdaten nur so lange, bis der vorgenannte Zweck erreicht
+          wurde oder Sie Ihre Einwilligung widerrufen haben. Darüber hinaus verarbeiten wir Ihre Maklervermittlungsdaten
+          nur noch zur Erfüllung etwaiger gesetzlicher Aufbewahrungspflichten oder um uns gegen Rechtsansprüche
+          zu verteidigen oder solche geltend zu machen. Die im Handelsgesetzbuch (HGB) und der Abgabenordnung (AO)
+          vorgegebenen Fristen zur Aufbewahrung bzw. Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          h) Zur Vermittlung von Baufinanzierungen
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Auf der Plattform bieten wir Ihnen verschiedene Möglichkeiten,
+          an die Interhyp AG zum Zwecke von Baufinanzierungen heranzutreten.
+          Diese Möglichkeiten werden direkt von der Interhyp AG bereitgestellt und betrieben.
+          Wir erhalten von den Umständen oder Inhalten der Kontaktierung keine Kenntnis.
+          Für die Datenverarbeitung gilt daher ausschließlich die Datenschutzerklärung der Interhyp AG.  Diese können Sie unter
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            target="_blank"
+            href="https://www.interhyp.de/ueber-interhyp/datenschutz/"
+          >
+            www.interhyp.de/ueber-interhyp/datenschutz/
+          </a>
+          einsehen.
+          <br>
+          Wenn Sie nicht die auf der Website angebotenen Möglichkeiten nutzen,
+          sondern uns per E-Mail oder Telefon kontaktieren, um Sie mit der Interhyp AG zu vermitteln,
+          geben wir die von Ihnen mitgeteilten Daten an die Interhyp AG weiter ohne sie für eigene Zwecke zu speichern.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          i) Zur Versendung von Marketinginformationen
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie sich für unseren Newsletter anmelden, verarbeiten wir Ihre E-Mail-Adresse, Informationen zu
+          Ihrer Registrierung, Daten zu versandten Newslettern und Ihre postalische Anschrift
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Newsletterdaten</span>“),
+          um Ihnen die gewünschten Informationen per E-Mail, per Post oder auf der Plattform zuzusenden.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten die Newsletterdaten auf Basis Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO),
+          die wir gesondert und ausdrücklich einholen. Wir tun dies,
+          um die von Ihnen gewünschten Marketinginformationen bereitzustellen.
+          Sie können diese Einwilligung jederzeit für die Zukunft widerrufen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir verarbeiten Ihre Newsletterdaten so lange, wie Sie unsere Newsletter nutzen möchten.
+          Sollten Sie Ihre Einwilligung widerrufen, löschen wir Ihre für die Info-Services angegebenen
+          Daten unmittelbar nach dem Eingang Ihres Widerrufs. Darüber hinaus verarbeiten wir Ihre Newsletterdaten
+          nur noch zur Erfüllung etwaiger gesetzlicher Aufbewahrungspflichten oder um uns gegen
+          Rechtsansprüche zu verteidigen oder solche geltend zu machen.
+          Die im Handelsgesetzbuch (HGB) und der Abgabenordnung (AO) vorgegebenen Fristen zur Aufbewahrung bzw.
+          Dokumentation betragen z.&nbsp;B. sechs bis zehn Jahre.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Bestandskunden, also solche, die sich auf unserer Plattform registriert haben, erhalten von uns
+          Informationen zu unseren ähnlichen Produkten und Dienstleistungen, ohne dafür einwilligen zu müssen.
+          Dem Empfang dieser Informationen kann jederzeit widersprochen werden.
+          Wir verarbeiten diese Daten auf Basis einer Interessenabwägung (Art. 6 Abs. 1 lit. f DSGVO).
+          Unser Interesse besteht im zulässigen Direktmarketing gegenüber Bestandskunden.
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        3. Welche Cookies setzen wir ein?
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir setzen auf unserer Website Cookies, Pixel, Tracking-Tools und ähnliche Technologien
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Cookies</span>“) ein,
+          mit denen eine Verarbeitung Ihrer personenbezogenen Daten erfolgt. Cookies sind kleine Textdateien,
+          die beim Besuch von Websites auf den Speichern Ihrer Endgeräte wie PCs,
+          Smartphones oder Tablet Computern („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Endgerät</span>“)
+          abgelegt werden. Cookies erlauben es einer Website, das Endgerät eines Besuchers bei einem wiederholten Besuch wiederzuerkennen.
+          Cookies stellen sicher, dass die Website ordnungsgemäß funktioniert und helfen uns nachzuvollziehen,
+          wie Sie die Website nutzen, damit wir Ihre Nutzererfahrung verbessern und die Website
+          an Ihre Interessen anpassen können.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Die Scoperty GmbH verwendet auf der Plattform folgende Cookies:
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <div [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              3.1. Google Analytics
+            </span>
+          </div>
+          Wir setzen auf der Plattform Google Analytics, ein Tracking-Werkzeug der Google LLC.,
+          1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (im Folgenden „Google"), ein.
+          In Google Analytics werden Interaktionen des Nutzers unserer Plattform in erster Linie mithilfe
+          von Cookies erfasst und systematisch ausgewertet. Werden Einzelseiten unserer Website aufgerufen,
+          so werden folgende Daten verarbeitet
+          („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Google Analytics-Daten</span>“):
+          <ul [attr.class]="{block: _name, element: 'list'} | bem">
+            <li>Die anonymisierte IP-Adresse</li>
+            <li>Die aufgerufene Seite</li>
+            <li>Die Website, von der der Nutzer auf die Plattform gelangt ist (Referrer)</li>
+            <li>Die Unterseiten, die von der aufgerufenen Seite aus aufgerufen werden</li>
+            <li>Die Verweildauer auf der Plattform</li>
+            <li>Die Häufigkeit des Aufrufs der Plattform</li>
+          </ul>
+          Die Software ist so eingestellt, dass die IP-Adressen nicht vollständig gespeichert werden,
+          sondern das letzte Oktett der IP-Adresse maskiert wird (Bsp. 192.168.79.***).
+          Auf diese Weise ist eine Zuordnung der gekürzten IP-Adresse zum aufrufenden Rechner bzw.
+          Endgerät des Nutzers nicht mehr möglich.
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Rechtsgrundlage für die Datenverarbeitung
+            </span>
+          </div>
+          Rechtsgrundlage für die Verarbeitung der Google Analytics-Daten ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Zweck der Datenverarbeitung
+            </span>
+          </div>
+          Die Google Analytics-Daten werden verarbeitet, um Ihr Surfverhalten zu analysieren und
+          Informationen über die Nutzung der einzelnen Komponenten unserer Plattform zusammenzustellen.
+          Dies hilft uns, die eigene Plattform und deren Nutzerfreundlichkeit stetig zu verbessern.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Dauer der Speicherung
+            </span>
+          </div>
+          Die durch das Tracking gespeicherten Daten werden gelöscht, sobald sie für unsere Aufzeichnungszwecke nicht mehr benötigt werden.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Widerspruchsmöglichkeit
+            </span>
+          </div>
+          Mithilfe eines Browser-Add-ons zur Deaktivierung von Google Analytics-JavaScripts kann
+          der Nutzer verhindern, dass Google Analytics dessen Daten auf unserer Plattform verwendet.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie Google Analytics deaktivieren möchten, können Sie das Add-on für den eigenen
+          Webbrowser herunterladen und installieren. Das Add-on zur Deaktivierung von
+          Google Analytics ist mit den gängigen Versionen von Chrome, Internet Explorer,
+          Safari, Firefox und Opera kompatibel. Damit das Add-on funktioniert,
+          muss es im Browser korrekt geladen und ausgeführt werden.
+          Für Internet Explorer müssen zusätzlich Drittanbieter-Cookies aktiviert werden.
+          Nähere Informationen finden Sie unter
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            href="https://tools.google.com/dlpage/gaoptout?hl=de"
+            target="_blank"
+          >www.tools.google.com/dlpage/gaoptout?hl=de</a>.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Als Alternative zum Browser Add-On können Sie auf diesen
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            tabindex="0"
+            (click)="disableGoogleAnalytics()"
+          >
+            Cookie Opt-out
+          </a>
+          klicken, um in Zukunft nicht weiter auf unserer
+          Website von Google Analytics getracked zu werden.
+          In diesem Fall wird ein Deaktivierungs-Cookie auf Ihrem Gerät gespeichert.
+          Wenn die Cookies von dem Gerät gelöscht werden, müssen Sie erneut auf diesen Link klicken.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+            3.2. Merk-Cookie
+          </span>
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+            Wir setzen außerdem noch ein weiteres Cookie ein, der speichert,
+            dass ein registrierter Nutzer sich bereits einmal eingeloggt hat.
+            Dieses Cookie verarbeitet die folgenden Daten
+            („<span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">Merkcookie-Daten</span>“):
+        </span>
+        <ul [attr.class]="{block: _name, element: 'list'} | bem">
+          <li>Der Umstand, dass Sie sich schon einmal auf der Plattform registriert haben</li>
+        </ul>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Rechtgrundlage für die Datenverarbeitung
+            </span>
+          </div>
+          Rechtsgrundlage für die Verarbeitung der Google Analytics-Daten ist unser berechtigtes Interesse,
+          die Nutzerfreundlichkeit der Plattform zu erhöhen (Art. 6 Abs. 1 lit. f DSGVO).
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Zweck der Datenverarbeitung
+            </span>
+          </div>
+          Die Merkcookie-Datenwerden verarbeitet, um die Plattform besonders nutzerfreundlich zu gestalten.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          <div [attr.class]="{block: _name, element: 'heading'} | bem">
+            <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+              Widerspruchsmöglichkeit
+            </span>
+          </div>
+          Sie können dem Einsatz des Cookies jederzeit widersprechen,
+          z.&nbsp;B. durch Konfiguration der Einstellungen in Ihrem Browser.
+          Anleitungen dazu, wie dies genau funktioniert, finden Sie in der Regel im Hilfebereich Ihres Browsers.
+          Möglicherweise stehen Ihnen dann jedoch nicht alle Funktionen der Plattform zur Verfügung.
+          Weitere Informationen finden Sie unter
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            href="http://www.youronlinechoices.eu"
+            target="_blank"
+          >
+            www.youronlinechoices.eu
+          </a>
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4. Marketing Tools und Plugins
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4.1. LinkedIn Ads
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <ol [attr.class]="{block: _name, element: 'ordered-list'} | bem">
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '1' }} | bem">
+            Wir verwenden auf unserer Webseite die Conversion-Tracking-Technologie sowie die Retargeting-Funktion der LinkedIn Corporation.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '1' }} | bem">
+            Mithilfe dieser Technologie können Besuchern dieser Webseite personalisierte Werbeanzeigen auf
+            LinkedIn ausgespielt werden. Des Weiteren entsteht die Möglichkeit, anonyme Berichte zur Performance
+            der Werbeanzeigen sowie Informationen zur Webseiteninteraktion zu erstellen.
+            Hierzu ist das LinkedIn Insight-Tag auf dieser Webseite eingebunden, wodurch eine Verbindung zum
+            LinkedIn-Server hergestellt wird, sofern Sie diese Webseite besuchen und parallel in Ihrem LinkedIn-Account eingeloggt sind.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '1' }} | bem">
+            In der Datenschutzrichtlinie von LinkedIn unter
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://www.linkedin.com/legal/privacy-policy"
+              target="_blank"
+            >
+              https://www.linkedin.com/legal/privacy-policy
+            </a>
+            finden Sie weitere Informationen zur Datenerhebung und Datennutzung sowie die Möglichkeiten und
+            Rechte zum Schutz Ihrer Privatsphäre. Wenn Sie bei LinkedIn eingeloggt sind, können
+            die Datenerhebung jederzeit unter folgendem Link deaktivieren: 
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://www.linkedin.com/psettings/enhanced-advertising"
+              target="_blank"
+            >
+              https://www.linkedin.com/psettings/enhanced-advertising
+            </a>.
+          </li>
+        </ol>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4.2. Youtube
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <ol [attr.class]="{block: _name, element: 'ordered-list'} | bem">
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '2' }} | bem">
+            Wir setzen zum Einbinden von Videos den Anbieter YouTube ein.
+            Die Videos wurden dabei im erweiterten Datenschutzmodus eingebettet.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '2' }} | bem">
+            Die Website von YouTube verwendet Cookies, um Informationen über die Nutzer Ihrer Webseite zu sammeln.
+            YouTube verwendet diese unter anderem zur Erfassung von Videostatistiken, zur Vermeidung von Betrug und zur Verbesserung der Userfreundlichkeit.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '2' }} | bem">
+            Durch die Nutzung von Youtube kommt es zu einer Verbindungsaufnahme mit dem Google DoubleClick Netzwerk.
+            Wenn Sie das Video starten, könnte dies weitere Datenverarbeitungsvorgänge auslösen.
+            Darauf haben wir keinen Einfluss.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '2' }} | bem">
+            Weitere Informationen über Datenschutz bei YouTube finden Sie in deren Datenschutzerklärung unter:
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="http://www.youtube.com/t/privacy_at_youtube"
+              target="_blank"
+            >
+              http://www.youtube.com/t/privacy_at_youtube
+            </a>
+          </li>
+        </ol>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4.3. Facebook Pixels (Facebook Ads)
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <ol [attr.class]="{block: _name, element: 'ordered-list'} | bem">
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Zum Zwecke der bedarfsgerechten Gestaltung und fortlaufenden
+            Optimierung unserer Seiten sowie deren wirtschaftlichen Betriebs nutzen
+            wir (Re)-Marketing Dienste der Facebook Inc., 1601 S. California Ave, Palo Alto, CA 94304, USA ("Facebook").
+            Mittels dieser Funktion kann der Anbieter die Besucher der Webseite zielgerichtet mit
+            Werbung ansprechen, indem für Besucher der Webseite personalisierte, interessenbezogene
+            Facebook-Ads geschaltet werden, wenn sie das soziale Netzwerk Facebook besuchen.
+            Zur Durchführung der Funktion wird auf der Webseite des Anbieters das Remarketing-Tag von Facebook implementiert
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Beim Besuch der Webseite wird eine direkte Verbindung zu den Facebook-Servern hergestellt.
+            Dabei werden Informationen zur Nutzung der besuchten Seiten auf Scoperty übermittelt.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Facebook ordnet diese Information Ihrem persönlichen Facebook-Benutzerkonto zu. Nähere Informationen
+            zur Erhebung und Nutzung der Daten durch Facebook, über Ihre diesbezüglichen Rechte und Möglichkeiten
+            zum Schutz Ihrer Privatsphäre finden Sie in den Datenschutzhinweisen von Facebook unter 
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://www.facebook.com/about/privacy"
+              target="_blank"
+            >
+              https://www.facebook.com/about/privacy
+            </a>
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Die Funktionen können Sie über Ihr Facebook Benutzerkonto deaktivieren,
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Wenn Sie nicht möchten, dass Facebook die gesammelten Informationen unmittelbar
+            Ihrem Facebook-Benutzerkonto zuordnet, können Sie die Remarketing-Funktion „Custom Audiences“ hier deaktivieren.
+            Dazu müssen Sie bei Facebook angemeldet sein.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Facebook ist unter dem Privacy-Shield-Abkommen zertifiziert und bietet hierdurch eine Garantie, das europäische
+            Datenschutzrecht einzuhalten
+            (<a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            href="https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&status=Active"
+            target="_blank"
+            >
+              https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&status=Active
+            </a>).
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '3' }} | bem">
+            Rechtsgrundlage der Verarbeitung der Daten und Nutzung der (Re)-Marketingdienste
+            ist das berechtigte Interesse an der Analyse, Optimierung und wirtschaftlichem
+            Betrieb unseres Onlineangebotes im Sinne des Art. 6 Abs. 1 lit. f. DSGVO
+          </li>
+        </ol>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4.4. Xing Ads
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <ol [attr.class]="{block: _name, element: 'ordered-list'} | bem">
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '4' }} | bem">
+            Zum Zwecke der bedarfsgerechten Gestaltung und fortlaufenden Optimierung unserer
+            Seiten sowie deren wirtschaftlichen Betriebs nutzen wir zudem
+            (Re)-Marketing Dienste der XING AG, Dammtorstraße 29-32, 20354 Hamburg ("Xing").
+            Mittels dieser Funktion kann der Anbieter die Besucher der Webseite zielgerichtet
+            mit Werbung ansprechen, indem für Besucher der Webseite personalisierte, interessenbezogene
+            Xing-Ads geschaltet werden, wenn sie das Netzwerk Xing besuchen. Zur Durchführung der Funktion wird auf
+            der Webseite des Anbieters das Remarketing-Tag von Xing implementiert
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '4' }} | bem">
+            Nähere Informationen zur Erhebung und Nutzung der Daten durch Facebook, über Ihre diesbezüglichen
+            Rechte und Möglichkeiten zum Schutz Ihrer Privatsphäre finden Sie in den Datenschutzhinweisen von XING unter 
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://privacy.xing.com/de/datenschutzerklaerung"
+              target="_blank"
+            >
+              https://privacy.xing.com/de/datenschutzerklaerung
+            </a>.
+          </li>
+        </ol>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4.5. Hotjar
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <ol [attr.class]="{block: _name, element: 'ordered-list'} | bem">
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '5' }} | bem">
+            Wir nutzen den Webanalysedienst Hotjar der Hotjar Ltd. Hotjar Ltd. ist ein europäisches
+            Unternehmen mit Sitz in Malta (Hotjar Ltd, Level 2, St Julians Business Centre, 3,
+            Elia Zammit Street, St Julians STJ 1000, Malta, Europe Tel.: +1 (855) 464-6788).<br>
+            Mit diesem Tool lassen sich Bewegungen auf den Webseiten, auf denen Hotjar eingesetzt
+            wird, nachvollziehen (sog. Heatmaps). So ist beispielsweise erkennbar, wie
+            weit Nutzer scrollen und welche Schaltflächen die Nutzer wie oft anklicken.
+            Weiterhin ist es mithilfe des Tools auch möglich, ein Feedback direkt von
+            den Nutzern der Website einzuholen. Auf diese Weise erlangen wir wertvolle
+            Informationen, um unsere Websites noch schneller und kundenfreundlicher zu gestalten.
+            Die vorstehende Analyse erfolgt auf Basis unserer berechtigten Interessen an
+            Optimierungs- und Marketingzwecken und der interessengerechten Ausgestaltung unserer
+            Website gemäß Art. 6 Abs. 1 lit. f DSGVO. Wir achten beim Einsatz dieses
+            Tools besonders auf den Schutz Ihrer personenbezogenen Daten.
+            So können wir nur nachvollziehen, welche Schaltflächen Sie anklicken und wie weit Sie scrollen.
+            Bereiche der Webseiten, in denen personenbezogene Daten von Ihnen oder Dritten angezeigt
+            werden, werden von Hotjar automatisch ausgeblendet, und sind somit zu keinemZeitpunkt nachvollziehbar.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '5' }} | bem">
+            Hotjar bietet jedem Nutzer die Möglichkeit, mithilfe eines “Do Not Track-Headers” den
+            Einsatz des Tools Hotjar zu unterbinden, sodass keine Daten über den Besuch der jeweiligen Website aufgezeichnet werden.
+            Es handelt sich hierbei um eine Einstellung, die alle üblichen Browser in der jeweilig aktuellen Version unterstützt.
+            Hierzu sendet Ihr Browser eine Anfrage an Hotjar, mit dem Hinweis das Tracking des jeweiligen Nutzers zu deaktivieren.
+            Sollten Sie unsere Website mit unterschiedlichen
+            Browsern/Rechnern nutzen, müssen Sie den “Do Not Track-Header” für jeden dieser Browser/Rechner separat einrichten.
+            Eine detailierte Anleitungen mit Informationen zu Ihrem Browser finden Sie unter:
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://www.hotjar.com/legal/compliance/opt-out"
+              target="_blank"
+            >
+              https://www.hotjar.com/legal/compliance/opt-out
+            </a>
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '5' }} | bem">
+            Weitere Informationen über Hotjar Ltd. und über das Tool Hotjar finden Sie unter:
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://www.hotjar.com "
+              target="_blank"
+            >
+              https://www.hotjar.com 
+            </a>
+            Datenschutzerklärung der Hotjar Ltd. finden Sie unter:
+            <a
+              app-button
+              buttonStyle="link"
+              size="medium"
+              color="green"
+              href="https://www.hotjar.com/legal/policies/privacy"
+              target="_blank"
+            >
+              https://www.hotjar.com/legal/policies/privacy
+            </a>
+          </li>
+        </ol>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        4.6. Outbrain
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <ol [attr.class]="{block: _name, element: 'ordered-list'} | bem">
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '6' }} | bem">
+            Wir nutzen die Technologie der Outbrain Inc. (39 W 13th Street New York, NY 10011 USA).
+            Outbrain ist ein Dienst zur Internetwerbung, der es Werbetreibenden erlaubt,
+            auf den Partner-Websites von Outbrain gezielt Nutzer mit Werbung anzusprechen.
+            Diese Werbung erscheint nur auf Outbrain Werbeplätzen, entweder auf Werbeflächen von Outbrain Engage
+            oder dem Outbrain Extended Network. Verarbeitungszweck ist die Bewerbung unserer Website
+            durch die Einblendung von interessenrelevanter Werbung auf den jeweiligen Partnerseiten.
+            Die Technologie hängt von einer Cookie-basierten Analyse des Benutzerverhaltens ab.
+          </li>
+          <li [attr.class]="{block: _name, element: 'ordered-list-item', mods: { 'start': '6' }} | bem">
+            Wenn Sie nicht möchten, dass Ihnen interessenbezogene Werbung angezeigt wird,
+            können Sie diese Funktion hier deaktivieren und die Datenschutzhinweise von Outbrain abrufen.
+            Wie Sie das Setzen von Cookies verhindern können, sehen Sie unter Punkt 4. „Cookies“.
+          </li>
+        </ol>
+      </div>
+
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        5. Wer bekommt meine Daten?
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          5.1. Unsere Dienstleister
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wir setzen Dienstleister und Erfüllungsgehilfen ein, die uns bei den oben genannten
+          Zwecken als Auftragsverarbeiter unterstützen und für uns personenbezogene Daten verarbeiten.
+          Dies sind Unternehmen in den Bereichen IT-Dienstleistungen, digitale Objektbewertung und Marketing.
+          Wir setzen effektive und spezialisierte Dienstleister ein, die entsprechend Art. 28 DSGVO strikt unseren Anweisungen unterworfen sind.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          5.2. Weitere Empfänger
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Daten an öffentliche Stellen und Institutionen, wie z.&nbsp;B. Finanzbehörden, Strafverfolgungsbehörden bei
+          Vorliegen einer gesetzlichen oder behördlichen Verpflichtung sowie Behörden, Gerichte oder
+          Organisationen, soweit dies erforderlich ist zur Wahrung berechtigter Interessen von uns oder Dritten.
+          Gründe hierfür können die Geltendmachung rechtlicher Ansprüche und die Verteidigung bei rechtlichen
+          Streitigkeiten, die Gewährleistung der IT-Sicherheit und des IT-Betriebs der Scoperty GmbH sein.
+          Wir informieren Sie im Falle einer derartigen Übermittlung gesondert entsprechend den datenschutzrechtlichen Vorgaben.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          5.3. Übermittlung in ein Drittland oder an eine internationale Organisation
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Eine Datenübermittlung an Stellen in Staaten außerhalb der Europäischen Union (sogenannte Drittstaaten) findet nicht statt.
+          Ausnahme hiervon ist eine Datenübermittlung in den Fällen, in denen wir Cookies nicht-europäischer Anbieter einsetzen.
+          Hier stellen wir ein angemessenes Datenschutzniveau durch entsprechende Garantien sicher, soweit
+          dies gesetzlich erforderlich ist, z.&nbsp;B. EU-Standardvertragsklauseln, Privacy Shield oder BCR-Zertifizierung.
+          Wenn Sie weitere Informationen zu den von uns eingesetzten Garantien erhalten möchten, kontaktieren Sie uns bitte unter 
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            [href]="contactMailToLink"
+          >
+            kontakt@scoperty.de
+          </a>.
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        6. Welche Datenschutzrechte haben Sie?
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Als betroffene Person einer Datenverarbeitung haben Sie die folgenden Rechte,
+          sofern die entsprechenden Voraussetzungen vorliegen. Bitte kontaktieren Sie uns,
+          wenn Sie diese Rechte geltend machen möchten.
+          Beim Auskunftsrecht und beim Löschungsrecht gelten die Einschränkungen nach §§ 34 und 35 BDSG.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.1. Recht auf Auskunft (Art. 15 DSGVO)
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sie haben uns gegenüber das Recht, Auskunft darüber zu erhalten,
+          welche Daten wir zu Ihrer Person verarbeiten.
+          Insbesondere können Sie Auskunft über die Verarbeitungszwecke,
+          die Kategorien der verarbeiteten Daten, etwaigen Empfängern der Daten und der geplanten Speicherdauer verlangen.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.2. Recht auf Berichtigung (Art. 16 DSGVO)
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sollten die Sie betreffenden Daten nicht richtig oder unvollständig sein,
+          so können Sie die Berichtigung unrichtiger oder die Vervollständigung unvollständiger Angaben verlangen.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.3. Recht auf Löschung personenbezogener Daten (Art. 17 DSGVO)
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sie können die Löschung Ihrer personenbezogenen Daten verlangen,
+          soweit die Daten insbesondere für den vorgesehenen Zweck nicht mehr erforderlich sind bzw.
+          unrechtmäßig verarbeitet werden oder Sie Ihre Einwilligung widerrufen oder einen Widerspruch erklärt haben.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.4. Recht auf Einschränkung der Datenverarbeitung (Art. 18 DSGVO)
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sie können die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten verlangen,
+          solange und soweit die Richtigkeit der Daten von Ihnen bestritten wird, die Verarbeitung unrechtmäßig ist,
+          Sie aber deren Löschung ablehnen oder wir die Daten nicht mehr benötigen, Sie jedoch diese zur Geltendmachung,
+          Ausübung oder Verteidigung von Rechtsansprüchen benötigen oder Sie gemäß Art. 21 DSGVO Widerspruch gegen die Verarbeitung eingelegt haben.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.5. Recht auf Datenübertragbarkeit (Art. 20 DSGVO)
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sie können Ihre personenbezogenen Daten, die Sie uns bereitgestellt haben,
+          in einem strukturierten, gängigen und maschinenlesebaren Format erhalten.
+          Das Recht auf Datenübertragung beinhaltet das Recht zur Übermittlung der Daten an einen anderen Verantwortlichen;
+          auf Verlangen werden wir – soweit technisch möglich – Daten daher direkt an einen von Ihnen
+          benannten oder noch zu benennenden Verantwortlichen übermitteln.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.6. Recht zum Widerspruch gegen bestimmte Datenverarbeitungen (Art. 21 DSGVO)
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Im Fall einer Verarbeitung personenbezogener Daten zur Wahrnehmung berechtigter
+          Interessen (Art. 6 Abs. 1 lit. f DSGVO) oder im Falle der Direktwerbung,
+          können Sie der Verarbeitung der Sie betreffenden personenbezogenen Daten jederzeit mit Wirkung für die Zukunft widersprechen.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Im Fall des Widerspruchs haben wir jede weitere Verarbeitung Ihrer Daten zu den vorgenannten Zwecken zu unterlassen.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.7. Recht auf Widerruf der datenschutzrechtlichen Einwilligungserklärung
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit mit Wirkung für die Zukunft zu widerrufen.
+          Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung
+          bis zum Widerruf erfolgten Verarbeitung nicht berührt.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Sie finden dafür in jeder an Sie adressierten E-Mail einen Hinweis,
+          wie Sie sich von den Info-Services oder anderen Werbemaßnahmen abmelden können.
+          Wenn Sie Mitteilungen nicht mehr erhalten wollen, können Sie uns auch eine entsprechende E-Mail schicken.
+          Wir werden Ihrem Wunsch, Ihre personenbezogenen Daten aus der Verteilerliste zu löschen und zukünftig keine E-Mails mehr an Sie zu senden,
+          schnellstmöglich nachkommen.
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.8. Recht auf Beschwerde bei einer Aufsichtsbehörde
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten durch uns gegen die DSGVO verstößt,
+          haben Sie das Recht auf Beschwerde beim Datenschutzbeauftragten sowie bei einer Aufsichtsbehörde,
+          insbesondere in dem Mitgliedstaat Ihres gewöhnlichen Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.
+          Die für uns zuständige Aufsichtsbehörde ist das Bayerische Landesamt für Datenschutzaufsicht
+          (<a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            href="https://www.lda.bayern.de/de/index.html"
+            target="_blank"
+          >
+            https://www.lda.bayern.de/de/index.html
+          </a>).
+        </span>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, mods: {'text': 'bold'}} | bem">
+          6.9. Weitere Informationen zu Ihren Rechten
+        </span>
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Weitere Informationen zu Ihren Rechten in Bezug auf Ihre personenbezogenen Daten finden Sie bspw.
+          bei der Europäischen Kommission unter
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            href="https://ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens_de"
+            target="_blank"
+          >www.ec.europa.eu/info/law/law-topic/data-protection/reform/rights-citizens_de</a>.
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        7. Gibt es eine automatisierte Entscheidungsfindung?
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Zur Erbringung unserer jeweiligen Leistungen nutzen wir keine automatisierte
+          Entscheidungsfindung einschließlich Profiling gemäß Art. 22 DSGVO.
+        </span>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'preface-text'} | bem">
+        8. Noch Fragen offen?
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row'} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Falls Sie noch weitere Fragen haben, die Ihnen unsere Datenschutzerklärung
+          nicht beantworten konnte, schreiben Sie bitte eine E-Mail an folgende Adresse
+          <a
+            app-button
+            buttonStyle="link"
+            size="medium"
+            color="green"
+            [href]="contactMailToLink"
+          >
+            kontakt@scoperty.de
+          </a>
+          oder kontaktieren Sie uns unter den oben genannten Kontaktdaten.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'text-row', mods: {'last': 'row'}} | bem">
+        <span [attr.class]="{block: _name, element: 'text'} | bem">
+          Stand September 2019
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,84 @@
+<div
+  [attr.class]="{ block: name, element: 'container' } | bem"
+  app-responsive-image
+  src="assets/images/property-valuation/property-valuation-header.jpg"
+  [multiResolution]="true"
+>
+  <div [attr.class]="{ block: name, element: 'inner-container' } | bem">
+    <div [attr.class]="{ block: name, element: 'content-container' } | bem">
+      <div [attr.class]="{ block: name, element: 'content' } | bem">
+        <!-- Heading -->
+        <div [attr.class]="{ block: name, element: 'content-heading-container' } | bem">
+          <h2 [attr.class]="{ block: name, element: 'content-heading' } | bem">
+            {{heading}}
+          </h2>
+
+          <div
+            *ngIf="hasSubheading"
+            [attr.class]="{ block: name, element: 'content-sub-heading' } | bem"
+          >
+            {{ subHeading }}
+          </div>
+        </div>
+
+        <div [attr.class]="{ block: name, element: 'content-message' } | bem">
+          <!-- List -->
+          <ul [attr.class]="{ block: name, element: 'list' } | bem">
+            <li
+              *ngFor="let item of listText"
+              [attr.class]="{ block: name, element: 'list-item' } | bem"
+            >
+              <span [attr.class]="{ block: name, element: 'list-item-icon' } | bem">
+                <mat-icon svgIcon="check" appSvgSize="20px"></mat-icon>
+              </span>
+              {{item}}
+            </li>
+          </ul>
+
+          <!-- Find property -->
+          <app-find-property
+            [inputLabel]="findPropertyInputLabel"
+            [buttonTitle]="findPropertyButtonTitle"
+            [buttonTitleMobile]="findPropertyButtonTitleMobile"
+            [checkUnsupportedCity]="true"
+            (unsupportedCity)="showUnsupportedCityPopup()"
+            #findProperty
+          ></app-find-property>
+        </div>
+
+        <!-- Unsupported city -->
+        <app-discover-market-value-popup
+          *ngIf="(isMobileDevice$ | async) && isUnsupportedCityPopupOpen"
+          @popupSlideInFromTop
+          [attr.class]="{block: name, element: 'popup', mods: {'mobile': (isMobileDevice$ | async)}} | bem"
+          [style.min-height]="unsupportedCityPopupHeight"
+          (updateAddress)="hideUnsupportedCityPopup()"
+          (redirectToMap)="goToMap()"
+        ></app-discover-market-value-popup>
+
+        <app-discover-market-value-popup
+          *ngIf="!(isMobileDevice$ | async) && isUnsupportedCityPopupOpen"
+          @popupSlideInFromBottom
+          [attr.class]="{block: name, element: 'popup', mods: {'mobile': (isMobileDevice$ | async)}} | bem"
+          [style.min-height]="unsupportedCityPopupHeight"
+          (updateAddress)="hideUnsupportedCityPopup()"
+          (redirectToMap)="goToMap()"
+        ></app-discover-market-value-popup>
+      </div>
+
+      <!-- Partner -->
+      <div [attr.class]="{block: name, element: 'partner'} | bem">
+        <mat-icon svgIcon="partner_interhyp" appSvgWidth="186px" appSvgHeight="48px"></mat-icon>
+      </div>
+
+      <!-- Badge -->
+      <app-badge
+        [attr.class]="{block: name, element: 'badge'} | bem"
+        [text]="bannerText"
+        size="180px"
+        fontSize="14px"
+        rotate="7deg"
+      ></app-badge>
+    </div>
+  </div>
+</div>

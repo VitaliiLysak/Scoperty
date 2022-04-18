@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg73"
+   sodipodi:docname="close-button-hover.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata77">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview75"
+     showgrid="false"
+     inkscape:zoom="22.85"
+     inkscape:cx="12.38512"
+     inkscape:cy="39.256018"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg73" />
+  <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title62">E_18_Stickynav_Icon_close_Hover</title>
+  <desc
+     id="desc64">Created with Sketch.</desc>
+  <defs
+     id="defs66" />
+  <g
+     id="E_18_Stickynav_Icon_close_Hover"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:0.3px;stroke-linecap:round"
+     transform="matrix(3.9111336,0,0,3.8872351,-55.349593,-54.916929)">
+    <g
+       id="Icon_Close"
+       transform="rotate(45,-0.70710643,29.020814)"
+       style="stroke:#137982">
+      <path
+         d="M 0,8 H 16"
+         id="Line"
+         inkscape:connector-curvature="0" />
+      <path
+         d="M 8,0 V 16"
+         id="path69"
+         transform="rotate(180,8,8)"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>

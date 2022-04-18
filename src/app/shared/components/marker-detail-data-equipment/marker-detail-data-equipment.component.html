@@ -1,0 +1,350 @@
+<ng-container *ngIf="mode === 'show'; then showMode else editMode"></ng-container>
+<ng-template #showMode>
+  <div [attr.class]="{block: name, element: 'row', mods: {'type': 'multiline'}} | bem">
+    <div
+      *ngIf="model.Garden"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Garten</div>
+    </div>
+    <div
+      *ngIf="model.VisitorsWC"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Gäste-WC</div>
+    </div>
+    <div
+      *ngIf="model.Cellar"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Keller</div>
+    </div>
+    <div
+      *ngIf="model.HistoricalProperty"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Denkmalobjekt</div>
+    </div>
+    <div
+      *ngIf="model.SecondaryEntrance"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Einliegerwohnung</div>
+    </div>
+    <div
+      *ngIf="model.BarrierFree"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Barrierefrei</div>
+    </div>
+    <div
+      *ngIf="model.Furnished"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Möbliert</div>
+    </div>
+    <div
+      *ngIf="model.BikeRoom"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Fahrradraum</div>
+    </div>
+    <div
+      *ngIf="model.HasDryWashSpace"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">HasDryWashSpace</div>
+    </div>
+    <div
+      *ngIf="model.SwimmingPool"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Schwimmbad</div>
+    </div>
+    <div
+      *ngIf="model.Sauna"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Sauna</div>
+    </div>
+    <div
+      *ngIf="model.AirConditioned"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Klimaanlage</div>
+    </div>
+    <div
+      *ngIf="model.Chimney"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Kamin</div>
+    </div>
+    <div
+      *ngIf="model.Balcony"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Balkon</div>
+    </div>
+    <div
+      *ngIf="model.Terrace"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Terrace</div>
+    </div>
+    <div
+      *ngIf="model.Parking"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Parking</div>
+    </div>
+    <div
+      *ngIf="model.Garage"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Garage</div>
+    </div>
+    <div
+      *ngIf="model.Elevator"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Aufzug</div>
+    </div>
+    <div
+      *ngIf="model.Kitchen"
+      [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">Einbauküche</div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #editMode>
+  <div
+    *ngIf="page !== 'profile'"
+    [attr.class]="{block: name, element: 'block'} | bem"
+  >
+    <div [attr.class]="{block: name, element: 'row', mods: {'type': 'multiline'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'button', mods: {'state': model.Garden? 'active' : 'default'}} | bem"
+          (click)="toggleProperty('Garden')"
+        >
+          Garten
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'button', mods: {'state': model.VisitorsWC? 'active' : 'default'}} | bem"
+          (click)="toggleProperty('VisitorsWC')"
+        >
+          Gäste-WC
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'button', mods: {'state': model.Cellar? 'active' : 'default'}} | bem"
+          (click)="toggleProperty('Cellar')"
+        >
+          Keller
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'button', mods: {'state': model.HistoricalProperty? 'active' : 'default'}} | bem"
+          (click)="toggleProperty('HistoricalProperty')"
+        >
+          Denkmalobjekt
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'half'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'button', mods: {'state': model.SecondaryEntrance? 'active' : 'default'}} | bem"
+          (click)="toggleProperty('SecondaryEntrance')"
+        >
+          Einliegerwohnung
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="page === 'profile'"
+    [attr.class]="{block: name, element: 'block', mods: {'on-page': 'profile'}} | bem"
+  >
+    <div [attr.class]="{block: name, element: 'row-block'} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'direction': 'column', 'type': 'container'}} | bem">
+        <ng-container *ngIf="model.isPropertyOfTypeEFH; else equipmentSelectMFH">
+          <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem">
+            <app-select
+              [attr.class]="{block: name, element: 'row-select'} | bem"
+              [active]="actives.get('RoofCovering')"
+              [items]="staticStorage.roofCoveringGlossary"
+              [allowClear]="true"
+              (select)="savePropertyFromSelect($event, 'RoofCovering', staticStorage.roofCoveringGlossary)"
+              label="Dach"
+              placeholder="Auswählen"
+            ></app-select>
+          </label>
+        </ng-container>
+        <ng-template #equipmentSelectMFH>
+          <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem">
+            <app-select
+              [attr.class]="{block: name, element: 'row-select'} | bem"
+              [active]="actives.get('Flooring')"
+              [items]="staticStorage.flooringGlossary"
+              [allowClear]="true"
+              (select)="savePropertyFromSelect($event, 'Flooring', staticStorage.flooringGlossary)"
+              label="Böden"
+              placeholder="Auswählen"
+            ></app-select>
+          </label>
+        </ng-template>
+
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem">
+          <app-select
+            [attr.class]="{block: name, element: 'row-select'} | bem"
+            [active]="actives.get('FacilitiesQuality')"
+            [items]="staticStorage.facilitiesQualityGlossary"
+            [allowClear]="true"
+            (select)="savePropertyFromSelect($event, 'FacilitiesQuality', staticStorage.facilitiesQualityGlossary)"
+            label="Qualität der Ausstattung"
+            placeholder="Auswählen"
+          ></app-select>
+        </label>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'direction': 'column', 'type': 'container'}} | bem">
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem">
+          <app-select
+            [attr.class]="{block: name, element: 'row-select'} | bem"
+            [active]="actives.get('Windows')"
+            [items]="staticStorage.windowsGlossary"
+            [allowClear]="true"
+            (select)="savePropertyFromSelect($event, 'Windows', staticStorage.windowsGlossary)"
+            label="Fenster"
+            placeholder="Auswählen"
+          ></app-select>
+        </label>
+      </div>
+    </div>
+    <div
+      [attr.class]="{
+        block: name,
+        element: 'row',
+        mods: {
+          'type': 'multiline',
+          'height': page === 'profile'? '224px' : 'default',
+          'margin-bottom': page === 'profile'? '14px' : 'default'
+        }
+      } | bem">
+      <form
+        [formGroup]="activeTooglePropertyForm"
+        [attr.class]="{block: name, element: 'grouped-radio-container'} | bem">
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Garden')"
+          label="Garten"
+          name="Garden"
+          formControlName="Garden"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('VisitorsWC')"
+          label="Gäste-WC"
+          name="VisitorsWC"
+          formControlName="VisitorsWC"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Cellar')"
+          label="Keller"
+          name="Cellar"
+          formControlName="Cellar"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          *ngIf="!model.isPropertyOfTypeEFH"
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Balcony')"
+          label="Balkon"
+          name="Balcony"
+          formControlName="Balcony"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Kitchen')"
+          label="Einbauküche"
+          name="Kitchen"
+          formControlName="Kitchen"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          *ngIf="model.isPropertyOfTypeEFH"
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('SecondaryEntrance')"
+          label="Einliegerwohnung"
+          name="SecondaryEntrance"
+          formControlName="SecondaryEntrance"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('AirConditioned')"
+          label="Klimaanlage"
+          name="AirConditioned"
+          formControlName="AirConditioned"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          *ngIf="!model.isPropertyOfTypeEFH"
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Elevator')"
+          label="Aufzug"
+          name="Elevator"
+          formControlName="Elevator"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Chimney')"
+          label="Kamin"
+          name="Chimney"
+          formControlName="Chimney"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Sauna')"
+          label="Sauna"
+          name="Sauna"
+          formControlName="Sauna"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('SwimmingPool')"
+          label="Schwimmbad"
+          name="SwimmingPool"
+          formControlName="SwimmingPool"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('Furnished')"
+          label="Möbliert"
+          name="Furnished"
+          formControlName="Furnished"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+        <app-grouped-radio-buttons
+          [attr.class]="{block: name, element: 'grouped-radio-element'} | bem"
+          [checked]="tooglePropertyFormControls('BarrierFree')"
+          label="Barrierefrei"
+          name="BarrierFree"
+          formControlName="BarrierFree"
+          (changeValue)="toggleProperty($event)"
+        ></app-grouped-radio-buttons>
+      </form>
+    </div>
+  </div>
+</ng-template>

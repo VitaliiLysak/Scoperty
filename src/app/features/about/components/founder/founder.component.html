@@ -1,0 +1,14 @@
+<div [attr.class]="{block: _name, element: 'founder-block'} | bem">
+  <img
+    [attr.class]="{block: _name, element: 'founder-photo'} | bem"
+    [src]="imageSrc"
+  >
+
+  <div [attr.class]="{block: _name, element: 'founder-name'} | bem">
+    {{ founder.name }}
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'founder-role'} | bem">
+    {{ founder.role }}
+  </div>
+</div>

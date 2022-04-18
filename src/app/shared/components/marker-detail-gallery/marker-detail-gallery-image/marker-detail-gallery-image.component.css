@@ -1,0 +1,124 @@
+:host {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  overflow: hidden;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+  /*height: 100%;*/
+
+  background: hsl(0, 0%, 100%);
+
+  transition-duration: .4s;
+  transition-property: all;
+}
+
+:host(.marker-detail-gallery-image--with-hover) {
+  cursor: pointer;
+}
+
+:host(.marker-detail-gallery-image--state-edit) {
+  cursor: pointer;
+}
+
+:host(.marker-detail-gallery-image--with-hover):hover {
+  opacity: .8;
+}
+
+.marker-detail-gallery-image__image {
+  object-fit: contain;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+}
+
+.marker-detail-gallery-image__image--fit-cover {
+  object-fit: cover;
+}
+
+.marker-detail-gallery-image__image--fit-container {
+  position: absolute;
+
+  top: 50%;
+  bottom: 0;
+  left: 50%;
+  right: 0;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  transform: translate(-50%, -50%);
+}
+
+.marker-detail-gallery-image__image--cursor-move {
+  cursor: move;
+}
+
+.marker-detail-gallery-image__backdrop {
+  position: absolute;
+  z-index: 2;
+
+  width: 100%;
+  height: 100%;
+  border: 1px solid hsl(174, 92%, 36%);
+
+  background: hsla(0, 0%, 100%, 0.8);
+
+  pointer-events: none;
+  /* transition:  */
+}
+
+.marker-detail-gallery-image__checkbox {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  z-index: 3;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+  border: 1px hsl(174, 92%, 36%) solid;
+  border-radius: 100%;
+
+  color: hsl(0, 0%, 100%);
+  font-size: 12px;
+
+  background: hsl(174, 92%, 36%);
+  background-clip: content-box;
+  cursor: pointer;
+}
+
+.marker-detail-gallery-image__checkbox--state-empty {
+  border-color: hsl(0, 0%, 28%);
+
+  background: transparent;
+}
+
+.marker-detail-gallery-image__move-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+
+  width: 64px;
+  height: 64px;
+
+  background-image: url('/assets/images/cross-icon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}

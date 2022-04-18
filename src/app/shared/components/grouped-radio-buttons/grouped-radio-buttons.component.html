@@ -1,0 +1,25 @@
+<div class="radio-container">
+  <p>{{ label }}</p>
+  <div class="buttons-wrapper">
+    <div class="input-label-wrapper input-label-wrapper-left">
+      <input
+        [id]="trueRadioId"
+        type="radio"
+        [name]="name"
+        [value]="true"
+        [checked]="checked === true"
+        [formControl]="input">
+      <label [for]="trueRadioId" class="radio-label">Ja</label>
+    </div>
+    <div class="input-label-wrapper">
+      <input
+        [id]="falseRadioId"
+        type="radio"
+        [name]="name"
+        [value]="false"
+        [checked]="checked === false"
+        [formControl]="input">
+      <label [for]="falseRadioId" class="radio-label">Nein</label>
+    </div>
+  </div>
+</div>

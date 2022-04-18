@@ -1,0 +1,152 @@
+<div [attr.class]="{block: name, element: 'header-panel-inner'} | bem">
+  <!-- Header -->
+  <div [attr.class]="{block: name, element: 'header-status'} | bem">
+    <!-- Tags -->
+    <div [attr.class]="{block: name, element: 'header-status-items'} | bem">
+      <app-property-type-tag
+        [attr.class]="{block: name, element: 'header-status-item'} | bem"
+        [marker]="marker"
+      ></app-property-type-tag>
+      <app-selling-status-tag
+        *ngIf="!marker.isStatusForHide"
+        [attr.class]="{block: name, element: 'header-status-item'} | bem"
+        [sellingStatus]="marker.SellingStatus"
+      ></app-selling-status-tag>
+    </div>
+
+    <!-- Actions -->
+    <div [attr.class]="{block: name, element: 'buttons-block'} | bem">
+      <app-message
+        *ngIf="featureToggleService.messaging"
+        [attr.class]="{block: name, element: 'message-button'} | bem"
+      ></app-message>
+
+      <app-favourite
+        [marker]="marker"
+        theme="dark"
+        [size]="favouriteSize"
+      ></app-favourite>
+    </div>
+  </div>
+
+  <!-- Title -->
+  <div
+    [attr.class]="{block: name, element: 'header-title'} | bem"
+    [innerHTML]="markerTitle"
+  ></div>
+
+  <!-- Address -->
+  <div
+    *ngIf="marker.hasTitle"
+    [attr.class]="{block: name, element: 'header-address'} | bem"
+  >
+    {{ marker.fullAddress }}
+  </div>
+
+  <!-- Price -->
+  <div [attr.class]="{block: name, element: 'price-title'} | bem">
+    {{ priceTitle }}
+    <app-tooltip
+      *ngIf="!marker.isStatusForSale"
+      [tooltipText]="tooltipTextFirst"
+      [attr.class]="{block: name, element: 'tooltip'} | bem"
+    ></app-tooltip>
+  </div>
+
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'price',
+      mods: {
+        'margin': marker.isStatusForSale ? '8': 'default',
+        'type': marker.PropertyType
+      }
+    } | bem"
+  >
+    {{ marker.isPropertyOfTypeMFH ? 'ab' : '' }} {{ markerPrice | cost }}
+  </div>
+
+  <div
+    *ngIf="marker.isStatusForSale"
+    [attr.class]="{block: name, element: 'price-square-text'} | bem"
+  >
+    {{ estimatedPriceTitle }} {{ marker.isPropertyOfTypeMFH ? 'ab' : '' }}: {{ marker.EstimatedPrice | cost }}
+    <app-tooltip
+      [tooltipText]="tooltipTextFirst"
+      [attr.class]="{block: name, element: 'tooltip'} | bem"
+    ></app-tooltip>
+  </div>
+
+  <div [attr.class]="{block: name, element: 'price-square-text'} | bem">
+    Schätzwert pro m<sup>2</sup>: {{ marker.EstimatedPricePerM2 | cost }}
+  </div>
+
+  <ng-container *ngIf="!marker.isStatusForSale || marker.isPropertyOfTypeMFH; else propertyWithOwner">
+    <!-- Make an offer -->
+    <div
+      *ngIf="!hasOfferPrice; else changeOffer"
+      [attr.class]="{block: name, element: 'section'} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'header-subtitle'} | bem">
+        {{ headerQuestion }}
+        <app-tooltip
+          [tooltipText]="tooltipTextSecond"
+          [attr.class]="{block: name, element: 'tooltip'} | bem"
+        ></app-tooltip>
+      </div>
+      <button
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="openMakeMeMoveModal('createOfferPrice')"
+      >
+        {{ (isMobileDevice$ | async) ? 'Unverb. Gebot abgeben' : 'Unverbindliches Gebot abgeben' }}
+      </button>
+    </div>
+
+    <!-- Change offer -->
+    <ng-template #changeOffer>
+      <div [attr.class]="{block: name, element: 'section'} | bem">
+        <div [attr.class]="{block: name, element: 'header-subtitle'} | bem">
+          DEIN GEBOT: {{ offerPrice | cost }}
+        </div>
+        <button
+          app-button
+          color="primary-green"
+          size="medium"
+          [stretch]="true"
+          (click)="openMakeMeMoveModal('updateOfferPrice')"
+        >
+          Gebot ändern
+        </button>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <!-- Contact property owner -->
+  <ng-template #propertyWithOwner>
+    <div
+      *ngIf="marker.doesOwnerOrRealtorExist"
+      [attr.class]="{block: name, element: 'section'} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'header-subtitle'} | bem">
+        GEFÄLLT DIR
+        {{ marker.isPropertyOfTypeEFH ? 'DAS HAUS?' : 'DIE WOHNUNG?' }}
+        <app-tooltip
+          [tooltipText]="tooltipTextSecond"
+          [attr.class]="{block: name, element: 'tooltip'} | bem"
+        ></app-tooltip>
+      </div>
+      <button
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="openContactMeForm()"
+      >
+        Anbieter kontaktieren
+      </button>
+    </div>
+  </ng-template>
+</div>

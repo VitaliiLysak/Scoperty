@@ -1,0 +1,26 @@
+*:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.decision-dialog__message {
+  width: 100%;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.decision-dialog__message--type-success {
+  color: var(--feedback-success-color);
+}
+
+.decision-dialog__message--type-error {
+  color: var(--feedback-error-color);
+}

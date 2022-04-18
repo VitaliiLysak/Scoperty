@@ -1,0 +1,73 @@
+<!-- Navbar -->
+<div [attr.class]="{block: _name, element: 'navbar'} | bem">
+  <!-- Mobile menu button -->
+  <div [attr.class]="{block: _name, element: 'close-menu-container'} | bem">
+    <button
+      app-icon-button
+      color="primary-green"
+      (click)="onClose()"
+    >
+      <mat-icon
+        svgIcon="close"
+        appSvgSize="16px"
+      ></mat-icon>
+    </button>
+  </div>
+
+  <!-- Logo -->
+  <div [attr.class]="{block: _name, element: 'logo-container'} | bem">
+    <a
+      app-icon-button
+      color="dark"
+      routerLink="/"
+      queryParamsHandling="merge"
+    >
+      <app-logo color="dark"></app-logo>
+    </a>
+  </div>
+</div>
+
+<!-- Menu -->
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div
+    *ngFor="let navItem of navItems"
+    [attr.class]="{block: _name, element: 'nav-item'} | bem"
+  >
+    <a
+      app-button
+      buttonStyle="link"
+      size="large"
+      [id]="navItem.id"
+      [color]="getLinkColor(routerLink.isActive)"
+      [routerLink]="[ navItem.link ]"
+      queryParamsHandling="merge"
+      routerLinkActive #routerLink="routerLinkActive"
+    >
+      <div [attr.class]="{block: _name, element: 'nav-item-text'} | bem">
+        {{ navItem.label }}
+      </div>
+      <div>
+        <mat-icon
+          [attr.class]="{block: _name, element: 'nav-item-image'} | bem"
+          svgIcon="chevron_right"
+          appSvgSize="24px"
+        ></mat-icon>
+      </div>
+    </a>
+  </div>
+  <div
+    [attr.class]="{block: _name, element: 'nav-item', mods: {mode: 'space-apart'}} | bem"
+    (click)="openScopertyPlusLanding()"
+  >
+    <div [attr.class]="{block: _name, element: 'nav-item-text'} | bem">
+      <app-scoperty-plus-ad mode="mobile" [smallerTextOnMobile]="true"></app-scoperty-plus-ad>
+    </div>
+    <div>
+      <mat-icon
+        [attr.class]="{block: _name, element: 'nav-item-image'} | bem"
+        svgIcon="chevron_right"
+        appSvgSize="24px"
+      ></mat-icon>
+    </div>
+  </div>
+</div>

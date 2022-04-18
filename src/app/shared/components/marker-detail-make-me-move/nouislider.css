@@ -1,0 +1,294 @@
+app-marker-detail-make-me-move .noUi-target, .noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+app-marker-detail-make-me-move .noUi-target {
+  position: relative;
+  direction: ltr;
+}
+
+app-marker-detail-make-me-move .noUi-base {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: hsl(0, 0%, 90%);
+}
+
+app-marker-detail-make-me-move .noUi-base:before {
+  position: absolute;
+  left: 0;
+  z-index: 3;
+
+  width: 50%;
+  height: 100%;
+
+  content: '';
+  background-color: hsl(0, 0%, 90%);
+}
+
+app-marker-detail-make-me-move .noUi-connect {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+app-marker-detail-make-me-move .noUi-origin {
+  position: absolute;
+  bottom: 14px;
+
+  height: 0;
+  width: 0;
+}
+
+app-marker-detail-make-me-move .noUi-handle {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+remove transition for make-me-move modal: when appears,
+slider shows blue line until price values will be set
+*/
+app-marker-detail-make-me-move .noUi-state-tap .noUi-connect,
+app-marker-detail-make-me-move .noUi-state-tap .noUi-origin {
+  /* -webkit-transition: top .3s, right .3s, bottom .3s, left .3s;
+  transition: top .3s, right .3s, bottom .3s, left .3s; */
+}
+
+app-marker-detail-make-me-move .noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+app-marker-detail-make-me-move .noUi-base, .noUi-handle {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+app-marker-detail-make-me-move .noUi-horizontal {
+  height: 4px;
+}
+
+app-marker-detail-make-me-move .noUi-horizontal .noUi-handle {
+  left: -11px;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 14px;
+
+  background: hsl(185, 71%, 47%);
+  outline : none;
+  box-shadow: 0 0px 5px 0 hsl(0, 0%, 73%);
+}
+
+app-marker-detail-make-me-move .noUi-vertical {
+  width: 18px;
+}
+
+app-marker-detail-make-me-move .noUi-vertical .noUi-handle {
+  left: -6px;
+  top: -17px;
+
+  width: 28px;
+  height: 34px;
+}
+
+app-marker-detail-make-me-move .noUi-target {
+  border-radius: 4px;
+  /*border: 1px solid #D3D3D3;*/
+
+  background: hsl(0, 0%, 98%);
+  box-shadow: inset 0 1px 1px hsl(0, 0%, 94%), 0 3px 6px -5px hsl(0, 0%, 73%);
+}
+
+/*
+remove transition for make-me-move modal: when appears,
+slider shows blue line until price values will be set
+*/
+app-marker-detail-make-me-move .noUi-connect {
+  border-radius: 4px;
+
+  background: hsl(185, 100%, 33%);
+  /* -webkit-transition: background 450ms;
+  transition: background 450ms; */
+}
+
+app-marker-detail-make-me-move .noUi-draggable {
+  cursor: ew-resize;
+}
+
+app-marker-detail-make-me-move .noUi-vertical .noUi-draggable {
+  cursor: ns-resize;
+}
+
+app-marker-detail-make-me-move .noUi-handle {
+  cursor: default;
+}
+
+app-marker-detail-make-me-move .noUi-active {
+  box-shadow: inset 0 0 1px hsl(0, 0%, 100%), inset 0 1px 7px hsl(0, 0%, 87%), 0 3px 6px -3px hsl(0, 0%, 73%);
+}
+
+
+app-marker-detail-make-me-move .noUi-handle:after {
+  left: 17px;
+}
+
+app-marker-detail-make-me-move .noUi-vertical .noUi-handle:after,
+app-marker-detail-make-me-move .noUi-vertical .noUi-handle:before {
+  left: 6px;
+  top: 14px;
+
+  width: 14px;
+  height: 1px;
+}
+
+app-marker-detail-make-me-move .noUi-vertical .noUi-handle:after {
+  top: 17px;
+}
+
+app-marker-detail-make-me-move [disabled] .noUi-connect {
+  background: hsl(0, 0%, 72%);
+}
+
+app-marker-detail-make-me-move [disabled] .noUi-handle,
+[disabled].noUi-handle, [disabled].noUi-target {
+  cursor: not-allowed;
+}
+
+app-marker-detail-make-me-move .noUi-pips, .noUi-pips * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+app-marker-detail-make-me-move .noUi-pips {
+  position: absolute;
+
+  color: hsl(0, 0%, 60%);
+}
+
+app-marker-detail-make-me-move .noUi-value {
+  position: absolute;
+
+  white-space: nowrap;
+  text-align: center;
+}
+
+app-marker-detail-make-me-move .noUi-value-sub {
+  color: hsl(0, 0%, 80%);
+  font-size: 10px;
+}
+
+app-marker-detail-make-me-move .noUi-marker {
+  position: absolute;
+
+  background: hsl(0, 0%, 80%);
+}
+
+app-marker-detail-make-me-move .noUi-marker-large, .noUi-marker-sub {
+  background: hsl(0, 0%, 67%);
+}
+
+app-marker-detail-make-me-move .noUi-pips-horizontal {
+  top: 100%;
+  left: 0;
+
+  width: 100%;
+  padding: 10px 0;
+  height: 80px;
+}
+
+app-marker-detail-make-me-move .noUi-value-horizontal {
+  -webkit-transform: translate3d(-50%, 50%, 0);
+  transform: translate3d(-50%, 50%, 0);
+}
+
+app-marker-detail-make-me-move .noUi-marker-horizontal.noUi-marker {
+  margin-left: -1px;
+
+  width: 2px;
+  height: 5px;
+}
+
+app-marker-detail-make-me-move .noUi-marker-horizontal.noUi-marker-sub {
+  height: 10px;
+}
+
+app-marker-detail-make-me-move .noUi-marker-horizontal.noUi-marker-large {
+  height: 15px;
+}
+
+app-marker-detail-make-me-move .noUi-pips-vertical {
+  top: 0;
+  left: 100%;
+
+  padding: 0 10px;
+  height: 100%;
+}
+
+app-marker-detail-make-me-move .noUi-value-vertical {
+  padding-left: 25px;
+
+  -webkit-transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 50%, 0);
+}
+
+app-marker-detail-make-me-move .noUi-marker-vertical.noUi-marker {
+  margin-top: -1px;
+
+  width: 5px;
+  height: 2px;
+}
+
+app-marker-detail-make-me-move .noUi-marker-vertical.noUi-marker-sub {
+  width: 10px;
+}
+
+app-marker-detail-make-me-move .noUi-marker-vertical.noUi-marker-large {
+  width: 15px;
+}
+
+app-marker-detail-make-me-move .noUi-tooltip {
+  position: absolute;
+
+  display: block;
+
+  padding: 5px;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-radius: 3px;
+
+  text-align: center;
+  white-space: nowrap;
+
+  background: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 0%);
+}
+
+app-marker-detail-make-me-move .noUi-horizontal .noUi-tooltip {
+  left: 50%;
+  bottom: 120%;
+
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
+app-marker-detail-make-me-move .noUi-vertical .noUi-tooltip {
+  top: 50%;
+  right: 120%;
+
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}

@@ -1,0 +1,92 @@
+* {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+@keyframes moveToUp {
+  from {
+    bottom: -410px;
+  }
+  to {
+    bottom: 0px;
+  }
+}
+
+@keyframes moveToDown {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: -410px;
+  }
+}
+
+.app__container {
+  position: relative;
+
+  display: flex;
+  overflow: hidden;
+
+  flex: 1 1 auto;
+}
+
+.app__wrapper-block {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  flex-grow: 1;
+
+  width: 100%;
+}
+
+.app__start-page-navbar-container {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+
+  width: 100%;
+}
+
+.app__scroll-block {
+  display: flex;
+  overflow: auto;
+
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+
+  background-color: hsl(60, 7%, 97%);
+
+  -webkit-overflow-scrolling: touch;
+}
+
+.app__scroll-block--overflow-hidden {
+  overflow: hidden;
+
+  -webkit-overflow-scrolling: initial;
+}
+
+.app__main-content {
+  display: flex;
+
+  flex: 1 1 auto;
+
+  width: 100%;
+}
+
+.app__cookies {
+  position: fixed;
+  bottom: -420px;
+}
+
+.app__cookies--display-false {
+  bottom: -420px;
+
+  animation: moveToDown 700ms forwards;
+}
+
+.app__cookies--display-true {
+  bottom: 0px;
+
+  animation: moveToUp 1500ms forwards;
+}

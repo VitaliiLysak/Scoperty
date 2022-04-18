@@ -1,0 +1,97 @@
+<div [attr.class]="{block: name, element: 'properties-block'} | bem">
+  <!-- Title -->
+  <div [attr.class]="{block: name, element: 'properties-block-title'} | bem">
+    <div [attr.class]="{block: name, element: 'properties-title'} | bem">
+      {{ titleText }}
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'properties-container',
+      mods: {'padding': !isLoaded? '15': 'default'}
+    } | bem"
+  >
+    <div
+      [attr.class]="{
+        block: name,
+        element: 'properties-carousel-block',
+        mods: {'margin': !isLoaded? '0': 'default'}
+      } | bem"
+    >
+      <!--used bootstrap carousel that's why class names aren't with bem pipe-->
+      <ng-container *ngIf="isLoaded">
+        <div
+          #carousel
+          id="carousel"
+          class="carousel slide"
+          data-interval="false"
+          data-ride="carousel"
+          (swipeleft)="swipe('next')"
+          (swiperight)="swipe('prev')"
+        >
+          <ol class="carousel-indicators">
+            <li
+              *ngFor="let marker of markers; let i = index"
+              data-target="#carousel"
+              [attr.data-slide-to]='i'
+              [ngClass]="{'active': i === 0}"
+            >
+            </li>
+          </ol>
+          <div class="carousel-inner">
+            <ng-container *ngFor="let _markers of markers; let i = index">
+              <div class="carousel-item" [ngClass]="{'active': i === 0}">
+                <app-object-slider-item
+                  [locationPrefix]="locationPrefix"
+                  *ngFor="let marker of _markers; let j = index"
+                  [attr.class]="{
+                    block: name,
+                    element: 'property-image',
+                    mods: {
+                      'margin-right': (j == 2) ? '0' : 'default',
+                      'display-on-mobile': (j == 1 || j == 2)? 'none': 'block'
+                    }
+                  } | bem"
+                  [marker]="marker"
+                ></app-object-slider-item>
+              </div>
+            </ng-container>
+          </div>
+
+          <!-- Navigation -->
+          <!-- Previous slide -->
+          <a
+            id="{{locationPrefix}}-slider-back-button"
+            [attr.class]="{block: name, element: 'ngu-arrow', mods: {'side': 'left'}} | bem"
+            class="carousel-control-prev"
+            (click)="goToPreviousSlide()"
+          >
+            <mat-icon
+              [attr.class]="{block: name, element: 'ngu-arrow-icon'} | bem"
+              svgIcon="chevron_left"
+            ></mat-icon>
+          </a>
+
+          <!-- Next slide -->
+          <a
+            id="{{locationPrefix}}-slider-next-button"
+            [attr.class]="{block: name, element: 'ngu-arrow', mods: {'side': 'right'}} | bem"
+            class="carousel-control-next"
+            (click)="goToNextSlide()"
+          >
+            <mat-icon
+              [attr.class]="{block: name, element: 'ngu-arrow-icon'} | bem"
+              svgIcon="chevron_right"
+            ></mat-icon>
+          </a>
+        </div>
+      </ng-container>
+
+      <!-- Slide indicators -->
+      <div *ngIf="!isLoaded" [attr.class]="{block: name, element: 'loader'} | bem"></div>
+    </div>
+  </div>
+</div>

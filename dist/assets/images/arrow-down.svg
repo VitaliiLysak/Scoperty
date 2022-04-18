@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="28"
+   height="18"
+   viewBox="0 0 28 18"
+   version="1.1"
+   id="svg75"
+   sodipodi:docname="select-arrow-active.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata79">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview77"
+     showgrid="false"
+     inkscape:zoom="22.85"
+     inkscape:cx="13.107221"
+     inkscape:cy="20"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg75" />
+  <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title63">Global_Icon_Down</title>
+  <desc
+     id="desc65">Created with Sketch.</desc>
+  <defs
+     id="defs68">
+    <path
+       d="m 20,23.723181 9.427814,-9.427814 c 0.385903,-0.385903 1.011575,-0.385903 1.397478,0 0.385903,0.385903 0.385903,1.011575 0,1.397478 L 20.813505,25.704633 C 20.591312,25.926825 20.289633,26.021085 20,25.987413 c -0.289633,0.03367 -0.591312,-0.06059 -0.813505,-0.28278 L 9.1747078,15.692845 c -0.385903,-0.385903 -0.385903,-1.011575 0,-1.397478 0.385903,-0.385903 1.0115752,-0.385903 1.3974782,0 z"
+       id="path-1"
+       inkscape:connector-curvature="0" />
+  </defs>
+  <g
+     id="Global_Icon_Down"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(0.98967861,0,0,1.000991,-5.7935721,-11.01982)">
+    <mask
+       id="mask-2"
+       fill="white">
+      <use
+         xlink:href="#path-1"
+         id="use70"
+         x="0"
+         y="0"
+         width="100%"
+         height="100%" />
+    </mask>
+    <use
+       id="Mask"
+       xlink:href="#path-1"
+       style="fill:#23c1cf"
+       x="0"
+       y="0"
+       width="100%"
+       height="100%" />
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+<div [attr.class]="{block: _name, element: 'header'} | bem">
+  <!-- Price trend header -->
+  <div [attr.class]="{block: _name, element: 'title'} | bem">
+    Scoperty Preistrend
+  </div>
+  <div [attr.class]="{block: _name, element: 'description'} | bem">
+    Wertentwicklung der Immobilie in den letzten sechs Jahren.
+  </div>
+
+  <!-- Price trend chart legend -->
+  <div
+    *ngIf="!isLoading && hasAnyTrends"
+    [attr.class]="{block: _name, element: 'legend'} | bem"
+  >
+    <!-- City price trend -->
+    <div [attr.class]="{block: _name, element: 'legend-item', mods: {'type': 'city'}} | bem">
+      Stadtteil
+    </div>
+
+    <!-- Property price trend -->
+    <div
+      *ngIf="hasPropertyTrends; else hasNoPropertyTrends"
+      [attr.class]="{block: _name, element: 'legend-item', mods: {'type': 'property'}} | bem"
+    >
+      Immobilie
+    </div>
+
+    <ng-template #hasNoPropertyTrends>
+      <div [attr.class]="{block: _name, element: 'no-property-price-trend'} | bem">
+        <div [attr.class]="{block: _name, element: 'icon-container'} | bem">
+          <mat-icon svgIcon="error_outline"></mat-icon>
+        </div>
+        Preistrend derzeit nicht verfügbar!
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<!-- Loading indicator -->
+<div
+  *ngIf="isLoading; else chart"
+  [attr.class]="{block: _name, element: 'loading-indicator-container'} | bem"
+>
+  <app-loading-indicator></app-loading-indicator>
+</div>
+
+<ng-template #chart>
+  <!-- Price trend chart -->
+  <div
+    *ngIf="hasAnyTrends else hasNoTrends"
+    [attr.class]="{block: _name, element: 'chartjs-block', mods: {'page-details': isPropertyDetailPage} } | bem"
+  >
+    <div
+      id="chartjs-container"
+      [attr.class]="{block: _name, element: 'content'} | bem"
+    >
+      <div style="width: 100%; height: 350px; display: flex; align-items: center; justify-content: center">
+        <canvas
+          *ngIf="hasChartDataSets"
+          id="chartjs-chart"
+          baseChart
+          [chartType]="chartType"
+          [datasets]="chartDataSets"
+          [colors]="chartColors"
+          [options]="chartOptions"
+          [legend]="chartLegend">
+        </canvas>
+
+        <!-- Tooltip -->
+        <div id="chartjs-tooltip" [attr.class]="{block: _name, element: 'tooltip'} | bem">
+          <div id="chartjs-arrowleft" [attr.class]="{block: _name, element: 'tooltip-arrow-left'} | bem"></div>
+          <div id="chartjs-arrowright" [attr.class]="{block: _name, element: 'tooltip-arrow-right'} | bem"></div>
+
+          <div [attr.class]="{block: _name, element: 'tooltip-left'} | bem">
+            <div>{{pointYear}}&nbsp;{{pointQuarter}}</div>
+            <div>{{pointPrice}} EUR</div>
+          </div>
+          <div [attr.class]="{block: _name, element: 'tooltip-right'} | bem">
+            <div
+              *ngIf="pointDiffPercent > 0"
+              [attr.class]="{block: _name, element: 'img-container', mods: {'type': 'increase'}} | bem"
+            >
+              <mat-icon svgIcon="arrow_up"></mat-icon>
+            </div>
+            <div
+              *ngIf="pointDiffPercent < 0"
+              [attr.class]="{block: _name, element: 'img-container', mods: {'type': 'decrease'}} | bem"
+            >
+              <mat-icon svgIcon="arrow_down"></mat-icon>
+            </div>
+            <div [attr.class]="{block: _name, element: 'difference', mods: {'type': pointDiffPercent > 0 ? 'positive' : pointDiffPercent < 0 ? 'negative' : 'neutral'}} | bem">
+              {{ pointDiffPercent | percent: '1.0-1' }}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blurblock for not authorized users -->
+      <div
+        id="chartjs-blurblock"
+        *ngIf="userNotAuthorized"
+        [attr.class]="{block: _name, element: 'block'} | bem"
+      >
+        <app-cover-data-block
+          [text]="coverText"
+          [buttonSize]="buttonSize"
+          narrow="true"
+          (showSignup)="_showSignup($event)"
+        >
+        </app-cover-data-block>
+      </div>
+    </div>
+  </div>
+
+  <!-- No price trends -->
+  <ng-template #hasNoTrends>
+    <div [attr.class]="{block: _name, element: 'no-price-trends'} | bem">
+      Keine Daten verfügbar
+    </div>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,44 @@
+<div [attr.class]="{block: name, element: 'wrapper'} | bem">
+  <span>Umkreis: </span>
+
+  <div [attr.class]="{block: name, element: 'control-container'} | bem">
+    <div [attr.class]="{block: name, element: 'control'} | bem">
+      <button
+        id="{{locationPrefix}}-radius-decrease-button"
+        app-icon-button
+        size="small"
+        shape="circle"
+        color="primary-green"
+        (click)="decrementRadius()"
+      >
+        <mat-icon
+          svgIcon="remove"
+          appSvgSize="20px"
+        ></mat-icon>
+      </button>
+    </div>
+
+    <span [attr.class]="{block: name, element: 'quantity'} | bem">
+      {{searchRadius | metersToKilometers}}
+    </span>
+
+    <div [attr.class]="{block: name, element: 'control'} | bem">
+      <button
+        id="{{locationPrefix}}-radius-increase-button"
+        app-icon-button
+        size="small"
+        shape="circle"
+        color="primary-green"
+        (click)="incrementRadius()"
+      >
+        <mat-icon
+          svgIcon="add"
+          appSvgSize="20px"
+        ></mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="error" [attr.class]="{block: name, element: 'feedback'} | bem">
+  {{error}}
+</div>

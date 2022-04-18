@@ -1,0 +1,134 @@
+:host {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: fit-content;
+  width: -moz-max-content;
+}
+
+label {
+  font-family: var(--font-family-app);
+  font-size: var(--font-size-input);
+  font-weight: var(--font-weight-input);
+  letter-spacing: var(--letter-spacing-input);
+}
+
+.input-file_input-file {
+  display: none;
+}
+
+.input-file_select-file-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.input-file_select-file-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 8px;
+  border: 2px solid var(--neutrals-light-extreme-color);
+  border-radius: 2px;
+
+  color: var(--neutrals-dark-light-color);
+
+  cursor: pointer;
+  background-color: var(--neutrals-light-extreme-color);
+}
+
+.input-file_select-file-button:hover {
+  border-color: var(--secondary-cta-default-color);
+}
+
+.input-file_select-file-caption {
+  margin: 0 0 8px 0 !important;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: var(--font-family-app);
+  font-size: var(--font-size-input);
+  font-weight: var(--font-weight-input);
+  letter-spacing: var(--letter-spacing-input);
+}
+
+.input-file_select-file-button.secondary-green {
+  height: 44px;
+  width: 288px;
+  border: 2px solid var(--background-color-buttons-primary-green);
+  border-radius: 2px;
+
+  color: var(--secondary-cta-default-color);
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  white-space: nowrap;
+
+  background: var(--neutrals-white-color);
+}
+
+.input-file_select-file-button.secondary-green:hover {
+  border-color: var(--secondary-cta-hover-color);
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--secondary-cta-hover-color);
+}
+
+.input-file_link-container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.input-file_link-container a {
+  margin-left: 48px;
+
+  color: var(--secondary-cta-default-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  cursor: pointer;
+}
+
+.input-file_link-container p {
+  margin: 0;
+
+  overflow: hidden;
+  display: block;
+
+  height: 24px;
+  width: 181px;
+
+  text-overflow: ellipsis;
+  color: var(--primary-cta-default-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+@media (max-width: 1120px) {
+  .input-file_select-file-button--mobile-max {
+    width: 100% !important;
+  }
+}
+
+
+.input-file_select-file-container--column-mobile {
+  flex-direction: column-reverse;
+}
+
+.input-file_select-file-button--column-mobile {
+  margin-bottom: 8px !important;
+}
+
+.input-file_link-button--column-mobile {
+  margin-left: 0 !important;
+}

@@ -1,0 +1,30 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.upload-image__image-info-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  line-height: 20px;
+
+  color: var(--secondary-cta-default-color) !important;
+  cursor: pointer;
+}
+
+.upload-image__image-info-link:hover {
+  color: var(--secondary-cta-hover-color) !important;
+}
+
+.upload-image__link-text {
+  margin-top: 4px;
+}

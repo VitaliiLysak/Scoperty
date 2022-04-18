@@ -1,0 +1,25 @@
+<app-base-modal (dismiss)="dismiss()">
+  <ng-container app-base-modal-title>
+    Wir haben dir eine Bestätigungsmail an deine neue E-Mail-Adresse geschickt.
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <div [attr.class]="{block: _name, element: 'description'} | bem">
+      Achtung: Die neue E-Mail-Adresse wird erst aktiv, wenn du auf den Bestätigungslink geklickt hast.
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        app-button
+        color="secondary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="close()"
+      >
+        Alles klar
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

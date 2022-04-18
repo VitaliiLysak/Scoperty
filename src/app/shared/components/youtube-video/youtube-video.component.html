@@ -1,0 +1,12 @@
+<div [attr.class]="{ block: name, element: 'container' } | bem">
+  <iframe
+    *ngIf="hasFrameSrc"
+    [attr.class]="{ block: name, element: 'frame' } | bem"
+    [attr.src]="frameSrc"
+    [attr.width]="width"
+    [attr.height]="height"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>

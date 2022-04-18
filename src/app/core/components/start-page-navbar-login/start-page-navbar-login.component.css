@@ -1,0 +1,122 @@
+:host {
+  display: flex;
+
+  height: 100%;
+}
+
+.start-page-navbar-login__login-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.start-page-navbar-login__login-button-container--mobile-false {
+  min-width: 83px;
+}
+
+.start-page-navbar-login__login-button-container--logged-in-true {
+  min-width: unset;
+}
+
+.start-page-navbar-login__login-button-container--logged-in-true.start-page-navbar-login__login-button-container--mobile-true {
+  align-items: unset;
+}
+
+.start-page-navbar-login__login-button {
+  position: relative;
+  z-index: 21;
+  margin-bottom: -0.5px;
+
+  display: flex;
+
+  padding-right: 4px;
+  padding-bottom: 0.5px;
+  padding-left: 4px;
+}
+
+.start-page-navbar-login__login-button--mobile-true.start-page-navbar-login__login-button--menu-visible-true {
+  background-color: var(--neutrals-white-color);
+}
+
+.start-page-navbar-login__login-button--mobile-true.start-page-navbar-login__login-button--theme-dark.start-page-navbar-login__login-button--menu-visible-true {
+  border-right: 0.5px solid var(--neutrals-middle-middle-color);
+  border-left: 0.5px solid var(--neutrals-middle-middle-color);
+}
+
+.start-page-navbar-login__login-button-menu-container {
+  position: absolute;
+  top: 49px;
+  right: 38px;
+
+  z-index: 20;
+}
+
+.start-page-navbar-login__login-button-menu-container--mobile-true {
+  top: 48px;
+  left: 0;
+  right: unset;
+
+  min-width: unset;
+  width: 100%;
+}
+
+.start-page-navbar-login__login-button-menu {
+  margin: 0;
+
+  min-width: 164px;
+  padding: 16px;
+  border-radius: 2px;
+
+  list-style: none;
+
+  background-color: var(--neutrals-white-color);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); /* TODO: Use hsla */
+}
+
+.start-page-navbar-login__login-button-menu--mobile-true {
+  border-radius: 0;
+
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.1); /* TODO: Use hsla */
+}
+
+.start-page-navbar-login__login-button-menu--mobile-true.start-page-navbar-login__login-button-menu--theme-dark {
+  margin-top: -0.5px;
+
+  border-top: 0.5px solid var(--neutrals-middle-middle-color);
+}
+
+.start-page-navbar-login__login-button-menu-arrow {
+  position: relative;
+  margin-left: auto;
+  margin-right: 6px;
+
+  overflow: hidden;
+
+  width: 28px;
+  height: 12px;
+
+  transform: scale(0.5, 1);
+}
+
+.start-page-navbar-login__login-button-menu-arrow:after {
+  position: absolute;
+  top: 6px;
+  left: 4px;
+
+  width: 20px;
+  height: 20px;
+
+  box-shadow: -1px -1px 10px -2px rgba(0, 0, 0, 0.1); /* TODO: Use hsla */
+  background: var(--neutrals-white-color);
+
+  transform: rotate(45deg);
+
+  content: '';
+}
+
+.start-page-navbar-login__login-button-menu-item {
+  margin-top: 4px;
+}
+
+.start-page-navbar-login__login-button-menu-item:first-child {
+  margin-top: 0;
+}

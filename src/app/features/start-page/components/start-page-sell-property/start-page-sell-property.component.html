@@ -1,0 +1,12 @@
+<div [attr.class]="{block: _name, element: 'tabs-title'} | bem">
+  Prüfe jetzt den Wert deiner Immobilie mit nur einem Klick!
+</div>
+
+<app-find-property
+  [attr.class]="{ block: _name, element: 'find-property' } | bem"
+  buttonTitle="Wert sehen"
+  linkToMapLabel="Adresse auf der Karte finden"
+  inputLabel="Adresse deiner Immobilien"
+></app-find-property>
+
+<app-start-page-tabs-description [descriptionTexts]="descriptionTexts"></app-start-page-tabs-description>

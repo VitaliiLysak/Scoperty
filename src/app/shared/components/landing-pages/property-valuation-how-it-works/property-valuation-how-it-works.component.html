@@ -1,0 +1,24 @@
+<div [attr.class]="{ block: name, element: 'container' } | bem">
+  <!-- Heading -->
+  <div [attr.class]="{ block: name, element: 'heading' } | bem">
+    {{ heading }}
+  </div>
+
+  <!-- List -->
+  <ul [attr.class]="{ block: name, element: 'list' } | bem">
+    <li
+      *ngFor="let step of steps"
+      [attr.class]="{ block: name, element: 'list-item' } | bem"
+    >
+      <!-- Icon -->
+      <div [attr.class]="{ block: name, element: 'icon' } | bem">
+        <mat-icon [svgIcon]="step.icon" [appSvgSize]="iconSize"></mat-icon>
+      </div>
+
+      <!-- Message -->
+      <div [attr.class]="{ block: name, element: 'message' } | bem">
+        {{ step.message }}
+      </div>
+    </li>
+  </ul>
+</div>

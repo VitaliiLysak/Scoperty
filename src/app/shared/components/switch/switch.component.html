@@ -1,0 +1,9 @@
+<div [attr.class]="{ block: _name, element: 'new_switcher' } | bem">
+  <input type="checkbox"
+         [attr.id]="identifier"
+         [attr.class]="{ block: _name, element: 'sw-input' } | bem"
+         [ngModel]="value"
+         (ngModelChange)="onModelChange($event)">
+  <label [attr.for]="identifier"
+         [attr.class]="{ block: _name, element: 'sw-label' } | bem"></label>
+</div>

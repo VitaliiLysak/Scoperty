@@ -1,0 +1,57 @@
+<app-base-modal [showMobileNavbar]="isCustomType ? false : true" (dismiss)="onDismiss()">
+  <ng-container *ngIf="hasHeader" app-base-modal-header>
+    {{ header }}
+  </ng-container>
+
+  <ng-container *ngIf="hasIcon" app-base-modal-icon [alignMobile]="isCustomType ? 'left' : 'center'">
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'icon',
+        mods: { 'type': type }
+      } | bem">
+      <mat-icon [svgIcon]="svgIcon" [appSvgSize]="iconSize"></mat-icon>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="hasTitle" app-base-modal-title>
+    {{ title }}
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <div [attr.class]="{block: _name, element: 'body'} | bem">
+      <div
+        *ngIf="hasMessage"
+        [attr.class]="{block: _name, element: 'message', mods: {'type': type}} | bem"
+      >
+        {{ message }}
+      </div>
+
+      <div *ngIf="hasLink" [attr.class]="{block: _name, element: 'link', mods: {'type': type}} | bem">
+        <a
+          app-button
+          buttonStyle="link"
+          color="green"
+          (click)="clickLink()"
+        >
+          {{ linkLabel }}
+        </a>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        [id]="buttonId"
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="onContinue()"
+      >
+        {{ buttonLabel }}
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

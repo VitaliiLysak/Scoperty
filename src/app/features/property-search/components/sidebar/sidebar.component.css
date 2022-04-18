@@ -1,0 +1,243 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  -webkit-font-smoothing: antialiased;
+
+  letter-spacing: 0.5px;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.sidebar__button {
+  position: absolute;
+  left: 276px;
+  top: 16px;
+  z-index: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  width: 232px;
+  padding: 0 15px;
+  border-radius: 2px;
+
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+  color: hsl(0, 0%, 100%);
+
+  background-color: hsl(307, 82%, 42%);
+  cursor: pointer;
+}
+
+.sidebar__button:hover {
+  background-color: var(--background-color-buttons-primary-green);
+}
+
+.sidebar__icon-arrow {
+  position: absolute;
+  right: 16px;
+  top: 11px;
+
+  width: 13px;
+}
+
+.sidebar__container {
+  position: absolute;
+  left: 260px;
+  z-index: 5;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 264px;
+
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: -1px 0 0 0 hsl(0, 0%, 85%);
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  transition: transform .4s linear 0s;
+}
+
+.sidebar__button-close {
+  position: absolute;
+  top: 5px;
+  right: -20px;
+}
+
+.sidebar__row {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 200px;
+  padding: 16px 0;
+}
+
+.sidebar__zoom-message-container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 4px;
+
+  width: 200px;
+  height: auto !important;
+}
+
+.sidebar__zoom-message {
+  font-family: 'Nunito Sans';
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  color: var(--brand-dark-green-color);
+}
+
+.sidebar__divider {
+  margin: 0;
+
+  height: 1px;
+  width: 100%;
+  padding-bottom: 30px;
+
+  border-top: 1px solid var(--brand-dark-green-color);
+}
+
+.sidebar__content-block {
+  flex-grow: 1;
+  width: 100%;
+}
+
+.sidebar__panel--expanded-true {
+  height: 100%;
+}
+
+.sidebar__title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: hsl(189, 100%, 14%);
+}
+
+@media (min-width: 450px) {
+  .sidebar__container::-webkit-scrollbar-track {
+    margin-top: 57px;
+
+    box-shadow: inset 0 0 2px hsla(0, 0%, 0%, .2);
+    background-color: hsla(0, 0%, 91%, 0.6);
+  }
+
+  .sidebar__container::-webkit-scrollbar {
+    width: 8px;
+
+    background-color: hsla(0, 0%, 0%, 0);
+  }
+
+  .sidebar__container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+
+    box-shadow: inset 0 0 2px hsla(0, 0%, 0%, .2);
+    background-color: hsla(0, 0%, 69%, 0.6);
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar__button {
+    left: 0;
+    top: 0;
+  }
+
+  .sidebar__row {
+    align-items: start;
+
+    width: 100%;
+    padding: 24px 0;
+  }
+
+  .sidebar__row--height-80px {
+    height: 80px;
+  }
+
+  .sidebar__zoom-message-container {
+    width: 100%;
+  }
+
+  .sidebar__container {
+    left: 0;
+
+    overflow-y: auto;
+
+    width: 100%;
+    height: 100%;
+    padding: 0 17px 10px 17px;
+  }
+
+  .sidebar__content-block {
+    height: calc(100% - 216px);
+  }
+
+  .sidebar__button:hover {
+    background-color: var(--neutrals-white-color);
+  }
+
+  .sidebar__button {
+    position: relative;
+
+    height: 24px;
+    width: 108px;
+    min-width: 0;
+    padding: 0 5px;
+    border-radius: 2px;
+
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 18px;
+    color: var(--neutrals-white-color);
+
+    background-color: var(--background-color-buttons-primary-green);
+  }
+
+  .sidebar__button--disabled-true {
+    border: 2px solid var(--background-color-buttons-primary-disabled);
+
+    color: var(--background-color-buttons-primary-disabled);
+
+    background-color: var(--neutrals-white-color);
+  }
+
+  .sidebar__button--disabled-true .sidebar__icon-arrow{
+    filter: contrast(0.5);
+  }
+
+  .sidebar__icon-arrow {
+    position: initial;
+    margin-left: 7px;
+
+    width: 10px;
+  }
+
+  .sidebar__tooltip {
+    flex: 0.9
+  }
+
+  .sidebar__button-close {
+    margin-right: 12px;
+    top: 12px;
+  }
+}

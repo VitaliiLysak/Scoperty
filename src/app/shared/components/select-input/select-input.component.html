@@ -1,0 +1,19 @@
+<ng-select
+  [attr.class]="{
+    block: _name,
+    element: 'field',
+    mods: {
+      'filled': filled,
+      'invalid': invalid,
+      'size': size
+    }
+  } | bem"
+  [items]="items"
+  [active]="active"
+  [allowClear]="allowClear"
+  [multiple]="multiple"
+  [disabled]="disabled"
+  [placeholder]="placeholder"
+  (selected)="onSelect($event)"
+  (removed)="onRemove()"
+></ng-select>

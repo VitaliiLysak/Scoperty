@@ -1,0 +1,13 @@
+<!-- Progress -->
+<div
+  [attr.class]="{ block: _name, element: 'progress', mods: { 'color': color } } | bem"
+  [ngStyle]="progressCssStyle"
+></div>
+
+<!-- Separators -->
+<div [attr.class]="{ block: _name, element: 'separator-container' } | bem">
+  <div
+    [attr.class]="{ block: _name, element: 'separator', mods: { 'color': backgroundColor } } | bem"
+    *ngFor="let separator of separators"
+  ></div>
+</div>

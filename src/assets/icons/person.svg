@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="173px" height="184px" viewBox="0 0 173 184" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Group 27@2x</title>
+    <desc>Created with Sketch.</desc>
+    <g id="G_3.2_LPs" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="G_2.0.0.0_LandingPage_seller_Bewertung" transform="translate(-647.000000, -1312.000000)">
+            <g id="Group-6" transform="translate(0.000000, 1206.000000)">
+                <g id="Group-27" transform="translate(650.000000, 110.000000)">
+                    <g id="Group-2" stroke="currentColor" stroke-width="5">
+                        <path d="M140,122.9375 C135.174401,121.0825 129.908683,120.0625 124.386228,120.0625 L119,120.0625" id="Stroke-1" stroke-linecap="round"></path>
+                        <path d="M99,177 L159.237538,177 C163.526769,177 167,173.568761 167,169.331389 L167,161.352725 C167,155.926821 165.938154,150.743791 164.008,146" id="Stroke-3" stroke-linecap="round"></path>
+                        <path d="M47,120 L41.6315556,120 C18.6381111,120 0,138.493909 0,161.309455 L0,169.310182 C0,173.559273 3.46755556,177 7.74977778,177 L20.8888889,177" id="Stroke-5" stroke-linecap="round"></path>
+                        <polygon id="Stroke-7" points="83 125.111111 114.5 99 125 109.444444 104 146"></polygon>
+                        <polygon id="Stroke-9" points="83 125.111111 51.5 99 41 109.444444 62 146"></polygon>
+                        <path d="M98,177 L88,130" id="Stroke-11" stroke-linecap="round"></path>
+                        <path d="M78,130 L68,177" id="Stroke-13" stroke-linecap="round"></path>
+                        <path d="M109,31 L114,31 C116.75,31 119,33.34 119,36.2 L119,57" id="Stroke-15" stroke-linecap="round"></path>
+                        <path d="M113,83.3571429 C106.423838,92.795 95.5361181,99 83.2751256,99 L83.2751256,99 C63.3238065,99 47,82.575 47,62.5 L47,36.4285714 C47,33.5607143 49.3319724,31.2142857 52.1821608,31.2142857 C52.1821608,31.2142857 71.9365578,26 83.2751256,26" id="Stroke-17" stroke-linecap="round"></path>
+                        <path d="M46.4444444,52 C46.4444444,52 36,51.8388 36,36.4 C36,15.6 44.6114444,9.2768 56.8888889,5.2 C72.5555556,0 83.6736667,0.338 93.4444444,5.2 L98.4316667,7.6804 C101.867889,9.3912 105.909889,9.3912 109.346111,7.6804 L124.777778,0 C124.777778,0 130,5.6316 130,15.6 L130,26 L130,36.4 C130,52 119.555556,52 119.555556,52" id="Stroke-19"></path>
+                        <path d="M94,73.3025 C91.1845392,76.0175 87.2957813,77.6975 83.0025925,77.6975 C78.7042187,77.6975 74.8154608,76.0175 72,73.3025" id="Stroke-25" stroke-linecap="round"></path>
+                    </g>
+                    <path d="M104,52 C104,54.76 101.76,57 99,57 C96.24,57 94,54.76 94,52 C94,49.24 96.24,47 99,47 C101.76,47 104,49.24 104,52" id="Fill-21" fill="currentColor"></path>
+                    <path d="M72,52 C72,54.76 69.76,57 67,57 C64.24,57 62,54.76 62,52 C62,49.24 64.24,47 67,47 C69.76,47 72,49.24 72,52" id="Fill-23" fill="currentColor"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,33 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'info'} | bem">
+    Wir verwenden Cookies auf dieser Webseite, um Ihnen ein optimales Webseiten-Erlebnis zu bieten.
+    Dazu benötigen wir Ihre Einwilligung. Sie können diese jederzeit widerrufen.
+    Weitere Informationen finden Sie in unserer
+    <a
+      [attr.class]="{block: _name, element: 'link'} | bem"
+      [routerLink]="linkDataProtection"
+    >
+      Datenschutzerklärung.
+    </a>
+  </div>
+  <div [attr.class]="{block: _name, element: 'buttons-block'} | bem">
+    <button
+      app-button
+      size="medium"
+      color="secondary-green"
+      [stretch]="true"
+      (click)="setPermission(CookiesPermission.All)"
+    >
+      Einverstanden
+    </button>
+    <button
+      app-button
+      size="medium"
+      color="secondary-green"
+      [stretch]="true"
+      (click)="setPermission(CookiesPermission.No)"
+    >
+      Nicht einverstanden
+    </button>
+  </div>
+</div>

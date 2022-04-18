@@ -1,0 +1,140 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  width: 100%;
+
+  background-color: var(--neutrals-light-extreme-color);
+}
+
+.start-page-promo__media-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 60px 0;
+}
+
+.start-page-promo__media-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 1016px;
+}
+
+.start-page-promo__media-title {
+  margin-bottom: 56px;
+
+  width: 464px;
+
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-promo__media-text {
+  width: 392px;
+
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-promo__image-block {
+  position: relative;
+
+  margin-left: 10px;
+
+  height: 100%;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.start-page-promo__map-image {
+  border-radius: 2px;
+
+  max-height: 480px;
+  height: 100%;
+}
+
+@media (max-width: 980px) {
+  .start-page-promo__media-block {
+    padding: 26px 0;
+  }
+
+  .start-page-promo__media-container {
+    flex-direction: column;
+  }
+
+  .start-page-promo__media-content {
+    margin-bottom: 16px;
+
+    width: 496px;
+  }
+
+  .start-page-promo__media-title {
+    margin-bottom: 16px;
+  }
+
+  .start-page-promo__media-title,
+  .start-page-promo__media-text {
+    width: 100%
+  }
+}
+
+@media (max-width: 1000px) {
+  .start-page-promo__image-block {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .start-page-promo__link {
+    white-space: normal;
+  }
+
+  .start-page-promo__media-block {
+    padding: 24px 16px 32px;
+  }
+
+  .start-page-promo__map-image {
+    height: 288px;
+    width: 100%;
+
+    background-size: cover;
+  }
+}
+
+@media (max-width: 555px) {
+  .start-page-promo__media-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .start-page-promo__media-text {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+
+  .start-page-promo__media-content,
+  .start-page-promo__image-block,
+  .start-page-promo__link-container {
+    width: 100%;
+  }
+
+}

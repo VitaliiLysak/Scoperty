@@ -1,0 +1,158 @@
+:host {
+  display: inline-block;
+}
+
+/* The container */
+.radio-button__container {
+  position: relative;
+  margin-bottom: 0;
+
+  display: flex;
+  align-items: center;
+
+  color: var(--color-ratiobuttons-label);
+
+  font-weight: var(--font-weight-ratiobuttons-label);
+
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.radio-button__container--size-large {
+  min-height: var(--height-ratiobuttons--large);
+  padding-top: 2px;
+  padding-left: 40px;
+
+  font-size: var(--font-size-ratiobuttons-label--large);
+  letter-spacing: var(--letter-spacing-ratiobuttons-label--large);
+  line-height: var(--line-height-ratiobuttons-label--large);
+}
+
+.radio-button__container--size-small {
+  min-height: var(--height-ratiobuttons--small);
+  padding-top: 4px;
+  padding-left: 30px;
+
+  font-size: var(--font-size-ratiobuttons-label--small);
+  letter-spacing: var(--letter-spacing-ratiobuttons-label--small);
+  line-height: var(--line-height-ratiobuttons-label--small);
+}
+
+/* Hide the browser's default radio button */
+.radio-button__container input {
+  position: absolute;
+
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.radio-button__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: var(--border-ratiobuttons-inactive);
+  border-radius: var(--border-radius-ratiobuttons);
+
+  background-color: var(--background-color-checkboxes);
+}
+
+.radio-button__container--size-large .radio-button__checkmark{
+  height: var(--height-ratiobuttons--large);
+  width: var(--width-ratiobuttons--large);
+}
+
+.radio-button__container--size-small .radio-button__checkmark{
+  height: var(--height-ratiobuttons--small);
+  width: var(--width-ratiobuttons--small);
+}
+
+/* On mouse-over, add border color */
+.radio-button__container:hover input ~ .radio-button__checkmark {
+  border: var(--border-ratiobuttons-active);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.radio-button__checkmark:after {
+  position: absolute;
+
+  display: none;
+
+  content: "";
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-button__container input:checked ~ .radio-button__checkmark:after {
+  display: block;
+}
+
+/* Show the border when checked */
+input:checked ~ .radio-button__checkmark {
+  border: var(--border-ratiobuttons-active);
+}
+
+/* Style the indicator (dot/circle) */
+.radio-button__container .radio-button__checkmark:after {
+  border-radius: 50%;
+
+  background-color: var(--background-color-checkboxes-icon);
+}
+
+.radio-button__container--size-large .radio-button__checkmark:after {
+  width: var(--width-ratiobuttons-icon--large);
+  height: var(--height-ratiobuttons-icon--large);
+}
+
+.radio-button__container--size-small .radio-button__checkmark:after {
+  width: var(--width-ratiobuttons-icon--small);
+  height: var(--height-ratiobuttons-icon--small);
+}
+
+.radio-button-wrapper {
+  position: relative;
+}
+
+.radio-button-wrapper input {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+}
+
+.radio-button__container--radio-button-type-button-large {
+  height: 44px;
+  width: 184px;
+  border-radius: 2px;
+  border: 2px solid var(--neutrals-light-middle-color);
+
+  color: var(--neutrals-dark-light-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+  text-align: center;
+
+  background-color: var(--neutrals-light-middle-color);
+}
+
+.radio-button__container--radio-button-type-button-large:hover {
+  border: 2px solid var(--secondary-cta-default-color);
+}
+
+input:checked ~ .radio-button__container--radio-button-type-button-large {
+  border-color: var(--background-color-checkbox-active);
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--background-color-checkbox-active);
+}

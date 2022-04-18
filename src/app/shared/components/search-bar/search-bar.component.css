@@ -1,0 +1,271 @@
+:host {
+  width: 100%;
+
+  font-family: "Nunito Sans", sans-serif;
+}
+
+:host * {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.search-bar__wrapper {
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 28px;
+  padding: 0 8px;
+}
+
+.search-bar__wrapper.search-bar__wrapper--mode-disagreement {
+   padding: 0;
+ }
+
+.search-bar__wrapper--margin-bottom-none {
+  border-bottom: none;
+}
+
+.search-bar__wrapper:focus-within,
+.search-bar__wrapper--state-empty {
+  outline: none;
+}
+
+.search-bar__input {
+  display: flex;
+
+  flex: 1 1 auto;
+
+  border: none;
+  width: 209px;
+  border-bottom: 1px solid var(--brand-dark-green-color);
+
+  font-weight: var(--font-weight-input);
+  font-size: var(--font-size-input);
+  letter-spacing: var(--letter-spacing-input);
+  -webkit-font-smoothing: antialiased;
+
+  color: var(--brand-dark-green-color);
+
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+.search-bar__input:focus {
+  outline: none;
+}
+
+.search-bar__input::placeholder{
+  font-size: var(--font-semibold-16pkt-size);
+  font-weight: var(--font-semibold-16pkt-weight);
+  letter-spacing: var(--font-semibold-16pkt-letter-spacing);
+  line-height: var(--font-semibold-16pkt-line-height);
+  font-family: "Nunito Sans", sans-serif;
+
+  color: var(--brand-dark-green-color);
+
+  opacity: 1;
+}
+
+/* fix bottom-margin on Safari Mobile */
+@supports (-webkit-overflow-scrolling: touch) {
+  .search-bar__input::placeholder {
+    line-height: normal;
+  }
+}
+
+.search-bar__input:-ms-input-placeholder{
+  color: var(--brand-dark-green-color);
+}
+
+.search-bar__input--display-big-true{
+  width: 474px;
+  padding-right: 16px;
+}
+
+.search-bar__wrapper--mobile-size-true {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  height: 50px;
+  border: none;
+
+  outline: none;
+}
+
+.search-bar__wrapper--mobile-size-true:hover {
+  border: none;
+
+  outline: none;
+}
+
+.search-bar__wrapper--mobile-size-true .search-bar__input {
+  width: 100%;
+  padding: 0 9px;
+}
+
+.search-bar__icon {
+  margin-top: 7px;
+  margin-right: 5px;
+
+  width: 19px;
+  height: 23px;
+
+  background-image: url('../../../../assets/images/search-glass-for-search-field.svg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.search-bar__icon--display-none{
+  display: none;
+}
+
+.search-bar__wrapper:focus-within{
+  border-bottom: none;
+
+  outline: 0;
+}
+
+.search-bar__data-row-reg {
+  position: relative;
+}
+
+.search-bar__data-key-reg {
+  margin-bottom: .05rem;
+
+  font-size: var(--font-light-16pkt-size);
+  font-weight: var(--font-light-16pkt-weight);
+  letter-spacing: var(--font-light-16pkt-letter-spacing);
+  line-height: var(--font-light-12pkt-line-height);
+
+  color: var(--font-second-color);
+}
+
+.search-bar__input-native {
+  width: 100%;
+  height: 44px;
+  border: var(--border-input-standart);
+  border-radius: var(--border-radius-input);
+  padding: 7px 14px;
+
+  font-weight: var(--font-weight-input);
+  font-size: var(--font-size-input);
+  letter-spacing: var(--letter-spacing-input);
+  white-space: nowrap;
+
+  color: var(--color-input-active);
+
+  background-color: var(--background-initial);
+  outline: 0;
+}
+
+.search-bar__data-row-reg input:hover {
+  border: var(--border-input-hover);
+}
+
+.search-bar__data-row-reg input:focus {
+  border: var(--border-input-active);
+}
+
+.search-bar__input-native--state-complete {
+  border: var(--border-input-filled);
+}
+
+.search-bar__data-row-reg--state-error:after {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+
+  color: var(--text-alert);
+  font-weight: 300;
+  font-size: 20px;
+
+  content: '!';
+}
+
+.search-bar__data-row-reg--state-error label,
+.search-bar__data-row-reg--state-error:hover label {
+  color: var(--color-label-error);
+}
+
+.search-bar__data-row-reg--state-error input,
+.search-bar__data-row-reg--state-error input:hover,
+.search-bar__data-row-reg--state-error input:focus {
+  border: var(--border-input-error);
+
+  color: var(--color-input-error);
+}
+
+.search-bar__message-reg {
+  margin-top: 4px;
+
+  display: block;
+
+  font-size: var(--font-size-feedback);
+  line-height: var(--line-height-feedback);
+  font-weight: var(--font-weight-feedback);
+  letter-spacing: var(--letter-spacing-feedback);
+
+  color: var(--color-feedback-error);
+}
+
+.search-bar__close {
+  position: absolute;
+  right: 18px;
+  top: 25px;
+
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  background-image: url('../../../../assets/images/close-search.svg');
+  background-position: 50% 50%;
+  cursor: pointer;
+}
+
+/* @media (max-width: 1500px) {
+  .search-bar__input {
+    width: 160px;
+
+    line-height: 1.5;
+  }
+} */
+
+@media (max-width: 1919px) {
+  .search-bar__input {
+    width: 127px;
+
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 450px) {
+  .search-bar__input-native--width-mobile-100per {
+    width: 100%;
+  }
+
+  .search-bar__input--border-on-mobile-none {
+    border: none;
+  }
+
+  .search-bar__input--border-on-mobile-none::placeholder {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 20px;
+
+    color: hsl(0, 0%, 73%);
+  }
+}
+
+@media (max-width: 350px) {
+  .search-bar__input {
+    font-size: 14px;
+  }
+
+  .search-bar__wrapper--mode-onboarding-process-true .search-bar__input {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,9 @@
+<div [style.width]="size" [style.height]="size">
+  <div
+    [attr.class]="{block: _name, element: 'content'} | bem"
+    [style.transform]="cssRotate"
+    [style.font-size]="fontSize"
+  >
+    {{ text }}
+  </div>
+</div>

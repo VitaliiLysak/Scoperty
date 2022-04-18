@@ -1,0 +1,26 @@
+<div [attr.class]="{ block: name, element: 'data-block' } | bem">
+  <!-- Header -->
+  <div [attr.class]="{ block: name, element: 'data-row' } | bem">
+    <div [attr.class]="{ block: name, element: 'data-title' } | bem">
+      {{ heading }}
+    </div>
+
+    <div [attr.class]="{ block: name, element: 'expand-button-container' } | bem">
+      <button
+        app-icon-button
+        color="primary-green"
+        (click)="toggleBodyVisibility()"
+      >
+        <mat-icon [svgIcon]="expandIcon" appSvgSize="40px"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div
+    *ngIf="show"
+    [attr.class]="{ block: name, element: 'data-content' } | bem"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

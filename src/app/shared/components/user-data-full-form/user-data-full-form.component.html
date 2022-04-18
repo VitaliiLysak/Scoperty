@@ -1,0 +1,129 @@
+<div [attr.class]="{block: _name, element: 'body'} | bem">
+  <form
+    [attr.class]="{block: _name, element: 'request-form'} | bem"
+    [formGroup]="requestForm"
+  >
+    <div [attr.class]="{block: _name, element: 'field-container'} | bem">
+      <div [attr.class]="{block: _name, element: 'field-title'} | bem">
+        Anrede
+      </div>
+      <div [attr.class]="{block: _name, element: 'gender-container'} | bem">
+        <div
+          id="{{locationPrefix}}-user-data-gender-female"
+          [attr.class]="{
+          block: _name,
+          element: 'gender',
+          mods: {
+            'state': (request.gender === 'W') ? 'active' : 'inactive'
+          }
+        } | bem"
+          (click)="changeGender('W')"
+        >
+          Frau
+        </div>
+        <div
+          id="{{locationPrefix}}-user-data-gender-male"
+          [attr.class]="{
+          block: _name,
+          element: 'gender',
+          mods: {
+            'state': (request.gender === 'M') ? 'active' : 'inactive'
+          }
+        } | bem"
+          (click)="changeGender('M')"
+        >
+          Herr
+        </div>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+      <app-string-input
+        [inputId]="locationPrefix + '-user-data-firstname'"
+        label="Vorname"
+        placeholder="Vorname eingeben"
+        [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+        [validatorNames]="['nameLength', 'nameRequired']"
+        (blurred)="blurred('firstName', $event)"
+        (created)="created('firstName', $event)"
+      ></app-string-input>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+      <app-string-input
+        [inputId]="locationPrefix + '-user-data-lastname'"
+        label="Nachname"
+        placeholder="Nachname eingeben"
+        [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+        [validatorNames]="['surnameRequired']"
+        (blurred)="blurred('secondName', $event)"
+        (created)="created('secondName', $event)"
+      ></app-string-input>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+      <app-string-input
+        [inputId]="locationPrefix + '-user-data-email'"
+        label="E-Mail-Adresse"
+        placeholder="E-Mail-Adresse eingeben"
+        [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+        [validatorNames]="['emailRequired', 'emailPattern']"
+        (blurred)="blurred('email', $event)"
+        (created)="created('email', $event)"
+      ></app-string-input>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'input-row', mods: {'mb':'8px'}} | bem">
+      <app-string-input
+        [inputId]="locationPrefix + '-user-data-phone'"
+        label="Telefonnummer"
+        placeholder="Deine Telefonnummer eingeben"
+        [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+        [validatorNames]="['phoneRequired', 'phonePattern']"
+        (blurred)="blurred('phone', $event)"
+        (created)="created('phone', $event)"
+      ></app-string-input>
+    </div>
+  </form>
+
+  <!-- Data protection explanation -->
+  <div [attr.class]="{ block: _name, element: 'data-protection-explanation' } | bem">
+    Es gilt unsere
+    <a
+      id="{{locationPrefix}}-user-data-protection-link"
+      app-button
+      buttonStyle="link"
+      color="inline-green"
+      (click)="goToToDataProtectionPage()"
+      queryParamsHandling="merge"
+    >Datenschutzerklärung</a>.
+  </div>
+
+  <button
+    id="{{locationPrefix}}-user-data-submit"
+    app-button
+    size="medium"
+    [color]="buttonColor"
+    buttonStyle="button"
+    [stretch]="true"
+    (click)="apply()"
+  >
+    {{buttonText}}
+  </button>
+</div>

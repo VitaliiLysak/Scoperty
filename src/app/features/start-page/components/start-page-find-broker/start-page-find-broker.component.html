@@ -1,0 +1,27 @@
+<div
+  [attr.class]="{block: _name, element: 'container'} | bem"
+  app-responsive-image
+  src="assets/images/start-page/find-broker.png"
+  [multiResolution]="false"
+>
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      Ich möchte meine Immobilie über einen Makler verkaufen!
+    </div>
+    <a
+      id="landing-find-broker-link"
+      app-button
+      buttonStyle="link"
+      size="large"
+      color="green"
+      [routerLink]="linkToSearchBroker"
+      queryParamsHandling="merge"
+    >
+      Finde deinen Immobilienmakler
+      <mat-icon
+        svgIcon="chevron_right"
+        appSvgSize="24px"
+      ></mat-icon>
+    </a>
+  </div>
+</div>

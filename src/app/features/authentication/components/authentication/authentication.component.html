@@ -1,0 +1,155 @@
+<app-base-modal [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    Authentifizierung
+  </ng-container>
+
+  <ng-container *ngIf="unknownError" app-base-modal-message>
+    <app-generic-error-alert></app-generic-error-alert>
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <form [formGroup]="authenticationForm">
+      <!-- Given & family name, only if user is not authenticated -->
+      <ng-container *ngIf="!isUserAuthenticated">
+        <!-- Given name -->
+        <div [attr.class]="{ block: name, element: 'form-field' } | bem">
+          <app-form-field label="Vorname">
+            <input
+              id="given-name"
+              type="text"
+              app-input
+              appValidateOnBlur [validateFormControl]="givenNameControl"
+              [formControl]="givenNameControl"
+            >
+
+            <ng-template app-form-field-error-message error="required">
+              Vorname ist ein Pflichtfeld
+            </ng-template>
+          </app-form-field>
+        </div>
+
+        <!-- Family name -->
+        <div [attr.class]="{ block: name, element: 'form-field' } | bem">
+          <app-form-field label="Nachname">
+            <input
+              id="family-name"
+              type="text"
+              app-input
+              appValidateOnBlur [validateFormControl]="familyNameControl"
+              [formControl]="familyNameControl"
+            >
+
+            <ng-template app-form-field-error-message error="required">
+              Nachname ist ein Pflichtfeld
+            </ng-template>
+          </app-form-field>
+        </div>
+      </ng-container>
+
+      <!-- Floor & apartment (only MFH) -->
+      <div *ngIf="isMFH" [attr.class]="{ block: name, element: 'form-field', mods: { 'mfh': true } } | bem">
+        <div [attr.class]="{ block: name, element: 'form-field-items' } | bem">
+          <!-- Floor -->
+          <div [attr.class]="{ block: name, element: 'form-field-item', mods: { 'item': 'floor' } } | bem">
+            <app-form-field label="Stockwerk">
+              <app-select-input
+                id="floor"
+                placeholder="Auswählen"
+                [items]="floors"
+                [formControl]="floorControl"
+              ></app-select-input>
+
+              <ng-template app-form-field-error-message error="required">
+                Stockwerk ist ein Pflichtfeld
+              </ng-template>
+            </app-form-field>
+          </div>
+
+          <!-- Living area -->
+          <div [attr.class]="{ block: name, element: 'form-field-item', mods: { 'item': 'living-area' } } | bem">
+            <app-form-field label="Wohnfläche">
+              <input
+                id="living-area"
+                type="text"
+                placeholder="m2"
+                app-input
+                [textMask]="{ mask: areaInputMask }"
+                [formControl]="livingAreaControl"
+                appValidateOnBlur [validateFormControl]="livingAreaControl"
+              >
+
+              <ng-template app-form-field-error-message error="required">
+                Wohnfläche ist ein Pflichtfeld
+              </ng-template>
+              <ng-template app-form-field-error-message error="min">
+                Bitte gib mindestens {{ livingAreaBoundaries.minLivingArea | number }} ein
+              </ng-template>
+              <ng-template app-form-field-error-message error="max">
+                Bitte gib maximal {{ livingAreaBoundaries.maxLivingArea | number }} ein
+              </ng-template>
+            </app-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property owner or realtor -->
+      <div
+        [attr.class]="{
+          block: name,
+          element: 'owner-or-realtor',
+          mods: { 'authenticated': this.isUserAuthenticated }
+        } | bem"
+      >
+        <app-form-field>
+          <app-radio-group name="role" [formControl]="roleControl">
+            <app-radio-button [value]="Role.Owner">
+              Ich bestätige, dass ich der Eigentümer bin
+            </app-radio-button>
+
+            <app-radio-button [value]="Role.Realtor">
+              Ich bestätige, dass ich der vom Eigentümer autorisierte Makler bin
+            </app-radio-button>
+          </app-radio-group>
+
+          <ng-template app-form-field-error-message error="required">
+            Bitte bestätige, dass du berechtigt bist
+          </ng-template>
+        </app-form-field>
+      </div>
+
+      <!-- Phone number -->
+      <app-authentication-phone-number
+        [userIsAuthenticated]="isUserAuthenticated"
+        [phoneNumber]="mobilePhoneControl"
+      ></app-authentication-phone-number>
+    </form>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <ng-container app-base-modal-actions>
+      <ng-container *ngIf="isUserAuthenticated; else userNotAuthenticatedActions">
+        <button
+          app-button
+          color="primary-green"
+          size="medium"
+          [stretch]="true"
+          (click)="confirm()"
+        >
+          Bestätigen
+        </button>
+      </ng-container>
+
+      <ng-template #userNotAuthenticatedActions>
+        <button
+          app-button
+          color="primary-green"
+          size="medium"
+          [stretch]="true"
+          (click)="sendConfirmationCode()"
+        >
+          SMS-Code anfordern
+        </button>
+      </ng-template>
+    </ng-container>
+  </ng-container>
+</app-base-modal>

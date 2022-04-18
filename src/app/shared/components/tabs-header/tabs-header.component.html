@@ -1,0 +1,23 @@
+<div
+  [attr.class]="{block: _name, element: 'tabs-container', mods: {'theme': theme}} | bem"
+  #tabsContainer
+>
+  <div [attr.class]="{block: _name, element: 'tabs', mods: {'theme': theme}} | bem">
+    <app-tabs-header-tab
+      *ngFor="let tabElement of tabElementList"
+      [name]="tabElement.name"
+      [theme]="theme"
+      [active]="isTabActive(tabElement.name)"
+      (tabSelect)="onTabSelect(tabElement.name)"
+      (mouseOver)="onHoverStart(tabElement.name)"
+      (mouseOut)="onHoverEnd()"
+    >
+      <ng-container *ngTemplateOutlet="tabElement.template"></ng-container>
+    </app-tabs-header-tab>
+
+    <div
+      [attr.class]="{block: _name, element: 'tabs-thumb', mods: {'theme': theme}} | bem"
+      [ngStyle]="tabsThumbStyle"
+    ></div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+:host {
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.broker-faq__row {
+  display: flex;
+
+  max-width: 944px;
+
+  -webkit-touch-callout: none;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.broker-faq__row--type-spoiler {
+  margin: 8px 0;
+
+  flex-direction: column;
+
+  border-radius: 4px;
+}
+
+.broker-faq__spoiler-text {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+/* Responsive */
+
+@media only screen and (min-width: 761px) and (max-width: 1180px) {
+  .broker-faq__row--type-spoiler {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .broker-faq__row {
+    width: 92%;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .broker-faq__row--type-spoiler {
+    margin: 5px 0;
+  }
+
+  .broker-faq__row {
+    width: calc(100% - 34px);
+  }
+}

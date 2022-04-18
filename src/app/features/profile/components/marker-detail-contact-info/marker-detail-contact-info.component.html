@@ -1,0 +1,244 @@
+<div [attr.class]="{block: _name, element: 'separator', mods:{'height': '16px'}} | bem"></div>
+
+<ng-container *ngIf="mode === 'show'; then view else edit"></ng-container>
+
+<ng-template #view>
+  <div [attr.class]="{block: _name, element: 'row', mods:{'weight': 'bold'}} | bem">{{model.ContactCompany}}</div>
+  <div *ngIf="model.ContactFirstName || model.ContactLastName" [attr.class]="{block: _name, element: 'row'} | bem">
+    {{model.ContactGender === 'M'? 'Herr' : 'Frau'}} {{model.ContactFirstName + ' ' + model.ContactLastName}}
+  </div>
+  <div [attr.class]="{block: _name, element: 'row'} | bem">{{model.ContactAddress}}</div>
+  <div [attr.class]="{block: _name, element: 'row'} | bem">{{model.ContactPostalCode}} {{model.ContactLocality}}</div>
+  <div [attr.class]="{block: _name, element: 'row', mods: {'justify': 'center'}} | bem">
+    <div [attr.class]="{block: _name, element: 'btn', mods: {'type': 'contact'}} | bem" (click)="contactMe()">
+      Anbieter kontaktieren
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #edit>
+  <div [attr.class]="{block: _name, element: 'container'} | bem">
+    <div [attr.class]="{block: _name, element: 'radio-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'row', mods: {'height': '45px'}} | bem">
+        <input
+          type="radio"
+          id="address-box-1"
+          name="address"
+          value="old-address"
+          required
+          [attr.class]="{block: _name, element: 'selection-input'} | bem"
+        >
+        <label
+          for="address-box-1"
+          [attr.class]="{block: _name, element: 'label'} | bem"
+        >
+          <div [attr.class]="{block: _name, element: 'label-text'} | bem">
+            Adresse der Immobilie übernehmen
+          </div>
+        </label>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'row', mods: {'height': '45px'}} | bem">
+        <input
+          type="radio"
+          id="address-box-2"
+          name="address"
+          value="new-address"
+          required
+          [attr.class]="{block: _name, element: 'selection-input'} | bem"
+        >
+        <label
+          for="address-box-2"
+          [attr.class]="{block: _name, element: 'label'} | bem"
+        >
+          <div [attr.class]="{block: _name, element: 'label-text'} | bem">
+            Neue Adresse hinzufügen
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <app-string-input
+      label="Unternehmen (optional)"
+      placeholder="Hier eingeben"
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <div [attr.class]="{block: _name, element: 'separator', mods:{'height': '10px'}} | bem"></div>
+
+    <div [attr.class]="{block: _name, element: 'row', mods: {'height': '74px', 'size': '272px', 'mobile-width': '100'}} | bem">
+      <label [attr.class]="{block: _name, element: 'row', mods: {'size': 'half', 'state': 'edit'}} | bem">
+        <div [attr.class]="{block: _name, element: 'row-key'} | bem">
+          Anrede
+        </div>
+        <div [attr.class]="{block: _name, element: 'row-value', mods: {'state': 'custom-edit', 'buttons': 'poll', 'type': 'tabs'}} | bem">
+          <div
+            [attr.class]="{block: _name, element: 'button', mods: {'state': (model.ContactGender === 'F') ? 'active': 'default'}} | bem"
+          >
+            Frau
+          </div>
+          <div
+            [attr.class]="{block: _name, element: 'button', mods: {'state': (model.ContactGender === 'M') ? 'active': 'default'}} | bem"
+          >
+            Herr
+          </div>
+        </div>
+      </label>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'separator', mods:{'height': '12px'}} | bem"></div>
+
+    <app-string-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="Vorname"
+      placeholder="Hier eingeben"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <app-string-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="Name"
+      placeholder="Hier eingeben"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <app-string-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="Straße/Hausnummer"
+      placeholder="Hier eingeben"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <app-number-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="PLZ"
+      placeholder="Hier eingeben"
+      [initialValue]="''"
+      [validatorNames]="['plz']"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-number-input>
+
+    <app-string-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="Wohnort"
+      placeholder="Hier eingeben"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <app-string-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="Telefon"
+      placeholder="Hier eingeben"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <app-string-input
+      [attr.class]="{block: _name, element: 'app-string-input'} | bem"
+      label="E-Mail-Adresse"
+      placeholder="Hier eingeben"
+      [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+    ></app-string-input>
+
+    <!--
+    <div [attr.class]="{block: _name, element: 'radio-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'row', mods: {'height': '45px'}} | bem">
+        <input
+          type="radio"
+          id="contact-box-1"
+          name="contact"
+          value="PropertyAddress"
+          required
+          [attr.class]="{block: _name, element: 'selection-input'} | bem"
+        >
+        <label
+          for="contact-box-1"
+          [attr.class]="{block: _name, element: 'label'} | bem"
+        >
+          <div [attr.class]="{block: _name, element: 'label-text'} | bem">
+            Kontakt vollständig anzeigen
+          </div>
+        </label>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'row', mods: {'height': '45px'}} | bem">
+        <input
+          type="radio"
+          id="contact-box-2"
+          name="contact"
+          value="PropertyAddress"
+          required
+          [attr.class]="{block: _name, element: 'selection-input'} | bem"
+        >
+        <label
+          for="contact-box-2"
+          [attr.class]="{block: _name, element: 'label'} | bem"
+        >
+          <div [attr.class]="{block: _name, element: 'label-text'} | bem">
+            Nur E-Mail-Adresse-anzeigen
+          </div>
+        </label>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'row', mods: {'height': '45px'}} | bem">
+        <input
+          type="radio"
+          id="contact-box-3"
+          name="contact"
+          value="PropertyAddress"
+          required
+          [attr.class]="{block: _name, element: 'selection-input'} | bem"
+        >
+        <label
+          for="contact-box-3"
+          [attr.class]="{block: _name, element: 'label'} | bem"
+        >
+          <div [attr.class]="{block: _name, element: 'label-text'} | bem">
+            Nichts anzeigen
+          </div>
+        </label>
+      </div>
+    </div>
+    -->
+  </div>
+</ng-template>

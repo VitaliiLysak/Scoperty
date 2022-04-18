@@ -1,0 +1,21 @@
+<section
+  [attr.class]="{block: name, element: 'media-block'} | bem"
+>
+  <div [attr.class]="{block: name, element: 'header'} | bem">Entdecke jetzt deine Stadt!</div>
+  <div id="landing-cities-wrapper" [attr.class]="{block: name, element: 'cities-container'} | bem">
+    <div
+      (click)="openCity(city)"
+      *ngFor="let city of cities"
+      [attr.class]="{block: name, element: 'city'} | bem">
+      <div [attr.class]="{block: name, element: 'city-img-wrapper'} | bem">
+        <img
+          srcset="{{city.imagePath['1x']}},
+                  {{city.imagePath['1.5x']}} 1.5x,
+                  {{city.imagePath['2x']}} 2x,"
+          [src]="city.imagePath['1x']"
+          [alt]="city.displayName">
+      </div>
+      <span>{{city.displayName}}</span>
+    </div>
+  </div>
+</section>

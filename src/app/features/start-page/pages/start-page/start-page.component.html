@@ -1,0 +1,51 @@
+<!-- Header -->
+<app-start-page-header></app-start-page-header>
+
+<div [attr.class]="{block: _name, element: 'tabs-container'} | bem">
+  <app-tabs-header
+    [activeTab]="activeTab"
+    [attr.class]="{block: _name, element: 'tabs-header'} | bem"
+    (activeTabChange)="activeTabChange($event)">
+  >
+    <ng-template appTabsHeaderTab name="sell">
+      Verkaufen
+    </ng-template>
+    <ng-template appTabsHeaderTab name="buy">
+      Kaufen
+    </ng-template>
+  </app-tabs-header>
+
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Promo -->
+<app-start-page-promo></app-start-page-promo>
+<!-- Cities -->
+<app-start-page-cities></app-start-page-cities>
+
+<!-- Owner benefits -->
+<div [attr.class]="{block: _name, element: 'inner'} | bem">
+  <div [attr.class]="{block: _name, element: 'benefits-wrapper'} | bem">
+    <app-start-page-owner-benefits></app-start-page-owner-benefits>
+  </div>
+</div>
+
+<!-- Calculate mortgage -->
+<app-start-page-calculate-mortgage></app-start-page-calculate-mortgage>
+
+<!-- How it works -->
+<app-start-page-how-it-works></app-start-page-how-it-works>
+
+<!-- Find broker -->
+<app-start-page-find-broker></app-start-page-find-broker>
+
+<app-object-slider
+  locationPrefix="landing"
+  *ngIf="isMarkersListNotEmpty"
+  [markers]="markers"
+  [isLoaded]="isLoaded"
+  [titleText]="sliderTitle"
+></app-object-slider>
+
+<!-- Slogan -->
+<app-start-page-slogan></app-start-page-slogan>

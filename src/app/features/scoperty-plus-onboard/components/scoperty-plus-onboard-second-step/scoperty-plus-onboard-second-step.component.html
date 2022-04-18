@@ -1,0 +1,21 @@
+<p class="ssecond-step_label" [innerHTML]="label"></p>
+
+<ng-container [ngSwitch]="activeStepIndex">
+  <app-substep7
+    *ngSwitchCase="6"
+    (emailChange)="onEmailChange($event)"
+  ></app-substep7>
+  <app-substep8
+    *ngSwitchCase="7"
+    [email]="email"
+    (returnToEmail)="onReturnToEmail()"
+    (signUp)="onSignUp($event)"
+  >
+  </app-substep8>
+  <app-substep9
+    *ngSwitchCase="8"
+    [email]="email"
+    (returnToEmail)="onReturnToEmail()"
+    (signIn)="onSignIn($event)"
+  ></app-substep9>
+</ng-container>

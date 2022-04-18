@@ -1,0 +1,65 @@
+// Contains all icons used with mat-icon component.
+// If you want to use more svg icons add them to the appropriate array.
+
+const SCOPERTY_ICONS: string[] = [
+  'address',
+  'camera',
+  'favorite',
+  'favorite_outline',
+  'facebook',
+  'xing',
+  'logo',
+  'tick',
+  'close-icon-thin',
+  'realtor_with_arrow',
+  'map',
+  'megaphone_with_arrow',
+  'statistics_with_arrow',
+  'megaphone',
+  'person',
+  'register',
+  'statistics',
+  'realtor',
+  'logo_icon',
+  'worm',
+  'lock-icon',
+  'magnifying_glass_with_house',
+  'sell',
+  'success',
+  'hand_with_house',
+  'icon_bulb',
+  'partner_interhyp',
+  'play_video',
+  'sort-down-white',
+  'filter',
+  'arrow-right',
+  'arrow-left',
+  'search'
+];
+
+const MATERIAL_ICONS: string[] = [
+  'add',
+  'arrow_down',
+  'arrow_up',
+  'arrow_drop_down',
+  'check',
+  'chat_outline',
+  'close',
+  'delete',
+  'edit',
+  'expand_more',
+  'expand_less',
+  'info_outline',
+  'check_circle_outline',
+  'error_outline',
+  'chevron_left',
+  'chevron_right',
+  'menu',
+  'person_outline',
+  'remove',
+];
+
+export const SVG_ICONS: string[] = [
+  ...SCOPERTY_ICONS,
+  ...MATERIAL_ICONS,
+];

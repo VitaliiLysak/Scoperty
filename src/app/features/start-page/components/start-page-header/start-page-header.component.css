@@ -1,0 +1,139 @@
+:host {
+  position: relative;
+
+  display: block;
+  overflow: visible;
+
+  width: 100%;
+
+  background-color: hsl(204, 13%, 41%); /* Not using styleguide css variable because it depends on the image colors */
+}
+
+.start-page-header__container {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  width: 100%;
+  min-height: 360px;
+  max-height: 720px;
+}
+
+.start-page-header__video {
+  width: 100%;
+}
+
+.start-page-header__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+.start-page-header__description {
+  position: relative;
+  bottom: 0;
+  z-index: 3;
+  margin: auto auto 16px auto;
+
+  width: 93%;
+  max-width: 1016px;
+}
+
+.start-page-header__title {
+  max-width: 720px;
+
+  color: var(--neutrals-white-color);
+  font-size: 64px;
+  font-family: 'PT Serif';
+  line-height: 72px;
+  letter-spacing: 2px;
+}
+
+.start-page-header__subtitle {
+  margin-top: 16px;
+  margin-bottom: 0;
+
+  color: var(--neutrals-white-color);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 40px;
+  letter-spacing: 1.5px;
+}
+
+.start-page-header__video-mask-container {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 100%;
+
+  color: var(--neutrals-white-color);
+}
+
+@supports (-moz-appearance:meterbar) {
+  .start-page-header__video-mask-container {
+    margin-bottom: -1px;
+  }
+}
+
+.start-page-header__video-mask {
+  width: 100%;
+  height: auto;
+}
+
+.start-page-header__badge-container {
+  position: absolute;
+  top: 32%;
+  left: 65%;
+
+  display: block;
+
+  text-align: center;
+}
+
+.start-page-header__badge {
+  position: relative;
+  bottom: 0;
+  z-index: 3;
+  margin: 0 0 0 auto;
+}
+
+/* Responsive */
+
+@media (max-width: 450px) {
+  .start-page-header__description {
+    margin-right: 0;
+    margin-left: 0;
+
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .start-page-header__container {
+    min-height: 280px;
+    max-height: 280px;
+  }
+
+  .start-page-header__title {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+  }
+
+  .start-page-header__subtitle {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 980px) {
+  .start-page-header__badge-container {
+    display: none;
+  }
+}

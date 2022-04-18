@@ -1,0 +1,13 @@
+<a
+  [id]="linkId"
+  [attr.class]="{block: _name, element: 'contact'} | bem"
+  [href]="href"
+>
+  <div [attr.class]="{block: _name, element: 'contact-icon', mods: {'type': icon}} | bem"></div>
+  <div [attr.class]="{block: _name, element: 'contact-type'} | bem">
+    {{ heading }}
+  </div>
+  <div [attr.class]="{block: _name, element: 'contact-description'} | bem">
+    {{ message }}
+  </div>
+</a>

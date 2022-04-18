@@ -1,0 +1,27 @@
+<!-- Heading -->
+<div [attr.class]="{ block: name, element: 'heading' } | bem">
+  Analysiere, beobachte und verkaufe deine Immobilie
+</div>
+
+<!-- List -->
+<ol [attr.class]="{ block: name, element: 'list' } | bem">
+  <li
+    *ngFor="let listItem of listItems; let i = index"
+    [attr.class]="{ block: name, element: 'list-item' } | bem"
+    [attr.data-count]="i + 1"
+  >
+    {{ listItem }}
+  </li>
+</ol>
+
+<!-- Actions -->
+<div [attr.class]="{ block: name, element: 'actions' } | bem">
+  <button
+    app-button
+    color="secondary-green"
+    [stretch]="true"
+    (click)="clickButton()"
+  >
+    Jetzt starten
+  </button>
+</div>

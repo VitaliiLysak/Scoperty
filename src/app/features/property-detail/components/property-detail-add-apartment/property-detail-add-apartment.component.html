@@ -1,0 +1,46 @@
+<div [attr.class]="{block: _name, element: 'header'} | bem">
+  Ich bin Eigentümer einer Wohnung in diesem Gebäude!
+</div>
+<form
+  [formGroup]="claimingForm"
+  [attr.class]="{block: _name, element: 'form'} | bem"
+>
+  <div [attr.class]="{block: _name, element: 'row'} | bem">
+    <!-- Floor -->
+    <div [attr.class]="{block: _name, element: 'item'} | bem">
+      <app-form-field label="Stockwerk">
+        <app-select-input
+          id="floor"
+          placeholder="Auswählen"
+          [items]="floors"
+          [formControl]="floor"
+        ></app-select-input>
+      </app-form-field>
+    </div>
+
+    <!-- Living area -->
+    <div [attr.class]="{block: _name, element: 'item'} | bem">
+      <app-form-field label="Wohnfläche">
+        <input
+          id="living-area"
+          type="text"
+          placeholder="m2"
+          app-input
+          [textMask]="{ mask: inputAreaMask }"
+          [formControl]="livingArea"
+        >
+      </app-form-field>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'button-container'} | bem">
+    <button
+      app-button
+      color="primary-green"
+      [stretch]="true"
+      (click)="addApartmentToProperty()"
+    >
+      Wohnung hinzufügen
+    </button>
+  </div>
+</form>

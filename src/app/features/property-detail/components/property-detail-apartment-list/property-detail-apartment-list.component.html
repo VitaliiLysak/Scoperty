@@ -1,0 +1,50 @@
+<div
+  *ngFor="let key of apartmentMapKeys"
+  [attr.class]="{
+    block: _name,
+    element: 'status-block',
+    mods: {
+      'has-no-apartments': hasNoApartmentsForKey(key)
+    }
+  } | bem"
+>
+  <!-- Header -->
+  <div [attr.class]="{block: _name, element: 'header'} | bem">
+    <div [attr.class]="{block: _name, element: 'header-main'} | bem">
+      <!-- Apartment for selling status -->
+      <ng-container *ngIf="isForSaleOrMakeMeMoveStatus(key); else apartmentWithOwner">
+        {{frontendStatus(key)}}
+      </ng-container>
+
+      <!-- Apartment with owner -->
+      <ng-template #apartmentWithOwner>
+        Mit Eigentümer
+      </ng-template>
+    </div>
+    <div [attr.class]="{block: _name, element: 'header-off'} | bem">
+      {{getApartmentTitle(key)}}
+    </div>
+  </div>
+
+  <!-- Apartment info -->
+  <app-property-detail-apartment-list-item
+    *ngFor="let apartment of getApartmentsForKey(key)"
+    [attr.class]="{block: _name, element: 'item'} | bem"
+    [defaultTitle]="marker.address"
+    [apartment]="apartment"
+    (openApartment)="goToApartment($event)"
+  >
+  </app-property-detail-apartment-list-item>
+
+  <!-- Scrapped Apartment info -->
+  <ng-container *ngIf="isForSaleStatus(key)">
+    <app-property-detail-apartment-list-item
+      *ngFor="let apartment of marker.scrappedListings"
+      [attr.class]="{block: _name, element: 'item'} | bem"
+      [defaultTitle]="marker.address"
+      [apartment]="apartment"
+      (openApartment)="goToApartment($event)"
+    >
+    </app-property-detail-apartment-list-item>
+  </ng-container>
+</div>

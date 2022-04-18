@@ -1,0 +1,908 @@
+<div
+  [attr.class]="{
+    block: name,
+    element: 'content-wrapper',
+    mods: {'map-page': isMapPage, 'with-shadow': !isProfilePage}
+  } | bem"
+>
+  <div
+    *ngIf="searchBig"
+    [attr.class]="{block: name, element: 'background'} | bem"
+    (click)="bigSearchHandler(false)"
+  >
+  </div>
+
+  <div *ngIf="!isMobileDevice">
+    <div [attr.class]="{block: name, element: 'content'} | bem">
+      <div
+        [attr.class]="{
+          block: name,
+          element: 'first-state',
+          mods: {
+           'border': (searchClicked || profileClicked) ? 'bottom' : 'none',
+           'display': stateManagerService.markersDetailIsOpen? 'none' : 'block'
+          }
+        } | bem"
+      >
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'left-block',
+            mods: {
+             'state': 'default',
+             'display': stateManagerService.markersDetailIsOpen? 'none' : 'block'
+            }
+          } | bem"
+        >
+          <ng-container *ngIf="!hamburgerClicked; then burger else close_button"></ng-container>
+
+          <ng-template #burger>
+            <div
+              [attr.class]="{block: name, element: 'hamburger'} | bem"
+              (click)="onHamburgerClickFromNavbar()"
+            >
+              <span [attr.class]="{block: name, element: 'icon'} | bem"></span>
+              <span [attr.class]="{block: name, element: 'icon'} | bem"></span>
+              <span [attr.class]="{block: name, element: 'icon'} | bem"></span>
+            </div>
+          </ng-template>
+
+          <ng-template #close_button>
+            <div
+              [attr.class]="{block: name, element: 'close-button'} | bem"
+              (click)="onHamburgerClickFromNavbar()"
+            ></div>
+          </ng-template>
+          <div
+            [attr.class]="{block: name, element: 'brand'} | bem"
+            id="header-navbar-logo"
+            (click)="onLogoClick()"
+          >
+            <app-logo></app-logo>
+          </div>
+        </div>
+
+        <!-- Sliding pannel for devices with width <= 1030px -->
+        <div
+          *ngIf="hamburgerClicked"
+          [attr.class]="{
+            block: name,
+            element: 'tab-block',
+            mods: {
+              'margin-right': stateManagerService.isMapPage ? '15': '22',
+              'hidden': !isTabletDevice
+            }
+          } | bem"
+        >
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Maklersuche'? 'active': 'default'}
+            } | bem"
+            id="header-navbar-find-broker"
+            (click)="openSubpage('Maklersuche')"
+            [routerLink]="linkToSearchBroker"
+            queryParamsHandling="merge"
+          >
+            Makler finden
+            <mat-icon
+              *ngIf="hamburgerClicked"
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Baufinanzierung'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Baufinanzierung')"
+            id="header-navbar-property-finance"
+            [routerLink]="linkToBroker"
+            queryParamsHandling="merge"
+          >
+            Baufinanzierung
+            <mat-icon
+              *ngIf="hamburgerClicked"
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Für Makler'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Für Makler')"
+            id="header-navbar-for-brokers-link"
+            [routerLink]="linkToProfessionals"
+            queryParamsHandling="merge"
+          >
+            Für Makler
+            <mat-icon
+              *ngIf="hamburgerClicked"
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Über uns'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Über uns')"
+            id="header-navbar-about-us-link"
+            [routerLink]="linkToAbout"
+            queryParamsHandling="merge"
+          >
+            Über uns
+            <mat-icon
+              *ngIf="hamburgerClicked"
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Hilfe'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Hilfe')"
+            id="header-navbar-how-it-works"
+            [routerLink]="linkToHowItWorks"
+            queryParamsHandling="merge"
+          >
+            So funktioniert's
+            <mat-icon
+              *ngIf="hamburgerClicked"
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+        </div>
+
+
+        <div
+          *ngIf="isMapPage"
+          [attr.class]="{
+            block: name,
+            element: 'search-block',
+            mods: {
+              'state':'narrow-bar',
+              'display-big': searchBig
+            }
+          } | bem"
+        >
+          <app-search-bar #searchBarComponent
+            placeholderValue="Suche"
+            [address]="searchQuery"
+            [focused]="isSidebarFocused"
+            [bigField]="true"
+            (bigSearch)="bigSearchHandler($event)"
+          ></app-search-bar>
+        </div>
+
+        <!-- Fixed panel for devices with width > 1030px -->
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'tab-block-wrapper',
+            mods: {'zur': isSpecialPage ? 'true' : 'false'}
+          } | bem"
+        >
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-block',
+              mods: {'hidden': 'on-width-less-1030px'}
+            } | bem"
+          >
+            <!-- Go back to map page -->
+            <div
+              *ngIf="!isSpecialPage"
+              [attr.class]="{ block: name, element: 'return-link-container' } | bem"
+              [routerLink]="linkToMap"
+              queryParamsHandling="merge"
+            >
+              <button
+                app-button
+                id="header-navbar-back-to-map"
+                buttonStyle="link"
+                color="green"
+                [routerLink]="linkToMap"
+                queryParamsHandling="merge"
+              >
+                <mat-icon svgIcon="chevron_left"></mat-icon>
+                Zur Karte
+              </button>
+            </div>
+
+            <div
+              [attr.class]="{
+                block: name,
+                element: 'tab-link',
+                mods: {'state': activeSubpage === 'Maklersuche'? 'active': 'default'}
+              } | bem"
+              id="header-navbar-find-broker"
+              (click)="openSubpage('Maklersuche')"
+              [routerLink]="linkToSearchBroker"
+              queryParamsHandling="merge"
+            >
+              Makler finden
+            </div>
+            <div
+              [attr.class]="{
+                block: name,
+                element: 'tab-link',
+                mods: {'state': activeSubpage === 'Baufinanzierung'? 'active': 'default'}
+              } | bem"
+              id="header-navbar-property-finance"
+              (click)="openSubpage('Baufinanzierung')"
+              [routerLink]="linkToBroker"
+              queryParamsHandling="merge"
+            >
+              Baufinanzierung
+            </div>
+            <div
+              [attr.class]="{
+                block: name,
+                element: 'tab-link',
+                mods: {'state': activeSubpage === 'Für Makler'? 'active': 'default'}
+              } | bem"
+              (click)="openSubpage('Für Makler')"
+              id="header-navbar-for-brokers-link"
+              [routerLink]="linkToProfessionals"
+              queryParamsHandling="merge"
+            >
+              Für Makler
+            </div>
+            <div
+              [attr.class]="{
+                block: name,
+                element: 'tab-link',
+                mods: {'state': activeSubpage === 'Über uns'? 'active': 'default'}
+              } | bem"
+              (click)="openSubpage('Über uns')"
+              id="header-navbar-about-us-link"
+              [routerLink]="linkToAbout"
+              queryParamsHandling="merge"
+            >
+              Über uns
+            </div>
+            <div
+              [attr.class]="{
+                block: name,
+                element: 'tab-link',
+                mods: {'state': activeSubpage === 'Hilfe'? 'active': 'default'}
+              } | bem"
+              (click)="openSubpage('Hilfe')"
+              id="header-navbar-how-it-works"
+              [routerLink]="linkToHowItWorks"
+              queryParamsHandling="merge"
+            >
+              So funktioniert's
+            </div>
+          </div>
+        </div>
+
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'right-container'
+          } | bem">
+          <app-scoperty-plus-ad></app-scoperty-plus-ad>
+          <ng-container *ngIf="!userNotAuthorized; then profile else singup"></ng-container>
+        </div>
+
+        <ng-template #profile>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'profile-wrapper',
+              mods: {
+                'profile-page': locationPath,
+                'margin-left': !isSpecialPage ? '160px' : 'default'
+              }
+            } | bem"
+            appClickOutside (clickOutside)="toggleProfileMenu(false)"
+          >
+            <div
+              *ngIf="!userNotAuthorized"
+              [attr.class]="{block: name, element: 'profile'} | bem"
+              id="header-navbar-profile-drop-down"
+              (click)="toggleProfileMenu()"
+            >
+              <div [attr.class]="{block: name, element: 'profile-icon'} | bem"></div>
+              <div [attr.class]="{block: name, element: 'profile-arrow'} | bem"></div>
+              <div
+                [attr.class]="{
+                  block: name,
+                  element: 'toggle-menu-profile',
+                  mods: {'state': menuProfileOpened ? 'opened' : 'closed'}
+                } | bem"
+              >
+                <div
+                  [attr.class]="{block: name, element: 'toggle-menu-text'} | bem"
+                  id="header-navbar-profile-link"
+                  [routerLink]="linkToProfile"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  Profil
+                </div>
+                <div
+                  [attr.class]="{block: name, element: 'toggle-menu-text'} | bem"
+                  id="header-navbar-my-space-link"
+                  routerLink="/profile/my-property"
+                  routerLinkActive="active"
+                  queryParamsHandling="merge"
+                >
+                  Mein Bereich
+                </div>
+                <div
+                  [attr.class]="{block: name, element: 'toggle-menu-text', mods: {'color': 'red'}} | bem"
+                  id="header-navbar-log-out-link"
+                  (click)="logout()"
+                >
+                  Ausloggen
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #singup>
+          <div
+            [attr.class]="{block: name, element: 'signup-container'} | bem"
+            appClickOutside (clickOutside)="switchDisplaySignupMenu(false)"
+          >
+            <button
+              app-button
+              id="header-navbar-sign-in-button"
+              color="secondary-green"
+              data-toggle="collapse"
+              data-target=".navbar-collapse.show"
+              (click)="openSignupModal()"
+            >
+              Anmelden
+            </button>
+          </div>
+        </ng-template>
+      </div>
+      <div
+        *ngIf="profileClicked"
+        [attr.class]="{block: name, element: 'second-state'} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'menu-links'} | bem">
+          <div *ngIf="userNotAuthorized">
+            <div
+              [attr.class]="{block: name, element: 'menu-link'} | bem"
+              (click)=showSignupFromNavbar()
+            >
+              Registrieren
+              <mat-icon
+                [attr.class]="{
+                  block: name,
+                  element: 'menu-arrow',
+                  mods: {'color': 'normal'}
+                } | bem"
+                svgIcon="arrow-right"
+              ></mat-icon>
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'menu-link'} | bem"
+              (click)=showLoginFromNavbar()
+            >
+              Login
+              <mat-icon
+                [attr.class]="{
+                  block: name,
+                  element: 'menu-arrow',
+                  mods: {'color': 'normal'}
+                } | bem"
+                svgIcon="arrow-right"
+              ></mat-icon>
+            </div>
+          </div>
+          <div *ngIf="!userNotAuthorized">
+            <div
+              [attr.class]="{block: name, element: 'menu-link'} | bem"
+              [routerLink]="linkToProfile"
+              routerLinkActive="active"
+              queryParamsHandling="merge"
+              (click)="closeHeaderMenu()"
+            >
+              Profile
+              <mat-icon
+                [attr.class]="{
+                  block: name,
+                  element: 'menu-arrow',
+                  mods: {'color': 'normal'}
+                } | bem"
+                svgIcon="arrow-right"
+              ></mat-icon>
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'menu-link'} | bem"
+              [routerLink]="linkToProperty"
+              routerLinkActive="active"
+              queryParamsHandling="merge"
+              (click)="closeHeaderMenu()"
+            >
+              Mein Bereich
+              <mat-icon
+                [attr.class]="{
+                  block: name,
+                  element: 'menu-arrow',
+                  mods: {'color': 'normal'}
+                } | bem"
+                svgIcon="arrow-right"
+              ></mat-icon>
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'menu-link', mods: {'color': 'red'}} | bem"
+              (click)="logoutFromNavbar()"
+            >
+              Ausloggen
+              <mat-icon
+                [attr.class]="{
+                  block: name,
+                  element: 'menu-arrow',
+                  mods: {'color': 'attention'}
+                } | bem"
+                svgIcon="arrow-right"
+              ></mat-icon>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="searchClicked || profileClicked"
+      [attr.class]="{block: name, element: 'backdrop'} | bem"
+      (click)="hideSecondState()"
+    >
+    </div>
+  </div>
+
+  <div *ngIf="isMobileDevice">
+    <div [attr.class]="{block: name, element: 'content'} | bem">
+      <div
+        [attr.class]="{
+            block: name,
+            element: 'first-state',
+            mods: {
+              'border': (searchClicked || profileClicked) ? 'bottom' : 'none',
+              'display': stateManagerService.markersDetailIsOpen? 'none' : 'block'
+            }
+        } | bem"
+      >
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'left-block',
+            mods: {'display': stateManagerService.markersDetailIsOpen? 'none' : 'block'}
+          } | bem"
+        >
+          <ng-container *ngIf="!hamburgerClicked; then burger else close_button"></ng-container>
+
+          <ng-template #burger>
+            <div
+              [attr.class]="{block: name, element: 'hamburger'} | bem"
+              (click)="onHamburgerClickFromNavbar()"
+            >
+              <span [attr.class]="{block: name, element: 'icon'} | bem"></span>
+              <span [attr.class]="{block: name, element: 'icon'} | bem"></span>
+              <span [attr.class]="{block: name, element: 'icon'} | bem"></span>
+            </div>
+          </ng-template>
+
+          <ng-template #close_button>
+            <div
+              [attr.class]="{block: name, element: 'close-button'} | bem"
+              (click)="onHamburgerClickFromNavbar()"
+            ></div>
+          </ng-template>
+
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'brand',
+              mods: {
+                'display': stateManagerService.markersDetailIsOpen ? 'none' : 'block',
+                'display-on-mobile': 'block',
+                'state': isBlockWithoutSearch ? 'without-searchblock' : 'default'
+              }
+            } | bem"
+            id="header-navbar-logo"
+            (click)="onLogoClick()"
+          >
+            <app-logo></app-logo>
+          </div>
+        </div>
+
+        <div
+          *ngIf="hamburgerClicked"
+          [attr.class]="{
+            block: name,
+            element: 'tab-block',
+            mods: {
+              'margin-right': stateManagerService.isMapPage ? '15': '22',
+              'hidden': !isTabletDevice
+            }
+          } | bem"
+        >
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Maklersuche'? 'active': 'default'}
+            } | bem"
+            id="header-navbar-find-broker"
+            (click)="openSubpage('Maklersuche')"
+            [routerLink]="linkToSearchBroker"
+            queryParamsHandling="merge"
+          >
+            Makler finden
+            <mat-icon
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Baufinanzierung'? 'active': 'default'}
+            } | bem"
+            id="header-navbar-property-finance"
+            (click)="openSubpage('Baufinanzierung')"
+            [routerLink]="linkToBroker"
+            queryParamsHandling="merge"
+          >
+            Baufinanzierung
+            <mat-icon
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Für Makler'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Für Makler')"
+            id="header-navbar-for-brokers-link"
+            [routerLink]="linkToProfessionals"
+            queryParamsHandling="merge"
+          >
+            Für Makler
+            <mat-icon
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Über uns'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Über uns')"
+            id="header-navbar-about-us-link"
+            [routerLink]="linkToAbout"
+            queryParamsHandling="merge"
+          >
+            Über uns
+            <mat-icon
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link',
+              mods: {'state': activeSubpage === 'Hilfe'? 'active': 'default'}
+            } | bem"
+            (click)="openSubpage('Hilfe')"
+            id="header-navbar-how-it-works"
+            [routerLink]="linkToHowItWorks"
+            queryParamsHandling="merge"
+          >
+            So funktioniert's
+            <mat-icon
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'tab-link'
+            } | bem"
+            (click)="openScopertyPlusOnBoard()"
+          >
+            <app-scoperty-plus-ad mode="mobile"></app-scoperty-plus-ad>
+            <mat-icon
+              [attr.class]="{
+                block: name,
+                element: 'menu-arrow',
+                mods: {'color': 'normal'}
+              } | bem"
+              svgIcon="arrow-right"
+            ></mat-icon>
+          </div>
+        </div>
+
+        <div
+          *ngIf="!hamburgerClicked"
+          [attr.class]="{
+            block: name,
+            element: 'right-block',
+            mods: {'margin': 'none'}
+          } | bem"
+        >
+          <div
+            *ngIf="isMapIconShown"
+            [attr.class]="{
+              block: name,
+              element: 'menu',
+              mods: {
+                'buttons': 'center',
+                'view': 'mobile'
+              }
+            } | bem"
+            (click)="onMapClick()"
+            [routerLink]="linkToMap"
+            queryParamsHandling="merge"
+          >
+              <span
+                [attr.class]="{
+                  block: name,
+                  element: 'map-icon-mobile',
+                   mods: {'state': mapClicked? 'active' : 'default'}
+                } | bem"
+              >
+              </span>
+          </div>
+
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'search-menu',
+              mods: {'state': searchClicked ? 'active' : 'default'}
+            } | bem"
+            (click)="onSearchClick()">
+          </div>
+
+          <button
+            [attr.class]="{
+              block: name,
+              element: 'menu',
+              mods: {
+                'buttons': 'center',
+                'view': 'mobile',
+                'border': profileClicked? 'with' : 'without'
+              }
+              } | bem"
+            type="button"
+            (click)="onProfileClick()"
+          >
+              <span
+                [attr.class]="{
+                  block: name,
+                  element: 'profile-icon-mobile',
+                  mods: {'state': profileClicked? 'active' : 'default'}
+                } | bem"
+              >
+              </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Search-panel inside dash board, visible after click -->
+      <div
+        *ngIf="searchClicked"
+        [attr.class]="{block: name, element: 'second-state'} | bem"
+      >
+        <app-search-bar
+          placeholderValue="Suche nach deiner Adresse"
+          [attr.class]="{block: name, element: 'search-place'} | bem"
+          [searchClicked]="searchClicked"
+          [focused]="isSidebarFocused"
+        ></app-search-bar>
+      </div>
+
+      <div
+        *ngIf="profileClicked"
+        [attr.class]="{block: name, element: 'second-state'} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'menu-links'} | bem">
+          <div *ngIf="!userNotAuthorized">
+            <ng-container *ngIf="!isDashboardMenuOpened">
+              <div
+                [attr.class]="{block: name, element: 'menu-link'} | bem"
+                (click)="togglesDashboardMenu(true)"
+              >
+                Mein Bereich
+                <mat-icon
+                  [attr.class]="{
+                    block: name,
+                    element: 'menu-arrow',
+                    mods: {'color': 'normal'}
+                  } | bem"
+                  svgIcon="arrow-right"
+                ></mat-icon>
+              </div>
+              <div
+                [attr.class]="{block: name, element: 'menu-link'} | bem"
+                [routerLink]="linkToProfile"
+                routerLinkActive="active"
+                queryParamsHandling="merge"
+                (click)="closeHeaderMenu()"
+              >
+                Profile
+                <mat-icon
+                  [attr.class]="{
+                    block: name,
+                    element: 'menu-arrow',
+                    mods: {'color': 'normal'}
+                  } | bem"
+                  svgIcon="arrow-right"
+                ></mat-icon>
+              </div>
+              <div
+                [attr.class]="{block: name, element: 'menu-link', mods: {'color': 'red'}} | bem"
+                (click)="logoutFromNavbar()"
+              >
+                Ausloggen
+                <mat-icon
+                  [attr.class]="{
+                    block: name,
+                    element: 'menu-arrow',
+                    mods: {'color': 'attention'}
+                  } | bem"
+                  svgIcon="arrow-right"
+                ></mat-icon>
+              </div>
+            </ng-container>
+
+            <ng-container *ngIf="isDashboardMenuOpened">
+              <div
+                [attr.class]="{block: name, element: 'menu-link', mods: {'justify-content': 'start'}} | bem"
+                (click)="togglesDashboardMenu(false)"
+              >
+                <mat-icon
+                  [attr.class]="{
+                    block: name,
+                    element: 'menu-arrow-left'
+                  } | bem"
+                  svgIcon="arrow-left"
+                ></mat-icon>
+                Mein Bereich
+              </div>
+
+              <div
+                [attr.class]="{block: name, element: 'menu-sublink'} | bem"
+                routerLink="/profile/offers"
+                routerLinkActive="active"
+                queryParamsHandling="merge"
+                (click)="closeHeaderMenu()"
+              >
+                Meine Gebote
+              </div>
+
+              <div
+                [attr.class]="{block: name, element: 'menu-sublink'} | bem"
+                routerLink="/profile/my-property"
+                routerLinkActive="active"
+                queryParamsHandling="merge"
+                (click)="closeHeaderMenu()"
+              >
+                Meine Immobilien
+              </div>
+
+              <div
+                *ngIf="featureToggleService.messaging"
+                [attr.class]="{block: name, element: 'menu-sublink'} | bem"
+                routerLink="/profile/chat"
+                routerLinkActive="active"
+                queryParamsHandling="merge"
+                (click)="closeHeaderMenu()"
+              >
+                Nachrichten
+              </div>
+
+              <div
+                [attr.class]="{block: name, element: 'menu-sublink'} | bem"
+                routerLink="/profile/favorites"
+                routerLinkActive="active"
+                queryParamsHandling="merge"
+                (click)="closeHeaderMenu()"
+              >
+                Merkliste
+              </div>
+
+              <div
+                [attr.class]="{block: name, element: 'menu-sublink'} | bem"
+                routerLink="/profile/search-alerts"
+                routerLinkActive="active"
+                queryParamsHandling="merge"
+                (click)="closeHeaderMenu()"
+              >
+                Suchaufträge
+              </div>
+
+            </ng-container>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Separate login menu that is shown when user clicks on Registrieren
+            from pair Login\Registrieren -->
+      <ng-container *ngIf="isOpenSignupMenuMobile">
+        <div [attr.class]="{block: name, element: 'signup-menu'} | bem">
+          <div
+            *ngIf="isMobileDevice"
+            [attr.class]="{block: name, element: 'signup-logo-wrapper'} | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'signup-logo'} | bem"
+              (click)="onLogoClick()"
+            >
+              <app-logo></app-logo>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

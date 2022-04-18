@@ -1,0 +1,42 @@
+<div [attr.class]="{block: _name, element: 'body'} | bem">
+  <div [attr.class]="{block: _name, element: 'header-wrapper'} | bem">
+    <div [attr.class]="{block: _name, element: 'header'} | bem">
+      <div *ngIf="isMobileDevice" [attr.class]="{block: _name, element: 'logo'} | bem">
+        <app-logo></app-logo>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'content-close-icon'} | bem"
+        (click)="close()"
+      >
+        <div [attr.class]="{block: _name, element: 'close-icon'} | bem" (click)="close()"></div>
+      </div>
+    </div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      Wenn du diesen Schritt überspringst, du bist registriert ohne deine Immobilie.
+      <br>
+      Aber du kannst später deine Immobilie immer noch hinzufügen.
+    </div>
+    <div [attr.class]="{block: _name, element: 'buttons-block'} | bem">
+      <div
+        [attr.class]="{block: _name, element: 'link'} | bem"
+        (click)="close()"
+      >
+        Zurück zur Adresssuche
+      </div>
+      <button
+        [attr.class]="{block: _name, element: 'button', mods: {'type':'secondary'}} | bem"
+        (click)="apply()"
+      >
+        Schritt überspringen
+      </button>
+    </div>
+  </div>
+</div>
+<div
+  [attr.class]="{block: _name, element: 'backdrop'} | bem"
+  (click)="close()"
+>
+</div>
+

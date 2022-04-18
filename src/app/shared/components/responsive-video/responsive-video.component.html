@@ -1,0 +1,11 @@
+<video
+  [attr.class]="{ block: name, element: 'video' } | bem"
+  [attr.src]="src"
+  [attr.poster]="poster"
+  [attr.loop]="loop"
+  [attr.width]="width"
+  #video
+>
+  <!-- No video tag support -->
+  Dein Webbrowser unterstützt keine Videos.
+</video>

@@ -1,0 +1,171 @@
+<div *ngIf="!hintShouldBeClosen" [attr.class]="{block: _name, element: 'hint', mods: {'mobile': 'hidden'}} | bem">
+  <div [attr.class]="{block: _name, element: 'hint-text'} | bem">
+    Hier findest du deine neuesten Nachricht.
+  </div>
+  <div
+    [attr.class]="{block: _name, element: 'hint-close'} | bem"
+    (click)="closeHint()"
+  >
+    <span [attr.class]="{block: _name, element: 'close', mods: {'left': 'side'}} | bem"></span>
+    <span [attr.class]="{block: _name, element: 'close', mods: {'right': 'side'}} | bem"></span>
+  </div>
+</div>
+
+<div [attr.class]="{block: _name, element: 'content'} | bem">
+  <div [attr.class]="{block: _name, element: 'filter-block'} | bem">
+    <div [attr.class]="{block: _name, element: 'filter-title'} | bem">
+      Filtern nach
+    </div>
+    <app-select
+      [attr.class]="{block: _name, element: 'select'} | bem"
+      [items]="staticStorage.typesOfSortFilterChatList"
+      [active]="initialFilterValue"
+      (select)="filterChatListByRole($event)"
+      size="small"
+    ></app-select>
+  </div>
+  <div [attr.class]="{block: _name, element: 'row', mods: {'mobile': 'wrapper'}} | bem">
+    <div [attr.class]="{block: _name, element: 'chat-list'} | bem">
+      <div [attr.class]="{block: _name, element: 'chat-search'} | bem">
+        <div [attr.class]="{block: _name, element: 'input-block'} | bem">
+          <i [attr.class]="{block: _name, element: 'search-icon'} | bem"></i>
+          <input
+            [attr.class]="{block: _name, element: 'input'} | bem"
+            (keyup)='keyUpSearchField.next($event)'
+            placeholder="Suche nach einem Namen"
+          >
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'scroll-wrapper'} | bem">
+        <div
+          *ngFor="let personData of chatList"
+          [attr.class]="{
+            block: _name,
+            element: 'chat-item',
+            mods: {'state': activeChat === personData.name ? 'active': 'default'}
+          } | bem"
+          (click)="goToChat(personData)"
+        >
+          <div [attr.class]="{block: _name, element: 'row', mods: {'justify': 'between'}} | bem">
+            <div [attr.class]="{block: _name, element: 'row', mods: {'align': 'center'}} | bem">
+              <div [attr.class]="{block: _name, element: 'avatar'} | bem"></div>
+              <div
+                [attr.class]="{
+                  block: _name,
+                  element: 'user-name',
+                  mods: {'fw': personData.unreadMessages ? 'bold' : 'normal'}
+                } | bem"
+              >
+                {{personData.fullName}}
+              </div>
+            </div>
+            <div [attr.class]="{block: _name, element: 'date'} | bem">08:31</div>
+          </div>
+          <div [attr.class]="{block: _name, element: 'info-data'} | bem">
+            {{personData.street}} {{personData.streetNumber}}, {{personData.code}} {{personData.city}}<br/>
+            Gebot {{personData.price.toLocaleString('de-DE')}} €
+          </div>
+          <div [attr.class]="{block: _name, element: 'row'} | bem">
+            <div [attr.class]="{block: _name, element: 'info-tag'} | bem">
+              {{personData.floorNumber}} Zi.
+            </div>
+            <div [attr.class]="{block: _name, element: 'info-tag'} | bem">
+              {{personData.livingSurface}} m²
+            </div>
+            <div [attr.class]="{block: _name, element: 'info-tag'} | bem">
+              {{personData.propertyType}}
+            </div>
+          </div>
+          <div
+            [attr.class]="{
+              block: _name,
+              element: 'status',
+              mods: {'display': !personData.unreadMessages ? 'none' : 'block'}
+            } | bem"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'chat-content', mods: {'display': chatContentShown}} | bem">
+      <div [attr.class]="{block: _name, element: 'chat-header'} | bem">
+        <div [attr.class]="{block: _name, element: 'row'} | bem">
+          <div [attr.class]="{block: _name, element: 'chat-header-image'} | bem"></div>
+          <div [attr.class]="{block: _name, element: 'selling-status'} | bem">
+            <div [attr.class]="{block: _name, element: 'selling-status-icon'} | bem"></div>
+            {{ getSellingStatusName(sellingStatus) }}
+          </div>
+        </div>
+        <div [attr.class]="{block: _name, element: 'chat-link'} | bem">
+          Zur Immobilie
+          <i [attr.class]="{block: _name, element: 'link-arrow'} | bem"></i>
+        </div>
+      </div>
+      <div id="chat-area" [attr.class]="{block: _name, element: 'chat-content-wrapper'} | bem">
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'chat-area',
+            mods: {'justify-content': !activeChatHistory.length? 'center': 'end'}
+          } | bem"
+        >
+          <ng-container *ngIf="activeChatHistory.length; then chatHistory else chatInfo"></ng-container>
+          <ng-template #chatHistory>
+            <div
+              *ngFor="let message of activeChatHistory"
+              [attr.class]="{
+              block: _name,
+              element: 'row',
+              mods: {'margin-bottom': '40px', 'type': message.sender === 'me'? 'reverse': 'default', 'flex-shrink': '0'}
+            } | bem"
+            >
+              <div
+                [attr.class]="{
+                block: _name,
+                element: 'message-avatar',
+                mods: {'type': message.sender === 'me'? 'reverse': 'default'}
+              } | bem"
+              ></div>
+              <div [attr.class]="{block: _name, element: 'message-wrapper'} | bem">
+                <div
+                  [attr.class]="{
+                  block: _name,
+                  element: 'message',
+                  mods: {'type': message.sender === 'me'? 'reverse': 'default'}
+                } | bem"
+                >
+                  {{message.text}}
+                </div>
+                <div
+                  [attr.class]="{
+                  block: _name,
+                  element: 'date',
+                  mods: {'type': message.sender === 'me'? 'reverse': 'default'}
+                } | bem"
+                >
+                  {{message.date}}
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template #chatInfo>
+            <div [attr.class]="{block: _name, element: 'info-block'} | bem">
+              Schreibe deine erste Nachricht an {{activeChat}}.
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'type-area'} | bem">
+        <div [attr.class]="{block: _name, element: 'row', mods: {'width': '100'}} | bem">
+          <input
+            #messageField
+            [attr.class]="{block: _name, element: 'message-input'} | bem"
+            [(ngModel)]="messageValue"
+            (keyup.enter)="sendMessage()"
+          >
+          <div [attr.class]="{block: _name, element: 'button', mods: {'disabled': messageValue ? 'false' : 'true'}} | bem" (click)="sendMessage()">Senden</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

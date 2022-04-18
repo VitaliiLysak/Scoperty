@@ -1,0 +1,138 @@
+<div
+  id="main"
+  *ngIf="isLoaded"
+  [attr.class]="{
+    block: name,
+    element: 'container',
+    mods: {'size-mobile': (isMediumDevice$ | async)}
+  } | bem"
+>
+  <div
+    [attr.class]="{block: name, element: 'content'} | bem"
+    *ngIf="myObjects != null && myObjects.length > 0; else infoBlock"
+  >
+    <!-- Properties -->
+    <div
+      *ngIf="myObjects.length > 1 && !isPropertiesScrollContainerHidden"
+      [attr.class]="{block: name, element: 'properties-scroll-container'} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'properties-container'} | bem">
+        <app-property
+          *ngFor="let property of myObjects; trackBy: trackPropertyById"
+          [model]="property"
+          [isActive]="isActiveProperty(property.PropertyId)"
+          (activateTab)="activateTab($event)"
+          (click)="activateProperty(property.PropertyId)"
+        >
+        </app-property>
+      </div>
+    </div>
+
+    <!-- Property details -->
+    <div
+      *ngIf="activeProperty"
+      [attr.class]="{
+        block: name,
+        element: 'property-container',
+        mods: {'state': myObjects.length > 1? 'overview': 'default', 'margin-auto': myObjects.length == 1}
+      } | bem"
+    >
+      <div
+        *ngIf="(isMediumDevice$ | async) && myObjects.length > 1"
+        [attr.class]="{block: name, element: 'back-link'} | bem"
+        (click)="backToPropertiesList()"
+      >
+        <i [attr.class]="{block: name, element: 'arrow-icon-left'} | bem"></i>
+        Zurück
+      </div>
+
+      <!-- Header -->
+      <div [attr.class]="{block: name, element: 'navbar-container', mods: {'mobile': (isSmallMobileDevice$ | async)}} | bem">
+        <!-- Navigation -->
+        <app-tabs-header
+          theme="dark"
+          [activeTab]="activeSection$ | async"
+          (activeTabChange)="activateSection($event)"
+        >
+          <ng-template appTabsHeaderTab [name]="MyPropertiesTabs.Overview">
+            Übersicht
+          </ng-template>
+          <ng-template appTabsHeaderTab [name]="MyPropertiesTabs.Edit">
+            Bearbeiten
+          </ng-template>
+          <ng-template *ngIf="activeProperty.isOwner" appTabsHeaderTab [name]="MyPropertiesTabs.Settings">
+            Einstellungen
+          </ng-template>
+        </app-tabs-header>
+
+        <!-- Estimated price banner -->
+        <div
+          *ngIf="isEdit$ | async"
+          [attr.class]="{block: name, element: 'banner-container'} | bem"
+        >
+          <app-my-properties-estimated-price-banner
+            [marker]="dirtyMarker"
+            (save)="saveMarkerAndCheckSellingStatus()"
+          ></app-my-properties-estimated-price-banner>
+        </div>
+
+        <!-- Feedbacks -->
+        <app-alert *ngIf="showSaveSuccess" type="success">
+          Deine Änderungen wurden gespeichert.
+          Sie dir deinen Schätzwert an, vielleicht hat er sich verändert.
+        </app-alert>
+        <app-alert *ngIf="showSaveError" type="error">
+          Leider konnten deine Änderungen aufgrund eines technischen Fehlers nicht gespeichert werden.
+          Versuche es bitte zu einem späterem Zeitpunkt nochmal.
+        </app-alert>
+      </div>
+
+      <app-property-overview
+        *ngIf="isOverview$ | async"
+        [marker]="activeProperty"
+        (activateTab)="activateTab($event)"
+        (updateActiveProperty)="updateActiveProperty()"
+        (updateDirtyProperty)="updateDirtyProperty($event)"
+      ></app-property-overview>
+
+      <app-property-edit
+        *ngIf="isEdit$ | async"
+        [marker]="activeProperty"
+        [rights]="rights"
+        [propertyPrice]="activeProperty?.propertyPrice"
+        [block]="activeBlock"
+        (certificateChange)="onCertificateChange($event)"
+        (updateActiveProperty)="updateActiveProperty()"
+        (updateDirtyProperty)="updateDirtyProperty($event)"
+        (updateActivePropertyImages)="updateActivePropertyImages()"
+      ></app-property-edit>
+
+      <app-property-settings
+        *ngIf="isSettings$ | async"
+        [marker]="activeProperty"
+        [rights]="rights"
+        [propertyPrice]="activeProperty?.propertyPrice"
+        (activateTab)="activateTab($event)"
+        (updateActiveProperty)="updateActiveProperty()"
+        (updateDirtyProperty)="updateDirtyProperty($event)"
+      ></app-property-settings>
+    </div>
+  </div>
+
+  <ng-template #infoBlock>
+    <app-info-block
+      buttonText="Jetzt Immobilie anlegen"
+    >
+      <span>
+        Du hast noch keine Immobilie bei Scoperty hinterlegt. Um alle Funktionen zu nutzen, musst du ein Objekt
+  einstellen und dich als Eigentümer oder Mieter verifizieren.
+      </span>
+    </app-info-block>
+  </ng-template>
+</div>
+
+<app-loading-indicator
+  *ngIf="!isLoaded"
+  [attr.class]="{ block: name, element: 'loader' } | bem"
+  size="medium"
+></app-loading-indicator>

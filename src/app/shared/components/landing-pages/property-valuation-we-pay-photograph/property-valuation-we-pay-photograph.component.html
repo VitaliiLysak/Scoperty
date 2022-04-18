@@ -1,0 +1,25 @@
+<div
+  [attr.class]="{ block: name, element: 'container' } | bem"
+  app-responsive-image
+  src="assets/images/property-valuation/registration-background.png"
+  [multiResolution]="false"
+>
+  <div [attr.class]="{ block: name, element: 'content' } | bem">
+    <div [attr.class]="{ block: name, element: 'icon' } | bem">
+      <mat-icon svgIcon="camera" appSvgWidth="156px" appSvgHeight="113px"></mat-icon>
+    </div>
+    <div [attr.class]="{ block: name, element: 'explanation' } | bem">
+      <div [attr.class]="{ block: name, element: 'explanation-header' } | bem">
+        Wir zahlen dir einen Fotografen für ausdrucksstarke Fotos deiner Immobilie.
+      </div>
+      <div [attr.class]="{ block: name, element: 'explanation-sub-header' } | bem">
+        Mit professionellen Bildern lassen sich Immobilien effizienter und schneller verkaufen.
+      </div>
+      <div [attr.class]="{ block: name, element: 'explanation-message' } | bem">
+        Finde deine Immobilie auf der Karte und registriere dich als Eigentümer -
+        wir stellen dir auf deinen Wunsch einen professionellen Fotografen bereit.
+        Die Kosten dafür übernehmen wir.
+      </div>
+    </div>
+  </div>
+</div>

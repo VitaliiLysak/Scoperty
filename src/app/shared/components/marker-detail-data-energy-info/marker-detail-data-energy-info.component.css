@@ -1,0 +1,425 @@
+:host ::ng-deep {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: visible;
+
+  width: 100%;
+  padding: 10px 0;
+
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  line-height: 24px;
+}
+
+:host * {
+  font-family: 'Nunito Sans';
+}
+
+.marker-detail-data-energy-info__button {
+  margin-right: 16px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 44px;
+  width: 80px;
+  border-radius: 2px;
+  border-color: var(--background-color-buttons-primary-disabled);
+
+  color: var(--neutrals-dark-light-color);
+
+  background-color: var(--neutrals-light-middle-color);
+
+  cursor: pointer;
+}
+
+.marker-detail-data-energy-info__button:hover {
+  border-color: var(--secondary-cta-default-color);
+}
+
+.marker-detail-data-energy-info__button--state-active {
+  border-color: var(--secondary-cta-default-color);
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--secondary-cta-default-color);
+}
+
+.marker-detail-data-energy-info__button--state-active:hover {
+  border-color: var(--secondary-cta-default-color);
+
+  color: var(--neutrals-white-color);
+}
+
+.marker-detail-data-energy-info__row-value--buttons-poll {
+  border: none !important;
+
+  background-color: transparent !important;
+}
+
+.marker-detail-data-energy-info__row-value--childs-start {
+  justify-content: flex-start;
+}
+
+.marker-detail-data-energy-info__row-value--display-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marker-detail-data-energy-info__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marker-detail-data-energy-info__row--type-title {
+  color: var(--font-dark-gray);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+.marker-detail-data-energy-info__row--size-half {
+  flex-basis: calc((100% - 48px) / 2);
+  max-width: calc((100% - 48px) / 2);
+}
+
+.marker-detail-data-energy-info__row--size-272px {
+  flex-basis: calc((100% - 16px) / 2);
+  max-width: calc((100% - 16px) / 2);
+}
+
+.marker-detail-data-energy-info__row--height-40px {
+  height: 40px;
+}
+
+.marker-detail-data-energy-info__row--height-74px {
+  min-height: 74px;
+}
+
+.marker-detail-data-energy-info__row--state-edit {
+  margin: 0;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.marker-detail-data-energy-info__row--state-edit:hover .marker-detail-data-energy-info__row-value--state-custom-edit {
+  border-color: var(--color-buttons-secondary-standart);
+}
+
+.marker-detail-data-energy-info__row--state-edit:focus-within .marker-detail-data-energy-info__row-value--state-custom-edit {
+  border-color: var(--background-color-buttons-secondary-hover);
+}
+
+.marker-detail-data-energy-info__row-value.marker-detail-data-energy-info__row-value--state-custom-edit .ui-select-match {
+  border: 1px solid var(--neutrals-dark-middle-color) !important;
+}
+
+.marker-detail-data-energy-info__row--with-underline {
+  position: relative;
+}
+
+.marker-detail-data-energy-info__row--with-underline::after {
+  position: absolute;
+
+  right: 0;
+  bottom: -12px;
+  left: 0;
+
+  height: 1px;
+
+  background-color: var(--neutrals-middle-middle-color);
+
+  content: '';
+}
+
+.marker-detail-data-energy-info__row--padding-top-20 {
+  padding-top: 20px;
+}
+
+.marker-detail-data-energy-info__row--position-relative {
+  position: relative;
+}
+
+.marker-detail-data-energy-info__row--block-energy-info {
+  top: 20px;
+}
+
+.marker-detail-data-energy-info__row-key {
+  flex: 1 0 auto;
+  padding-right: 8px;
+
+  font-weight: 600;
+
+  color: var(--primary-cta-default-color);
+}
+
+.marker-detail-data-energy-info__row--state-edit .marker-detail-data-energy-info__row-key {
+  margin-bottom: 3px;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  color: var(--neutrals-dark-middle-color) ;
+}
+
+.marker-detail-data-energy-info__row--state-edit .marker-detail-data-energy-info__row-value--style-hint {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: var(--neutrals-dark-middle-color) ;
+}
+
+label[data-is-focused] > .marker-detail-data-energy-info__row-key {
+  color: var(--color-buttons-secondary-standart);
+}
+
+.marker-detail-data-energy-info__row-value {
+  white-space: nowrap;
+  font-weight: 300;
+  text-overflow: ellipsis;
+
+  color: var(--font-dark-gray);
+
+  outline: 0;
+}
+
+.marker-detail-data-energy-info__row-select {
+  width: 100%;
+}
+
+.marker-detail-data-energy-info__row-value--state-show {
+  overflow: hidden;
+}
+
+.marker-detail-data-energy-info__row-value:focus {
+  border-color: var(--color-buttons-secondary-standart);
+
+  outline: 0;
+
+  transition: border-color .2s linear 0s;
+}
+
+.marker-detail-data-energy-info__row-value--state-edit {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+
+  color: var(--neutrals-dark-middle-color) ;
+  font-weight: normal;
+}
+
+.marker-detail-data-energy-info__row-value--state-custom-edit {
+  width: 100%;
+  border: 1px solid var(--background-color-buttons-primary-disabled);
+  border-radius: 2px;
+
+  color: var(--neutrals-dark-middle-color) ;
+  font-weight: normal;
+}
+
+.marker-detail-data-energy-info__row--state-edit:hover .marker-detail-data-energy-info__row-value--state-custom-edit {
+  color: var(--color-buttons-secondary-standart);
+}
+
+.marker-detail-data-energy-info__row-value--fw-normal {
+  font-weight: normal;
+}
+
+.marker-detail-data-energy-info__row-value--color-blue, .marker-detail-data-energy-info__link {
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: var(--secondary-cta-default-color);
+
+  cursor: pointer;
+
+  transition: color .4s linear 0s;
+}
+
+.marker-detail-data-energy-info__row-value--color-blue:hover, .marker-detail-data-energy-info__link:hover {
+  color: var(--secondary-cta-default-color);
+}
+
+.marker-detail-data-energy-info__text {
+  margin-bottom: 10px;
+}
+
+.marker-detail-data-energy-info__row-value--type-multiline {
+  white-space: normal;
+  text-align-last: justify;
+}
+
+.marker-detail-data-energy-info__row--state-edit .marker-detail-data-energy-info__row-value--type-multiline {
+  text-align-last: start;
+}
+
+.marker-detail-data-energy-info__row--direction-column {
+  flex-direction: column;
+}
+
+.marker-detail-data-energy-info__row--size-100 {
+  margin-bottom: 13px;
+
+  width: 100%;
+  max-width: 272px;
+}
+
+.marker-detail-data-energy-info__row-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--size-half,
+[data-size=small] :host .marker-detail-data-energy-info__row--size-half {
+  flex-basis: 100%;
+  max-width: 100%;
+  height: 42px;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--with-underline::after,
+[data-size=small] :host .marker-detail-data-energy-info__row--with-underline::after {
+  bottom: 0;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--mobile-with-underline,
+[data-size=small] :host .marker-detail-data-energy-info__row--mobile-with-underline {
+  position: relative;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--mobile-with-underline::after,
+[data-size=small] :host .marker-detail-data-energy-info__row--mobile-with-underline::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 1px;
+
+  background-color: var(--neutrals-middle-middle-color);
+
+  content: '';
+}
+
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--state-edit,
+[data-size=small] :host .marker-detail-data-energy-info__row--state-edit {
+  margin-top: 16px;
+
+  height: 64px;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--mobile-size-auto,
+[data-size=small] :host .marker-detail-data-energy-info__row--mobile-size-auto {
+  height: auto;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--height-40px,
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--height-74px,
+[data-size=small] :host .marker-detail-data-energy-info__row--height-40px,
+[data-size=small] :host .marker-detail-data-energy-info__row--height-74px {
+  align-items: normal;
+
+  flex-wrap: wrap;
+
+  height: auto;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--mobile-without-underline::after,
+[data-size=small] :host .marker-detail-data-energy-info__row--mobile-without-underline::after {
+  content: none;
+}
+
+[data-size=xsmall] :host .marker-detail-data-energy-info__row--padding-top-20,
+[data-size=small] :host .marker-detail-data-energy-info__row--padding-top-20 {
+  padding: 0;
+}
+
+@media (max-width: 915px) {
+  .marker-detail-data-energy-info__row-block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .marker-detail-data-energy-info__row--type-container {
+    width: 50%;
+    min-width: 272px;
+  }
+
+  .marker-detail-data-energy-info__row--margin-bottom-30px {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  .marker-detail-data-energy-info__row--direction-on-mobile-column {
+    flex-direction: column;
+    align-items: flex-start;
+
+    height: unset;
+  }
+
+  .marker-detail-data-energy-info__row--direction-on-mobile-column .marker-detail-data-energy-info__row--size-half {
+    margin-bottom: 13px;
+
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .marker-detail-data-energy-info__row {
+    justify-content: flex-start;
+  }
+
+  .marker-detail-data-energy-info__row--size-mobile {
+    margin-bottom: 13px;
+
+    height: unset;
+  }
+
+  .marker-detail-data-energy-info__row-key {
+    padding: 0;
+    flex-grow: 0;
+  }
+
+  .marker-detail-data-energy-info__row-key--size-half {
+    width: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  .marker-detail-data-energy-info__number-input {
+    width: 100%;
+  }
+
+  .marker-detail-data-energy-info__row--size-100 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .marker-detail-data-energy-info__row--type-container {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 350px) {
+  .marker-detail-data-energy-info__row-value--state-show {
+    max-width: 145px;
+  }
+}

@@ -1,0 +1,96 @@
+<ng-container *ngIf="mode === 'show' then showMode else editMode"></ng-container>
+
+<ng-template #showMode>
+  <div [attr.class]="{block: _name, element: 'image-grid'} | bem">
+    <app-marker-detail-gallery-image
+      *ngFor="let image of model.images; let i = index;"
+      [attr.class]="{block: _name, element: 'image'} | bem"
+      [src]="image"
+      [useThumbnail]="false"
+      [mods]="{'canHover': true, 'fit': 'container'}"
+      (click)="openSlideshow(i)"
+    >
+    </app-marker-detail-gallery-image>
+  </div>
+</ng-template>
+
+
+<ng-template #editMode>
+  <div
+    [attr.class]="{block: _name, element: 'image-grid'} | bem"
+    [sortablejs]="model.Images"
+    [sortablejsOptions]="sortablejsOptions"
+  >
+    <app-marker-detail-gallery-image
+      *ngFor="let image of model.images; let i = index;"
+      [attr.class]="{block: _name, element: 'image'} | bem"
+      [src]="image"
+      [useThumbnail]="false"
+      [mods]="{
+        'state' : isDragMode ? 'show' : 'edit',
+        'fit'   : 'container',
+        'cursor': mode === 'edit' ? 'move' : 'pointer'
+      }"
+      (toggleSelectImage)="toggleSelectImage(i)"
+    >
+    </app-marker-detail-gallery-image>
+  </div>
+
+  <div
+    *ngIf="selectedImages.size > 0"
+    [attr.class]="{block: _name, element: 'row', mods: {'type': 'link'}} | bem"
+    (click)="_removeImages($event)"
+  >
+    Ausgewählte Bilder löschen
+    <i [attr.class]="{block: _name, element: 'arrow-icon-right'} | bem"></i>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'upload-block', mods: {'state': (model.images.length === 0)? 'no-images' : 'default'}} | bem">
+    <div
+      [attr.class]="{block: _name, element: 'upload-drop-zone'} | bem"
+      (dragenter)="highlightOn($event)"
+      (dragover)="highlightOn($event)"
+      (dragleave)="highlightOff($event)"
+      (drop)="uploadAreaOnDrop($event)"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg"
+        width="32"
+        height="42"
+        viewBox="0 0 32 42"
+        [attr.class]="{block: _name, element: 'upload-icon'} | bem"
+      >
+        <path
+          d="m 14.720899,23.551721 c -0.05242,-9.834676 -0.01405,2.5e-5 -0.0077,-9.834676 l 0.0063,-9.7285001 -5.53524,5.0263271 C 8.9589823,9.2194969 8.2882332,9.1339261 7.9793618,8.8165486 7.6597433,8.4881184 7.6114525,7.8150041 8.0608607,7.3825985 15.700924,0.03162882 15.231562,0.04390681 15.700924,0.03162882 c 0.514585,-0.0135033 0,0 7.617104,7.40693328 0.329816,0.3207284 0.649149,0.8496825 0.252767,1.4080438 -0.421268,0.5933949 -1.27925,0.1459106 -1.64888,-0.188646 l -5.177604,-4.6861691 -0.03632,9.7806632 c -0.03639,9.799267 0.0088,-10e-5 0.0088,9.799267 0,0.231782 -0.523688,0.740756 -1.022182,0.732479 -0.453988,-0.0075 -0.972402,-0.499072 -0.973648,-0.732479 z M 5.4598305,14.018569 C 2.4554595,14.018569 0,16.474018 0,19.478377 l 0,17.06179 C 0,39.544551 2.4554595,42 5.4598305,42 L 26.54066,42 C 29.545031,42 32,39.544551 32,36.540167 l 0,-17.06179 c 0,-3.004359 -2.454969,-5.459758 -5.45934,-5.459758 z m 0,2.346272 3.3421234,0 c 0.5403644,0 1.0248582,-0.728552 1.0248582,-1.173186 0,-0.489344 -0.4703175,-1.173036 -1.0248582,-1.173036 -3.3421234,-10e-5 17.7387061,0 14.2534801,0 -0.377367,0 -0.750075,0.608798 -0.750075,1.173036 0,0.586443 0.420112,1.173186 0.750075,1.173186 l 3.485226,0 c 1.745361,0 3.113552,1.368184 3.113552,3.113536 l 0,17.06179 c 0,1.745351 -1.368191,3.114035 -3.113552,3.114035 l -21.0808295,0 c -1.7453611,0 -3.1140428,-1.368684 -3.1140428,-3.114035 l 0,-17.06179 c 0,-1.745352 1.3686817,-3.113536 3.1140428,-3.113536 z"
+        />
+      </svg>
+      <span>
+        Bilder und Grundrisse hier reinziehen order
+        <label [attr.class]="{block: _name, element: 'link'} | bem">
+          direkt
+          <input style="display: none;" type="file" accept="image/png|image/jpg|image/gif" (change)="inputOnChange($event)"/>
+        </label>
+        auswählen
+      </span>
+      <span>(JPEG, GIF und PNG)</span>
+      <span [attr.class]="{block: _name, element: 'error'} | bem" *ngIf="error">{{error}}</span>
+    </div>
+
+  </div>
+
+  <label [attr.class]="{block: _name, element: 'button'} | bem">
+    Bilder hinzufügen
+    <input
+      style="display: none;"
+      type="file"
+      accept="image/png|image/jpg|image/gif"
+      (change)="inputOnChange($event)"
+    />
+  </label>
+
+  <span [attr.class]="{block: _name, element: 'mobile-helper'} | bem" *ngIf="isMobileDevice && !error">(JPEG, PDF, oder PNG und maximal 12 MB groß)</span>
+  <span [attr.class]="{block: _name, element: 'mobile-error'} | bem" *ngIf="isMobileDevice && error">{{error}}</span>
+
+
+</ng-template>

@@ -1,0 +1,128 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  color: var(--font-second-color);
+  background-color: var(--background-initial);
+}
+
+.terms-of-service__item {
+  margin-bottom: 48px;
+}
+
+.terms-of-service__row {
+  display: flex;
+}
+
+.terms-of-service__content {
+  max-width: 945px;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.terms-of-service__download-link {
+  color: var(--color-links-standart);
+  text-decoration: none;
+}
+
+.terms-of-service__download-link:hover {
+  color: var(--color-links-hover);
+}
+
+.terms-of-service__title {
+  margin: 104px 0 48px;
+
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  line-height: var(--font-semibold-32pkt-line-height);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+
+  color: var(--brand-dark-green-color);
+}
+
+.terms-of-service__subtitle {
+  margin-bottom: 24px;
+
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+
+  color: var(--brand-dark-green-color);
+}
+
+.terms-of-service__text-row {
+  margin-bottom: 24px;
+
+  display: flex;
+}
+
+.terms-of-service__text-block {
+  padding: 24px 16px 0;
+}
+
+.terms-of-service__text {
+  margin: 0 0 0 32px;
+
+  max-width: 609px;
+}
+
+.terms-of-service__text--margin-left-16px {
+  margin-left: 16px;
+}
+
+@media (max-width: 1100px) {
+  .terms-of-service__content {
+    width: 92%;
+  }
+}
+
+@media (max-width: 760px) {
+  .terms-of-service__title {
+    margin: 32px 0 24px;
+
+    font-size: var(--font-semibold-24pkt-size);
+    font-weight: var(--font-semibold-24pkt-weight);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+    line-height: var(--font-semibold-24pkt-line-height);
+  }
+}
+
+@media (max-width: 450px) {
+  .terms-of-service__content {
+    width: 100%;
+    padding: 0 17px;
+  }
+
+  .terms-of-service__text {
+    margin-left: 16px;
+  }
+
+  .terms-of-service__text--mobile-margin-left-8px {
+    margin-left: 8px;
+  }
+
+  .terms-of-service__title {
+    margin: 24px 0 16px;
+  }
+
+  .terms-of-service__item {
+    margin-bottom: 24px;
+  }
+
+  .terms-of-service__text-block {
+    padding: 24px 0 0 8px;
+  }
+}

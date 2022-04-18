@@ -1,0 +1,12 @@
+<label [attr.class]="{block: _name, element: 'container' , mods: mods} | bem">
+  <ng-content></ng-content>
+  <input
+    [id]="inputId"
+    type="checkbox"
+    [name]="name"
+    [checked]="checked"
+    [required]="required"
+    (change)='onChange($event)'
+  >
+  <span [attr.class]="{block: _name, element: 'checkmark'} | bem"></span>
+</label>

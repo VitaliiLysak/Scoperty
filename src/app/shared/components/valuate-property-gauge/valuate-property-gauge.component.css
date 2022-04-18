@@ -1,0 +1,114 @@
+:host {
+  display: inline-block;
+}
+
+.valuate-property-gauge__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: var(--gauge-size);
+  height: var(--gauge-size);
+}
+
+.valuate-property-gauge__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.valuate-property-gauge__precision,
+.valuate-property-gauge__valuation {
+  display: flex;
+  flex-direction: column;
+}
+
+.valuate-property-gauge__precision:before,
+.valuate-property-gauge__valuation:before {
+  margin: 10px 0 10px -16px;
+
+  width: calc(100% + 32px);
+  height: 4px;
+  border-radius: 2px;
+
+  background-color: var(--brand-dark-green-color);
+
+  content: '';
+}
+
+.valuate-property-gauge__precision:first-child:before,
+.valuate-property-gauge__valuation:first-child:before {
+  content: none;
+}
+
+.valuate-property-gauge__precision .valuate-property-gauge__value {
+  color: var(--brand-dark-green-color);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 40px;
+}
+
+.valuate-property-gauge__precision .valuate-property-gauge__label {
+  color: var(--brand-dark-green-color);
+  font-size: 12px;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  font-weight: bold;
+}
+
+.valuate-property-gauge__valuation .valuate-property-gauge__value {
+  color: var(--brand-dark-green-color);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 24px;
+}
+
+.valuate-property-gauge__valuation .valuate-property-gauge__label {
+  color: var(--brand-dark-green-color);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+}
+
+.valuate-property-gauge__value,
+.valuate-property-gauge__label {
+  text-align: center;
+}
+
+.valuate-property-gauge__label {
+  text-transform: uppercase;
+}
+
+/* Gauge */
+
+:host {
+  --gauge-radius: 138px;
+  --gauge-radius-mobile: calc(var(--gauge-radius) - 15px);
+  --gauge-size: calc(var(--gauge-radius) * 2);
+  --gauge-size-mobile: calc(var(--gauge-radius-mobile) * 2);
+}
+
+.valuate-property-gauge__gauge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto auto;
+
+  width: var(--gauge-size);
+  height: var(--gauge-size);
+}
+
+/* Responsive */
+
+@media (max-width: 450px) {
+  .valuate-property-gauge__gauge {
+    width: var(--gauge-size-mobile);
+    height: var(--gauge-size-mobile);
+  }
+}

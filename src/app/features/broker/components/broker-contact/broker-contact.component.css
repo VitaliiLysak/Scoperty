@@ -1,0 +1,104 @@
+:host {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+:host * {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.broker-contact__contact {
+  display: block;
+
+  height: 100%;
+  padding: 24px 25px;
+  border: 4px solid var(--brand-light-blue-color);
+
+  text-decoration: none;
+  -webkit-touch-callout: none;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.broker-contact__contact:hover {
+  background-color: var(--brand-light-blue-color);
+  cursor: pointer;
+}
+
+.broker-contact__contact-icon {
+  height: 64px;
+  width: 64px;
+}
+
+.broker-contact__contact-icon--type-phone {
+  background: url('../../../../../assets/images/broker/phone.svg') no-repeat;
+  background-size: 100%;
+}
+
+.broker-contact__contact-icon--type-email {
+  background: url('../../../../../assets/images/broker/email.svg') no-repeat;
+  background-size: 100%;
+}
+
+.broker-contact__contact-type {
+  padding: 5px 8px 0 0;
+
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.broker-contact__contact-description {
+  max-width: 400px;
+  padding: 15px 8px 5px 0;
+
+  font-size: var(--font-semibold-16pkt-size);
+  font-weight: var(--font-semibold-16pkt-weight);
+  letter-spacing: var(--font-semibold-16pkt-letter-spacing);
+  line-height: var(--font-semibold-16pkt-line-height);
+
+  color: var(--font-semibold-16pkt-color);
+}
+
+@media only screen and (max-width: 760px) {
+  .broker-contact__contacts-block {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .broker-contact__contact {
+    padding: 30px 16px 25px;
+  }
+
+  .broker-contact__contact-icon {
+    height: 32px;
+    width: 32px;
+  }
+
+  .broker-contact__contact-type {
+    padding: 0;
+
+    font-size: var(--font-semibold-24pkt-size);
+    font-weight: var(--font-semibold-24pkt-weight);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+    line-height: var(--font-semibold-24pkt-line-height);
+  }
+
+  .broker-contact__contact-description {
+    padding: 0;
+  }
+}

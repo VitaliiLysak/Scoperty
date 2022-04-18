@@ -1,0 +1,49 @@
+<div [attr.class]="{block: name, element: 'container'} | bem">
+  <div *ngIf="!isLoaded" [attr.class]="{block: name, element: 'loader-wrapper'} | bem">
+    <div [attr.class]="{block: name, element: 'loader'} | bem"></div>
+  </div>
+
+  <app-info-block
+    *ngIf="isLoaded && searchTemplatesIsEmpty"
+    buttonText="Jetzt Suchauftrag anlegen"
+  >
+    <span>
+      Du hast dir noch keinen Suchauftrag bei Scoperty angelegt. Speichere jetzt eine Immobiliensuche
+      mit deinen persönlichen Kriterien.
+    </span>
+  </app-info-block>
+
+  <div *ngIf="isSearchTemplatesLoaded" [attr.class]="{block: name, element: 'templates-container'} | bem">
+    <div [attr.class]="{block: name, element: 'add-template'} | bem">
+      <a
+        app-button
+        buttonStyle="link"
+        color="green"
+        (click)="openSearchAlertMap()"
+        queryParamsHandling="merge"
+      >
+        <div [attr.class]="{block: name, element: 'plus-icon'} | bem">
+          <mat-icon svgIcon="add"></mat-icon>
+        </div>
+        <span  [attr.class]="{block: name, element: 'plus-text'} | bem">
+          <ng-container *ngIf="!(isSmallMobileDevice$ | async); else lowerCase">
+            Neuen
+          </ng-container>
+          <ng-template #lowerCase>
+            neuen
+          </ng-template>
+          Suchauftrag anlegen
+        </span>
+      </a>
+    </div>
+    <app-search-alerts-item
+      *ngFor="let searchAlert of searchAlerts; trackBy: trackByTemplateUuid"
+      [attr.class]="{block: name, element: 'search-alerts-item'} | bem"
+      [searchAlert]="searchAlert"
+      (deleteItem)="deleteItem($event)"
+      (saveSearchAlertName)="saveAlertName($event)"
+      (updateEmailFrequency)="changeEmailFrequency($event)"
+    >
+    </app-search-alerts-item>
+  </div>
+</div>

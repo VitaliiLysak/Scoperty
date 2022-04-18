@@ -1,0 +1,186 @@
+<div [attr.class]="{block: name, element: 'list-row'} | bem">
+  <div [attr.class]="{block: name, element: 'favorite-img-block'} | bem">
+    <!-- Property image -->
+    <div [attr.class]="{block: name, element: 'favorite-img-container'} | bem">
+      <app-image
+        [attr.class]="{block: name, element: 'favorite-img'} | bem"
+        [mods]="{'canHover': true, 'fit': 'cover'}"
+        [src]="image"
+      ></app-image>
+
+      <div [attr.class]="{block: name, element: 'fav'} | bem">
+        <app-favourite [marker]="favorite" theme="light" size="large"></app-favourite>
+      </div>
+    </div>
+
+    <!-- Go to property -->
+    <div [attr.class]="{block: name, element: 'link'} | bem">
+      <button
+        app-button
+        buttonStyle="link"
+        color="dark"
+        (click)="goToProperty()"
+      >
+        Zur Immobilie <mat-icon svgIcon="chevron_right"></mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: name, element: 'favorite-info-block'} | bem">
+    <div [attr.class]="{block: name, element: 'favorite-address-block'} | bem">
+      <!-- With title -->
+      <ng-container *ngIf="favorite.hasTitle; else hasNoTitle">
+        <div [attr.class]="{block: name, element: 'favorite-address'} | bem">
+          {{favorite.title}}
+        </div>
+
+        <div [attr.class]="{block: name, element: 'favorite-address-sub'} | bem">
+          {{favorite.fullAddress}}
+        </div>
+      </ng-container>
+
+      <!-- Without title -->
+      <ng-template #hasNoTitle>
+        <div [attr.class]="{block: name, element: 'favorite-address'} | bem">
+          {{favorite.fullAddress}}
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- Property info -->
+    <div
+      *ngIf="!favorite.isIdle; else deactivatedProperty"
+      [attr.class]="{block: name, element: 'main-info-block'} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'price-container-wrapper'} | bem">
+        <div [attr.class]="{block: name, element: 'price-container'} | bem">
+          <div *ngIf="favorite.isForSale"> <!-- kauf-angebot -->
+            <div
+              *ngIf="favorite.hasSalePrice"
+              [attr.class]="{block: name, element: 'sale-price'} | bem"
+            >
+              Kaufpreis {{ favorite.salePrice | cost }}
+            </div>
+            <div
+              *ngIf="!favorite.hasSalePrice"
+              [attr.class]="{block: name, element: 'sale-price'} | bem"
+            >
+              Schätzwert {{ favorite.estimatedPrice | cost }}
+            </div>
+            <div
+              *ngIf="favorite.hasSalePrice"
+              [attr.class]="{block: name, element: 'sale-price', mods: {'state': 'for-sale'}} | bem"
+            >
+              Schätzwert {{ favorite.estimatedPrice | cost }}
+            </div>
+          </div>
+
+          <div *ngIf="favorite.isMakeMeMove"> <!-- kauf-chance -->
+            <div [attr.class]="{block: name, element: 'sale-price', mods: {'state': 'make-me-move'}} | bem">
+              Schätzwert {{ favorite.estimatedPrice | cost }}
+            </div>
+          </div>
+
+          <div *ngIf="favorite.isActive"> <!-- active -->
+            <div [attr.class]="{block: name, element: 'sale-price', mods: {'state': 'default'}} | bem">
+              Schätzwert {{ favorite.estimatedPrice | cost }}
+            </div>
+          </div>
+
+          <div *ngIf="favorite.isNotActiveYet">
+            <div [attr.class]="{block: name, element: 'sale-price', mods: {'state': 'default'}} | bem">
+              Schätzwert {{ favorite.estimatedPrice | cost }}
+            </div>
+          </div>
+        </div>
+
+        <button
+          *ngIf="!favorite.isIdle"
+          app-button
+          size="medium"
+          color="secondary-green"
+          [stretch]="(isSmallMobileDevice$ | async)"
+          (click)="changeOfferPrice()"
+        >
+          {{ (isSmallMobileDevice$ | async) ? 'Unverb. Gebot abgeben' : 'Unverbindliches Gebot abgeben' }}
+        </button>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'details-info-block'} | bem">
+        <!-- Selling status -->
+        <div
+          *ngIf="isForSaleOrMakeMeMove"
+          [attr.class]="{block: name, element: 'selling-status-wrapper'} | bem"
+        >
+          <app-selling-status-tag [sellingStatus]="favorite.sellingStatus"></app-selling-status-tag>
+        </div>
+
+        <!-- Property features -->
+        <div [attr.class]="{block: name, element: 'immovable-properties'} | bem">
+          <app-tag
+            *ngFor="let property of favorite.realtyProperties"
+            [attr.class]="{block: name, element: 'building-property'} | bem"
+            color="light"
+          >
+            {{ property }}
+          </app-tag>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'favorite-price-block'} | bem">
+        <div [attr.class]="{block: name, element: 'price-link-container'} | bem">
+          <div [attr.class]="{block: name, element: 'links-wrapper'} | bem">
+            <div *ngIf="favorite.isForSale || favorite.isMakeMeMove">
+              <button
+                app-button
+                buttonStyle="link"
+                color="green"
+                (click)="goToPropertyDetails()"
+              >
+                Anbieter kontaktieren <mat-icon svgIcon="chevron_right"></mat-icon>
+              </button>
+            </div>
+
+            <!-- Go to property details -->
+            <div *ngIf="featureToggleService.messaging && (favorite.isIdle || favorite.isActive)">
+              <button
+                app-button
+                buttonStyle="link"
+                color="green"
+                (click)="goToPropertyDetails()"
+              >
+                <ng-container *ngIf="!(isSmallMobileDevice$ | async); else leaveMessage">
+                  Eigentümer eine Nachricht hinterlassen
+                </ng-container>
+                <ng-template #leaveMessage>
+                  Nachricht hinterlassen
+                </ng-template>
+
+                <mat-icon svgIcon="chevron_right"></mat-icon>
+              </button>
+            </div>
+
+            <!-- Go to mortgage -->
+            <div>
+              <button
+                app-button
+                buttonStyle="link"
+                color="green"
+                [routerLink]="linkToBroker"
+                queryParamsHandling="merge"
+              >
+                Baufinanzierung finden <mat-icon svgIcon="chevron_right"></mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #deactivatedProperty>
+      <div [attr.class]="{block: name, element: 'no-property-info-message'} | bem">
+        Der Eigentümer hat die Immobilie im Moment deaktiviert.
+      </div>
+    </ng-template>
+  </div>
+</div>

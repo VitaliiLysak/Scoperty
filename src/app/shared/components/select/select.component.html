@@ -1,0 +1,15 @@
+<div [attr.class]="{block: _name, element: 'block'} | bem">
+  <label *ngIf="label" [attr.class]="{block: _name, element: 'label'} | bem">
+    {{label}}
+  </label>
+  <ng-select
+    [attr.class]="{block: _name, element: 'field', mods: {'state-filled': isFilled, 'size': size}} | bem"
+    [items]="items"
+    [active]="active"
+    [allowClear]="allowClear"
+    [multiple]="multiple"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    (selected)="onSelect($event)"
+  ></ng-select>
+</div>

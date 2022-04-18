@@ -1,0 +1,45 @@
+<app-base-modal (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    Nachricht schreiben
+  </ng-container>
+
+  <ng-container app-base-modal-title align="left">
+    Nimm Kontakt auf zum Eigentümer.
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <form
+      [attr.class]="{block: _name, element: 'container'} | bem"
+      [formGroup]="form"
+    >
+      <app-form-field>
+        <textarea
+          id="userMessage"
+          rows="7"
+          app-input
+          appValidateOnBlur [validateFormControl]="message"
+          placeholder="Schreibe hier deine Nachricht."
+          [formControl]="message"
+        ></textarea>
+
+        <ng-template app-form-field-error-message error="required">
+          Details ist ein Pflichtfeld
+        </ng-template>
+      </app-form-field>
+    </form>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="sendRequest()"
+      >
+        Nachricht abschicken
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

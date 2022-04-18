@@ -1,0 +1,107 @@
+/* The container */
+.ratio__container {
+  position: relative;
+  margin-bottom: 0;
+
+  display: flex;
+  align-items: center;
+
+  font-weight: var(--font-weight-ratiobuttons-label);
+
+  cursor: pointer;
+  color: var(--color-ratiobuttons-label);
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.ratio__container--size-large {
+  height: var(--height-ratiobuttons--large);
+  padding-left: 40px;
+
+  font-size: var(--font-size-ratiobuttons-label--large);
+  letter-spacing: var(--letter-spacing-ratiobuttons-label--large);
+  line-height: var(--line-height-ratiobuttons-label--large);
+}
+
+.ratio__container--size-small {
+  height: var(--height-ratiobuttons--small);
+  padding-left: 30px;
+
+  font-size: var(--font-size-ratiobuttons-label--small);
+  letter-spacing: var(--letter-spacing-ratiobuttons-label--small);
+  line-height: var(--line-height-ratiobuttons-label--small);
+}
+
+/* Hide the browser's default radio button */
+.ratio__container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.ratio__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: var(--border-ratiobuttons-inactive);
+  border-radius: var(--border-radius-ratiobuttons);
+
+  background-color: var(--background-color-checkboxes);
+}
+
+.ratio__container--size-large .ratio__checkmark{
+  height: var(--height-ratiobuttons--large);
+  width: var(--width-ratiobuttons--large);
+}
+
+.ratio__container--size-small .ratio__checkmark{
+  height: var(--height-ratiobuttons--small);
+  width: var(--width-ratiobuttons--small);
+}
+
+/* On mouse-over, add border color */
+.ratio__container:hover input ~ .ratio__checkmark {
+  border: var(--border-ratiobuttons-active);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.ratio__checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.ratio__container input:checked ~ .ratio__checkmark:after {
+  display: block;
+}
+
+/* Show the border when checked */
+input:checked ~ .ratio__checkmark {
+  border: var(--border-ratiobuttons-active);
+}
+
+/* Style the indicator (dot/circle) */
+.ratio__container .ratio__checkmark:after {
+  border-radius: 50%;
+  background-color: var(--background-color-checkboxes-icon);
+}
+
+.ratio__container--size-large .ratio__checkmark:after {
+  width: var(--width-ratiobuttons-icon--large);
+  height: var(--height-ratiobuttons-icon--large);
+}
+
+.ratio__container--size-small .ratio__checkmark:after {
+  width: var(--width-ratiobuttons-icon--small);
+  height: var(--height-ratiobuttons-icon--small);
+}

@@ -1,0 +1,59 @@
+<div [attr.class]="{ block: name, element: 'content' } | bem">
+  <!-- Data -->
+  <div [attr.class]="{ block: name, element: 'text' } | bem">
+    <div [attr.class]="{ block: name, element: 'precision' } | bem">
+      <div [attr.class]="{ block: name, element: 'value' } | bem">
+        {{ dataInPercent | percent }}
+      </div>
+      <div [attr.class]="{ block: name, element: 'label' } | bem">
+          Vollständigkeit<br>der Angaben
+      </div>
+    </div>
+    <div [attr.class]="{ block: name, element: 'valuation' } | bem">
+      <div [attr.class]="{ block: name, element: 'value' } | bem">
+        {{ estimatedPrice | cost }}
+      </div>
+      <div [attr.class]="{ block: name, element: 'label' } | bem">
+        Schätzwert
+      </div>
+    </div>
+  </div>
+
+  <!-- Gauge -->
+  <div [attr.class]="{ block: name, element: 'gauge' } | bem">
+    <svg [attr.width]="size" [attr.height]="size">
+      <defs>
+        <linearGradient id="background-gradient" x1="30%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" [attr.stop-color]="Color.BackgroundStart"/>
+          <stop offset="100%" [attr.stop-color]="Color.BackgroundEnd"/>
+        </linearGradient>
+        <linearGradient id="progress-gradient" x1="30%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" [attr.stop-color]="Color.ProgressStart"/>
+          <stop offset="100%" [attr.stop-color]="Color.ProgressEnd"/>
+        </linearGradient>
+      </defs>
+      <circle
+        id="gauge-background"
+        [attr.stroke-dashoffset]="backgroundCircumference" [attr.stroke-dasharray]="gaugeCircumference"
+        [attr.cx]="gaugeRadius" [attr.cy]="gaugeRadius"
+        [attr.r]="gaugeCircleRadius"
+        [attr.stroke]="backgroundGradientUrl"
+        stroke-linecap="round"
+        [attr.stroke-width]="backgroundStrokeWidth"
+        fill="transparent"
+        [attr.transform]="gaugeTransform"
+      />
+      <circle
+        id="gauge-progress"
+        [attr.stroke-dashoffset]="progressCircumference" [attr.stroke-dasharray]="gaugeCircumference"
+        [attr.cx]="gaugeRadius" [attr.cy]="gaugeRadius"
+        [attr.r]="gaugeCircleRadius"
+        [attr.stroke]="progressGradientUrl"
+        stroke-linecap="round"
+        [attr.stroke-width]="progressStrokeWidth"
+        fill="transparent"
+        [attr.transform]="gaugeTransform"
+      />
+    </svg>
+  </div>
+</div>

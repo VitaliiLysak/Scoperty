@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg57"
+   sodipodi:docname="medecine-active-icon.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata61">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>E_7_Icon_Location_Doctor_clicked</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview59"
+     showgrid="false"
+     inkscape:zoom="22.85"
+     inkscape:cx="13.56674"
+     inkscape:cy="20"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg57" />
+  <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title46">E_7_Icon_Location_Doctor_clicked</title>
+  <desc
+     id="desc48">Created with Sketch.</desc>
+  <defs
+     id="defs50" />
+  <g
+     id="E_7_Icon_Location_Doctor_clicked"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(1.3055903,0,0,1.3095637,-10.111807,-10.227679)">
+    <circle
+       id="Oval-3"
+       cx="20"
+       cy="20"
+       r="12"
+       style="fill:#009ba9;stroke:#009ba9;stroke-width:0.5" />
+    <path
+       d="M 22.500008,19.757812 H 21.250016 V 18.50782 c 0,-0.13807 -0.111938,-0.250008 -0.250008,-0.250008 h -1.999992 c -0.138071,0 -0.250008,0.111938 -0.250008,0.250008 v 1.249992 h -1.249992 c -0.138071,0 -0.250008,0.111938 -0.250008,0.250008 v 1.999992 c 0,0.138071 0.111937,0.250008 0.250008,0.250008 h 1.249992 v 1.249992 c 0,0.138071 0.111937,0.250008 0.250008,0.250008 h 1.999992 c 0.13807,0 0.250008,-0.111937 0.250008,-0.250008 V 22.25782 h 1.249992 c 0.13807,0 0.250008,-0.111937 0.250008,-0.250008 V 20.00782 c -2.4e-5,-0.13807 -0.111938,-0.250008 -0.250008,-0.250008 z M 22.25,21.757805 h -1.249992 c -0.138071,0 -0.250008,0.111937 -0.250008,0.250007 v 1.249993 h -1.5 v -1.249993 c 0,-0.13807 -0.111938,-0.250007 -0.250008,-0.250007 H 17.75 v -1.5 h 1.249992 c 0.13807,0 0.250008,-0.111938 0.250008,-0.250008 v -1.249992 h 1.5 v 1.249992 c 0,0.13807 0.111937,0.250008 0.250008,0.250008 H 22.25 Z"
+       id="Shape"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-rule:nonzero" />
+    <path
+       d="m 24.560258,16.757812 h -2.560266 v -0.715499 c 0,-0.570493 -0.4725,-1.034508 -1.053258,-1.034508 h -1.983 c -0.558492,0 -0.96375,0.435 -0.96375,1.034508 v 0.715499 H 15.439742 C 14.64493,16.758633 14.00082,17.402742 14,18.197555 v 5.6205 c 8.2e-4,0.794812 0.64493,1.438922 1.439742,1.439742 h 9.120492 c 0.794813,-8.2e-4 1.438922,-0.64493 1.439743,-1.439742 v -5.6205 C 25.99918,17.402766 25.35507,16.758633 24.560258,16.757812 Z M 18.5,16.042313 c 0,-0.265993 0.14325,-0.534493 0.463758,-0.534493 h 1.983 c 0.304992,0 0.553242,0.239743 0.553242,0.534493 v 0.715499 h -3 z m 7.000008,7.774992 c -1.41e-4,0.51907 -0.42068,0.939937 -0.93975,0.9405 h -9.120516 c -0.518789,-5.39e-4 -0.939187,-0.420961 -0.93975,-0.93975 v -5.6205 c 5.63e-4,-0.518789 0.420961,-0.939188 0.93975,-0.93975 h 9.120492 c 0.518789,5.62e-4 0.939211,0.420961 0.93975,0.93975 v 5.61975 z"
+       id="path54"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-rule:nonzero" />
+  </g>
+</svg>

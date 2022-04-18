@@ -1,0 +1,33 @@
+<div [attr.class]="{block: _name, element: 'wrapper'} | bem">
+  <!-- Header -->
+  <div [attr.class]="{block: _name, element: 'header'} | bem">
+    {{propertiesHeader}}
+    <span [attr.class]="{block: _name, element: 'header-mobile-hide'} | bem"> in diesem Gebäude</span>
+  </div>
+
+  <!-- Apartments -->
+  <div [attr.class]="{block: _name, element: 'content-wrapper'} | bem">
+    <div
+      *ngFor="let key of apartmentMapKeys"
+      [attr.class]="{block: _name, element: 'status-block'} | bem"
+    >
+      <!-- Apartment for selling status -->
+      <ng-container *ngIf="isSellingStatus(key); else apartmentWithOwner">
+        <app-selling-status-tag [sellingStatus]="key"></app-selling-status-tag>
+        <div [attr.class]="{block: _name, element: 'apartments-count'} | bem">
+          {{getNumberOfApartmentsForKey(key)}}
+        </div>
+      </ng-container>
+
+      <!-- Apartment with owner -->
+      <ng-template #apartmentWithOwner>
+        <div [attr.class]="{block: _name, element: 'heading', mods: {'with-owner': true}} | bem">
+          Mit Eigentümer
+        </div>
+        <div [attr.class]="{block: _name, element: 'apartments-count'} | bem">
+          {{getNumberOfApartmentsForKey(key)}}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

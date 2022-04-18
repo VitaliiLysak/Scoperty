@@ -1,0 +1,28 @@
+:host {
+  display: block;
+
+  width: 100%;
+}
+
+.input-volume__input-container {
+  display: flex;
+}
+
+.input-volume__input {
+  height: 44px;
+  width: 200px;
+  border-top: var(--border-input-standart);
+  border-bottom: var(--border-input-standart);
+  border-right: none;
+  border-left: none;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  text-align: center;
+
+  color: var(--neutrals-dark-middle-color);
+
+  pointer-events: none;
+}

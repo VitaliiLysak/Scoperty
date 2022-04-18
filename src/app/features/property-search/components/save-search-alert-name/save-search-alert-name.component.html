@@ -1,0 +1,111 @@
+<app-base-modal [showMobileNavbar]="false" [narrowSpacings]="true" (dismiss)="onDismiss()" [locationPrefix]="locationPrefix">
+  <ng-container app-base-modal-header alignMobile="left">
+    <ng-container *ngIf="(isMobileDevice$ | async); else desktopHeader">
+      Suchauftrag
+    </ng-container>
+
+    <ng-template #desktopHeader>
+      Suchauftrag anlegen
+    </ng-template>
+  </ng-container>
+
+  <div app-base-modal-body>
+    <div [attr.class]="{block: name, element: 'body-container'} | bem">
+      <div [attr.class]="{block: name, element: 'left-wrapper'} | bem">
+        <ng-container *ngIf="hasEnoughSpaceToDisplayTwoColumns$ | async">
+          <ng-container *ngTemplateOutlet="enterSearchAlertName"></ng-container>
+        </ng-container>
+
+        <!-- Filters -->
+        <div [attr.class]="{block: name, element: 'filters-wrapper'} | bem">
+          <app-filters
+            [locationPrefix]="locationPrefix"
+            mode="inline"
+            [filters]="filters"
+            (filtersChange)="onFilterChange($event)"
+            (filtersInvalid)="onFilterInvalid($event)"
+          ></app-filters>
+        </div>
+      </div>
+
+      <!-- Coordinates -->
+      <div [attr.class]="{block: name, element: 'right-wrapper'} | bem">
+        <ng-container *ngIf="!(hasEnoughSpaceToDisplayTwoColumns$ | async)">
+          <ng-container *ngTemplateOutlet="enterSearchAlertName"></ng-container>
+        </ng-container>
+
+        <div [attr.class]="{block: name, element: 'place-selector__label'} | bem">
+          Wo möchtest du suchen?
+        </div>
+        <div [attr.class]="{block: name, element: 'place-selector'} | bem">
+          <app-form-field [attr.class]="{block: name, element: 'place-form-field'} | bem">
+            <app-search-place
+              [locationPrefix]="locationPrefix"
+              [attr.class]="{block: name, element: 'search-place'} | bem"
+              mode="search-alert"
+              size="small"
+              [fullWidthInput]="true"
+              [formControl]="placeControl"
+              ngDefaultControl
+              (placeChange)="onPlaceChange($event)"
+              (setFullAddress)="getFullSavedAddress($event)">
+            </app-search-place>
+          </app-form-field>
+          <app-search-radius-control [locationPrefix]="locationPrefix" [(searchRadius)]="radius"></app-search-radius-control>
+        </div>
+        <div [attr.class]="{block: name, element: 'map'} | bem">
+          <app-search-alert-map
+            [attr.class]="{block: name, element: 'map'} | bem"
+            [(radius)]="radius"
+            (locationChange)="onLocationChange($event)"
+            [location]="location"
+            [(zoom)]="zoom"></app-search-alert-map>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search alert name -->
+    <ng-template #enterSearchAlertName>
+      <div [attr.class]="{block: name, element: 'name-wrapper'} | bem">
+        <div [attr.class]="{block: name, element: 'form-wrapper__label'} | bem">
+          Benenne deinen Suchauftrag:
+        </div>
+        <form [formGroup]="alertDataForm" [attr.class]="{block: name, element: 'form-wrapper'} | bem">
+          <app-form-field>
+            <input
+              [attr.class]="{block: name, element: 'name-input'} | bem"
+              id="map-search-alert-name"
+              tabindex="1"
+              app-input
+              size="small"
+              [formControl]="searchAlertName"
+              (keyup.enter)="saveAlert()"
+              #nameInput>
+
+            <ng-template app-form-field-error-message error="maxlength">
+              Der Name darf nicht länger als 30 Zeichen sein
+            </ng-template>
+            <ng-template app-form-field-error-message error="required">
+              Bitte gib einen Namen ein
+            </ng-template>
+          </app-form-field>
+        </form>
+      </div>
+    </ng-template>
+  </div>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        id="{{locationPrefix}}-save-button"
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="saveAlert()"
+      >
+        Suchauftrag speichern
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

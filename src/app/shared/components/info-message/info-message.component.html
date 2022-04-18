@@ -1,0 +1,37 @@
+<div [attr.class]="{ block: _name, element: 'container' } | bem">
+  <div
+    *ngIf="hasCloseButton"
+    [attr.class]="{ block: _name, element: 'close-button', mods: { 'style': 'dark', 'position': 'absolute' } } | bem"
+    (click)="onDismiss()"
+  >
+    <i aria-hidden="true" [attr.class]="{ block: _name, element: 'close-icon' } | bem">&times;</i>
+  </div>
+
+  <div [attr.class]="{ block: _name, element: 'badge' } | bem">
+    Tipp
+  </div>
+
+  <!--
+  <div [attr.class]="{ block: _name, element: 'header' } | bem">
+    <div [attr.class]="{ block: _name, element: 'close-button' } | bem"
+         (click)="onDismiss()">
+      <i aria-hidden="true" [attr.class]="{ block: _name, element: 'close-icon' } | bem"></i>
+    </div>
+  </div>
+  -->
+
+  <div *ngIf="hasHeader" [attr.class]="{ block: _name, element: 'title' } | bem">
+    {{ header }}
+  </div>
+
+  <div *ngIf="hasMessage" [attr.class]="{ block: _name, element: 'message' } | bem">
+    {{ message }}
+  </div>
+
+  <div [attr.class]="{ block: _name, element: 'actions' } | bem">
+    <div [attr.class]="{ block: _name, element: 'action' } | bem"
+         (click)="onActionClick()">
+      {{ actionLabel }}
+    </div>
+  </div>
+</div>

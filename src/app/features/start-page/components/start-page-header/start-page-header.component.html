@@ -1,0 +1,51 @@
+<div
+  [attr.class]="{block: _name, element: 'container'} | bem"
+  [style.max-height.px]="containerMaxHeight$ | async"
+>
+  <!-- video -->
+  <app-desktop-video
+    [attr.class]="{block: _name, element: 'video'} | bem"
+    poster="assets/images/start-page/header-teaser.jpg"
+    src="assets/videos/start-page/nuremberg-teaser.mp4"
+    brightness="80%"
+    videoPosition="bottom"
+    [multiResolutionPoster]="true"
+    [autoplay]="true"
+    [loop]="true"
+  ></app-desktop-video>
+
+  <div [attr.class]="{block: _name, element: 'content'} | bem" #content>
+    <!-- description -->
+    <div [attr.class]="{block: _name, element: 'description'} | bem" #description>
+      <h1 [attr.class]="{block: _name, element: 'title'} | bem">
+        Erhöhe deine Chancen mit Scoperty.
+      </h1>
+      <h2 [attr.class]="{block: _name, element: 'subtitle'} | bem">
+        Wir haben alle 40 Millionen Wohnimmobilien in Deutschland.
+      </h2>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'video-mask-container'} | bem">
+      <!-- badge -->
+      <div [attr.class]="{block: _name, element: 'badge-container'} | bem">
+        <app-badge
+          [attr.class]="{block: _name, element: 'badge'} | bem"
+          text="Jetzt in Berlin, Hamburg, München, Köln,  Frankfurt und Nürnberg!"
+          rotate="7deg"
+          fontSize="14px"
+        ></app-badge>
+      </div>
+
+      <!-- video mask -->
+      <div [attr.class]="{block: _name, element: 'video-mask'} | bem" #videoMask>
+        <svg width="100%" height="100%" viewBox="0 0 1920 241" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" focusable="false">
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(0.000000, -469.000000)" fill="currentColor">
+              <polygon points="-1.02318154e-12 469 1920 710 8.17124146e-14 710"></polygon>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

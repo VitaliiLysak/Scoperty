@@ -1,0 +1,29 @@
+<div [attr.class]="{ block: name, element: 'container' } | bem">
+  <div [attr.class]="{ block: name, element: 'content', mods: { 'icon-position': iconPosition } } | bem">
+    <div [attr.class]="{ block: name, element: 'icon', mods: { 'icon-position': iconPosition } } | bem">
+      <mat-icon
+        [svgIcon]="icon"
+        [appSvgWidth]="iconSizeToUse?.width"
+        [appSvgHeight]="iconSizeToUse?.height"
+      ></mat-icon>
+    </div>
+    <div [attr.class]="{ block: name, element: 'explanation', mods: { 'icon-position': iconPosition } } | bem">
+      <div [attr.class]="{ block: name, element: 'explanation-header' } | bem">
+        {{ heading }}
+      </div>
+      <div [attr.class]="{ block: name, element: 'explanation-message' } | bem">
+        {{ message }}
+      </div>
+      <div [attr.class]="{ block: name, element: 'explanation-actions' } | bem">
+        <button
+          app-button
+          color="primary-green"
+          [stretch]="true"
+          (click)="clickButton()"
+        >
+          {{ buttonTitle }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

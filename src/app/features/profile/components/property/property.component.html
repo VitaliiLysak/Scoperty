@@ -1,0 +1,77 @@
+<div [attr.class]="{block: _name, element: 'container', mods: {'state': isActive? 'active': 'default'}} | bem">
+  <div [attr.class]="{block: _name, element: 'photo'} | bem">
+    <app-image
+      *ngIf="model.images[0]"
+      [attr.class]="{block: _name, element: 'image'} | bem"
+      [mods]="{'canHover': true, 'fit': 'container'}"
+      [src]="model.images[0]"
+    ></app-image>
+    <div
+      *ngIf="!model.images[0]"
+      [attr.class]="{block: _name, element: 'image-info'} | bem">
+      <div
+        [attr.class]="{block: _name, element: 'image-info-container'} | bem"
+        (click)="emitActivateTab('edit', 'galleryBlock')"
+      >
+        <img src='../../../assets/images/pic.png'>
+        <span>Bilder <br *ngIf="!(isSmallMobileDevice$ | async)"/> hinzufügen</span>
+      </div>
+    </div>
+    <div *ngIf="!isNotActiveYet" [attr.class]="{block: _name, element: 'status-info'} | bem">
+      <app-selling-status
+        [sellingStatus]="model.SellingStatus"
+        size="small"
+        theme="light"
+      >
+      </app-selling-status>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div [attr.class]="{block: _name, element: 'info-block'} | bem">
+      <div
+        appMultilineTruncate
+        [text]="propertyAddress"
+        [attr.class]="{block: _name, element: 'address'} | bem"
+      ></div>
+      <div [attr.class]="{block: _name, element: 'price'} | bem">
+        SCHÄTZWERT: {{model?.propertyPrice | cost}}
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'links-block'} | bem">
+      <button
+        app-button
+        color="green"
+        buttonStyle="link"
+        [stretch]="true"
+        (click)="goToMarkerView()"
+      >
+        Besucheransicht
+        <mat-icon
+          svgIcon="chevron_right"
+        ></mat-icon>
+      </button>
+
+      <ng-container *ngIf="model.isOwner; else linkForRealtor">
+        <a
+          app-button
+          color="green"
+          buttonStyle="link"
+          [stretch]="true"
+          [routerLink]="linkToSearchBroker"
+        >
+          Finde einen Makler
+          <mat-icon
+            svgIcon="chevron_right"
+          ></mat-icon>
+        </a>
+      </ng-container>
+
+      <ng-template #linkForRealtor>
+        <span [attr.class]="{block: _name, element: 'badge'} | bem">
+          Ich bin Makler
+        </span>
+      </ng-template>
+    </div>
+  </div>
+</div>

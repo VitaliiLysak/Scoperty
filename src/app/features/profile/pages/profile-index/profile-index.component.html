@@ -1,0 +1,511 @@
+<div [attr.class]="{block: _name, element: 'content'} | bem">
+  <div [attr.class]="{block: _name, element: 'header'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      Profil
+    </div>
+  </div>
+  <div *ngIf="userInfo" [attr.class]="{block: _name, element: 'wrapper'} | bem">
+    <div [attr.class]="{block: _name, element: 'person-container'} | bem">
+      <div [attr.class]="{block: _name, element: 'person-container-wrapper'} | bem">
+        <div [attr.class]="{block: _name, element: 'info-container', mods: {'personal-data': 'container'}} | bem">
+          <div [attr.class]="{block: _name, element: 'data'} | bem">
+            <div [attr.class]="{block: _name, element: 'data-title'} | bem">
+              Persönliche Daten
+            </div>
+            <div [attr.class]="{block: _name, element: 'data-photo-block'} | bem">
+              <div [attr.class]="{block: _name, element: 'data-photo'} | bem"></div>
+            </div>
+            <div [attr.class]="{block: _name, element: 'data-photo-change-block'} | bem">
+              <input
+                #photoInput
+                style="display: none"
+                type="file"
+                (change)="onPhotoChanged($event)"
+              >
+              <div
+                [attr.class]="{block: _name, element: 'data-link', mods: {'photo': 'change'}} | bem"
+                (click)="photoInput.click()"
+              >
+                Profilbild bearbeiten
+                <img
+                  src="../../../../../assets/images/arrow-right-blue.svg"
+                  [attr.class]="{block: _name, element: 'link-arrow'} | bem"
+                >
+              </div>
+            </div>
+
+            <form [attr.class]="{block: _name, element: 'form'} | bem" [formGroup]="dataForm">
+              <div [attr.class]="{block: _name, element: 'data-info-block'} | bem">
+                <div
+                  [attr.class]="{
+                    block: _name,
+                    element: 'data-row',
+                    mods: {
+                      'info': 'container',
+                      'state' : (dataForm.controls['vorname'].invalid &&
+                                (dataForm.controls['vorname'].dirty || dataForm.controls['vorname'].touched))
+                                ? 'error' : 'default'
+                    }
+                  } | bem"
+                >
+                  <label [attr.class]="{block: _name, element: 'data-key'} | bem" for="firstName">
+                    Vorname*
+                  </label>
+                  <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+                    <input
+                      id="firstName"
+                      #vornameInput
+                      formControlName="vorname"
+                      placeholder="Vorname eingeben"
+                      type="text"
+                      [(ngModel)]="userInfo[CognitoUserFields.GivenName]"
+                      [attr.class]="{
+                        block: _name,
+                        element: 'input',
+                        mods: {
+                          'state' : (dataForm.controls['vorname'].valid &&
+                                    (dataForm.controls['vorname'].dirty && dataForm.controls['vorname'].touched))
+                                    ? 'complete'
+                                    : (dataForm.controls['vorname'].invalid &&
+                                      (dataForm.controls['vorname'].dirty || dataForm.controls['vorname'].touched))
+                                      ? 'error' : 'default'
+                        }
+                      } | bem"
+                    >
+                    <div
+                      *ngIf="dataForm.controls['vorname'].invalid &&
+                            (dataForm.controls['vorname'].dirty || dataForm.controls['vorname'].touched)"
+                      [attr.class]="{block: _name, element: 'message'} | bem"
+                    >
+                      <div *ngIf="dataForm.controls['vorname'].errors.required">
+                        Vorname ist ein Pflichtfeld
+                      </div>
+                      <div *ngIf="dataForm.controls['vorname'].errors.minlength">
+                        Vorname muss mindestens zwei Buchstaben lang
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  [attr.class]="{
+                    block: _name,
+                    element: 'data-row',
+                    mods: {
+                      'info': 'container',
+                      'state' : (dataForm.controls['name'].invalid &&
+                                (dataForm.controls['name'].dirty || dataForm.controls['name'].touched))
+                                ? 'error' : 'default'
+                    }
+                  } | bem"
+                >
+                  <label [attr.class]="{block: _name, element: 'data-key'} | bem" for="lastName">
+                    {{(isSmallMobileDevice$ | async) ? 'Nachname*' : 'Name*'}}
+                  </label>
+                  <div
+                    [attr.class]="{block: _name, element: 'input-container'} | bem">
+                    <input
+                      id="lastName"
+                      #nameInput
+                      formControlName="name"
+                      placeholder="Nachname eingeben"
+                      type="text"
+                      [(ngModel)]="userInfo[CognitoUserFields.FamilyName]"
+                      [attr.class]="{
+                        block: _name,
+                        element: 'input',
+                        mods: {
+                          'state' : (dataForm.controls['name'].valid &&
+                                    (dataForm.controls['name'].dirty && dataForm.controls['name'].touched))
+                                    ? 'complete'
+                                    : (dataForm.controls['name'].invalid &&
+                                      (dataForm.controls['name'].dirty || dataForm.controls['name'].touched))
+                                      ? 'error' : 'default'
+                        }
+                      } | bem"
+                    >
+                    <div
+                      *ngIf="dataForm.controls['name'].invalid &&
+                            (dataForm.controls['name'].dirty || dataForm.controls['name'].touched)"
+                      [attr.class]="{block: _name, element: 'message'} | bem"
+                    >
+                      <div *ngIf="dataForm.controls['name'].errors.required">
+                        Name ist ein Pflichtfeld
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="userInfo.phone_number" [attr.class]="{block: _name, element: 'data-phone-block'} | bem">
+                  <div [attr.class]="{block: _name, element: 'data-phone-title'} | bem">
+                    <div [attr.class]="{block: _name, element: 'data-key'} | bem">
+                      Mobiltelefon*
+                    </div>
+                  </div>
+                  <div [attr.class]="{block: _name, element: 'data-phone'} | bem">
+                    <div [attr.class]="{block: _name, element: 'data-value'} | bem">
+                      {{userInfo.phone_number}}
+                    </div>
+                    <div
+                      [attr.class]="{block: _name, element: 'data-link', mods: {'change': 'number'}} | bem"
+                      (click)="openChangeMobilePhoneForm()"
+                    >
+                      Nummer ändern
+                      <img
+                        src="../../../../../assets/images/arrow-right-blue.svg"
+                        [attr.class]="{block: _name, element: 'link-arrow'} | bem"
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div
+                  [attr.class]="{
+                    block: _name,
+                    element: 'data-row',
+                    mods: {'last': 'row', 'info': 'container'}
+                  } | bem"
+                >
+                  <span [attr.class]="{block: _name, element: 'data-key', mods: {'last': 'row'}} | bem">
+                    Account löschen*
+                  </span>
+                  <!--<div
+                    [attr.class]="{
+                      block: _name,
+                      element: 'data-delete-account-block',
+                      mods: {'delete': 'account'}
+                    } | bem"
+                  >
+                      <a
+                        [attr.class]="{block: _name, element: 'data-link', mods: {'delete': 'account'}} | bem"
+                        href="#"
+                      >
+                        Account löschen >
+                      </a>
+                  </div>-->
+                  <div
+                    [attr.class]="{
+                      block: _name,
+                      element: 'data-link',
+                      mods: {
+                        'delete': 'account',
+                        'margin-top': '8'
+                      }
+                    } | bem"
+                    (click)="openDeleteAccountForm()"
+                  >
+                    Account löschen
+                    <img
+                      src="../../../../../assets/images/arrow-right-blue.svg"
+                      [attr.class]="{block: _name, element: 'link-arrow'} | bem"
+                    >
+                  </div>
+                </div>
+              </div>
+              <div [attr.class]="{block: _name, element: 'data-required-block', mods: {'info': 'container'}} | bem">
+                <div [attr.class]="{block: _name, element: 'data-required-title'} | bem">
+                  *Pflichtfelder
+                </div>
+                <button
+                  [attr.class]="{
+                    block: _name,
+                    element: 'data-required-button',
+                    mods: {
+                      'state' : (dataForm.valid && (dataForm.dirty && dataForm.touched))
+                      ? 'complete'
+                      : 'default'
+                    }
+                  } | bem"
+                  [disabled]="!(dataForm.valid && (dataForm.dirty && dataForm.touched))"
+                  (click)="updateData()"
+                >
+                  Speichern
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+        <div [attr.class]="{block: _name, element: 'info-container', mods: {'credentials': 'container'}} | bem">
+          <div [attr.class]="{block: _name, element: 'data', mods: {'credentials': 'password'}} | bem">
+            <div [attr.class]="{block: _name, element: 'data-title'} | bem">
+              Zugangsdaten
+            </div>
+
+            <form [attr.class]="{block: _name, element: 'form'} | bem" [formGroup]="passwordForm">
+              <div
+                [attr.class]="{
+                  block: _name,
+                  element: 'data-row',
+                  mods: {
+                    'password': 'container',
+                    'state' : (passwordForm.controls['old_password'].invalid &&
+                              (passwordForm.controls['old_password'].dirty || passwordForm.controls['old_password'].touched))
+                              ? 'error' : 'default'
+                  }
+                } | bem"
+              >
+                <label
+                  [attr.class]="{block: _name, element: 'data-key'} | bem"
+                  for="oldPassword"
+                >
+                  Altes Passwort*
+                </label>
+                <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+                  <input
+                    id="oldPassword"
+                    #oldPasswordInput
+                    formControlName="old_password"
+                    placeholder="Passwort eingeben"
+                    type="password"
+                    [(ngModel)]="userPassword.old_password"
+                    [attr.class]="{
+                      block: _name,
+                      element: 'input',
+                      mods: {
+                        'state' : (passwordForm.controls['old_password'].valid &&
+                                  (passwordForm.controls['old_password'].dirty && passwordForm.controls['old_password'].touched))
+                                  ? 'complete'
+                                  : (passwordForm.controls['old_password'].invalid &&
+                                    (passwordForm.controls['old_password'].dirty || passwordForm.controls['old_password'].touched))
+                                    ? 'error' : 'default'
+                      }
+                    } | bem"
+                  >
+                  <div
+                    *ngIf="passwordForm.controls['old_password'].invalid &&
+                          (passwordForm.controls['old_password'].dirty || passwordForm.controls['old_password'].touched)"
+                    [attr.class]="{block: _name, element: 'message'} | bem"
+                  >
+                    <div *ngIf="passwordForm.controls['old_password'].errors.required">
+                      Altes passwort ist ein Pflichtfeld
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                [attr.class]="{
+                  block: _name,
+                  element: 'data-row',
+                  mods: {
+                    'password': 'container',
+                    'state' : (passwordForm.controls['new_password'].invalid &&
+                              (passwordForm.controls['new_password'].dirty || passwordForm.controls['new_password'].touched))
+                              ? 'error' : 'default'
+                  }
+                } | bem"
+              >
+                <label
+                  [attr.class]="{block: _name, element: 'data-key'} | bem"
+                  for="newPassword"
+                >
+                  Neues Passwort*
+                </label>
+                <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+                  <input
+                    id="newPassword"
+                    #newPasswordInput
+                    formControlName="new_password"
+                    placeholder="Passwort eingeben"
+                    type="password"
+                    [(ngModel)]="userPassword.new_password"
+                    [attr.class]="{
+                      block: _name,
+                      element: 'input',
+                      mods: {
+                        'state' : (passwordForm.controls['new_password'].valid &&
+                                  (passwordForm.controls['new_password'].dirty && passwordForm.controls['new_password'].touched))
+                                  ? 'complete'
+                                  : (passwordForm.controls['new_password'].invalid &&
+                                    (passwordForm.controls['new_password'].dirty ||passwordForm.controls['new_password'].touched))
+                                    ? 'error' : 'default'
+                      }
+                    } | bem"
+                  >
+                  <div
+                    *ngIf="passwordForm.controls['new_password'].invalid &&
+                          (passwordForm.controls['new_password'].dirty || passwordForm.controls['new_password'].touched)"
+                    [attr.class]="{block: _name, element: 'message'} | bem"
+                  >
+                    <div *ngIf="passwordForm.controls['new_password'].errors.required">
+                      Neues passwort ist ein Pflichtfeld
+                    </div>
+                    <div *ngIf="passwordForm.controls['new_password'].errors.pattern &&
+                                !passwordForm.controls['new_password'].errors.required"
+                    >
+                      8 Zeichnen, 1 Großbuchstabe, 1 Kleinbuchstabe, 1 Zah
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                [attr.class]="{
+                  block: _name,
+                  element: 'data-row',
+                  mods: {
+                    'password': 'container',
+                    'state' : (passwordForm.controls['new_password_check'].invalid &&
+                              (passwordForm.controls['new_password_check'].dirty ||
+                              passwordForm.controls['new_password_check'].touched))
+                              ? 'error' : 'default'
+                  }
+                } | bem"
+              >
+                <label
+                  [attr.class]="{block: _name, element: 'data-key'} | bem"
+                  for="newPasswordCheck"
+                >
+                  Passwort bestätigen*
+                </label>
+                <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+                  <input
+                    id="newPasswordCheck"
+                    #newPasswordCheckInput
+                    formControlName="new_password_check"
+                    placeholder="Passwort wiederholen"
+                    type="password"
+                    [(ngModel)]="userPassword.new_password_check"
+                    [attr.class]="{
+                      block: _name,
+                      element: 'input',
+                      mods: {
+                        'state' : (passwordForm.controls['new_password_check'].valid &&
+                                  (passwordForm.controls['new_password_check'].dirty &&
+                                  passwordForm.controls['new_password_check'].touched))
+                                  ? 'complete'
+                                  : (passwordForm.controls['new_password_check'].invalid &&
+                                    (passwordForm.controls['new_password_check'].dirty ||
+                                    passwordForm.controls['new_password_check'].touched))
+                                    ? 'error'
+                                    : 'default'
+                      }
+                    } | bem"
+                  >
+                  <div
+                    *ngIf="passwordForm.controls['new_password_check'].invalid &&
+                          (passwordForm.controls['new_password_check'].dirty ||
+                          passwordForm.controls['new_password_check'].touched)"
+                    [attr.class]="{block: _name, element: 'message'} | bem"
+                  >
+                    <div *ngIf="passwordForm.controls['new_password_check'].errors.required">
+                      Passwort bestätigen ist ein Pflichtfeld
+                    </div>
+                    <div *ngIf="passwordForm.controls['new_password_check'].errors.discrepancy">
+                      Das neue Passwort stimmt nicht überein. Bitte gibt es noch mal ein!
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                [attr.class]="{
+                  block: _name,
+                  element: 'data-required-block',
+                  mods: {'password': 'container'}
+                } | bem"
+              >
+                <div [attr.class]="{block: _name, element: 'data-required-title'} | bem">
+                  *Pflichtfelder
+                </div>
+                <button
+                  [attr.class]="{
+                    block: _name,
+                    element: 'data-required-button',
+                    mods: {
+                      'state' : (passwordForm.valid && (passwordForm.dirty && passwordForm.touched))
+                      ? 'complete'
+                      : 'default'
+                    }
+                  } | bem"
+                  [disabled]="!(passwordForm.valid)"
+                  (click)="updatePassword()"
+                >
+                  Speichern
+                </button>
+              </div>
+            </form>
+          </div>
+          <div [attr.class]="{block: _name, element: 'data', mods: {'credentials': 'email'}} | bem">
+            <div [attr.class]="{block: _name, element: 'data-title'} | bem">
+              E-Mail-Adresse
+            </div>
+            <form [attr.class]="{block: _name, element: 'form'} | bem" [formGroup]="emailForm">
+              <div
+                [attr.class]="{
+                  block: _name,
+                  element: 'data-row',
+                  mods: {
+                    'email': 'container',
+                    'state' : (emailForm.controls['email'].invalid &&
+                              emailForm.controls['email'].dirty && emailForm.controls['email'].touched)
+                              ? 'error' : 'default'
+                  }
+                } | bem"
+              >
+                <label
+                  [attr.class]="{block: _name, element: 'data-key'} | bem"
+                  for="email"
+                >
+                  E-Mail-Adresse*
+                </label>
+                <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+                  <input
+                    id="email"
+                    #emailInput
+                    formControlName="email"
+                    placeholder="E-Mail"
+                    appValidateOnBlur
+                    [validateFormControl]="emailForm.controls['email']"
+                    type="email"
+                    aria-describedby="emailHelp"
+                    [(ngModel)]="userInfo.email"
+                    [attr.class]="{
+                      block: _name,
+                      element: 'input',
+                      mods: {
+                        'state' : (emailForm.controls['email'].valid &&
+                                  (emailForm.controls['email'].dirty || emailForm.controls['email'].touched))
+                                  ? 'complete'
+                                  : (emailForm.controls['email'].invalid &&
+                                    emailForm.controls['email'].dirty && emailForm.controls['email'].touched)
+                                    ? 'error' : 'default'
+                      }
+                    } | bem"
+                  >
+                  <div
+                    *ngIf="emailForm.controls['email'].invalid &&
+                          emailForm.controls['email'].dirty && emailForm.controls['email'].touched"
+                    [attr.class]="{block: _name, element: 'message'} | bem"
+                  >
+                    <div *ngIf="emailForm.controls['email'].errors.required">
+                      Bitte eine E-Mail-Adresse eingeben
+                    </div>
+                    <div *ngIf="emailForm.controls['email'].errors.pattern && !emailForm.controls['email'].errors.required">
+                      Falsche E-Mail-Adresse
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div [attr.class]="{block: _name, element: 'data-required-block', mods: {'email': 'container'}} | bem">
+                <div [attr.class]="{block: _name, element: 'data-required-title'} | bem">
+                  *Pflichtfelder
+                </div>
+                <button
+                  [attr.class]="{
+                    block: _name,
+                    element: 'data-required-button',
+                    mods: {
+                      'state' : (emailForm.valid && (emailForm.dirty || emailForm.touched))
+                      ? 'complete'
+                      : 'default'
+                    }
+                  } | bem"
+                  [disabled]="!(emailForm.valid && (emailForm.dirty || emailForm.touched))"
+                  (click)="updateEmail()"
+                >
+                  Speichern
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

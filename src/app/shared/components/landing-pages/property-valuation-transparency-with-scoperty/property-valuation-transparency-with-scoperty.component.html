@@ -1,0 +1,21 @@
+<div [attr.class]="{ block: name, element: 'container' } | bem">
+  <!-- Explanation -->
+  <div [attr.class]="{ block: name, element: 'explanation' } | bem">
+    <h2 [attr.class]="{ block: name, element: 'explanation-heading' } | bem">
+      Neue Transparenz mit Scoperty
+    </h2>
+
+    <div [attr.class]="{ block: name, element: 'explanation-message' } | bem">
+      Scoperty bietet dir als einziger Immobilienmarktplatz wertvolle, umfassende Zusatzinformationen zu allen Wohnimmobilien.
+      Ein hochmoderner Algorithmus berechnet individuell den Scoperty Wert, den aktuellen Schätzwert deiner Immobilie.
+      Grundlage für diese dynamischen Wertangaben sind neben Lage und Art des Objekts auch Variablen, die du aktiv mit beeinflussen kannst.
+      Eigentümer erfahren so den realistischen Marktwert ihres Objekts, Kaufinteressenten erhalten fundierte Daten zum Preisniveau der jeweiligen Region.
+    </div>
+  </div>
+
+  <!-- Image -->
+  <img
+    [attr.class]="{ block: name, element: 'image' } | bem"
+    src="assets/images/property_view_imgs/visual_map.svg"
+  />
+</div>

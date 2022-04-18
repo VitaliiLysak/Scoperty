@@ -1,0 +1,253 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  -webkit-font-smoothing: antialiased;
+
+  letter-spacing: 0.5px;
+  color: hsl(0, 0%, 28%);
+}
+
+.my-properties__container {
+  margin-left: calc((100% - 945px)/2);
+
+  align-self: flex-start;
+
+  padding-top: 60px;
+}
+
+.my-properties__container--size-mobile-true {
+  margin: 0;
+
+  align-self: center;
+}
+
+.my-properties__properties-scroll-container {
+  margin: -15px 0 0 -15px;
+
+  overflow-y: auto;
+
+  max-height: 2310px;
+}
+
+.my-properties__properties-container {
+  z-index: 0;
+
+  padding: 17px 17px 0 17px;
+}
+
+.my-properties__content {
+  display: flex;
+}
+
+.my-properties__content-block {
+  margin-bottom: 35px;
+
+  border: 1px solid hsl(0, 0%, 95%);
+  border-radius: 2px;
+
+  box-shadow: 0 0 16px 0 hsl(0, 0%, 90%);
+  background-color: hsl(0, 100%, 100%);
+}
+
+.my-properties__back-link {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+  width: -moz-max-content;
+
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: hsl(185, 98%, 41%);
+
+  outline: none;
+  cursor: pointer;
+}
+
+.my-properties__back-link:hover {
+  color: var(--background-color-buttons-map-secondary-hover);
+}
+
+.my-properties__arrow-icon-left {
+  margin-right: 5px;
+
+  border: solid hsl(185, 98%, 41%);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+
+  transform: rotate(135deg);
+}
+
+.my-properties__loader  {
+  margin-top: 100px;
+}
+
+.my-properties__property-container {
+  border-radius: 2px;
+
+  background-color: #FFFFFF;
+  box-shadow: 0 0 16px 0 #E6E6E6;
+}
+
+.my-properties__property-container--state-overview{
+  margin-left: 15px;
+
+  width: 752px;
+}
+
+.my-properties__property-container--state-default {
+  margin-left: 0;
+
+  width: 944px;
+}
+
+.my-properties__navbar-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin-bottom: 64px;
+}
+
+.my-properties__navbar-container--mobile-true {
+  position: static;
+}
+
+.my-properties__banner-container {
+  width: 100%;
+  border-top: 1px solid var(--neutrals-white-color);
+}
+
+/* Responsive */
+
+@media (min-width: 450px) {
+  .my-properties__properties-scroll-container::-webkit-scrollbar-track {
+    margin-top: 15px;
+
+    border-radius: 8px;
+
+    box-shadow: inset 0 0 2px hsla(0, 0%, 0%, .2);
+    background-color: hsla(0, 0%, 91%, 0.6);
+  }
+
+  .my-properties__properties-scroll-container::-webkit-scrollbar {
+    width: 8px;
+
+    background-color: hsla(0, 0%, 0%, 0);
+  }
+
+  .my-properties__properties-scroll-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+
+    box-shadow: inset 0 0 2px hsla(0, 0%, 0%, .2);
+    background-color: hsla(0, 0%, 69%, 0.6);
+  }
+}
+
+@media (max-width: 1190px) {
+  .my-properties__container {
+    margin-left: 0;
+
+    align-self: unset;
+  }
+}
+
+@media (max-width: 1088px) {
+  .my-properties__container {
+    width: 100%;
+    padding: 60px 10px 0;
+  }
+
+  .my-properties__property-container {
+    width: calc(100% - 306px);
+  }
+
+  .my-properties__property-container--margin-auto-true {
+    margin: 0 auto;
+
+    width: 100%;
+    max-width: 944px
+  }
+}
+
+@media (max-width: 768px) {
+  /* loader position is not centered after remove entire-profile padding-bottom */
+  .my-properties__loader  {
+    margin: 20% 0;
+  }
+
+  .my-properties__property-container {
+    margin: 0;
+  }
+
+  .my-properties__content {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 671px) and (max-width: 768px) {
+  .my-properties__container {
+    margin-bottom: 64px;
+  }
+}
+
+@media (max-width: 670px) {
+  .my-properties__property-container {
+    margin-top: 15px;
+
+    width: 95%;
+  }
+
+  .my-properties__navbar-container {
+    margin-bottom: 32px;
+  }
+
+  .my-properties__back-link {
+    padding: 10px 17px;
+  }
+
+  .my-properties__properties-container {
+    padding: 30px 17px;
+  }
+}
+
+@media (max-width: 576px) {
+  .my-properties__container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  :host {
+    padding-top: 0;
+  }
+
+  .my-properties__content-block {
+    border: none;
+  }
+
+  .my-properties__properties-scroll-container {
+    margin: 0;
+
+    width: 100%;
+  }
+
+  .my-properties__property-container {
+    margin-top: 0;
+
+    width: 100%;
+  }
+
+  .my-properties__container {
+    padding: 0;
+  }
+
+  .my-properties__properties-container {
+    padding-top: 40px;
+  }
+}

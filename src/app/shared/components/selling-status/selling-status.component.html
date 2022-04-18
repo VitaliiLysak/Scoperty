@@ -1,0 +1,9 @@
+<div [attr.class]="{ block: _name, element: 'status-info', mods: { 'size': size } } | bem">
+  <span [attr.class]="{ block: _name, element: 'status-icon', mods: { 'type': sellingStatus } } | bem"></span>
+  <div
+    *ngIf="!hideLabel"
+    [attr.class]="{ block: _name, element: 'status-text', mods: { 'theme': theme } } | bem"
+  >
+    {{ statusText }}
+  </div>
+</div>

@@ -1,0 +1,301 @@
+<button
+  id="dissent-close-modal-button"
+  [attr.class]="{block: _name, element: 'button-close'} | bem"
+  (click)="closeModal()"
+>
+  <mat-icon svgIcon="close-icon-thin"></mat-icon>
+</button>
+<div
+  [attr.class]="{block: _name, element: 'logo'} | bem"
+  (click)="clickOnLogo()"
+>
+  <app-logo
+    [attr.class]="{block: _name, element: 'logo-img'} | bem"
+  ></app-logo>
+</div>
+
+<div
+  [attr.class]="{block: _name, element: 'content', mods: {'short': isAddPropertyOrSetOwnerMode}} | bem"
+>
+  <!-- Registration info -->
+  <app-registration-info
+    *ngIf="showInfo"
+    [mode]="mode"
+    (acceptInfo)="acceptInfo()"
+  ></app-registration-info>
+
+  <div
+    *ngIf="showForm"
+    [attr.class]="{block: _name, element: 'reg'} | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'container'} | bem">
+
+      <!-- Non-delete mode (by default) -->
+      <ng-container *ngIf="isNonDeleteMode">
+        <div
+          *ngIf="showEmailVerifyMessage"
+          [attr.class]="{block: _name, element: 'email-verify-success-block'} | bem">
+          Glückwunsch du hast deine E-Mail bestätigt!
+        </div>
+        <div
+          *ngIf="!isEmailVerify"
+          [attr.class]="{block: _name, element: 'process-block'} | bem">
+          <div
+            *ngIf="!showEmailVerifyMessage"
+            [attr.class]="{block: _name, element: 'title'} | bem"
+          >
+            Willkommen bei Scoperty!
+          </div>
+          <div
+            *ngIf="isUserLoggedIn"
+            [attr.class]="{block: _name, element: 'separator', mods: {'size': '50px'} } | bem"
+          >
+          </div>
+          <div
+            *ngIf="!showEmailVerifyMessage && !isUserLoggedIn"
+            [attr.class]="{block: _name, element: 'container', mods: {'margin-bottom' : '50'}} | bem"
+          >
+            <span [attr.class]="{block: _name, element: 'text-small', 'fw': 'bold'} | bem">
+              Du hast bereits einen Account?
+            </span>
+            <span
+              [attr.class]="{block: _name, element: 'link'} | bem"
+              (click)="showAuthorization()"
+            >
+              Logge dich hier ein.
+            </span>
+          </div>
+          <div [attr.class]="{block: _name, element: 'reg-content'} | bem">
+            <div
+              *ngIf="role !== 'buyer'"
+              id="elementTabs"
+              [attr.class]="{block: _name, element: 'tabs-container'} | bem"
+            >
+              <div [attr.class]="{block: _name, element: 'tabs'} | bem">
+                <div
+                  [attr.class]="{
+                  block: _name,
+                  element: 'tab',
+                  mods: {'state': isRegistrationTabActive ? 'active' : 'default'}
+                } | bem"
+                >
+                  <div
+                    [attr.class]="{
+                    block: _name,
+                    element: 'number-circle',
+                    mods: {'state': isRegistrationTabActive ? 'active' : 'default'}
+                  } | bem"
+                  >
+                    1
+                  </div>
+                  <div
+                    [attr.class]="{
+                    block: _name,
+                    element: 'text-xsmall',
+                    mods: {'state': isRegistrationTabActive ? 'active' : 'default'}
+                  } | bem"
+                  >
+                    REGISTRIEREN
+                  </div>
+                </div>
+                <div
+                  *ngIf="isHolderRoles"
+                  [attr.class]="{
+                  block: _name,
+                  element: 'tab',
+                  mods: {'state': isAddressTabActive ? 'active' : 'default'}
+                } | bem"
+                >
+                  <div
+                    [attr.class]="{
+                    block: _name,
+                    element: 'number-circle',
+                    mods: {'state': isAddressTabActive ? 'active' : 'default'}
+                  } | bem"
+                  >
+                    2
+                  </div>
+                  <div
+                    [attr.class]="{
+                    block: _name,
+                    element: 'text-xsmall',
+                    mods: {'state': isAddressTabActive ? 'active' : 'default'}
+                  } | bem"
+                  >
+                    ADRESSE
+                  </div>
+                </div>
+                <div
+                  [attr.class]="{
+                  block: _name,
+                  element: 'tab',
+                  mods: {'state': isVerifyTabActive ? 'active' : 'default'}
+                } | bem"
+                >
+                  <div
+                    [attr.class]="{
+                    block: _name,
+                    element: 'number-circle',
+                    mods: {'state': isVerifyTabActive ? 'active' : 'default'}
+                  } | bem"
+                  >
+                    3
+                  </div>
+                  <div
+                    [attr.class]="{
+                    block: _name,
+                    element: 'text-xsmall',
+                    mods: {'state': isVerifyTabActive ? 'active' : 'default'}
+                  } | bem"
+                  >
+                    VERIFIZIEREN
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Signup -->
+            <app-signup
+              *ngIf="isRegistrationTabActive && (isHolderRoles || isBuyerRole)"
+              [role]="role"
+              [mode]="nextStep"
+              (close)="closeModal()"
+              (signupCompleted)="signupCompleted($event)"
+            >
+            </app-signup>
+
+            <!-- Address -->
+            <app-address
+              *ngIf="isAddressTabActive && isHolderRoles"
+              page="registration"
+              [role]="role"
+              [needPrefillData]="needPrefillData"
+              [markerId]="markerId"
+              (close)="closeModal()"
+              (addressCompleted)="addressCompleted($event)"
+            >
+            </app-address>
+
+            <!-- Phone -->
+            <app-phone
+              *ngIf="isVerifyTabActive && isHolderRoles"
+              page="registration"
+              [reloadOwnership]="reloadOwnership"
+              [role]="role"
+              [mode]="mode"
+              [addressData]="addressData"
+              (close)="closeModal()"
+            >
+            </app-phone>
+          </div>
+        </div>
+        <div
+          *ngIf="isEmailVerify"
+          [attr.class]="{block: _name, element: 'email-verify-info-block'} | bem"
+        >
+          <div [attr.class]="{block: _name, element: 'ticks-block'} | bem">
+            <div [attr.class]="{block: _name, element: 'email-verify-info', mods: {'state' : 'complete'}} | bem">
+              <mat-icon
+                [attr.class]="{block: _name, element: 'tick'} | bem"
+                svgIcon="tick"
+              ></mat-icon>
+              SCHRITT 1: REGISTIERUNG
+            </div>
+
+            <ng-container *ngIf="isHolderRoles; then globalSteps else otherSteps"></ng-container>
+
+            <ng-template #globalSteps>
+              <div [attr.class]="{block: _name, element: 'email-verify-info', mods: {'state' : 'default'}} | bem">
+                <mat-icon
+                  [attr.class]="{block: _name, element: 'tick', mods: {'state': 'inactive'}} | bem"
+                  svgIcon="tick"
+                ></mat-icon>
+                SCHRITT 2: ADRESSE
+              </div>
+
+              <div [attr.class]="{block: _name, element: 'email-verify-info', mods: {'state' : 'default'}} | bem">
+                <mat-icon
+                  [attr.class]="{block: _name, element: 'tick', mods: {'state': 'inactive'}} | bem"
+                  svgIcon="tick"
+                ></mat-icon>
+                SCHRITT 3: VERIFIZERIUNG
+              </div>
+            </ng-template>
+
+            <ng-template #otherSteps>
+              <div *ngIf="role !== 'buyer'" [attr.class]="{block: _name, element: 'email-verify-info', mods: {'state' : 'default'}} | bem">
+                <mat-icon
+                  [attr.class]="{block: _name, element: 'tick', mods: {'state': 'inactive'}} | bem"
+                  svgIcon="tick"
+                ></mat-icon>
+                SCHRITT 2: VERIFIZERIUNG
+              </div>
+            </ng-template>
+
+          </div>
+          <div [attr.class]="{block: _name, element: 'email-verify-info-title'} | bem">
+            Herzlichen Glückwunsch, du bist nun registriert!
+            Bitte bestätige deine E-Mail, um mit der Verifizierung fortfahren zu können.
+          </div>
+          <div [attr.class]="{block: _name, element: 'text-small'} | bem">
+            Keine E-Mail erhalten?
+          </div>
+          <div
+            [attr.class]="{block: _name, element: 'link'} | bem"
+            (click)="sendMessageAgain()"
+          >
+            Bestätigungsmail nochmal abschicken
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Delete mode -->
+      <ng-container *ngIf="isDeleteMode">
+        <app-dissent-property
+          [activeTab]="activeTab"
+          [role]="role"
+          [markerId]="markerId"
+          [needPrefillData]="!!markerId"
+          [reloadOwnership]="reloadOwnership"
+          (close)="closeModal()"
+          (phoneComplete)="phoneCompleted($event)"
+          (addressComplete)="addressCompleted($event)"
+          (oppositionComplete)="oppositionCompleted($event)"
+          (dissent)="dissentProperty()"
+        ></app-dissent-property>
+      </ng-container>
+
+      <!-- Mode for user with no phone or with non-confirmed phone -->
+      <ng-container *ngIf="isConfirmPhoneMode">
+        <div [attr.class]="{block: _name, element: 'process-block'} | bem">
+          <div [attr.class]="{block: _name, element: 'title', mods: {'forms' : 'header'}} | bem">
+            Willkommen bei Scoperty!
+          </div>
+          <div [attr.class]="{block: _name, element: 'container', mods: {'margin-bottom' : '50'}} | bem">
+            <span [attr.class]="{block: _name, element: 'text-small', mods: {'right' : 'block', 'fw': 'bold'}} | bem">
+              Du hast bereits einen Account?
+            </span>
+            <span
+              [attr.class]="{block: _name, element: 'link'} | bem"
+              (click)="showAuthorization()"
+            >
+              Logge dich hier ein.
+            </span>
+          </div>
+
+          <div [attr.class]="{block: _name, element: 'reg-content'} | bem">
+            <!-- Phone -->
+            <app-phone
+              page="registration"
+              [role]="role"
+              [mode]="mode"
+              (close)="closeModal()"
+              (phoneCompleted)="phoneCompleted()"
+            >
+            </app-phone>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

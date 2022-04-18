@@ -1,0 +1,31 @@
+<app-property-valuation-discover-market-value
+  [heading]="heading"
+  [subHeading]="subheading"
+  [bannerText]="bannerText"
+  [findPropertyInputLabel]="findPropertyInputLabel"
+  [findPropertyButtonTitle]="findPropertyButtonTitle"
+></app-property-valuation-discover-market-value>
+
+<app-famous-companies-section [shadowEnabled]="false"></app-famous-companies-section>
+
+<app-property-valuation-advertisement-message
+  [attr.class]="{ block: name, element: 'advertisement-message' } | bem"
+  (click)="scrollToWePayPhotograph()"
+>
+  Inklusive: Wir zahlen den Fotografen für professionelle Fotos deiner Immobilie.
+</app-property-valuation-advertisement-message>
+
+<app-property-valuation-how-it-works
+  [heading]="howItWorksHeading"
+  [steps]="howItWorksSteps"
+></app-property-valuation-how-it-works>
+
+<app-property-valuation-we-pay-photograph></app-property-valuation-we-pay-photograph>
+
+<app-property-valuation-ease-property-sell></app-property-valuation-ease-property-sell>
+
+<app-property-valuation-advertise-property
+  [heading]="advertisePropertyHeading"
+></app-property-valuation-advertise-property>
+
+<app-property-valuation-market-value-determination></app-property-valuation-market-value-determination>

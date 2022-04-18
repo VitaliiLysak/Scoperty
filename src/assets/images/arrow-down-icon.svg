@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg51"
+   sodipodi:docname="arrow-down-icon.svg"
+   inkscape:version="0.92.3 (unknown)">
+  <metadata
+     id="metadata55">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview53"
+     showgrid="false"
+     inkscape:zoom="22.85"
+     inkscape:cx="14.835886"
+     inkscape:cy="12.997812"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg51" />
+  <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title43">E_Icon_Arrow_down</title>
+  <desc
+     id="desc45">Created with Sketch.</desc>
+  <defs
+     id="defs47" />
+  <g
+     id="E_Icon_Arrow_down"
+     style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1"
+     transform="matrix(0.99441504,0,0,0.98616007,-11.937845,-11.705924)">
+    <path
+       d="m 19.230431,12.174227 -6.901304,6.901304 c -0.320366,0.320366 -0.839782,0.320366 -1.160148,0 -0.320367,-0.320366 -0.320367,-0.839782 0,-1.160148 l 8.311512,-8.3115129 c 0.184458,-0.184458 0.434904,-0.2627101 0.675349,-0.2347565 0.240446,-0.027954 0.490892,0.050299 0.67535,0.2347565 l 8.311512,8.3115129 c 0.320367,0.320366 0.320367,0.839782 0,1.160148 -0.320366,0.320366 -0.839782,0.320366 -1.160148,0 l -7.091778,-7.091778 v 18.964332 h -1.660345 z"
+       id="Combined-Shape"
+       transform="rotate(135,20.15584,20.15584)"
+       inkscape:connector-curvature="0"
+       style="fill:#d30707" />
+  </g>
+</svg>

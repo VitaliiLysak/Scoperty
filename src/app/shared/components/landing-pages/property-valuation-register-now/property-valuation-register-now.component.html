@@ -1,0 +1,24 @@
+<div
+  [attr.class]="{ block: name, element: 'container' } | bem"
+  app-responsive-image
+  src="assets/images/property-valuation/registration-background.png"
+  [multiResolution]="false"
+>
+  <div [attr.class]="{ block: name, element: 'explanation' } | bem">
+    <div 
+      [attr.class]="{ block: name, element: 'explanation-message' } | bem"
+    >
+      <ng-content></ng-content>
+    </div>
+
+    <button
+      app-button
+      size="medium"
+      color="primary-green"
+      [stretch]="true"
+      (click)="openSignup()"
+    >
+      Jetzt registrieren
+    </button>
+  </div>
+</div>

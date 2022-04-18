@@ -1,0 +1,196 @@
+<div [ngClass]="containerCssClasses">
+  <div class="app-filters__title">
+    Welche Immobilien möchtest du filtern?
+  </div>
+
+  <!-- Filters -->
+  <form class="app-filters__form" [formGroup]="filtersForm">
+    <!-- First row -->
+    <div class="app-filters__sections">
+      <!-- Selling status -->
+      <div class="app-filters__section" formGroupName="sellingStatus">
+        <div *ngIf="isInlineMode" class="app-filters__section__header">
+          Status
+        </div>
+        <div class="app-filters__section__body">
+          <div *ngFor="let sellingStatus of sellingStatusItems" class="app-filters__section__body-item">
+            <app-checkbox-input
+              [inputId]="locationPrefix + '-selling-status-' + sellingStatus + '-checkbox'"
+              class="app-filters__section__body-item-checkbox"
+              [formControlName]="getSellingStatusControlName(sellingStatus)"
+              size="small"
+            >
+              {{ getSellingStatusName(sellingStatus) }}
+            </app-checkbox-input>
+
+            <div class="app-filters__section__body-item-accessory">
+              <!-- Selling status -->
+              <app-selling-status
+                [sellingStatus]="sellingStatus"
+                [hideLabel]="true"
+                size="large"
+              ></app-selling-status>
+
+              <!-- Explanation -->
+              <app-explanation [text]="getSellingStatusHint(sellingStatus)"></app-explanation>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property type -->
+      <div class="app-filters__section" formGroupName="propertyType">
+        <div class="app-filters__section__header">
+          Immobilientyp
+        </div>
+        <div class="app-filters__section__body">
+          <div class="app-filters__section__body-item--heading">
+            <app-checkbox-input
+              [inputId]="locationPrefix + '-type-alle-checkbox'"
+              id="all"
+              [ngModel]="areAllPropertyTypesSelected"
+              [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="toggleAllPropertyTypesSelection($event)"
+              size="small"
+            >
+              Alle Immobilien
+            </app-checkbox-input>
+          </div>
+          <div class="app-filters__section__body-item">
+            <app-checkbox-input
+              [inputId]="locationPrefix + '-type-haus-checkbox'"
+              formControlName="house"
+              size="small"
+            >
+              Haus
+            </app-checkbox-input>
+          </div>
+          <div class="app-filters__section__body-item">
+            <app-checkbox-input
+              [inputId]="locationPrefix + '-type-wohnung-checkbox'"
+              formControlName="apartment"
+              size="small"
+            >
+              Wohnung
+            </app-checkbox-input>
+          </div>
+
+          <!-- Errors -->
+          <app-error-message
+            *ngIf="propertyTypeGroup.hasError('empty')"
+            class="app-filters__error"
+          >
+             Bitte wähle einen Immobilientyp aus
+          </app-error-message>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seconds row -->
+    <div class="app-filters__sections app-filters__sections--2">
+      <!-- Budget -->
+      <div class="app-filters__section" [formGroup]="budgetGroup">
+        <div class="app-filters__section__header">
+          Budget
+        </div>
+        <div [hidden]="isAveragePropertyPriceLoading">
+          <div class="app-filters__section__body--inline">
+            <div class="app-filters__section__body-item--inline">
+              <app-form-field [validateFormGroupErrors]="[ 'minLessThanOrEqualMax' ]">
+                <input
+                  id="{{locationPrefix}}-price-min-input"
+                  app-input
+                  size="small"
+                  formControlName="min"
+                  placeholder="egal"
+                  [textMask]="{ mask: budgetInputMask }"
+                >
+              </app-form-field>
+            </div>
+            <div class="app-filters__section__body-item-separator"></div>
+            <div class="app-filters__section__body-item--inline">
+              <app-form-field>
+                <input
+                  id="{{locationPrefix}}-price-max-input"
+                  app-input
+                  size="small"
+                  formControlName="max"
+                  placeholder="egal"
+                  [textMask]="{ mask: budgetInputMask }"
+                >
+              </app-form-field>
+            </div>
+          </div>
+
+          <!-- Errors -->
+          <app-error-message *ngIf="budgetGroup.hasError('minLessThanOrEqualMax')">
+            Der Mindestpreis darf nicht höher als der Höchstpreis sein!
+          </app-error-message>
+
+          <!-- Average property price -->
+          <div *ngIf="isDefaultMode" class="app-filters__section__footer">
+            Durchschnitt: {{ averagePropertyPrice | cost }}
+          </div>
+        </div>
+
+        <!-- Loading indicator -->
+        <ng-container *ngIf="isAveragePropertyPriceLoading">
+          <div class="app-filters__loading-indicator-container">
+            <app-loading-indicator size="medium"></app-loading-indicator>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- Living area -->
+      <div class="app-filters__section" [formGroup]="livingAreaGroup">
+        <div class="app-filters__section__header">
+          Wohnfläche
+        </div>
+        <div class="app-filters__section__body--inline">
+          <div class="app-filters__section__body-item--inline">
+            <app-form-field [validateFormGroupErrors]="[ 'minLessThanOrEqualMax' ]">
+              <input
+                id="{{locationPrefix}}-area-min-input"
+                app-input
+                size="small"
+                formControlName="min"
+                placeholder="egal"
+                [textMask]="{ mask: livingAreaInputMask }"
+              >
+            </app-form-field>
+          </div>
+          <div class="app-filters__section__body-item-separator"></div>
+          <div class="app-filters__section__body-item--inline">
+            <app-form-field>
+              <input
+                id="{{locationPrefix}}-area-max-input"
+                app-input
+                size="small"
+                formControlName="max"
+                placeholder="egal"
+                [textMask]="{ mask: livingAreaInputMask }"
+              >
+            </app-form-field>
+          </div>
+        </div>
+
+        <!-- Errors -->
+        <app-error-message *ngIf="livingAreaGroup.hasError('minLessThanOrEqualMax')">
+          Die Mindestwohnfläche darf nicht höher als die Höchstwohnfläche sein!
+        </app-error-message>
+      </div>
+    </div>
+  </form>
+
+  <!-- Reset filters -->
+  <div *ngIf="isDefaultMode" class="app-filters__actions">
+    <button
+      app-button
+      buttonStyle="link"
+      color="green"
+      (click)="resetFilters()"
+    >
+      Filter zurücksetzen
+    </button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'tab',
+    mods: {'state': active ? 'active' : 'default'}
+  } | bem"
+>
+  <div
+    [attr.class]="{
+    block: _name,
+    element: 'number-circle',
+    mods: {'state': active ? 'active' : 'default'}
+  } | bem"
+  >
+    {{ position + 1 }}
+  </div>
+  <div
+    [attr.class]="{
+    block: _name,
+    element: 'text-xsmall',
+    mods: {'state': active ? 'active' : 'default'}
+  } | bem"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

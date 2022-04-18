@@ -1,0 +1,259 @@
+<div [attr.class]="{block: _name, element: 'page-wrapper'} | bem">
+  <div [attr.class]="{block: _name, element: 'top-panel-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'top-panel'} | bem">
+      <div [attr.class]="{block: _name, element: 'top-panel-element', mods: {'left':'side'}} | bem">
+        <div [attr.class]="{block: _name, element: 'top-panel-element-wrapper'} | bem">
+          <div [attr.class]="{block: _name, element: 'top-panel-title'} | bem">
+            Makler finden
+          </div>
+          <div [attr.class]="{block: _name, element: 'page-description'} | bem">
+            Immobilien erfolgreich verkaufen – mit Scoperty und einem Makler deiner Wahl
+          </div>
+          <div [attr.class]="{block: _name, element: 'button-container'} | bem">
+            <button
+              id="search-broker-jumbo-button"
+              app-button
+              color="primary-dark"
+              stretch="true"
+              size="medium"
+              (click)="scrollToRequestForm()"
+            >
+              Geprüfte Makler anfragen
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'top-panel-element', mods: {'right':'side'}} | bem">
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="!(isMobileDevice$ | async)">
+    <div
+      [attr.class]="{block: _name, element: 'advantage-container'} | bem"
+      app-responsive-image
+      src="assets/images/search-broker/search-broker.jpg"
+      [multiResolution]="true"
+    >
+      <div [attr.class]="{block: _name, element: 'advantage'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-question'} | bem">
+          Warum brauchst du überhaupt einen Makler?
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-description'} | bem">
+          Eigentlich ist es doch ganz einfach: Du suchst einen Käufer für dein Objekt,
+          er bezahlt den Kaufpreis und die Immobilie gehört ihm.
+          Leider läuft es nicht immer ganz so reibungslos ab.
+          Ein Makler hat nicht nur das Know-how, sondern auch die Erfahrung,
+          um potenzielle Risiken rechtzeitig zu erkennen und – in Abstimmung mit dir – entsprechend zu handeln.
+          Bei Scoperty findest du seriöse Immobilienmakler, die von uns geprüft und für so gut befunden wurden,
+          dass wir sie dir weiterempfehlen können.
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="(isMobileDevice$ | async)">
+    <div
+      [attr.class]="{block: _name, element: 'advantage-container'} | bem"
+      app-responsive-image
+      src="assets/images/search-broker/search-broker.jpg"
+      [multiResolution]="true"
+    ></div>
+
+    <div [attr.class]="{block: _name, element: 'advantage-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'advantage'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-question'} | bem">
+          Warum brauchst du überhaupt einen Makler?
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-description'} | bem">
+          Eigentlich ist es doch ganz einfach: Du suchst einen Käufer für dein Objekt,
+          er bezahlt den Kaufpreis und die Immobilie gehört ihm.
+          Leider läuft es nicht immer ganz so reibungslos ab.
+          Ein Makler hat nicht nur das Know-how, sondern auch die Erfahrung,
+          um potenzielle Risiken rechtzeitig zu erkennen und – in Abstimmung mit dir – entsprechend zu handeln.
+          Bei Scoperty findest du seriöse Immobilienmakler, die von uns geprüft und für so gut befunden wurden,
+          dass wir sie dir weiterempfehlen können.
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div [attr.class]="{block: _name, element: 'possibilities-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'possibilities-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'possibilities'} | bem">
+        <div [attr.class]="{block: _name, element: 'possibilities-title-container'} | bem">
+          <div [attr.class]="{block: _name, element: 'possibilities-title'} | bem">
+            Bei uns bekommst du
+          </div>
+        </div>
+
+        <div [attr.class]="{block: _name, element: 'possibilities-list-container'} | bem">
+          <div [attr.class]="{block: _name, element: 'possibilities-list'} | bem">
+            <div [attr.class]="{block: _name, element: 'possibilities-item'} | bem">
+              … ein einzigartiges Maklernetzwerk mit einer Vielzahl an Spezialgebieten
+            </div>
+            <div [attr.class]="{block: _name, element: 'possibilities-item'} | bem">
+              … die Möglichkeit, schnell und unverbindlich Kontakt aufzunehmen
+            </div>
+            <div [attr.class]="{block: _name, element: 'possibilities-item'} | bem">
+              … genau den Makler, der zu dir und deinem Objekt passt
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-container *ngIf="!(isMobileDevice$ | async)">
+        <div [attr.class]="{block: _name, element: 'how-works'} | bem">
+          <div [attr.class]="{block: _name, element: 'how-works-title'} | bem">
+            So funktioniert's
+          </div>
+
+          <div [attr.class]="{block: _name, element: 'how-works-list'} | bem">
+            <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+              <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+                1
+              </div>
+              <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+                Makler bei Scoperty anfragen
+              </div>
+            </div>
+
+            <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+              <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+                2
+              </div>
+              <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+                Wir rufen dich persönlich an
+              </div>
+            </div>
+
+            <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+              <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+                3
+              </div>
+              <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+                Scoperty findet einen passenden makler für dich
+              </div>
+            </div>
+
+            <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+              <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+                4
+              </div>
+              <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+                Der makler nimmt unverbindlich kontakt zu dir auf
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-container *ngIf="(isMobileDevice$ | async)">
+    <div [attr.class]="{block: _name, element: 'how-works-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'how-works'} | bem">
+        <div [attr.class]="{block: _name, element: 'how-works-title'} | bem">
+          So funktioniert's
+        </div>
+
+        <div [attr.class]="{block: _name, element: 'how-works-list'} | bem">
+          <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+            <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+              1
+            </div>
+            <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+              Makler bei Scoperty anfragen
+            </div>
+          </div>
+
+          <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+            <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+              2
+            </div>
+            <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+              Wir rufen dich persönlich an
+            </div>
+          </div>
+
+          <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+            <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+              3
+            </div>
+            <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+              Scoperty findet einen passenden makler für dich
+            </div>
+          </div>
+
+          <div [attr.class]="{block: _name, element: 'how-works-item'} | bem">
+            <div [attr.class]="{block: _name, element: 'how-works-number'} | bem">
+              4
+            </div>
+            <div [attr.class]="{block: _name, element: 'how-works-description'} | bem">
+              Der makler nimmt unverbindlich kontakt zu dir auf
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div
+    #requestForm
+    [attr.class]="{block: _name, element: 'request-container'} | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'request-paper-plane'} | bem">
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'request-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'request'} | bem">
+        <div [attr.class]="{block: _name, element: 'request-title'} | bem">
+          Jetzt Anfrage abschicken!
+        </div>
+
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'request-form-wrapper',
+            mods: {'feedback-mode': showFeedback}
+          } | bem"
+        >
+          <ng-container *ngIf="showFeedback; then feedback else form"></ng-container>
+
+          <ng-template #feedback>
+            <div [attr.class]="{block: _name, element: 'feedback'} | bem">
+              <div [attr.class]="{block: _name, element: 'feedback-icon-container'} | bem">
+                <div [attr.class]="{block: _name, element: 'feedback-icon'} | bem">
+                  <mat-icon
+                    [attr.class]="{block: _name, element: 'feedback-icon'} | bem"
+                    svgIcon="tick"
+                  ></mat-icon>
+                </div>
+              </div>
+
+              <div [attr.class]="{block: _name, element: 'feedback-text-container'} | bem">
+                <div [attr.class]="{block: _name, element: 'feedback-text', mods: {'mode':'large'}} | bem">
+                  Wir haben deine Anfrage erhalten!
+                </div>
+                <div [attr.class]="{block: _name, element: 'feedback-text', mods: {'mode':'small'}} | bem">
+                  In Kürze wird sich ein Makler bei dir telefonisch melden.
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <ng-template #form>
+            <app-user-data-full-form
+              locationPrefix="search-broker"
+              (userData)="handleUserData($event)"
+              [buttonText]="'Absenden'"
+            >
+            </app-user-data-full-form>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

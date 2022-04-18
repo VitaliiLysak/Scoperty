@@ -1,0 +1,28 @@
+<div *ngIf="!(isSmallMobileDevice$ | async)" [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'title'} | bem">
+    Mach dir ein Bild von der Nachbarschaft!
+  </div>
+  <button
+    app-button
+    color="secondary-green"
+    size="medium"
+    [stretch]="true"
+    (click)="goToVisitSurroundings()"
+  >
+    Jetzt Umgebung besichtigen
+  </button>
+</div>
+
+<div *ngIf="(isSmallMobileDevice$ | async)" [attr.class]="{block: _name, element: 'button-container'} | bem">
+  <button
+    app-button
+    color="secondary-green"
+    size="small"
+    [stretch]="true"
+    (click)="goToVisitSurroundings()"
+  >
+    Jetzt Umgebung besichtigen
+  </button>
+</div>
+
+

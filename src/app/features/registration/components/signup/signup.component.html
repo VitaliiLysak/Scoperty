@@ -1,0 +1,331 @@
+<form
+  [attr.class]="{block: _name, element: 'form'} | bem"
+  [formGroup]="signupForm"
+>
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'data-row',
+        mods: {
+          'state' : (given_name.invalid &&
+                    (given_name.dirty && given_name.touched))
+                    ? 'error' : 'default'
+        }
+      } | bem"
+    >
+      <label [attr.class]="{block: _name, element: 'data-key'} | bem" for="given_name">
+        Vorname
+      </label>
+      <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+        <input
+          id="given_name"
+          formControlName="given_name"
+          type="text"
+          autocomplete="off"
+          placeholder="Vorname eingeben"
+          appValidateOnBlur
+          [validateFormControl]="given_name"
+          [(ngModel)]="user.given_name"
+          [attr.class]="{
+            block: _name,
+            element: 'input',
+            mods: {
+              'state' : (given_name.valid &&
+                        (given_name.dirty || given_name.touched))
+                        ? 'complete'
+                        : (given_name.invalid &&
+                          (given_name.dirty && given_name.touched))
+                          ? 'error' : 'default'
+            }
+          } | bem"
+        >
+        <div
+          *ngIf="given_name.invalid &&
+                          (given_name.dirty && given_name.touched)"
+          [attr.class]="{block: _name, element: 'message'} | bem"
+        >
+          <div *ngIf="given_name.errors.required">
+            Vorname ist ein Pflichtfeld
+          </div>
+          <div *ngIf="given_name.errors.minlength">
+            Vorname muss mindestens zwei Buchstaben lang
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'data-row',
+        mods: {
+          'state' : (family_name.invalid &&
+                    (family_name.dirty && family_name.touched))
+                    ? 'error' : 'default'
+        }
+      } | bem"
+    >
+      <label [attr.class]="{block: _name, element: 'data-key'} | bem" for="family_name">
+        Nachname
+      </label>
+      <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+        <input
+          id="family_name"
+          formControlName="family_name"
+          type="text"
+          autocomplete="off"
+          placeholder="Nachname eingeben"
+          appValidateOnBlur
+          [validateFormControl]="family_name"
+          [(ngModel)]="user.family_name"
+          [attr.class]="{
+            block: _name,
+            element: 'input',
+            mods: {
+              'state' : (family_name.valid &&
+                        (family_name.dirty || family_name.touched))
+                        ? 'complete'
+                        : (family_name.invalid &&
+                          (family_name.dirty && family_name.touched))
+                          ? 'error' : 'default'
+            }
+          } | bem"
+        >
+        <div
+          *ngIf="family_name.invalid && (family_name.dirty && family_name.touched)"
+          [attr.class]="{block: _name, element: 'message'} | bem"
+        >
+          <div *ngIf="family_name.errors.required">
+            Nachname ist ein Pflichtfeld
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'data-row',
+        mods: {
+          'state' : (email.invalid &&
+                    email.dirty && email.touched)
+                    ? 'error' : 'default'
+        }
+      } | bem"
+    >
+      <label [attr.class]="{block: _name, element: 'data-key'} | bem" for="email">
+        E-Mail-Adresse
+      </label>
+      <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          autocomplete="off"
+          placeholder="E-Mail-Adresse eingeben"
+          appValidateOnBlur
+          [validateFormControl]="email"
+          [(ngModel)]="user_email"
+          [attr.class]="{
+            block: _name,
+            element: 'input',
+            mods: {
+              'state' : (email.valid &&
+                        (email.dirty || email.touched))
+                        ? 'complete'
+                        : (email.invalid &&
+                          email.dirty && email.touched)
+                          ? 'error' : 'default'
+            }
+          } | bem"
+        >
+        <div
+          *ngIf="email.invalid && email.dirty && email.touched"
+          [attr.class]="{block: _name, element: 'message'} | bem"
+        >
+          <div *ngIf="email.errors.required">
+            Bitte eine E-Mail-Adresse eingeben
+          </div>
+          <div *ngIf="email.errors.pattern && !email.errors.required">
+            Falsche E-Mail-Adresse
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'data-row',
+        mods: {
+          'type': 'password',
+          'not-initial': (password.valid && (password.dirty && password.touched)),
+          'state' : (password.invalid && (password.dirty && password.touched))
+                    ? 'error' : 'default'
+        }
+      } | bem"
+    >
+      <label [attr.class]="{block: _name, element: 'data-key'} | bem" for="password">
+        Passwort
+      </label>
+      <div [attr.class]="{block: _name, element: 'input-container'} | bem">
+        <input
+          id="password"
+          formControlName="password"
+          type="{{ isPasswordShown ? 'text' : 'password' }}"
+          placeholder="Passwort eingeben"
+          appValidateOnBlur
+          [validateFormControl]="password"
+          autocomplete="new-password"
+          [(ngModel)]="user.password"
+          [attr.class]="{
+            block: _name,
+            element: 'input',
+            mods: {
+              'state' : (password.valid && (password.dirty || password.touched))
+                        ? 'complete'
+                        : (password.invalid && (password.dirty && password.touched))
+                          ? 'error' : 'default'
+            }
+          } | bem"
+        >
+        <div
+          (click)="togglePasswordToShow()"
+          [attr.class]="{
+            block: _name,
+            element: 'toggle-password',
+            mods: {
+              state: (password.invalid && (password.dirty && password.touched))
+                    ? 'error' : 'default'
+            }
+          } | bem"
+        >
+          {{ !isPasswordShown ? 'Zeigen' : 'Verbergen' }}
+        </div>
+        <div
+          *ngIf="password.invalid && (password.dirty && password.touched)"
+          [attr.class]="{block: _name, element: 'message'} | bem"
+        >
+          <div *ngIf="password.errors.required">
+            Passwort ist ein Pflichtfeld
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'valid-info'} | bem">
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'valid-text',
+          mods: {
+            'state' : (password.invalid && password.errors.quantityErr)
+            ? 'error'
+            : 'complete'
+          }
+        } | bem"
+      >
+        Min. 8 Zeichen
+        <mat-icon
+          *ngIf="!(password.invalid && password.errors.quantityErr) && (password.dirty || password.touched)"
+          [attr.class]="{block: _name, element: 'valid-success-tick'} | bem"
+          svgIcon="tick"
+        ></mat-icon>
+      </div>
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'valid-text',
+          mods: {
+            'state' : (password.invalid && password.errors.letterErr)
+            ? 'error'
+            : 'complete'
+          }
+        } | bem"
+      >
+        Min. ein Groß-/Kleinbuchstabe
+        <mat-icon
+          *ngIf="!(password.invalid && password.errors.letterErr) && (password.dirty || password.touched)"
+          [attr.class]="{block: _name, element: 'valid-success-tick'} | bem"
+          svgIcon="tick"
+        ></mat-icon>
+      </div>
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'valid-text',
+          mods: {
+            'state' : (password.invalid && password.errors.numberErr)
+            ? 'error'
+            : 'complete'
+          }
+        } | bem"
+      >
+        Min. eine Zahl
+        <mat-icon
+          *ngIf="!(password.invalid && password.errors.numberErr) && (password.dirty || password.touched)"
+          [attr.class]="{block: _name, element: 'valid-success-tick'} | bem"
+          svgIcon="tick"
+        ></mat-icon>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'confirm'} | bem">
+      <div [attr.class]="{block: _name, element: 'data-protection'} | bem">
+        Es gilt unsere
+        <a
+          app-button
+          buttonStyle="link"
+          color="inline-green"
+          [routerLink]="linkToDataProtection"
+          queryParamsHandling="merge"
+          (click)="close.emit()"
+        >
+          Datenschutzerklärung
+        </a>.
+      </div>
+      <div [attr.class]="{block: _name, element: 'terms-of-use'} | bem">
+        <app-checkbox
+          [attr.class]="{block: _name, element: 'terms-of-use-checkbox'} | bem"
+          name="confirm-terms-of-use"
+          [required]="true"
+          [checked]="false"
+          [mods]="{'size': 'small'}"
+          (changed)="checkboxChanged($event)"
+        ></app-checkbox>
+        <span [attr.class]="{block: _name, element: 'terms-of-use-text'} | bem">
+          Durch Klicken auf „Registrieren“ akzeptiere ich die
+          <a
+            app-button
+            buttonStyle="link"
+            color="inline-green"
+            [routerLink]="linkToTermsOfService"
+            queryParamsHandling="merge"
+            (click)="close.emit()"
+          >
+            Nutzungsbedingungen
+          </a>.
+        </span>
+      </div>
+      <div [attr.class]="{block: _name, element: 'message'} | bem">
+        <div *ngIf="!termsAccepted && termsTriggered">
+          Bitte akzeptiere die Nutzungsbedingungen.
+        </div>
+      </div>
+    </div>
+    <button
+      [attr.class]="{
+        block: _name,
+        element: 'button',
+        mods: {
+          'type':'primary',
+          'enabled': !signupForm.invalid
+        }
+      } | bem"
+      (click)="apply()"
+    >
+      Registrieren
+    </button>
+  </div>
+</form>

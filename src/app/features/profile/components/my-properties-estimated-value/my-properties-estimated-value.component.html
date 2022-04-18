@@ -1,0 +1,31 @@
+<!-- Property valuation -->
+<div [attr.class]="{ block: _name, element: 'valuate-property-container' } | bem">
+  <app-valuate-property
+    [property]="property"
+    [buttonLabel]="valuatePropertyButtonLabel"
+    [buttonStretch]="valuatePropertyButtonStretch"
+    (buttonClick)="improveEstimatedValue()"
+  ></app-valuate-property>
+</div>
+
+<!-- Find broker -->
+<div>
+  <div [attr.class]="{block: _name, element: 'sub-title'} | bem">
+    Du hast keine Lust die Daten selbst zubefüllen?
+  </div>
+  <div [attr.class]="{block: _name, element: 'sub-title', mods: {'margin-bottom':'20px'}} | bem">
+    Lass dich von einem Makler unterstützen.
+  </div>
+  <div [attr.class]="{block: _name, element: 'links-block'} | bem">
+    <a
+      app-button
+      color="green"
+      buttonStyle="link"
+      [routerLink]="linkToSearchBrokerPage"
+      queryParamsHandling="merge"
+    >
+      Makler in der Umgebung finden
+      <mat-icon svgIcon="chevron_right"></mat-icon>
+    </a>
+  </div>
+</div>

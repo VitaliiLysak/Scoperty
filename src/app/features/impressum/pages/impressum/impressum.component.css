@@ -1,0 +1,135 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+
+  width: 100%;
+  padding: 104px 0 72px;
+
+  color: var(--font-light-16pkt-color);
+  font-weight: var(--font-light-16pkt-weight);
+
+  font-size: var(--font-light-16pkt-size);
+  line-height: var(--font-light-16pkt-line-height);
+  letter-spacing: var(--font-light-16pkt-letter-spacing);
+
+  background-color: var(--background-initial);
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+.impressum__wrapper {
+  width: 100%;
+  max-width: 945px;
+}
+
+.impressum__content {
+  width: 100%;
+  max-width: 750px;
+}
+
+.impressum__title {
+  margin-bottom: 32px;
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: 1.5px;
+}
+
+.impressum__title--margin-top-88px {
+  margin-top: 88px;
+}
+
+.impressum__title--margin-top-64px {
+  margin-top: 64px;
+  margin-bottom: 8px;
+}
+
+.impressum__subtitle {
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+.impressum__subtitle--font-size-24px {
+  font-size: 24px;
+}
+
+.impressum__subtitle--padding-bottom-16px {
+  padding-bottom: 16px;
+}
+
+.impressum__subtitle--padding-bottom-40px {
+  padding-bottom: 40px;
+}
+
+.impressum__subtitle--padding-top-24px {
+  padding-top: 24px
+}
+
+.impressum__subtitle--parent-subtitle {
+  letter-spacing: 1px;
+}
+
+.impressum__text {
+  margin: 16px 0 32px;
+}
+
+.impressum__text--margin-bottom-24px {
+  margin-bottom: 24px;
+}
+
+.impressum__link {
+
+  color: var(--brand-dark-green-color);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
+
+.impressum__link:hover {
+
+  color: var(--color-links-return-hover);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1100px) {
+  .impressum__wrapper {
+    width: 92%;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  :host {
+    padding: 0 0 32px;
+  }
+
+  .impressum__title {
+    margin: 32px 0 24px;
+
+    font-size: var(--font-semibold-24pkt-size);
+    line-height: var(--font-semibold-24pkt-line-height);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+  }
+
+  .impressum__subtitle {
+    font-size: var(--font-semibold-16pkt-size);
+    line-height: var(--font-semibold-16pkt-line-height);
+    letter-spacing: var(--font-semibold-16pkt-letter-spacing);
+  }
+}
+
+@media (max-width: 450px) {
+  .impressum__wrapper {
+    width: 100%;
+    padding: 0 16px;
+  }
+}

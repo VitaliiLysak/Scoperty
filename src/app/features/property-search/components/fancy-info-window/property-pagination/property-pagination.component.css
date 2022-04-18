@@ -1,0 +1,47 @@
+:host{
+  width: 100%;
+}
+
+.property-pagination__wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+  height: 24px;
+}
+
+.property-pagination__prev-button{
+  height: 24px;
+
+  border: none;
+
+  color: var(--background-color-buttons-primary-green);
+
+  outline: none;
+
+  background: transparent;
+}
+
+.property-pagination__next-button{
+  height: 24px;
+
+  border: none;
+
+  color: var(--background-color-buttons-primary-green);
+
+  outline: none;
+
+  background: transparent;
+}
+
+.property-pagination__text {
+  color: hsl(189, 100%, 14%);
+  font-family: 'Nunito Sans';
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  text-transform: uppercase;
+}

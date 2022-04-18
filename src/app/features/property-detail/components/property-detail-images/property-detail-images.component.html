@@ -1,0 +1,56 @@
+<div
+  [attr.class]="{block: name, element: 'header-image', mods: {'has-image': marker.hasImages}} | bem"
+  app-responsive-image
+  [src]="backgroundImage"
+  [responsive]="useResponsiveImage"
+  [style.background-position]="backgroundPosition"
+>
+  <!-- Explanation -->
+  <div
+    *ngIf="showExplanation"
+    [attr.class]="{block: name, element: 'header-explanation'} | bem"
+  >
+    <div [attr.class]="{block: name, element: 'header-explanation-content'} | bem">
+      <div [attr.class]="{block: name, element: 'header-explanation-title'} | bem">
+        Der Eigentümer hat noch keine Bilder hochgeladen!
+      </div>
+      <div [attr.class]="{block: name, element: 'header-explanation-text'} | bem">
+        Du bist Eigentümer? Dann registriere dich als Eigentümer,
+        lade die ersten Bilder hoch und steigere somit die Attraktiviät der Immobilie.
+      </div>
+    </div>
+  </div>
+
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'header-row',
+      mods: {'direction': !marker.hasImages? 'column' : 'default'}
+    } | bem"
+  >
+    <ng-container *ngIf="marker.hasImages">
+      <button
+        app-button
+        color="white"
+        [size]="!(isSmallMobileDevice$ | async) ? 'medium' : 'small'"
+        [stretch] = "true"
+        (click)="openSlideshow()"
+      >
+        Alle {{marker.images.length}} Bilder sehen
+      </button>
+    </ng-container>
+
+    <!-- Map -->
+    <app-visit-surroundings-window
+      *ngIf="isStaticPropertyView && !marker.hasImages"
+      [attr.class]="{block: name, element: 'visit-surroundings-window'} | bem"
+      (visitSurroundings)="switchPropertyView('dynamic')"
+    ></app-visit-surroundings-window>
+  </div>
+
+  <!-- Street view -->
+  <app-street-view
+    *ngIf="isDynamicPropertyView"
+    [position]="position"
+  ></app-street-view>
+</div>

@@ -1,0 +1,254 @@
+<div [attr.class]="{block: _name, element: 'top'} | bem">
+  <div [attr.class]="{block: _name, element: 'top-banner'} | bem">
+    <div [attr.class]="{block: _name, element: 'top-banner-element', mods: {'side': 'left'}} | bem">
+      <div [attr.class]="{block: _name, element: 'left-element-container'} | bem">
+        <div [attr.class]="{block: _name, element: 'title'} | bem">
+          Baufinanzierung
+        </div>
+        <div [attr.class]="{block: _name, element: 'first-slogan'} | bem">
+          Damit kannst du rechnen.
+        </div>
+        <div [attr.class]="{block: _name, element: 'second-slogan'} | bem">
+          <ul>
+            <li>400 Banken im Vergleich</li>
+            <li>Persönliche Beratung</li>
+            <li>Über 100-mal in Deutschland vor Ort</li>
+            <li>Beste Konditionen</li>
+          </ul>
+        </div>
+        <a
+          id="broker-jumbo-mortgage-request-link"
+          app-button
+          size="medium"
+          color="primary-green"
+          [routerLink]="linkToMortgageRequest"
+          queryParamsHandling="merge"
+          target="_blank"
+        >
+          Finanzierung anfragen
+        </a>
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'top-banner-element', mods: {'side': 'right'}} | bem">
+      <div [attr.class]="{block: _name, element: 'house-pic'} | bem"></div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="!isOnlyTabletDevice">
+    <div [attr.class]="{block: _name, element: 'top-advantages'} | bem">
+      <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+          Persönliche beratung vor ort
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+          Transparenz und faire konditionen
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+          Langjährige erfahrung
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+          Mehr als 800.000 zufriedene kunden
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isOnlyTabletDevice">
+    <div [attr.class]="{block: _name, element: 'top-advantages'} | bem">
+      <div [attr.class]="{block: _name, element: 'advantage-block-wrapper'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+            Persönliche beratung vor ort
+          </div>
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+            Transparenz und faire konditionen
+          </div>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'advantage-block-wrapper'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+            Langjährige erfahrung
+          </div>
+        </div>
+        <div [attr.class]="{block: _name, element: 'advantage-block'} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-icon'} | bem">
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-text'} | bem">
+            Mehr als 800.000 zufriedene kunden
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
+
+<div [attr.class]="{block: _name, element: 'content'} | bem">
+  <div [attr.class]="{block: _name, element: 'subtitle-block', mods: {'first': 'frame'}} | bem">
+    <app-broker-interest-check></app-broker-interest-check>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'steps-wrapper'} | bem">
+    <div [attr.class]="{block: _name, element: 'steps-heading'} | bem">
+      Schnell, sicher, einfach
+    </div>
+    <div [attr.class]="{block: _name, element: 'steps-explainer'} | bem">
+      Immobilienfinanzierung mit Interhyp
+    </div>
+    <div [attr.class]="{block: _name, element: 'steps-cards'} | bem">
+      <div [attr.class]="{block: _name, element: 'steps-card-wrapper', mods: {order: 'first'}} | bem">
+        <div [attr.class]="{block: _name, element: 'steps-card'} | bem">
+          <div [attr.class]="{block: _name, element: 'steps-card-number'} | bem">
+            1
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-title'} | bem">
+            Unverbindliche Anfrage
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-text'} | bem">
+            Mit nur wenigen Klicks stellst du eine unverbindliche Anfrage zu deinem Vorhaben bei unserem Partner Interhyp.
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-button'} | bem">
+            <a
+              id="broker-stacked-mortgage-request-link"
+              app-button
+              size="medium"
+              [stretch]="true"
+              color="primary-dark"
+              [routerLink]="linkToMortgageRequest"
+              queryParamsHandling="merge"
+              target="_blank"
+            >
+              Finanzierung anfragen
+            </a>
+          </div>
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'steps-card-wrapper', mods: {order: 'center'}} | bem">
+        <div [attr.class]="{block: _name, element: 'steps-card'} | bem">
+          <div [attr.class]="{block: _name, element: 'steps-card-number'} | bem">
+            2
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-title'} | bem">
+            Individuelle Beratung
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-text'} | bem">
+            Innerhalb eines Werktages meldet sich dein persönlicher Interhyp-Berater bei dir.
+            Nach der persönlichen Beratung zu deinem Vorhaben erhältst du ein maßgeschneidertes Angebot,
+            basierend auf deinen Wünschen.
+          </div>
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'steps-card-wrapper', mods: {order: 'last'}} | bem">
+        <div [attr.class]="{block: _name, element: 'steps-card'} | bem">
+          <div [attr.class]="{block: _name, element: 'steps-card-number'} | bem">
+            3
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-title'} | bem">
+            Finanzierungsabschluss
+          </div>
+          <div [attr.class]="{block: _name, element: 'steps-card-text'} | bem">
+            Interhyp regelt die Formalitäten mit der Bank. Du erhältst den fertigen Finanzierungsvertrag zur Unterschrift.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="range" [attr.class]="{block: _name, element: 'info-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'info-block', mods: {'side': 'left'}} | bem">
+      <div [attr.class]="{block: _name, element: 'info-title-block'} | bem">
+        <div [attr.class]="{block: _name, element: 'info-icon'} | bem"></div>
+        <div [attr.class]="{block: _name, element: 'info-title'} | bem">
+          Für eine runde Baufinanzierung
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'info-next-step'} | bem">
+        <div [attr.class]="{block: _name, element: 'info-next-text'} | bem">
+          Unser Partner Interhyp ist der Spezialist für die private Baufinanzierung.
+          Gemeinsam mit dir analysiert der Interhyp-Berater deine Lebenssituation, deine Wünsche und finanziellen Rahmenbedingungen.
+          Daraus entwickelt er ein Finanzierungskonzept, das perfekt zu deinen Bedürfnissen passt.
+        </div>
+        <a
+          id="broker-slogan-mortgage-request-link"
+          app-button
+          size="medium"
+          color="primary-green"
+          [stretch]="true"
+          [routerLink]="linkToMortgageRequest"
+          queryParamsHandling="merge"
+          target="_blank"
+        >
+          Finanzierung anfragen
+        </a>
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'info-block', mods: {'side': 'right'}} | bem">
+      <div [attr.class]="{block: _name, element: 'info-merits'} | bem">
+        Individuell,<br/>
+        unverbindlich,<br/>
+        und ohne Extrakosten.
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Faq -->
+  <div [attr.class]="{block: _name, element: 'spoilers-block'} | bem">
+    <app-broker-faq></app-broker-faq>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'info-graphic-paragraph-wrapper'} | bem">
+    <div [attr.class]="{block: _name, element: 'info-graphic-paragraph'} | bem">
+      <div [attr.class]="{block: _name, element: 'info-icon'} | bem"></div>
+      <div [attr.class]="{block: _name, element: 'info-title'} | bem">
+        Kontaktiere uns
+      </div>
+    </div>
+  </div>
+</div>
+
+<div [attr.class]="{block: _name, element: 'contacts-block'} | bem">
+  <div [attr.class]="{block: _name, element: 'contact'} | bem">
+    <app-broker-contact
+      linkId="broker-contact-phone-link"
+      icon="phone"
+      href="tel:+4989124794100"
+      heading="089 124 794 100"
+      message="Ruf uns an, wenn du Fragen hast."
+    ></app-broker-contact>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'contact'} | bem">
+    <app-broker-contact
+      linkId="broker-contact-email-link"
+      icon="email"
+      href="mailto:kontakt@scoperty.de"
+      heading="E-Mail"
+      message="Schick uns eine E-Mail, wir antworten dir so schnell wir können."
+    ></app-broker-contact>
+  </div>
+</div>

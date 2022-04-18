@@ -1,0 +1,83 @@
+<ng-container *ngIf="activeMarker; then view else spinner"></ng-container>
+
+<!-- Loading spinner -->
+<ng-template #spinner>
+  <div
+    [attr.class]="{block: _name, element: 'initial-container'} | bem"
+    [ngStyle]="{'height': displayHeight}"
+  >
+    <div [attr.class]="{block: _name, element: 'loader'} | bem"></div>
+  </div>
+</ng-template>
+
+<ng-template #view>
+  <!-- Tab navigation -->
+  <div [attr.class]="{block: _name, element: 'navbar'} | bem">
+    <div [attr.class]="{block: _name, element: 'navbar-inner'} | bem">
+      <div [attr.class]="{block: _name, element: 'navbar-wrapper'} | bem">
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'navbar-item',
+            mods: {'state': (isOverview$ | async) ? 'active': 'default'}
+          } | bem"
+          (click)="activateSection('overview')"
+        >
+          Übersicht
+        </div>
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'navbar-item',
+            mods: {'state': (isMarketView$ | async) ? 'active': 'default'}
+          } | bem"
+          (click)="activateSection('marketView')"
+        >
+          Für Eigentümer
+          <div [attr.class]="{ block: _name, element: 'new-icon'} | bem">
+            neu
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <app-property-detail-header
+    *ngIf="isOverview$ | async"
+    [activeMarker]="activeMarker"
+    [offerPrice]="offerPrice"
+    (toggleContactMeForm)="openContactMeForm()"
+    (toggleMakeMeMoveModal)="toggleMakeMeMoveModal($event)"
+    (toggleSlideshow)="openSlideshow()"
+  ></app-property-detail-header>
+
+  <app-property-detail-simple-header
+    *ngIf="isMarketView$ | async"
+    [marker]="activeMarker"
+  ></app-property-detail-simple-header>
+
+  <!-- Tab content -->
+  <div [attr.class]="{block: _name, element: 'inner'} | bem">
+    <app-overview-property
+      *ngIf="isOverview$ | async"
+      [marker]="activeMarker"
+      (addApartment)="addApartment($event)"
+    ></app-overview-property>
+
+    <app-market-view-property
+      *ngIf="isMarketView$ | async"
+      [marker]="activeMarker"
+      [userNotAuthorized]="userNotAuthorized"
+      (makeMeOwner)="makeMeOwner($event)"
+    ></app-market-view-property>
+  </div>
+
+  <!-- Properties for sale -->
+  <app-object-slider
+    *ngIf="isMarkersListNotEmpty"
+    [markers]="markers"
+    [isLoaded]="isLoad"
+    [titleText]="sliderTitle"
+  ></app-object-slider>
+</ng-template>

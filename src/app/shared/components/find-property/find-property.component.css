@@ -1,0 +1,74 @@
+:host {
+  display: block;
+
+  width: 100%;
+}
+
+.find-property__wrapper {
+  display: flex;
+  align-items: flex-end;
+
+  width: 100%;
+}
+
+.find-property__search-place-container {
+  margin-right: 24px;
+  margin-bottom: 24px;
+
+  width: 392px;
+}
+
+.find-property--search-bar-responsive-container {
+  margin-right: 24px;
+  margin-bottom: 32px;
+
+  width: 56%;
+}
+
+.find-property__button-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+
+  display: flex;
+  flex-direction: row;
+
+  flex-grow: 1;
+  width: auto;
+}
+
+.find-property__indicator-wrapper {
+  position: absolute;
+  right: -52px;
+
+  padding-bottom: 4px;
+
+  width: 40px;
+  height: 44px;
+}
+
+/* Responsive */
+
+@media (max-width: 920px) {
+  .find-property__wrapper {
+    margin-bottom: 16px;
+
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .find-property__search-place-container {
+    margin-right: 0;
+    margin-bottom: 24px;
+
+    width: 100%;
+  }
+
+  .find-property__button-wrapper {
+    width: 100%;
+  }
+
+  .find-property__button-wrapper--indicator-mobile {
+    width : calc(100% - 52px);
+  }
+}

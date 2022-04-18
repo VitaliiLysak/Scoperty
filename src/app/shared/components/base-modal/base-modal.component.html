@@ -1,0 +1,147 @@
+<!-- Modal skeleton -->
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'container',
+    mods: {
+      'no-header': !hasHeader,
+      'narrow-spacings': narrowSpacings
+    }
+  } | bem"
+  tabindex="-1"
+  role="dialog"
+  aria-hidden="true"
+>
+  <!-- Navbar, only visible on mobile -->
+  <app-mobile-navbar *ngIf="showMobileNavbar" (logo)="onLogoClick()"></app-mobile-navbar>
+  <!-- Header -->
+  <div
+    [attr.class]="{
+      block: _name,
+      element: 'inner-container',
+      mods: {
+        'padding-top': showMobileNavbar ? 'default' : '0'
+      }
+    } | bem"
+  >
+    <ng-container *ngIf="!disableHeader">
+      <div
+        *ngIf="hasHeader; else noHeader"
+        [attr.class]="{ block: _name, element: 'header' } | bem"
+      >
+        <div
+          [attr.class]="{
+          block: _name,
+          element: 'header-title',
+          mods: {
+            'align': headerElement.align,
+            'align-mobile': headerElement.alignMobile
+          }
+        } | bem"
+        >
+          <ng-content select="[app-base-modal-header]"></ng-content>
+        </div>
+        <div [attr.class]="{ block: _name, element: 'header-button-close-container' } | bem">
+          <ng-container *ngTemplateOutlet="closeButton"></ng-container>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Close button container, only visible when no header -->
+    <ng-template #noHeader>
+      <div [attr.class]="{ block: _name, element: 'button-close-container' } | bem">
+        <ng-container *ngTemplateOutlet="closeButton"></ng-container>
+      </div>
+    </ng-template>
+
+    <!-- Close button -->
+    <ng-template #closeButton>
+      <button
+        id="{{locationPrefix}}-close-button"
+        [attr.class]="{block: _name, element: 'button-close'} | bem"
+        (click)="onDismiss()"
+      >
+        <mat-icon svgIcon="close" appSvgSize="16px"></mat-icon>
+      </button>
+    </ng-template>
+
+    <!-- Message -->
+    <div
+      *ngIf="hasMessage"
+      [attr.class]="{
+        block: _name,
+        element: 'message-container',
+        mods: {
+          'no-header': !hasHeader
+        }
+      } | bem"
+    >
+      <ng-content select="[app-base-modal-message]"></ng-content>
+    </div>
+
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'body-container',
+        mods: {
+          'no-footer': !hasFooter,
+          'no-header': disableHeader,
+          'overflow-auto': autoOverflowOnContainer
+        }
+      } | bem"
+    >
+      <!-- Icon -->
+      <div
+        *ngIf="hasIcon"
+         [attr.class]="{
+           block: _name,
+           element: 'icon-container',
+           mods: {
+            'align': iconElement.align,
+            'align-mobile': iconElement.alignMobile
+           }
+         } | bem"
+      >
+        <ng-content select="[app-base-modal-icon]"></ng-content>
+      </div>
+
+      <!-- Title -->
+      <div
+        *ngIf="hasTitle"
+        [attr.class]="{
+          block: _name,
+          element: 'title-container',
+          mods: {
+            'align': titleElement.align
+          }
+        } | bem"
+      >
+        <div [attr.class]="{ block: _name, element: 'title' } | bem"
+        >
+          <ng-content select="[app-base-modal-title]"></ng-content>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'body',
+          mods: {
+            'no-header': disableHeader
+          }
+        } | bem"
+      >
+        <ng-content select="[app-base-modal-body]"></ng-content>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div
+      *ngIf="hasFooter"
+      [attr.class]="{ block: _name, element: 'footer', mods: { 'theme': footerElement.theme } } | bem"
+    >
+      <ng-content select="[app-base-modal-footer]"></ng-content>
+    </div>
+  </div>
+</div>

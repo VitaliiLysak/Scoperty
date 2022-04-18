@@ -1,0 +1,156 @@
+<ng-container *ngIf="isProfileRoute; then profilePage else profileSubPage"></ng-container>
+
+<ng-template #profilePage>
+  <app-profile-index></app-profile-index>
+</ng-template>
+
+<ng-template #profileSubPage>
+  <div [attr.class]="{block: _name, element: 'title-wrapper'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      Mein Bereich
+    </div>
+  </div>
+  <div
+    *ngIf="isNavbarShown"
+    id="tab-list-wrapper"
+    [attr.class]="{block: _name, element: 'tab-list-wrapper', mods: {'scroll': 'horizontal'}} | bem"
+  >
+    <div
+      #scrollingMenu
+      [attr.class]="{block: _name, element: 'tab-list', mods: {'scroll': 'horizontal'}} | bem"
+      (scroll)="handleScrollingMenuScroll($event)"
+    >
+      <div
+        #offersTab
+        [attr.class]="{block: _name, element: 'tab-item-wrapper', mods: {'tab': 'offers'}} | bem"
+        [routerLink]="linkToOffers"
+        queryParamsHandling="merge"
+        (click)="handleCurrentTab('offers')"
+      >
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'tab-item',
+            mods: {
+              'state': (activeItem === 'offers')? 'active' : 'default',
+              'tab': 'offers'
+            }
+          } | bem"
+        >
+          Meine Gebote
+        </div>
+      </div>
+      <div
+        #properyTab
+        [attr.class]="{block: _name, element: 'tab-item-wrapper', mods: {'tab': 'my-property'}} | bem"
+        [routerLink]="linkToMyProperty"
+        queryParamsHandling="merge"
+        (click)="handleCurrentTab('my-property')"
+      >
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'tab-item',
+            mods: {
+              'state': (activeItem === 'my-property')? 'active' : 'default',
+              'tab': 'my-property'
+            }
+          } | bem"
+        >
+          Meine Immobilien
+        </div>
+      </div>
+      <div
+        *ngIf="featureToggleService.messaging"
+        #chatTab
+        [attr.class]="{block: _name, element: 'tab-item-wrapper', mods: {'tab': 'chat'}} | bem"
+        [routerLink]="linkToChat"
+        queryParamsHandling="merge"
+        (click)="handleCurrentTab('chat')"
+      >
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'tab-item',
+            mods: {
+              'state': (activeItem === 'chat')? 'active' : 'default',
+              'tab': 'chat'
+            }
+          } | bem"
+        >
+          Nachrichten
+        </div>
+        <span
+          [attr.class]="{
+            block: _name,
+            element: 'notif-budget',
+            mods: {
+              'item': 'chat',
+              'visible': updatesCounters.messages !== 0
+            }
+          } | bem"
+        >
+          {{updatesCounters.messages}}
+        </span>
+      </div>
+      <div
+        #favoritesTab
+        [attr.class]="{block: _name, element: 'tab-item-wrapper', mods: {'tab': 'favorites'}} | bem"
+        [routerLink]="linkToFavorites"
+        queryParamsHandling="merge"
+        (click)="handleCurrentTab('favorites')"
+      >
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'tab-item',
+            mods: {
+              'state': (activeItem === 'favorites')? 'active' : 'default',
+              'tab': 'favorites'
+            }
+          } | bem"
+        >
+          Merkliste
+        </div>
+      </div>
+      <div
+        #searchAlertsTab
+        [attr.class]="{block: _name, element: 'tab-item-wrapper', mods: {'tab': 'search'}} | bem"
+        [routerLink]="linkToSearchAlerts"
+        queryParamsHandling="merge"
+        (click)="handleCurrentTab('search-alerts')"
+      >
+        <div
+          [attr.class]="{
+            block: _name,
+            element: 'tab-item',
+            mods: {
+              'state': (activeItem === 'search-alerts')? 'active' : 'default',
+              'tab': 'search'
+            }
+          } | bem"
+        >
+          Suchaufträge
+        </div>
+        <span
+          [attr.class]="{
+            block: _name,
+            element: 'notif-budget',
+            mods: {
+              'item': 'search-alerts',
+              'visible': updatesCounters.search !== 0
+            }
+          } | bem"
+        >
+          {{updatesCounters.search}}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div [attr.class]="{block: _name, element: 'tab-content'} | bem">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</ng-template>
+

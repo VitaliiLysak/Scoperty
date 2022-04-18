@@ -1,0 +1,44 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'wrapper-block'} | bem">
+    <!-- Navbar -->
+    <!-- Start page -->
+    <div
+      *ngIf="isStartPage; else defaultPageNavbar"
+      [attr.class]="{block: _name, element: 'start-page-navbar-container'} | bem"
+    >
+      <app-start-page-navbar
+        [scrollContainer]="scrollContainer"
+        id="start-page-navbar"
+      ></app-start-page-navbar>
+    </div>
+
+    <!-- Not start page -->
+    <ng-template #defaultPageNavbar>
+      <app-header></app-header>
+    </ng-template>
+
+    <!-- Scolling content -->
+    <div
+      id="scrollBlock"
+      #scrollContainer
+      [attr.class]="{block: _name, element: 'scroll-block', mods:{'overflow': isMapPage? 'hidden' : 'default'}} | bem"
+    >
+      <div [attr.class]="{block: _name, element: 'main-content'} | bem">
+        <router-outlet></router-outlet>
+      </div>
+
+      <!-- Footer -->
+      <app-layout-footer *ngIf="!isFirstFooter"></app-layout-footer>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<app-layout-footer *ngIf="isFirstFooter"></app-layout-footer>
+
+<!-- Cookie -->
+<app-cookies-law
+  [attr.class]="{block: _name, element: 'cookies', mods: { display: cookiesState }} | bem"
+></app-cookies-law>
+
+<router-outlet name="modal"></router-outlet>

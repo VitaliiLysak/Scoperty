@@ -1,0 +1,19 @@
+<label
+  [attr.class]="{
+    block: name,
+    element: 'container',
+    mods:{
+      'state': state,
+      'size': size
+    }
+  } | bem"
+>
+  <input
+    type="checkbox"
+    [ngModel]="model"
+    (ngModelChange)="changeModel($event)"
+  >
+  <span [attr.class]="{ block: name, element: 'label' } | bem">
+    <div class="text-truncate">{{label}}</div>
+  </span>
+</label>

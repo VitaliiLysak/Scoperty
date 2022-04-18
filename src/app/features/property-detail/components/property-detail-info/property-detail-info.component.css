@@ -1,0 +1,239 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  font-size: var(--font-size-body);
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-detail-info__header-panel-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.property-detail-info__header-status {
+  margin-bottom: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  line-height: 24px;
+
+  color: var(--neutrals-dark-extreme-color);
+}
+
+.property-detail-info__header-status-items {
+  margin-right: 16px;
+}
+
+.property-detail-info__header-status-item {
+  margin-right: 8px;
+}
+
+.property-detail-info__header-status-item:last-child {
+  margin-right: 0;
+}
+
+.property-detail-info__header-address {
+  margin-bottom: 50px;
+
+  min-height: 30px;
+
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 28px;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.property-detail-info__header-title {
+  margin-bottom: 32px;
+
+  display: flex;
+
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  line-height: 40px;
+
+  color: var(--brand-dark-green-color);
+  word-break: break-word;
+  white-space: pre-line;
+}
+
+.property-detail-info__price-title {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 24px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-detail-info__price {
+  font-size: 56px;
+  font-weight: bold;
+  letter-spacing: 2.8px;
+  line-height: 77px;
+  white-space: nowrap;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-detail-info__price--type-MFH {
+  margin-bottom: 8px;
+}
+
+.property-detail-info__price-square-text {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.property-detail-info__section {
+  margin-top: 32px;
+}
+
+.property-detail-info__header-subtitle {
+  margin-bottom: 16px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  font-weight: bold;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-detail-info__header-text {
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.property-detail-info__tooltip {
+  margin-left: 16px;
+
+  display: inline-block;
+}
+
+.property-detail-info__buttons-block {
+  display: flex;
+}
+
+.property-detail-info__message-button {
+  margin-right: 8px;
+}
+
+/* Responsive */
+
+@media (max-width: 1036px) {
+  .property-detail-info__header-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 830px) {
+  .property-detail-info__header-subtitle {
+    margin-top: 0;
+  }
+
+  .property-detail-info__header-title {
+    margin-bottom: 16px;
+
+    line-height: 28px;
+  }
+
+  .property-detail-info__header-address {
+    margin-bottom: 17px;
+  }
+
+  .property-detail-info__price {
+    margin-bottom: 0;
+
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 40px;
+  }
+}
+
+@media (max-width: 450px) {
+  .property-detail-info__header-status {
+    margin-bottom: 16px;
+
+    align-items: flex-start;
+
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  .property-detail-info__header-status-item {
+    margin-bottom: 8px;
+  }
+
+  .property-detail-info__header-status-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .property-detail-info__header-title {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .property-detail-info__header-address {
+    min-height: 0;
+
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 24px;
+  }
+
+  .property-detail-info__price-title {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    line-height: 28px;
+  }
+
+  .property-detail-info__price-square-text {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    line-height: 24px;
+  }
+
+  .property-detail-info__header-subtitle {
+    margin-bottom: 10px;
+
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
+}

@@ -1,0 +1,33 @@
+<div [attr.class]="{block: _name, element: 'control'} | bem">
+  <button
+    id="map-zoom-in-button"
+    app-icon-button
+    size="small-medium"
+    shape="round"
+    color="primary-green"
+    [disabled]="!zoomInEnabled"
+    (click)="onZoomIn()"
+  >
+    <mat-icon
+      svgIcon="add"
+      appSvgSize="30px"
+    ></mat-icon>
+  </button>
+</div>
+
+<div [attr.class]="{block: _name, element: 'control'} | bem">
+  <button
+    id="map-zoom-out-button"
+    app-icon-button
+    size="small-medium"
+    shape="round"
+    color="primary-green"
+    [disabled]="!zoomOutEnabled"
+    (click)="onZoomOut()"
+  >
+    <mat-icon
+      svgIcon="remove"
+      appSvgSize="30px"
+    ></mat-icon>
+  </button>
+</div>

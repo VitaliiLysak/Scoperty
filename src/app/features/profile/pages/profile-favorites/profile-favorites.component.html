@@ -1,0 +1,77 @@
+<ng-container *ngIf="dataIsGot; then data else spinner"></ng-container>
+
+<ng-template #spinner>
+  <div [attr.class]="{block: _name, element: 'loader'} | bem"></div>
+</ng-template>
+
+<ng-template #data>
+  <div
+    *ngIf="!isTipHidden"
+    [attr.class]="{
+      block: _name,
+      element: 'tip-block',
+      mods: {
+        'visible': !isTipHidden,
+        'top-margined': allDataIsLoaded
+      }
+    } | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'tip-block-header'} | bem">
+      <div [attr.class]="{block: _name, element: 'tip-budge-wrapper'} | bem">
+        <div [attr.class]="{block: _name, element: 'tip-budge'} | bem">
+          Tipp
+        </div>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'tip-close'} | bem"
+        (click)="closeTip()"
+      >
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'text-container'} | bem">
+      <div [attr.class]="{block: _name, element: 'tip-title'} | bem">
+        Hast du schon über deine Finanzierung nachgedacht?
+      </div>
+      <div [attr.class]="{block: _name, element: 'tip-message'} | bem">
+        Berechne jetzt deinen maximalen Kaufpreis und lerne mehr über die Baufinanzierung kennen!
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'mortgage-navigation'} | bem">
+      <div
+        [attr.class]="{block: _name, element: 'mortgage-navigation-button'} | bem"
+        [routerLink]="linkToMortgageRequest"
+        queryParamsHandling="merge"
+      >
+        Jetzt berechnen
+      </div>
+    </div>
+  </div>
+
+  <app-info-block
+    [attr.class]="{block: _name, element: 'info-block'} | bem"
+    *ngIf="allDataIsLoaded"
+    buttonText='Immobilien suchen'
+  >
+    <span>
+      Du hast dir noch keine Immobilie bei Scoperty gemerkt. Suche jetzt nach interessanten Immobilien und
+      speichere sie dir über den Stern auf deiner Merkliste.
+    </span>
+  </app-info-block>
+
+  <div *ngIf="favoritesIsLoaded" [attr.class]="{block: _name, element: 'favorite-block'} | bem">
+    <app-favorite-item
+      *ngFor="let fav of favorites; trackBy: trackFavoritesByUiid"
+      [attr.class]="{block: _name, element: 'favorite-block-item'} | bem"
+      [favorite]="fav"
+      (updateOfferPrice)="changeOfferPrice($event)"
+    ></app-favorite-item>
+  </div>
+
+  <app-object-slider
+    *ngIf="isCarouselLoaded"
+    [markers]="markers"
+    [isLoaded]="isCarouselLoaded"
+    [titleText]="sliderTitle"
+  ></app-object-slider>
+
+</ng-template>

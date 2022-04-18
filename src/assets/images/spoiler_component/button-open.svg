@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16px"
+   height="16px"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="close (2).svg">
+  <metadata
+     id="metadata23">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>5FE2D641-9CD8-4821-8F1C-BA7C0D5B4CF8</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="1026"
+     id="namedview21"
+     showgrid="false"
+     inkscape:zoom="14.75"
+     inkscape:cx="-3.7966102"
+     inkscape:cy="8"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: sketchtool 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">5FE2D641-9CD8-4821-8F1C-BA7C0D5B4CF8</title>
+  <desc
+     id="desc6">Created with sketchtool.</desc>
+  <defs
+     id="defs8">
+    <linearGradient
+       id="linearGradient5638"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5640" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5620"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5622" />
+    </linearGradient>
+    <polygon
+       id="path-1"
+       points="20 5.61142857 18.3885714 4 12 10.3885714 5.61142857 4 4 5.61142857 10.3885714 12 4 18.3885714 5.61142857 20 12 13.6114286 18.3885714 20 20 18.3885714 13.6114286 12" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5620"
+       id="linearGradient5624"
+       x1="479.5"
+       y1="502"
+       x2="504.58333"
+       y2="502"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5638"
+       id="linearGradient5642"
+       x1="480"
+       y1="502"
+       x2="504.08333"
+       y2="502"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     style="fill:#02d9ec;fill-rule:evenodd;stroke:none;stroke-width:1;stroke-opacity:1;fill-opacity:1"
+     transform="matrix(0.55623876,-0.55482878,0.55623876,0.55482878,-544.84894,2.4748303)"
+     id="E_1.0.3.0_Detail_Overview_house_noowner_overlay_feedback">
+    <g
+       transform="translate(104,456)"
+       id="Header/Makememove/house/filled"
+       style="stroke:none;stroke-opacity:1;fill:#02d9ec;fill-opacity:1">
+      <g
+         transform="translate(376,34)"
+         id="Icon/close"
+         style="stroke:none;stroke-opacity:1;fill:#02d9ec;fill-opacity:1">
+        <mask
+           fill="white"
+           id="mask-2"
+           style="stroke:url(#linearGradient5624);fill-opacity:1;fill:url(#linearGradient5642)">
+          <use
+             height="100%"
+             width="100%"
+             y="0"
+             x="0"
+             id="use16"
+             xlink:href="#path-1"
+             style="stroke:url(#linearGradient5624);fill-opacity:1;fill:url(#linearGradient5642)" />
+        </mask>
+        <use
+           height="100%"
+           width="100%"
+           y="0"
+           x="0"
+           style="fill:#02d9ec;fill-rule:nonzero;stroke:none;stroke-opacity:1;fill-opacity:1"
+           xlink:href="#path-1"
+           id="Mask" />
+        <g
+           style="fill:#02d9ec;stroke:none;stroke-opacity:1;fill-opacity:1"
+           mask="url(#mask-2)"
+           id="color/active">
+          <rect
+             height="24"
+             width="24.083334"
+             y="0"
+             x="0"
+             id="Rectangle-24"
+             style="stroke:none;stroke-opacity:1;fill:#02d9ec;fill-opacity:1" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

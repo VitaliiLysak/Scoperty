@@ -1,0 +1,39 @@
+:host {
+  max-width: 600px;
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+.start-page-sell-property__tabs-title {
+  margin-bottom: 24px;
+
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  line-height: 28px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-sell-property__find-property {
+  margin-bottom: 48px;
+}
+
+/* Responsive */
+
+@media (max-width: 650px) {
+  .start-page-sell-property__find-property {
+    margin-bottom: 32px;
+  }
+}
+
+@media (max-width: 450px) {
+  :host {
+    padding-bottom: 0;
+  }
+
+  .start-page-sell-property__tabs-title {
+    display: none;
+  }
+}

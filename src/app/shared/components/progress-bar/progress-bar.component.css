@@ -1,0 +1,53 @@
+:host {
+  position: relative;
+
+  display: inline-block;
+  overflow: hidden;
+
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+
+  background-color: var(--neutrals-middle-light-color);
+}
+
+.progress-bar__progress {
+  height: 100%;
+}
+
+.progress-bar__separator-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+  height: 100%;
+}
+
+.progress-bar__separator {
+  width: 4px;
+  height: 100%;
+}
+
+/* Color & Style */
+
+/* Color */
+
+/* Green */
+
+.progress-bar__progress--color-green {
+  background: linear-gradient(270deg, var(--brand-light-blue-color) 0%, var(--brand-green-blue-dark-color) 100%);
+}
+
+/* BackgroundColor */
+
+/* Dark */
+
+.progress-bar__separator--color-dark {
+  background-color: var(--brand-dark-green-color);
+}

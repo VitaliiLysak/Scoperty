@@ -1,0 +1,37 @@
+<div class="substep8_email-field">
+  <p class="substep8_email-caption">{{email}}</p>
+  <a
+    app-button
+    buttonStyle="link"
+    size="medium"
+    color="green"
+    (click)="onEmailEdit()"
+  >
+    Ändern
+  </a>
+</div>
+
+<div
+  *ngIf="isNotConfirmed"
+  class="substep8_confirm-block"
+>
+  <a
+    app-button
+    buttonStyle="link"
+    size="medium"
+    color="green"
+    (click)="confirmEmail()"
+  >
+    E-Mail zur Bestätigung erneut senden
+  </a>
+
+  <p class="substep8_error">
+    Deine Email Adresse ist bereits bekannt, bitte klicke den Link in der Mail und melde dich an, um deine Registrierung abzuschließen.
+  </p>
+</div>
+
+<app-sign-in
+  [controlsWidth]="controlsWidth"
+  [predefinedEmail]="email"
+  (signIn)="onSignIn($event)"
+></app-sign-in>

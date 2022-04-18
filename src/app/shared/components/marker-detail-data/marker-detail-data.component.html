@@ -1,0 +1,672 @@
+<ng-container *ngIf="mode === 'show'; then showMode else editMode"></ng-container>
+<ng-template #showMode>
+  <div *ngIf="isOwned && (!model.isPropertyOfTypeMFH)">
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Wohnfläche
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.LivingSurface | fallbackValue}}&nbsp;m<sup>2</sup>
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Grundstücksfläche
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.TotalArea | fallbackValue}}&nbsp;m<sup>2</sup>
+        </div>
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Baujahr
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{markerConstructionYear | fallbackValue}}
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Objektzustand
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{transformBeFe(staticStorage.propertyConditionGlossary, model.PropertyCondition)}}
+        </div>
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Letzte Modernisierung
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{markerModernisationYear | fallbackValue}}
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Zimmeranzahl
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.RoomsNumber | fallbackValue}}
+        </div>
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+      <div *ngIf="!model.isPropertyOfTypeETW" [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Anzahl Geschosse
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.FloorNumber | fallbackValue}}
+        </div>
+      </div>
+      <div *ngIf="model.isPropertyOfTypeETW && model.Floor !== 0" [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Etage
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.Floor | invalidValue}}
+        </div>
+      </div>
+      <div
+        *ngIf="model.isParkingSpecified"
+        [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Garage
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.Parking | boolToFriendly}}
+        </div>
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Vermietet
+        </div>
+        <div [attr.class]="{block: name, element: 'row-value'} | bem">
+          {{model.Rented | boolToFriendly}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!isOwned || (model.isPropertyOfTypeMFH)">
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'mobile'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key'} | bem">
+        Wohnfläche <span *ngIf="model.isPropertyOfTypeMFH">ab</span>
+      </div>
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">
+        {{model.LivingSurface | fallbackValue}}&nbsp;m<sup>2</sup>
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'mobile'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key'} | bem">
+        Schätzwert pro Quadratmeter
+      </div>
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">
+        {{model.EstimatedPricePerM2 | costPerM2: '-'}}
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'mobile'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key'} | bem">
+        Baujahr
+      </div>
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">
+        {{markerConstructionYear}}
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'size': 'mobile'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key'} | bem">
+        Grundstücksfläche
+      </div>
+      <div [attr.class]="{block: name, element: 'row-value'} | bem">
+        {{model.TotalArea | fallbackValue}} m<sup>2</sup>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #editMode>
+  <div *ngIf="page !== 'myProperties'">
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '74px'}} | bem">
+      <label [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Wohnfläche
+        </div>
+        <input
+          [attr.class]="{block: name, element: 'row-value', mods: {'state': 'edit'}} | bem"
+          [class.marker-detail-data__row-value--filled]='model.LivingSurface != undefined'
+          value="{{model.LivingSurface}} {{areaUnits}}"
+          minValue=0
+          (focus)="anyInputOnFocus($event)"
+          (keydown)="areaInputOnKeydown($event)"
+          (input)="areaInputValidate($event)"
+          (blur)="savePropertyArea($event, 'LivingSurface')"
+        />
+      </label>
+      <label
+        [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit'}} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">Grundstücksfläche</div>
+        <input
+          [attr.class]="{block: name, element: 'row-value', mods: {'state': 'edit'}} | bem"
+          [class.marker-detail-data__row-value--filled]='model.TotalArea != undefined'
+          value="{{model.TotalArea}} {{areaUnits}}"
+          minValue=0
+          (focus)="anyInputOnFocus($event)"
+          (keydown)="areaInputOnKeydown($event)"
+          (input)="areaInputValidate($event)"
+          (blur)="savePropertyArea($event, 'TotalArea')"
+        />
+      </label>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '74px'}} | bem">
+      <label [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">Baujahr</div>
+        <input
+          [attr.class]="{block: name, element: 'row-value', mods: {'state': 'edit'}} | bem"
+          [class.marker-detail-data__row-value--filled]='model.ConstructionYear != undefined'
+          value="{{model.ConstructionYear}}"
+          minValue=1900
+          [attr.maxValue]="maxYear"
+          (focus)="anyInputOnFocus($event)"
+          (keydown)="yearInputOnKeydown($event)"
+          (input)="yearInputValidate($event)"
+          (blur)="saveProperty($event, 'ConstructionYear')"
+        />
+      </label>
+      <label [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit'}} | bem">
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="activePropertyCondition"
+          [items]="staticStorage.propertyConditionGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'PropertyCondition')"
+          placeholder="Auswählen"
+          label="Objektzustand"
+        ></app-select>
+      </label>
+    </div>
+    <div *ngIf="!model.isPropertyOfTypeMFH" [attr.class]="{block: name, element: 'row', mods: {'height': '74px'}} | bem">
+      <label [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">Letzte Modernisierung</div>
+        <input
+          #lastModernisationYear
+          [attr.class]="{block: name, element: 'row-value', mods: {'state': 'edit'}} | bem"
+          [ngClass]="{'marker-detail-data__row-value--filled': lastModernisationYear.value}"
+          value="{{model.LastModernisationYear}}"
+          minValue=1900
+          [attr.maxValue]="maxYear"
+          (focus)="anyInputOnFocus($event)"
+          (keydown)="yearInputOnKeydown($event)"
+          (input)="yearInputValidate($event)"
+          (blur)="saveProperty($event, 'LastModernisationYear')"
+        />
+      </label>
+      <label
+        [attr.class]="{
+        block: name,
+        element: 'row',
+        mods: {'size': 'half', 'state': 'edit', 'type': 'nontext'}
+      } | bem"
+      >
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Zimmeranzahl
+        </div>
+        <div
+          [attr.class]="{
+          block: name,
+          element: 'row-value',
+          mods: {'with': 'border', 'state': 'custom-edit', 'display': 'flex'}
+        } | bem"
+        >
+          <div [attr.class]="{block: name, element: 'button-dec'} | bem" (click)="decrement('RoomsNumber', .5, 0)">-</div>
+          {{model.RoomsNumber}}
+          <div [attr.class]="{block: name, element: 'button-inc'} | bem" (click)="increment('RoomsNumber', .5)">+</div>
+        </div>
+      </label>
+    </div>
+    <div *ngIf="!model.isPropertyOfTypeMFH" [attr.class]="{block: name, element: 'row', mods: {'height': '74px'}} | bem">
+      <label
+        *ngIf="model.isPropertyOfTypeETW"
+        [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit', 'type': 'nontext'}} | bem"
+      >
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="activePropertyFloor"
+          [items]="staticStorage.propertyFloorGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFloorFromSelect($event, 'Floor')"
+          placeholder="Auswählen"
+          label="Etage"
+        ></app-select>
+      </label>
+      <label
+        *ngIf="!model.isPropertyOfTypeETW"
+        [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit', 'type': 'nontext'}} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Anzahl Geschosse
+        </div>
+        <div
+          [attr.class]="{
+          block: name,
+          element: 'row-value',
+          mods: {'with': 'border', 'state': 'custom-edit', 'display': 'flex'}
+        } | bem"
+        >
+          <div [attr.class]="{block: name, element: 'button-dec'} | bem" (click)="decrement('FloorNumber', 1, 0)">-</div>
+          {{model.FloorNumber}}
+          <div [attr.class]="{block: name, element: 'button-inc'} | bem" (click)="increment('FloorNumber', 1)">+</div>
+        </div>
+      </label>
+      <label [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit', 'type': 'tabs'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">Garage/Stellplatz?</div>
+        <div
+          [attr.class]="{
+          block: name,
+          element: 'row-value',
+          mods: {'childs': 'start', 'state': 'custom-edit', 'display': 'flex', 'buttons': 'poll'}
+        } | bem"
+        >
+          <div
+            [attr.class]="{block: name, element: 'button', mods: {'state': model.Parking? 'active' : 'default'}} | bem"
+            (click)="savePropertyBoolean(true, 'Parking')"
+          >
+            Ja
+          </div>
+          <div
+            [attr.class]="{block: name, element: 'button', mods: {'state': !model.Parking? 'active' : 'default'}} | bem"
+            (click)="savePropertyBoolean(false, 'Parking')"
+          >
+            Nein
+          </div>
+        </div>
+      </label>
+    </div>
+    <div *ngIf="!model.isPropertyOfTypeMFH" [attr.class]="{block: name, element: 'row', mods: {'height': '74px'}} | bem">
+      <label [attr.class]="{block: name, element: 'row', mods: {'size': 'half', 'state': 'edit', 'type': 'tabs'}} | bem">
+        <div [attr.class]="{block: name, element: 'row-key'} | bem">
+          Aktuelle vermietet?
+        </div>
+        <div
+          [attr.class]="{
+          block: name,
+          element: 'row-value',
+          mods: {'childs': 'start', 'state': 'custom-edit', 'display': 'flex', 'buttons': 'poll'}
+        } | bem"
+        >
+          <div
+            [attr.class]="{block: name, element: 'button', mods: {'state': model.Rented ? 'active' : 'default'}} | bem"
+            (click)="savePropertyBoolean(true, 'Rented')"
+          >
+            Ja
+          </div>
+          <div
+            [attr.class]="{block: name, element: 'button', mods: {'state': !model.Rented ? 'active' : 'default'}} | bem"
+            (click)="savePropertyBoolean(false, 'Rented')"
+          >
+            Nein
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <ng-container *ngIf="page === 'myProperties' && block === 'keyData'">
+
+      <div
+        *ngIf="!model.isPropertyOfTypeMFH"
+        [attr.class]="{block: name, element: 'row', mods: {'height': '74px', 'style': isPageMyProperties ? 'profile' : 'default'}} | bem">
+        <label
+          [attr.class]="{
+            block: name,
+            element: 'row',
+            mods: {'size': '272px', 'state': 'edit', 'type': 'nontext'}
+          } | bem"
+        >
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'style': isPageMyProperties ? 'profile' : 'default'}} | bem">
+            Zimmeranzahl
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {
+                'with': 'border',
+                'state': 'custom-edit',
+                'display': 'flex',
+                'type': 'vol'
+              }
+            } | bem"
+          >
+            <div [attr.class]="{block: name, element: 'button-dec'} | bem" (click)="decrement('RoomsNumber', 1, 0)">-</div>
+            <div [attr.class]="{block: name, element: 'button-val'} | bem">{{model.RoomsNumber | localNumber: '-'}}</div>
+            <div [attr.class]="{block: name, element: 'button-inc'} | bem" (click)="increment('RoomsNumber', 1)">+</div>
+          </div>
+        </label>
+      </div>
+  </ng-container>
+
+  <div
+    *ngIf="page === 'myProperties' && block === 'equipmentData'"
+    [attr.class]="{block: name, element: 'container', mods: {'style': 'profile'}} | bem"
+  >
+    <div [attr.class]="{block: name, element: 'row-block', mods: {'direction': 'column-reverse'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'direction': 'column', 'type': 'container', 'size': '272px'}} | bem">
+        <div [attr.class]="{block: name, element: 'row', mods: {'size': '100'}} | bem">
+          <app-number-input
+            [attr.class]="{block: name, element: 'number-input'} | bem"
+            [initialValue]="model.LivingSurface"
+            postfix=" m²"
+            label="Wohnfläche"
+            thousandsSeparatorSymbol='.'
+            [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+            (blurred)="savePropertyArea('LivingSurface', $event)"
+          ></app-number-input>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'row', mods: {'direction': 'column', 'type': 'container', 'size': '272px'}} | bem">
+        <div
+          *ngIf="model.isPropertyOfTypeEFH"
+          [attr.class]="{block: name, element: 'row', mods: {'size': '100'}} | bem"
+        >
+          <app-number-input
+            [attr.class]="{block: name, element: 'number-input'} | bem"
+            [initialValue]="model.TotalArea"
+            postfix=" m²"
+            label="Grundstücksfläche"
+            thousandsSeparatorSymbol ='.'
+            [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+            (blurred)="savePropertyArea('TotalArea', $event)"
+          ></app-number-input>
+        </div>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: name, element: 'row-block', mods: {'direction': 'column-reverse'}} | bem">
+      <div [attr.class]="{block: name, element: 'row', mods: {'direction': 'column', 'type': 'container', 'size': '272px'}} | bem">
+        <div [attr.class]="{block: name, element: 'row', mods: {'size': '100'}} | bem">
+          <app-number-input
+            #constructionYearNumberInput
+            [attr.class]="{block: name, element: 'number-input'} | bem"
+            [validatorNames]="['year', 'required']"
+            [initialValue]="yearStrToNum(model.ConstructionYear)"
+            label="Baujahr"
+            [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+            [integerLimit]="4"
+            requiredError="Bitte eine Baujahr eingeben"
+            (valid)="updateMarkerValidity($event)"
+            (blurred)="saveProperty('ConstructionYear', yearNumToStr($event))"
+            (inputed)="saveInputedValue('ConstructionYear', $event)"
+          ></app-number-input>
+        </div>
+
+        <ng-container *ngIf="model.isPropertyOfTypeEFH; then typeOfHouse else typeOfApartment"></ng-container>
+        <ng-template #typeOfHouse>
+          <label
+            [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem"
+          >
+            <app-select
+              [attr.class]="{block: name, element: 'row-select'} | bem"
+              [active]="activePropertySubHouseType"
+              [items]="staticStorage.propertySubHouseTypeGlossary"
+              [allowClear]="true"
+              (select)="savePropertySubTypeFromSelect($event, 'PropertySubType', staticStorage.propertySubHouseTypeGlossary, PropertySubType.House)"
+              label="Haustyp"
+              placeholder="Auswählen"
+            ></app-select>
+          </label>
+        </ng-template>
+        <ng-template #typeOfApartment>
+          <label
+            [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem"
+          >
+            <app-select
+              [attr.class]="{block: name, element: 'row-select'} | bem"
+              [active]="activePropertySubApartmentType"
+              [items]="staticStorage.propertySubApartmentTypeGlossary"
+              [allowClear]="true"
+              (select)="savePropertySubTypeFromSelect($event, 'PropertySubType', staticStorage.propertySubApartmentTypeGlossary, PropertySubType.Apartment)"
+              label="Wohnungstyp"
+              placeholder="Auswählen"
+            ></app-select>
+          </label>
+        </ng-template>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'row', mods: {'direction': 'column', 'type': 'container', 'size': '272px'}} | bem">
+        <div [attr.class]="{block: name, element: 'row', mods: {'size': '100'}} | bem">
+          <app-number-input
+            [attr.class]="{block: name, element: 'number-input'} | bem"
+            [validatorNames]="['year']"
+            [initialValue]="yearStrToNum(model.LastModernisationYear)"
+            label="Letzte Modernisierung"
+            [fieldMods]="{
+              'w': '272px',
+              'h': '44px',
+              'p': '14px-7px',
+              'mobile-w': '100per'
+            }"
+            [integerLimit]="4"
+            (blurred)="saveProperty('LastModernisationYear', yearNumToStr($event))"
+            (inputed)="saveInputedValue('LastModernisationYear', $event)"
+          ></app-number-input>
+        </div>
+
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit'}} | bem">
+          <app-select
+            [attr.class]="{block: name, element: 'row-select'} | bem"
+            [active]="activePropertyCondition"
+            [items]="staticStorage.propertyConditionGlossary"
+            [allowClear]="true"
+            (select)="savePropertyFromSelect($event, 'PropertyCondition', staticStorage.propertyConditionGlossary)"
+            placeholder="Auswählen"
+            label="Objektzustand"
+          ></app-select>
+        </label>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: name, element: 'row-bottom-block'} | bem">
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'nontext'}} | bem">
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'style': isPageMyProperties ? 'profile' : 'default'}} | bem">
+            Anzahl Garagen/Stellplätze
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'with': 'border', 'state': 'custom-edit', 'display': 'flex', 'type': 'vol'}
+            } | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'button-dec'} | bem"
+              (click)="decrement('ParkingNumber', 1, 0)"
+            >
+              -
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'button-val'} | bem"
+            >
+              {{model.ParkingNumber | invalidValue}}
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'button-inc'} | bem"
+              (click)="increment('ParkingNumber', 1)"
+            >
+              +
+            </div>
+          </div>
+        </label>
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'nontext'}} | bem">
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'style': isPageMyProperties ? 'profile' : 'default'}} | bem">
+            Anzahl Geschosse
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'with': 'border', 'state': 'custom-edit', 'display': 'flex', 'type': 'vol'}
+            } | bem"
+          >
+            <div [attr.class]="{block: name, element: 'button-dec'} | bem" (click)="decrement('FloorNumber', 1, 0)">-</div>
+            <div [attr.class]="{block: name, element: 'button-val'} | bem">{{model.FloorNumber | fallbackValue}}</div>
+            <div [attr.class]="{block: name, element: 'button-inc'} | bem" (click)="increment('FloorNumber', 1)">+</div>
+          </div>
+        </label>
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'nontext'}} | bem">
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'style': isPageMyProperties ? 'profile' : 'default'}} | bem">
+            Zimmeranzahl
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'with': 'border', 'state': 'custom-edit', 'display': 'flex', 'type': 'vol'}
+            } | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'button-dec'} | bem"
+              (click)="decrement('RoomsNumber', 1, 0)"
+            >
+              -
+            </div>
+            <div [attr.class]="{block: name, element: 'button-val'} | bem">{{model.RoomsNumber | localNumber: '-'}}</div>
+            <div
+              [attr.class]="{block: name, element: 'button-inc'} | bem"
+              (click)="increment('RoomsNumber', 1)"
+            >
+              +
+            </div>
+          </div>
+        </label>
+        <label
+          *ngIf="!model.isPropertyOfTypeEFH"
+          [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'nontext'}} | bem"
+        >
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'style': isPageMyProperties ? 'profile' : 'default'}} | bem">
+            Geschoss
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'with': 'border', 'state': 'custom-edit', 'display': 'flex', 'type': 'vol'}
+            } | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'button-dec'} | bem"
+              (click)="decrement('Floor', 1, 0)"
+            >
+              -
+            </div>
+            <div [attr.class]="{block: name, element: 'button-val'} | bem">{{model.Floor | localNumber: 'EG'}}</div>
+            <div
+              [attr.class]="{block: name, element: 'button-inc'} | bem"
+              (click)="increment('Floor', 1)"
+            >
+              +
+            </div>
+          </div>
+        </label>
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'tabs'}} | bem">
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'mb': '3px'}} | bem">
+            Aktuell vermietet?
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'childs': 'start', 'state': 'custom-edit', 'display': 'flex', 'buttons': 'poll'}
+            } | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'button', mods: {'state': model.Rented ? 'active' : 'default'}} | bem"
+              (click)="savePropertyBoolean(true, 'Rented')"
+            >
+              Ja
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'button', mods: {'state': !model.Rented ? 'active' : 'default'}} | bem"
+              (click)="savePropertyBoolean(false, 'Rented')"
+            >
+              Nein
+            </div>
+          </div>
+        </label>
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'tabs'}} | bem">
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'mb': '3px'}} | bem">
+            Denkmalschutz?
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'childs': 'start', 'state': 'custom-edit', 'display': 'flex', 'buttons': 'poll'}
+            } | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'button', mods: {'state': model.HistoricalProperty? 'active' : 'default'}} | bem"
+              (click)="savePropertyBoolean(true, 'HistoricalProperty')"
+            >
+              Ja
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'button', mods: {'state': !model.HistoricalProperty? 'active' : 'default'}} | bem"
+              (click)="savePropertyBoolean(false, 'HistoricalProperty')"
+            >
+              Nein
+            </div>
+          </div>
+        </label>
+        <label [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'tabs'}} | bem">
+          <div [attr.class]="{block: name, element: 'row-key', mods: {'mb': '3px'}} | bem">
+            Erbpacht?
+          </div>
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'row-value',
+              mods: {'childs': 'start', 'state': 'custom-edit', 'display': 'flex', 'buttons': 'poll'}
+            } | bem"
+          >
+            <div
+              [attr.class]="{block: name, element: 'button', mods: {'state': model.LeaseHold? 'active' : 'default'}} | bem"
+              (click)="savePropertyBoolean(true, 'LeaseHold')"
+            >
+              Ja
+            </div>
+            <div
+              [attr.class]="{block: name, element: 'button', mods: {'state': !model.LeaseHold? 'active' : 'default'}} | bem"
+              (click)="savePropertyBoolean(false, 'LeaseHold')"
+            >
+              Nein
+            </div>
+          </div>
+        </label>
+    </div>
+  </div>
+</ng-template>

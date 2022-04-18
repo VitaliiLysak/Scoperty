@@ -1,0 +1,49 @@
+<ng-template #content><ng-content></ng-content></ng-template>
+<div *ngIf="radioButtonType === 'default'">
+  <label
+    [attr.class]="{
+      block: _name,
+      element: 'container',
+      mods:{
+        'size': size === 'large' ? 'large' : 'small'
+      }
+    } | bem"
+  >
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+    <input
+      type="radio"
+      [name]="name"
+      [value]="value"
+      [ngModel]="model"
+      (ngModelChange)="changeModel($event)"
+      required
+    >
+    <span [attr.class]="{ block: _name, element: 'checkmark' } | bem"></span>
+  </label>
+</div>
+
+<div
+  *ngIf="radioButtonType !== 'default'"
+  class="radio-button-wrapper">
+  <input
+    [id]="value"
+    type="radio"
+    [name]="name"
+    [value]="value"
+    [ngModel]="model"
+    (ngModelChange)="changeModel($event)"
+    required
+  >
+  <label
+    [attr.class]="{
+      block: _name,
+      element: 'container',
+      mods:{
+        'size': size,
+        'radioButtonType': radioButtonType
+      }
+    } | bem"
+    [for]="value">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+  </label>
+</div>

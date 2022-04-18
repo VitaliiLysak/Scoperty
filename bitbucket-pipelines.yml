@@ -1,0 +1,198 @@
+image:
+  name: 251411255099.dkr.ecr.eu-central-1.amazonaws.com/operations/ci-node:latest
+  aws:
+    access-key: $AWS_ACCESS_KEY_ID_FOR_ECR
+    secret-key: $AWS_SECRET_ACCESS_KEY_FOR_ECR
+
+options:
+  max-time: 30
+
+stepdefinitions:
+  - run_tests: &run_tests
+      name: Run tests
+      script:
+        - export NODE_OPTIONS="--max_old_space_size=4096"
+        - npm install
+        - npm run lint
+        - npm run test:ci
+      after-script:
+        - cat /home/chrome/.npm/_logs/*
+      caches:
+        - node # Add cache for node to speed up process
+      image: &ci_node_dev
+        name: 251411255099.dkr.ecr.eu-central-1.amazonaws.com/operations/ci-node:dev
+        aws:
+          access-key: $AWS_ACCESS_KEY_ID_FOR_ECR
+          secret-key: $AWS_SECRET_ACCESS_KEY_FOR_ECR
+
+  - build: &build
+      name: Build
+      size: 2x
+      script:
+        - export NODE_OPTIONS="--max_old_space_size=4096"
+        - export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID_FOR_ECR
+        - export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY_FOR_ECR
+        - env
+        - if [[ "$BITBUCKET_BRANCH" == "master" ]]; then export NPM_BUILD_ENV_NAME=prod; fi
+        - if [[ "$BITBUCKET_BRANCH" == "dev" ]]; then export NPM_BUILD_ENV_NAME=dev; fi
+        - if [[ "$BITBUCKET_BRANCH" =~ ^rc-(.+)$ ]]; then export NPM_BUILD_ENV_NAME=stage; fi
+        - if [[ "$BITBUCKET_PR_DESTINATION_BRANCH" ]]; then export NPM_BUILD_ENV_NAME=$BITBUCKET_PR_DESTINATION_BRANCH; fi
+        - echo "$NPM_BUILD_ENV_NAME"
+        - /patch_files.py
+        - cat src/environments/environment.staging.ts
+        - npm install
+        - npm run build:"$NPM_BUILD_ENV_NAME"
+      after-script:
+        - cat /home/chrome/.npm/_logs/*.log
+      artifacts:
+        - dist/**
+      caches:
+        - node # Add cache for node to speed up process
+      image: *ci_node_dev
+  - upload_sourcemap: &upload_sourcemap
+      name: Upload sourcemap to Sentry
+      image:
+        name: getsentry/sentry-cli:1.49.0
+      script:
+        - sentry-cli releases new $BITBUCKET_COMMIT
+        - sentry-cli releases files $BITBUCKET_COMMIT upload-sourcemaps dist/ --ext js --ext map
+        - sentry-cli releases finalize $BITBUCKET_COMMIT
+
+  - build_and_deploy: &build_and_deploy
+      name: Build & S3 deploy
+      size: 2x
+      script:
+        - export NODE_OPTIONS="--max_old_space_size=4096"
+        - env
+        - if [[ "$BITBUCKET_BRANCH" == "master" ]]; then export NPM_BUILD_ENV_NAME=prod; fi
+        - if [[ "$BITBUCKET_BRANCH" == "dev" ]]; then export NPM_BUILD_ENV_NAME=dev; fi
+        - if [[ "$BITBUCKET_BRANCH" =~ ^rc-(.+)$ ]]; then export NPM_BUILD_ENV_NAME=stage; fi
+        - if [[ "$BITBUCKET_PR_DESTINATION_BRANCH" ]]; then export NPM_BUILD_ENV_NAME=$BITBUCKET_PR_DESTINATION_BRANCH; fi
+        - echo "$NPM_BUILD_ENV_NAME"
+        - /patch_files.py
+        - cat src/environments/environment.staging.ts
+        - npm install
+        - npm run build:"$NPM_BUILD_ENV_NAME"
+
+        - cp -r dist /tmp/dist
+        - find dist -name "*.map" -type f -delete
+        - pipe: atlassian/aws-s3-deploy:0.3.2
+          variables:
+            AWS_ACCESS_KEY_ID: "$AWS_ACCESS_KEY_ID"
+            AWS_SECRET_ACCESS_KEY: "$AWS_SECRET_ACCESS_KEY"
+            AWS_DEFAULT_REGION: "$AWS_REGION_NAME"
+            S3_BUCKET: "$S3_BUCKET"
+            LOCAL_PATH: "$PWD/dist"
+            DELETE_FLAG: 'true'
+        - rm -rf dist
+        - mv /tmp/dist dist
+      after-script:
+        - cat /home/chrome/.npm/_logs/*.log
+      artifacts:
+        - dist/**
+      caches:
+        - node # Add cache for node to speed up process
+      image: *ci_node_dev
+
+pipelines:
+   pull-requests:
+    '**': #this runs as default for any branch not elsewhere defined
+     - parallel:
+        - step: *run_tests
+        - step: *build
+
+    rc-/*: #any branch with a rc prefix
+     - parallel:
+        - step:
+           <<: *run_tests
+           image: &ci_node_stage
+            name: 251411255099.dkr.ecr.eu-central-1.amazonaws.com/operations/ci-node:stage
+            aws:
+                access-key: $AWS_ACCESS_KEY_ID_FOR_ECR
+                secret-key: $AWS_SECRET_ACCESS_KEY_FOR_ECR
+        - step:
+           <<: *build
+           image: *ci_node_stage
+
+    master:
+     - parallel:
+        - step:
+           <<: *run_tests
+           image: &ci_node_master
+            name: 251411255099.dkr.ecr.eu-central-1.amazonaws.com/operations/ci-node:master
+            aws:
+                access-key: $AWS_ACCESS_KEY_ID_FOR_ECR
+                secret-key: $AWS_SECRET_ACCESS_KEY_FOR_ECR
+        - step:
+           <<: *build
+           image: *ci_node_master
+
+   branches:
+    dev:
+      - step: *run_tests
+      - step:
+          <<: *build_and_deploy
+          deployment: test
+      - step: *upload_sourcemap
+
+    rc-*:
+      - step:
+          <<: *run_tests
+          image: *ci_node_stage
+      - step:
+          <<: *build_and_deploy
+          deployment: staging
+          image: *ci_node_stage
+          trigger: manual
+      - step: *upload_sourcemap
+
+    master:
+      - step:
+          <<: *run_tests
+          image: &ci_node_master
+            name: 251411255099.dkr.ecr.eu-central-1.amazonaws.com/operations/ci-node:master
+            aws:
+                access-key: $AWS_ACCESS_KEY_ID_FOR_ECR
+                secret-key: $AWS_SECRET_ACCESS_KEY_FOR_ECR
+      - step:
+          <<: *build_and_deploy
+          deployment: production
+          image: *ci_node_master
+          trigger: manual
+      - step: *upload_sourcemap
+
+   custom:
+    release-to-staging:
+      - step:
+          name: Create release candidate branch (staging)
+          deployment: staging
+          script:
+            - TARGET_BRANCH="$(date +rc-%F_%H%M)"
+            - git fetch
+            - git checkout -b "$TARGET_BRANCH"
+            - git merge "$BITBUCKET_BRANCH_NAME"
+            - git push origin "$TARGET_BRANCH"
+
+    release-to-production:
+      - variables:
+          - name: Password
+      - step:
+          name: Merge branch into master (production)
+          deployment: production
+          script:
+            - '[[ "$Password" == "$RELEASE_PASSWORD" ]] || (echo "Wrong password! ($Password)" && false)'
+            - TARGET_BRANCH="master"
+            - git fetch
+            - git checkout "$TARGET_BRANCH"
+            - git merge "$BITBUCKET_BRANCH_NAME"
+            - git push origin "$TARGET_BRANCH"
+
+    provide-staging-config-for-download:
+      - step:
+          name: Provide staging config for download
+          deployment: staging
+          script:
+            - env
+            - /patch_files.py
+          artifacts:
+            - src/environments/environment.staging.ts

@@ -1,0 +1,62 @@
+<div [attr.class]="{block: _name, element: 'process-block'} | bem">
+  <!-- Title -->
+  <div
+    [attr.class]="{
+      block: _name,
+      element: 'title',
+      mods: {
+        'forms': 'header',
+         'mb': '80px',
+         'mb-mobile': '0'
+      }
+    } | bem"
+  >
+    Widerspruchs&shy;möglichkeit
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'reg-content', mods: {'mt-mobile':'0'}} | bem">
+    <!-- Tabs header -->
+    <app-stepper-header [(activeTab)]="activeTab" #tabsHeader>
+      <ng-template
+        *ngFor="let tab of tabs"
+        appStepperHeaderTab [name]="tab.name"
+      >
+        {{ tab.text }}
+      </ng-template>
+    </app-stepper-header>
+
+
+    <!-- Tab body -->
+    <!-- Phone -->
+    <app-phone
+      *ngIf="isVerify"
+      page="dissent"
+      [role]="role"
+      [reloadOwnership]="reloadOwnership"
+      [mode]="mode"
+      (close)="onClose()"
+      (phoneCompleted)="onPhoneComplete($event)"
+    >
+    </app-phone>
+
+    <!-- Address -->
+    <app-address
+      *ngIf="isAddress"
+      page="dissent"
+      [role]="role"
+      [markerId]="markerId"
+      [needPrefillData]="needPrefillData"
+      [mode]="mode"
+      (addressCompleted)="onAddressComplete($event)"
+    >
+    </app-address>
+
+    <!-- Opposition -->
+    <app-opposition
+      *ngIf="isOpposition"
+      (oppositionCompleted)="onOppositionComplete($event)"
+      (propertyDissent)="onPropertyDissent()"
+    >
+    </app-opposition>
+  </div>
+</div>

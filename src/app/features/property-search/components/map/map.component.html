@@ -1,0 +1,43 @@
+<div [attr.class]="{block: _name, element: 'wrapper'} | bem"></div>
+
+<app-hint-no-markers
+  *ngIf="showHintboxNoMarkers"
+  [noMarkersInBound]="incorrectLocation"
+  [isSidebarShown]="isSidebarShown"
+  (newPlace)="onHintSuccess($event)"
+  (close)="onHintCancel()"
+></app-hint-no-markers>
+
+<app-map-controls
+  [attr.class]="{block: _name, element: 'controls'} | bem"
+  [zoomInEnabled]="getMapZoomHigh"
+  [zoomOutEnabled]="getMapZoomLow"
+  (zoomIn)="incMapZoom()"
+  (zoomOut)="decMapZoom()"
+></app-map-controls>
+
+<app-map-data-shader-legend
+  *ngIf="isDataShaderLayerVisible"
+  [attr.class]="{block: _name, element: 'data-shader-layer-legend'} | bem"
+></app-map-data-shader-legend>
+
+<app-fancy-info-window
+    #fancyInfoWindowForScopertyPlus
+    *ngIf="(scopertyPlusManagerService.shortDetailPageEnabled$ | async) && scopertyPlusMarker"
+    [scopertyPlusAdMarker]="scopertyPlusMarker"
+    [markerId]="scopertyPlusMarker.identifier"
+    [googleMap]="googleMap"
+    (close)="onScopertyPlusClose()"
+></app-fancy-info-window>
+
+<app-fancy-info-window
+  #fancyInfoWindow
+  *ngIf="zoomLevel === 'HIGH'"
+  [googleMap]="googleMap"
+  [markerId]="activeMarkerId"
+  [property]="activeMarker"
+  [openWithoutAddress]="openWithoutAddress"
+  (close)="deactivateActiveMarker()"
+></app-fancy-info-window>
+
+<app-map-data-source></app-map-data-source>

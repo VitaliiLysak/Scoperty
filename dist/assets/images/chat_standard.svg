@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.1 (72631) - https://sketchapp.com -->
+    <title>Icon/chat/bg/bright/32</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M1.6,1.6 L14.4,1.6 L14.4,11.2 L2.536,11.2 L1.6,12.136 L1.6,1.6 L1.6,1.6 Z M1.6,0 C0.72,0 0.008,0.72 0.008,1.6 L0,16 L3.2,12.8 L14.4,12.8 C15.28,12.8 16,12.08 16,11.2 L16,1.6 C16,0.72 15.28,0 14.4,0 L1.6,0 Z M3.2,8 L9.6,8 L9.6,9.6 L3.2,9.6 L3.2,8 Z M3.2,5.6 L12.8,5.6 L12.8,7.2 L3.2,7.2 L3.2,5.6 Z M3.2,3.2 L12.8,3.2 L12.8,4.8 L3.2,4.8 L3.2,3.2 Z" id="path-1"></path>
+    </defs>
+    <g id="E_Container" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Hero/shortinfobox/house/noowner" transform="translate(-464.000000, -16.000000)">
+            <g id="Icon/chat/bg/bright/32" transform="translate(464.000000, 16.000000)">
+                <g id="Bounding_Boxes" stroke-width="1">
+                    <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+                </g>
+                <circle id="Oval" fill="#07B09F" cx="16" cy="16" r="16"></circle>
+                <g id="color/active" stroke-width="1" transform="translate(8.000000, 8.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="color/clicked" mask="url(#mask-2)" fill="#FFFFFF">
+                        <g transform="translate(-8.000000, -8.000000)" id="Rectangle-25">
+                            <rect x="0" y="0" width="32.1111111" height="32"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

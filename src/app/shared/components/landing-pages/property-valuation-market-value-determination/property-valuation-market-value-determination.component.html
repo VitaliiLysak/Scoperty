@@ -1,0 +1,27 @@
+<div [attr.class]="{ block: name, element: 'container' } | bem">
+  <!-- Explanation -->
+  <div [attr.class]="{ block: name, element: 'explanation' } | bem">
+    <h2 [attr.class]="{ block: name, element: 'explanation-heading' } | bem">
+      Der transparente Immobilien Marktplatz
+    </h2>
+
+    <div [attr.class]="{ block: name, element: 'explanation-message' } | bem">
+      <p>
+        Kostenlos für alle und von großem Wert für Eigentümer:
+        Ein hochmoderner Algorithmus berechnet den
+        <strong>individuellen, sofort einsehbaren Schätzwert für alle Immobilien.</strong>
+        Durch den Schätzwert erfahren Eigentümer den aktuellen Marktwert des Objekts
+        und Kaufinteressenten erhalten fundierte Daten zum Preisniveau der jeweiligen Region.
+      </p>
+      <p>
+        Anhand individueller Angaben zu deiner Immobilie, kannst du den Schätzwert verfeinern
+        und einen realistischen Immobilienwert erhalten.
+      </p>
+    </div>
+  </div>
+
+  <!-- Video -->
+  <div [attr.class]="{ block: name, element: 'video' } | bem">
+    <app-video [src]="videoSrc"></app-video>
+  </div>
+</div>

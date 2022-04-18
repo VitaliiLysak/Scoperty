@@ -1,0 +1,15 @@
+<div
+  [attr.class]="{block: _name, element: 'tabs-container'} | bem"
+  #tabsContainer
+>
+  <div [attr.class]="{block: _name, element: 'tabs'} | bem">
+    <app-stepper-header-tab
+      *ngFor="let tabElement of tabElementList; let i = index;"
+      [name]="tabElement.name"
+      [position]="i"
+      [active]="isTabActive(tabElement.name)"
+    >
+      <ng-container *ngTemplateOutlet="tabElement.template"></ng-container>
+    </app-stepper-header-tab>
+  </div>
+</div>

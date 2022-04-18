@@ -1,0 +1,149 @@
+:host {
+  font-family: 'Nunito Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.property__container {
+  margin-bottom: 15px;
+
+  height: 279px;
+  width: 272px;
+  border-radius: 2px;
+
+  background-color: var(--background-initial);
+  box-shadow: 0 0 16px 0 var(--neutrals-middle-light-color);
+  cursor: pointer;
+}
+
+.property__container--state-active,
+.property__container:hover {
+  box-shadow: var(--box-shadow-property-block);
+}
+
+.property__photo {
+  position: relative;
+
+  height: 50%;
+
+  background-color: var(--background-wild-sand);
+}
+
+.property__image {
+  height: 100%;
+}
+
+.property__image-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.property__image-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  color: var(--color-links-standart);
+
+  cursor: pointer;
+}
+
+.property__image-info-container:hover {
+  color: var(--color-links-hover);
+}
+
+.property__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 50%;
+  padding: 10px 17px;
+}
+
+.property__address {
+  margin-bottom: 5px;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 20px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property__price {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.property__links-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: fit-content;
+  width: -moz-max-content;
+}
+
+.property__links-block button {
+  justify-content: start;
+}
+
+.property__link:hover .property__arrow-icon {
+  color: var(--color-links-hover);
+}
+
+.property__badge {
+  margin-top: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 104px;
+  height: 20px;
+  border-radius: 2px;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 10px;
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--brand-green-blue-color);
+}
+
+.property__status-info {
+  position: absolute;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 24px;
+  min-width: 106px;
+  padding: 0 15px;
+
+  background-color: var(--background-with-transparent-04);
+}
+
+@media (max-width: 450px) {
+  .property__container {
+    margin-bottom: 35px;
+
+    width: 100%;
+  }
+}

@@ -1,0 +1,449 @@
+:host {
+  display: block;
+}
+
+.date-picker-container {
+  width: 288px;
+}
+
+.advantage-wrapper {
+  display: flex;
+}
+
+.third-step_caption {
+  margin-bottom: 0;
+}
+
+.third-step_heading {
+  margin-bottom: 48px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif';
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper p {
+  margin-bottom: 48px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  width: 288px;
+}
+
+.button-wrapper button {
+  margin-bottom: 24px;
+}
+
+.button-wrapper .upload-button {
+  margin-top: -8px;
+  margin-bottom: 24px;
+}
+
+.button-wrapper p{
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+.button-wrapper p a {
+  font-weight: bold;
+  color: var(--neutrals-dark-color);
+  text-decoration: none;
+}
+
+.button-wrapper p span {
+  font-weight: bold;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-container button {
+  margin-top: 24px;
+
+  height: 44px;
+  width: 288px;
+}
+
+.call-back_phone-number {
+  color: var(--font-second-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+}
+
+.input-tel {
+  height: 44px;
+  width: 288px;
+}
+
+.file-size-error {
+  width: 288px;
+
+  color: var(--feedback-error-color);
+  font-family: 'Nunito Sans';
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 14px;
+}
+
+.call-back_container {
+  margin-top: 48px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.call-back_date-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.call-back_date-container a{
+  margin-bottom: 24px;
+
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+.call-back_info-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 220px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+.call-back_info-container .title {
+  margin-bottom: 24px;
+
+  width: 180px;
+}
+
+.call-back_info-container .phone {
+  margin-bottom: 8px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+.call-back_info-container a.phone {
+  text-decoration: none;
+}
+
+.date-picker-container {
+  margin-top: 40px;
+  margin-bottom: 16px;
+}
+
+.call-back_date-container button {
+  height: 44px;
+  width: 288px;
+
+  color: var(--neutrals-white-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.advantage-icon {
+  margin-top: 3px;
+  margin-left: 12px;
+  margin-bottom: 24px;
+
+  display: inline-block;
+
+  height: var(--height);
+  width: var(--width);
+
+  border-bottom: var(--borderWidth) solid var(--borderColor);
+  border-right: var(--borderWidth) solid var(--borderColor);
+  --borderWidth: 4px;
+  --height: 24px;
+  --width: 12px;
+  --borderColor: var(--secondary-cta-hover-color);
+
+  transform: rotate(45deg);
+}
+
+.final-substep-heading {
+  position: absolute;
+  margin-top: 72px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif';
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+.substep-12-title {
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 28px;
+}
+
+.substep-12-text {
+  margin-top: 12px;
+  margin-bottom: 0 !important;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.close-modal-button {
+  margin-top: 24px;
+
+  height: 44px;
+  width: 288px;
+}
+
+.last-substep_image {
+  height: 334px;
+  width: 459px;
+}
+
+.advantage-image-container {
+  margin-top: -170px;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.step13-container {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+
+.step13-content {
+  flex-grow: 1;
+}
+
+@media (max-width: 1120px) {
+  :host {
+    display: flex;
+    flex-direction: column;
+
+    width: auto;
+  }
+
+  .date-picker-container {
+    width: 100%;
+  }
+
+  .wrapper {
+    margin-top: 16px;
+  }
+
+  .third-step_heading {
+    margin: 16px 0 16px 0;
+
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 28px;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .upload-caption {
+    margin-bottom: 16px !important;
+  }
+
+  .upload-button {
+    margin-bottom: 16px !important;
+
+    width: 100%;
+  }
+
+  .third-step_text {
+    margin-bottom: 32px !important;
+
+    font-size: 16px !important;
+    letter-spacing: 0.5px !important;
+    line-height: 24px !important;
+  }
+
+  .button-wrapper {
+    margin-bottom: 16px !important;
+  }
+
+  .call-back_container {
+    flex-direction: column;
+  }
+
+  .upload-container {
+    flex-direction: column;
+
+    flex-grow: 1;
+  }
+
+  .submit-button,
+  .close-modal-button,
+  .button-wrapper,
+  .upload-file {
+    width: 100% !important;
+  }
+
+  .close-modal-button {
+    margin-bottom: 16px;
+  }
+
+  .final-step-heading > .advantage-icon-wrapper {
+    margin: 10px 0 0 12px;
+  }
+
+  .substep-12-title {
+    margin: 0 0 16px 0;
+
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 24px;
+  }
+
+  .substep-12-text {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+
+  .call-back_container {
+    margin-top: 0 !important;
+  }
+
+  .input-tel {
+    width: 100%;
+  }
+
+  .call-back_info-container {
+    margin-top: 32px;
+
+    width: 100%;
+  }
+
+  .call-back_info-container .title,
+  .call-back_info-container .time-text,
+  .call-back_info-container .phone {
+    width: 100%;
+  }
+
+  .call-back_info-container .title {
+    margin-bottom: 16px !important;
+  }
+
+  .set-current-day-link {
+    margin-bottom: 16px !important;
+  }
+
+  .substep-12-text {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+  .step13-button {
+    margin-top: 32px !important;
+  }
+
+  .step13-container {
+    flex-direction: column;
+  }
+
+  .substep11-button {
+    margin-bottom: 16px !important;
+  }
+
+  .upload-certificate-wrapper {
+    min-height: 130px;
+  }
+
+  .phone-call-wrapper {
+    min-height: 220px;
+  }
+}
+
+.input-str__message {
+  position: absolute;
+  margin-top: 68px;
+
+  display: block;
+
+  font-size: var(--font-size-feedback);
+  font-weight: var(--font-weight-feedback);
+  letter-spacing: var(--letter-spacing-feedback);
+  line-height: var(--line-height-feedback);
+
+  color: var(--color-feedback-error);
+}
+
+.input-str__message-for-date {
+  position: absolute;
+  margin-top: 150px;
+
+  display: block;
+
+  font-size: var(--font-size-feedback);
+  font-weight: var(--font-weight-feedback);
+  letter-spacing: var(--letter-spacing-feedback);
+  line-height: var(--line-height-feedback);
+
+  color: var(--color-feedback-error);
+}

@@ -1,0 +1,224 @@
+<div
+  class="third-step_heading"
+  [ngClass]="{ 'final-step-heading': isFinalStep }"
+>
+  <div class="advantage-icon-wrapper">
+    <div *ngIf="isFinalStep" class="advantage-icon"></div>
+  </div>
+  <p class="third-step_caption" [innerHTML]="stepItems[activeStepIndex].label"></p>
+</div>
+
+<ng-container [ngSwitch]="activeStepIndex">
+  <ng-container *ngSwitchCase="9">
+    <div class="wrapper">
+      <p class="third-step_text">
+        Immobilien-Anbieter sind bereit dich im Rahmen von Scoperty Plus bevorzugt zu behandeln,
+        wenn du ihnen gegenüber sicherstellen kannst, dass du dir die Immobilie leisten kannst.
+        <br>
+        <br>
+        Hat dir bereits ein Experte oder eine Bank deinen Finanzierungsrahmen bestätigt?
+      </p>
+      <div class="button-container">
+        <div class="button-wrapper upload-certificate-wrapper">
+          <app-input-file
+            class="upload-button"
+            [mobileMaxWidth]="true"
+            accept="application/pdf"
+            [showFileName]="false"
+            buttonType="secondary-green"
+            buttonName="Nachweis hochladen"
+            (change)="onCertificateChange($event)"
+          ></app-input-file>
+          <p class="upload-caption">
+            z.B. Angebot einer Bank, Finanzierungszertifikat o.Ä.
+          </p>
+        </div>
+
+        <div class="button-wrapper phone-call-wrapper">
+          <button
+            app-button
+            size="medium"
+            color="secondary-green"
+            (click)="chooseStepNumber(11)"
+          >
+            Rückruf vereinbaren
+          </button>
+          <p>
+            Du kannst dir den Nachweis auch ganz einfach bei uns holen - wir rufen dich gerne an,
+            oder melde dich direkt bei uns: 
+            <a *ngIf="isMobileisDevice" href="tel:089124794100">{{ phoneNumber }}</a>
+            <span *ngIf="!isMobileisDevice">{{ phoneNumber }}</span>
+            (Mo-Fr 09.00-18.00 Uhr)
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="10">
+    <div class="upload-container">
+      <div *ngIf="(isMobileDevice$ | async)" class="spacer"></div>
+      <app-input-file
+        class="upload-file"
+        accept="application/pdf"
+        buttonName="Ändern"
+        [fileName]="certificateName"
+        [mode]="(isMobileDevice$ | async) ? 'mobile-column' : 'default'"
+        buttonType="link"
+        (change)="onCertificateChange($event)"
+      ></app-input-file>
+      <div
+        class="file-size-error"
+        *ngIf="showFileSizeError">
+        Leider ist was beim Hochladen schiefgelaufen. Bitte probiere es noch mal! Die Datei darf maximal 12 MB groß sein!
+      </div>
+
+      <button
+        class="submit-button"
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        [disabled]="showFileSizeError"
+        (click)="sendForm(12)"
+      >
+        Nachweis abschicken
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="11">
+    <form [formGroup]="parentForm">
+      <div class="call-back_container">
+        <div class="call-back_date-container">
+          <app-string-input
+            #phoneInput
+            class="input-tel"
+            label="Meine Telefonnummer"
+            placeholder=""
+            errorPositioning="blocky"
+            [validError]="notValidPhone"
+            [fieldMods]="{
+                'w': '100per',
+                'h': '44px',
+                'p': '14px-7px',
+                'validError': notValidPhone ? 'true' : 'false'
+              }"
+            [validatorNames]="['phonePattern', 'phoneRequired']"
+            (blur)="onPhoneBlur()"
+          ></app-string-input>
+
+          <app-datepicker
+            #datePicker
+            class="date-picker-container"
+            [ngClass]="{'validation-error': notValidPhone}"
+            label="Wunschtermin"
+            (updateDate)="updateDate($event)"
+            [result]="dateResult"
+            [(validError)]="notValidDate"
+            [currentTime]="currentTime"
+            [currentDay]="currentDay"
+          ></app-datepicker>
+          <div *ngIf="showDateError"
+              class="input-str__message-for-date">
+            Bitte wähle ein Datum aus.
+          </div>
+
+          <a
+            class="set-current-day-link"
+            app-button
+            buttonStyle="link"
+            size="large"
+            color="green"
+            (click)="setCurrentDayAndTime()"
+          >
+            Jetzt zurückrufen
+          </a>
+
+          <button
+            class="submit-button substep11-button"
+            app-button
+            color="primary-green"
+            size="large"
+            [stretch]="true"
+            (click)="sendForm13()"
+          >
+            Rückruf vereinbaren
+          </button>
+        </div>
+        <div class="call-back_info-container">
+          <p class="title">
+            Du willst doch lieber selbst anrufen?
+          </p>
+
+          <a *ngIf="isMobileisDevice" class="phone" href="tel:089124794100">
+            {{ phoneNumber }}
+          </a>
+          <p *ngIf="!isMobileisDevice" class="phone">
+            {{ phoneNumber }}
+          </p>
+
+          <p class="time-text">
+            (Mo-Fr 09.00-18.00 Uhr)
+          </p>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+
+  <div class="step13-container" *ngSwitchCase="12">
+    <div class="step13-content">
+      <p class="substep-12-title">Wie geht es nun weiter?</p>
+      <p class="substep-12-text">
+        Wir prüfen dein Finanzierungszertifikat und schalten dich im Anschluss frei.
+        Du bekommst eine Bestätigungsmail von uns und hast dann exklusiven Zugang zu adressgenauen, Exposés
+      </p>
+      <button
+        app-button
+        class="close-modal-button"
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="goToMapPage()"
+      >
+        Scoperty entdecken
+      </button>
+    </div>
+
+    <div *ngIf="!(isMobileDevice$ | async)" class="advantage-image-container">
+      <img
+        class="last-substep_image"
+        alt="exposes"
+        [src]="imageUrl"
+      >
+    </div>
+  </div>
+
+  <div class="step13-container" *ngSwitchCase="13">
+    <div class="step13-content">
+      <p class="substep-12-title">Wie geht es nun weiter?</p>
+      <p class="substep-12-text">
+        Wir rufen dich zu deinem Wunschtermin zurück,
+        um dich für den Erhalt adressgenauer, exklusiver Exposés freizuschalten.
+      </p>
+      <button
+        app-button
+        class="close-modal-button step13-button"
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="goToMapPage()"
+      >
+        Scoperty entdecken
+      </button>
+    </div>
+
+    <div *ngIf="!(isMobileDevice$ | async)" class="advantage-image-container">
+      <img
+        class="last-substep_image"
+        alt="exposes"
+        [src]="imageUrl"
+      >
+    </div>
+  </div>
+</ng-container>

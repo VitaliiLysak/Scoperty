@@ -1,0 +1,76 @@
+<div [attr.class]="{block: _name, element: 'title'} | bem">
+  Finde jetzt deine Traumimmobilie!
+</div>
+<form
+  [formGroup]="filterSettingsForm"
+  [attr.class]="{block: _name, element: 'form'} | bem"
+>
+  <div [attr.class]="{block: _name, element: 'row'} | bem">
+    <div [attr.class]="{block: _name, element: 'item'} | bem">
+      <app-form-field label="Stadt">
+        <app-select-input
+          id="landing-buy-property-city-select"
+          [items]="cities"
+          [formControl]="location"
+          name="location"
+          (select)="onLocationSelect($event)"
+          placeholder="Auswählen"
+        ></app-select-input>
+      </app-form-field>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'item'} | bem">
+      <app-form-field label="Immobilientyp">
+        <app-select-input
+          id="landing-buy-property-type-select"
+          [items]="typesOfProperty"
+          name="propertyType"
+          [formControl]="propertyType"
+          placeholder="Auswählen"
+        ></app-select-input>
+      </app-form-field>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'item'} | bem">
+      <app-form-field label="Max. Budget">
+        <input
+          id="landing-buy-property-price-max"
+          type="text"
+          app-input
+          [textMask]="{mask: priceMask}"
+          [formControl]="priceMax"
+          name="priceMax"
+        >
+      </app-form-field>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'item'} | bem">
+      <app-form-field label="Wohnfläche">
+        <input
+          id="landing-buy-property-area-min"
+          type="text"
+          app-input
+          [textMask]="{mask: areaMask}"
+          [formControl]="areaMin"
+          name="areaMin"
+        >
+      </app-form-field>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'button-container'} | bem">
+    <button
+      id="landing-buy-property-button"
+      app-button
+      color="primary-green"
+      [stretch]="true"
+      (click)="applySearchSettings()"
+    >
+      Immobilien suchen
+    </button>
+  </div>
+</form>
+
+<app-start-page-tabs-description [descriptionTexts]="descriptionTexts"></app-start-page-tabs-description>
+
+

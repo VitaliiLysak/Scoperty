@@ -1,0 +1,140 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  cursor: default;
+  background-color: var(--background-wild-sand);
+}
+
+:host * {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.mortgage-request__container {
+  margin: 120px auto;
+
+  max-width: 1022px;
+  width: 90%;
+}
+
+.mortgage-request__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 70px 0;
+
+  background-color: var(--background-initial);
+}
+
+.mortgage-request__header {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  height: 60px;
+
+  background-color: hsl(0, 0%, 90%);
+}
+
+.mortgage-request__header-text {
+  display: flex;
+  align-items: center;
+
+  max-width: 505px;
+  width: 100%;
+
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.mortgage-request__content-iframe {
+  max-width: 600px;
+  width: 100%;
+}
+
+.mortgage-request__content-iframe > iframe {
+  min-height: 3170px;
+}
+
+.mortgage-request__tip {
+  margin-bottom: 32px;
+  margin-top: 15px;
+
+  width: 80%;
+
+  font-size: var(--font-light-12pkt-size);
+  font-weight: var(--font-light-12pkt-weight);
+  letter-spacing: var(--font-light-12pkt-letter-spacing);
+  line-height: var(--font-light-12pkt-line-height);
+  text-align: center;
+
+  color: var(--font-light-12pkt-color);
+}
+
+.mortgage-request__link {
+  text-decoration: none;
+  font-size: var(--font-size-links--small);
+  letter-spacing: var(--letter-spacing-links-small);
+  line-height: var(--line-height-links--small);
+  font-weight: var(--font-light-12pkt-weight);
+
+  color: var(--color-links-standart);
+}
+
+.mortgage-request__link:hover {
+  color: var(--color-links-hover);
+
+  cursor: pointer;
+}
+
+@media (max-width: 655px) {
+  .mortgage-request__content {
+    padding: 30px 17px;
+  }
+
+  .mortgage-request__header-text {
+    padding: 0 17px;
+  }
+
+  .mortgage-request__tip {
+    width: 100%;
+  }
+
+  .mortgage-request__container {
+    margin: 60px auto;
+  }
+
+  .mortgage-request__content-iframe > iframe {
+    min-height: 3400px;
+  }
+}
+
+@media (max-width: 450px) {
+  .mortgage-request__container {
+    width: calc(100% - 34px);
+  }
+
+  .mortgage-request__content-iframe > iframe {
+    min-height: 3865px;
+  }
+}
+
+@media (max-width: 350px) {
+  .mortgage-request__content-iframe > iframe {
+    min-height: 3980px;
+  }
+}
+
+

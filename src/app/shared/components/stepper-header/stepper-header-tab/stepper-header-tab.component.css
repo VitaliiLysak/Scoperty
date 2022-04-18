@@ -1,0 +1,103 @@
+:host {
+  display: block;
+
+  -webkit-font-smoothing: antialiased;
+}
+
+:host *:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.stepper-header-tab__tab {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepper-header-tab__tab--state-active:after {
+  position: absolute;
+  bottom: -5px;
+
+  display: block;
+
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+
+  content: '';
+
+  background-color: var(--secondary-cta-default-color);
+
+  transition-property: all;
+  transition-duration: .3s
+}
+
+.stepper-header-tab__text-xsmall {
+  font-size: var(--font-bold-12pkt-size);
+  font-weight: var(--font-bold-12pkt-weight);
+  letter-spacing: var(--font-bold-12pkt-letter-spacing);
+  line-height: var(--font-bold-12pkt-line-height);
+
+  color:  var(--font-bold-12pkt-color);
+
+  transition-property: color;
+  transition-duration: .3s;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.stepper-header-tab__text-xsmall--state-active {
+  color:  var(--secondary-cta-default-color);
+}
+
+.stepper-header-tab__text-xsmall--state-default {
+  color:  var(--font-third-color);
+}
+
+.stepper-header-tab__number-circle {
+  margin-bottom: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+
+  font-size: var(--font-bold-12pkt-size);
+  font-weight: var(--font-bold-12pkt-weight);
+  letter-spacing: var(--font-bold-12pkt-letter-spacing);
+  line-height: var(--font-bold-12pkt-line-height);
+
+  transition-property: color, background-color;
+  transition-duration: .3s;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.stepper-header-tab__number-circle--state-active {
+  border: 1px solid var(--secondary-cta-default-color);
+
+  color: var(--neutrals-white-color);
+  background-color: var(--secondary-cta-default-color);
+}
+
+.stepper-header-tab__number-circle--state-default {
+  border: 1px solid hsl(0, 0%, 59%);
+
+  color: hsl(0, 0%, 57%);
+  background-color: hsl(0, 0%, 100%);
+}

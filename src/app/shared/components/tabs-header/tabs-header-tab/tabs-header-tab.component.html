@@ -1,0 +1,27 @@
+<button
+  id="landing-header-tab-{{name}}"
+  [attr.class]="{
+    block: _name,
+    element: 'tab',
+    mods: {
+      'theme': theme,
+      'state': active ? 'active' : 'default'
+    }
+  } | bem"
+  (click)="onSelect()"
+  (mouseenter)="onMouseOver()"
+  (mouseleave)="onMouseOut()"
+>
+  <div
+    [attr.class]="{
+      block: _name,
+      element: 'text',
+      mods: {
+        'theme': theme,
+        'state': active ? 'active' : 'default'
+      }
+    } | bem"
+  >
+    <ng-content></ng-content>
+  </div>
+</button>

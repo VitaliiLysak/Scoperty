@@ -1,0 +1,482 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow: visible;
+
+  width: 100%;
+  padding: 10px 0;
+
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  line-height: 24px;
+}
+
+:host * {
+  font-family: 'Nunito Sans';
+}
+
+.marker-detail-data__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marker-detail-data__row--position-relative {
+  position: relative;
+}
+
+.marker-detail-data__row--type-title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__row--state-edit {
+  margin: 0;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  cursor: pointer;
+}
+
+.marker-detail-data__row--state-edit:hover .marker-detail-data__row-value {
+  border: 1px solid var(--color-buttons-secondary-standart);
+}
+
+.marker-detail-data__row--state-edit:focus-within .marker-detail-data__row-value {
+  border: 1px solid var(--background-color-buttons-secondary-hover);
+}
+
+.marker-detail-data__row--size-half {
+  flex-basis: calc((100% - 48px) / 2);
+  max-width: calc((100% - 48px) / 2);
+}
+
+.marker-detail-data__row--size-half:hover .marker-detail-data__row-value--childs-start {
+  border-color: hsla(0, 0%, 0%, 0);
+}
+
+.marker-detail-data__row--size-272px {
+  flex-basis: calc((100% - 16px) / 2);
+  max-width: calc((100% - 16px) / 2);
+}
+
+.marker-detail-data__row--size-272px:hover .marker-detail-data__row-value--childs-start {
+  border-color: hsla(0, 0%, 0%, 0);
+}
+
+.marker-detail-data__row--height-40px {
+  height: 40px;
+}
+
+.marker-detail-data__row--height-74px {
+  height: 74px;
+}
+
+.marker-detail-data__row--height-90px {
+  height: 90px;
+}
+
+.marker-detail-data__row-key {
+  font-weight: 600;
+
+  color: vaR(--color-accordion);
+}
+
+.marker-detail-data__row-key--mb-3px {
+  margin-bottom: 3px;
+}
+
+.marker-detail-data__row-key--ellipsis-overflow {
+  overflow: hidden;
+
+  max-width: calc(100% - 80px);
+
+  text-overflow: ellipsis;
+}
+
+label.marker-detail-data__row:hover .marker-detail-data__row-value {
+  border: 1px solid var(--color-buttons-secondary-standart);
+}
+
+label.marker-detail-data__row:focus-within .marker-detail-data__row-value {
+  border: 1px solid var(--background-color-buttons-secondary-hover);
+}
+
+.marker-detail-data__row-select {
+  width: 100%;
+}
+
+.marker-detail-data__row-value {
+  color: var(--neutrals-dark-middle-color);
+  white-space: nowrap;
+
+  background-color: inherit;
+  outline: 0;
+}
+
+.marker-detail-data__row-value:focus {
+  border-color: var(--color-buttons-secondary-standart);
+
+  color: var(--background-color-buttons-secondary-hover);
+}
+
+.marker-detail-data__row-value--state-edit {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid var(--background-shadow-silver);
+  border-radius: 4px;
+
+  font-weight: normal;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__row-value--state-edit:focus {
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__row-value--display-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.marker-detail-data__row-value--buttons-poll {
+  border: none !important;
+
+  background-color: transparent !important;
+}
+
+.marker-detail-data__row-value--state-custom-edit {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  color: var(--neutrals-dark-middle-color);
+  font-weight: normal;
+}
+
+.marker-detail-data__row-value--state-custom-edit:hover {
+  border: 1px solid transparent;
+}
+
+.marker-detail-data__row-value--childs-start {
+  justify-content: space-between;
+}
+
+.marker-detail-data__row--type-tabs {
+  cursor: default;
+}
+
+.marker-detail-data__row--type-tabs > .marker-detail-data__row-value.marker-detail-data__row-value--childs-start{
+  background-color: hsla(0, 0%, 0%, 0);
+}
+
+.marker-detail-data__row.marker-detail-data__row--type-tabs:hover > .marker-detail-data__row-key {
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__row--type-tabs:hover .marker-detail-data__row-value.marker-detail-data__row-value--childs-start {
+  border: 1px solid transparent;
+
+  color: var(--neutrals-dark-middle-color);
+
+  background-color: transparent;
+}
+
+.marker-detail-data__row--type-nontext:hover .marker-detail-data__row-value--type-vol{
+  border: 1px solid var(--neutrals-middle-light-color) !important;
+}
+
+.marker-detail-data__button-val {
+  flex: 1;
+
+  text-align: center;
+}
+
+.marker-detail-data__button-dec,
+.marker-detail-data__button-inc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 4px;
+
+  font-size: 42px;
+  font-weight: 100;
+  color: var(--neutrals-white-color);
+
+  background-color: var(--secondary-cta-default-color);
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.marker-detail-data__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 40px;
+  width: 130px;
+  border-radius: 2px;
+  border-color: var(--background-shadow-silver);
+
+  color: var(--font-third-color);
+
+  background-color: var(--background-color-tags);
+
+  cursor: pointer;
+}
+
+.marker-detail-data__button:hover {
+  border-color: var(--secondary-cta-default-color);
+}
+
+.marker-detail-data__button--state-active {
+  border-color: var(--secondary-cta-default-color);
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--secondary-cta-default-color);
+}
+
+.marker-detail-data__button--state-active:hover {
+  border-color: var(--secondary-cta-default-color);
+
+  color: var(--neutrals-white-color);
+}
+
+.marker-detail-data__row-key--style-profile {
+  margin-bottom: 3px;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__row--state-edit  .marker-detail-data__row-key{
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.25px;
+  line-height: 22px;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__row-value--type-vol {
+  border: 1px solid var(--neutrals-middle-light-color);
+  border-radius: 4px;
+
+  background-color: inherit;
+}
+
+.marker-detail-data__row-value--type-vol:hover {
+  border: 1px solid var(--neutrals-middle-light-color) !important;
+}
+
+.marker-detail-data__row--style-profile:hover .marker-detail-data__row-value--type-vol {
+  border: 1px solid var(--neutrals-middle-light-color);
+}
+
+.marker-detail-data__row-value--filled {
+  border: 1px solid var(--neutrals-dark-middle-color);
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-data__message {
+  position: absolute;
+  bottom: -10px;
+
+  display: block;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 10px;
+
+  color: var(--error-input-color);
+}
+
+.marker-detail-data__row--valid-error:after {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+
+  font-size: 20px;
+  color: var(--error-input-color);
+  font-weight: 300;
+
+  content: '!';
+}
+
+.marker-detail-data__row--valid-error .marker-detail-data__row-key {
+  color: var(--error-input-color);
+}
+
+.marker-detail-data__row--valid-error input {
+  border: 1px solid var(--error-input-color) !important;
+
+  color: var(--error-input-color);
+}
+
+.marker-detail-data__row-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.marker-detail-data__row--direction-column {
+  flex-direction: column;
+  align-items: start;
+}
+
+.marker-detail-data__row--size-100 {
+  margin-bottom: 13px;
+
+  width: 100%;
+}
+
+.marker-detail-data__row--size-50 {
+  margin-bottom: 10px;
+
+  width: 50%;
+}
+
+.marker-detail-data__row-bottom-block {
+  margin-left: -17px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+}
+
+.marker-detail-data__row-bottom-block .marker-detail-data__row--size-100 {
+  margin-left: 17px;
+
+  width: 47%;
+}
+
+[data-size=xsmall] :host .marker-detail-data__row--size-half,
+[data-size=small] :host .marker-detail-data__row--size-half {
+  flex-basis: 100%;
+  max-width: 100%;
+  height: 42px;
+}
+
+[data-size=xsmall] :host .marker-detail-data__row--state-edit,
+[data-size=small] :host .marker-detail-data__row--state-edit {
+  margin-top: 16px;
+
+  height: 64px;
+}
+
+[data-size=xsmall] :host .marker-detail-data__row--height-40px,
+[data-size=xsmall] :host .marker-detail-data__row--height-74px,
+[data-size=small] :host .marker-detail-data__row--height-40px,
+[data-size=small] :host .marker-detail-data__row--height-74px {
+  align-items: normal;
+
+  flex-wrap: wrap;
+
+  height: auto;
+}
+
+@media (max-width: 915px) {
+  .marker-detail-data__row--style-profile {
+    justify-content: center;
+
+    width: 100%;
+    height: unset;
+  }
+
+  .marker-detail-data__row--size-272px {
+    max-width: unset;
+    flex-basis: 50%;
+    width: 50%;
+    min-width: 272px;
+  }
+
+  .marker-detail-data__container--style-profile .marker-detail-data__row--height-74px {
+    flex-direction: column;
+
+    height: unset;
+  }
+
+  .marker-detail-data__row-block {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .marker-detail-data__row-block--direction-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .marker-detail-data__row--type-container {
+    width: 50%;
+    min-width: 272px;
+  }
+}
+
+@media (max-width: 640px) {
+  .marker-detail-data__row--direction-on-mobile-column {
+    flex-direction: column;
+    align-items: flex-start;
+
+    height: unset;
+  }
+
+  .marker-detail-data__row--direction-on-mobile-column .marker-detail-data__row--size-half {
+    margin-bottom: 13px;
+
+    justify-content: flex-start;
+
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .marker-detail-data__row--size-mobile {
+    margin-bottom: 13px;
+
+    height: unset;
+  }
+
+  .marker-detail-data__row-key {
+    width: 50%;
+  }
+}
+
+@media (max-width: 450px) {
+  input {
+    will-change: transform;
+  }
+
+  .marker-detail-data__button {
+    transform: translate3d(0, 0, 0);
+
+    will-change: transform;
+  }
+
+  .marker-detail-data__row--state-edit {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .marker-detail-data__row--type-container,
+  .marker-detail-data__number-input {
+    width: 100%;
+  }
+}

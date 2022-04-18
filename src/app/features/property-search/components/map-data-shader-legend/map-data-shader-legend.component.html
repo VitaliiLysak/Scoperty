@@ -1,0 +1,33 @@
+<!-- Heading and labels, mobile -->
+<div
+  *ngIf="(isSmallDevice$ | async); else labelsDesktop"
+  [attr.class]="{ block: name, element: 'labels' } | bem"
+>
+  <div [attr.class]="{ block: name, element: 'min-label' } | bem">
+    Niedrig
+  </div>
+  <div [attr.class]="{ block: name, element: 'heading' } | bem">
+    Schätzwerte
+  </div>
+  <div [attr.class]="{ block: name, element: 'max-label' } | bem">
+    Hoch
+  </div>
+</div>
+
+<!-- Heading and labels, desktop -->
+<ng-template #labelsDesktop>
+  <div [attr.class]="{ block: name, element: 'heading' } | bem">
+    Schätzwerte
+  </div>
+
+  <div [attr.class]="{ block: name, element: 'labels' } | bem">
+    <div [attr.class]="{ block: name, element: 'min-label' } | bem">
+      Niedrig
+    </div>
+    <div [attr.class]="{ block: name, element: 'max-label' } | bem">
+      Hoch
+    </div>
+  </div>
+</ng-template>
+
+<div [attr.class]="{ block: name, element: 'thumb' } | bem"></div>

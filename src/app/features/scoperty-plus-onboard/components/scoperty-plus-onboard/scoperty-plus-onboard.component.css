@@ -1,0 +1,59 @@
+:host {
+  display: block;
+
+  height: 100%;
+}
+
+.steps-body {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: row;
+
+  flex-grow: 1;
+  width: 100%;
+  padding: 48px 104px;
+}
+
+.steps-item {
+  flex-grow: 1;
+}
+
+app-scoperty-plus-edit-fields-nav.desktop {
+  margin-left: 128px;
+}
+
+.weiter-button {
+  margin-top: 24px;
+
+  width: 100% !important;
+}
+
+.white-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--neutrals-white-color);
+}
+
+@media (max-width: 786px) {
+  .steps-container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 1120px) {
+  .steps-container {
+    flex-direction: column;
+  }
+}

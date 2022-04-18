@@ -1,0 +1,59 @@
+<div [attr.class]="{ block: _name, element: 'container' } | bem">
+  <!-- Estimated price -->
+  <div [attr.class]="{ block: _name, element: 'column' } | bem">
+    <div [attr.class]="{ block: _name, element: 'estimated-price' } | bem">
+      <div [attr.class]="{ block: _name, element: 'estimated-price-value' } | bem">
+        {{ marker?.EstimatedPrice | cost }}
+      </div>
+      <div [attr.class]="{ block: _name, element: 'estimated-price-label' } | bem">
+        {{ 'Schätzwert' | uppercase }}
+      </div>
+    </div>
+
+    <!-- Go to property details for mobile -->
+    <ng-container *ngIf="!(isMobileDevice$ | async); else goToPropertyDetails"></ng-container>
+
+    <div [attr.class]="{ block: _name, element: 'progress-bar-container' } | bem">
+      <div [attr.class]="{ block: _name, element: 'progress-bar-value' } | bem">
+        {{ numberOfExistingMarkerData | percent: '1.0-0' }} {{ 'Befüllt' | uppercase }}
+      </div>
+      <div [attr.class]="{ block: _name, element: 'progress-bar' } | bem">
+        <app-progress-bar [value]="numberOfExistingMarkerData"></app-progress-bar>
+      </div>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div [attr.class]="{ block: _name, element: 'column', mods: { 'column': 'actions' } } | bem">
+    <!-- Go to property details for Desktop -->
+    <ng-container *ngIf="isMobileDevice$ | async; else goToPropertyDetails"></ng-container>
+
+    <!-- Save -->
+    <div [attr.class]="{ block: _name, element: 'save' } | bem">
+      <button
+        app-button
+        color="primary-green"
+        [stretch]="true"
+        (click)="onSave()"
+      >
+        Speichern
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Go to property details -->
+<ng-template #goToPropertyDetails>
+  <div [attr.class]="{ block: _name, element: 'goto-property-details' } | bem">
+    <a
+      app-button
+      buttonStyle="link"
+      color="green"
+      [routerLink]="linkToPropertyDetails"
+      queryParamsHandling="merge"
+      target="_blank"
+    >
+      Wechseln zur Besucheransicht
+    </a>
+  </div>
+</ng-template>

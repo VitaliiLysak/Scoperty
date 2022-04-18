@@ -1,0 +1,125 @@
+.header-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  height: 100%;
+  width: 100%;
+  padding: 37px 0 24px 0;
+
+  background-color: hsl(0, 0%, 100%);
+}
+
+.header-menu__wrapper {
+  margin-top: 27px;
+}
+
+.header-menu__links {
+  text-align: center;
+}
+
+.header-menu__link {
+  margin-bottom: 7px;
+
+  font-size: var(--font-semibold-24pkt-size);
+  font-weight: var(--font-semibold-24pkt-weight);
+  letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+  line-height: var(--font-semibold-24pkt-line-height);
+
+  color: var(--color-links-standart);
+
+  cursor: pointer;
+}
+
+.header-menu__link:hover {
+  color: var(--color-links-hover);
+}
+
+.header-menu__link:focus,
+.header-menu__link:active {
+  outline: none;
+}
+
+.header-menu__link--size-small {
+  margin-bottom: 10px;
+
+  font-size: var(--font-light-16pkt-size);
+  font-weight: var(--font-light-16pkt-weight);
+}
+
+.header-menu__link--color-red {
+  color: var(--text-menu-red);
+}
+.header-menu__link--color-red:hover {
+  color: var(--text-menu-red-hover);
+}
+
+.header-menu__button-close {
+  position: absolute;
+  right: 16%;
+  top: 8%;
+
+  width: 50px;
+  height: 50px;
+
+  background-image: url('../../../../../assets/images/close-button.svg');
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.header-menu__button-close:hover {
+  background: url('../../../../../assets/images/close-button-hover.svg');
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 450px) {
+  .header-menu__button-close {
+    right: 8%;
+    top: 8%;
+
+    width: 15px;
+    height: 15px;
+
+    background-image: url('../../../../../assets/images/close-button-mobile.svg');
+    background-size: 100%;
+  }
+
+  .header-menu__button-logo {
+    position: absolute;
+    top: 8%;
+    left: 8%;
+
+    cursor: pointer;
+  }
+
+  .header-menu__button-close:hover {
+    background-image: url('../../../../../assets/images/close-button-mobile-hover.svg');
+    background-size: 100%;
+  }
+
+  .header-menu {
+    height: 50%;
+  }
+
+  /* @FIXME: later check this font */
+  .header-menu__link {
+    font-size: 20px;
+  }
+
+  .header-menu__link--size-small {
+    font-size: var(--font-light-20pkt-size);
+    font-weight: var(--font-light-20pkt-weight);
+    letter-spacing: var(--font-light-20pkt-letter-spacing);
+    line-height: var(--font-light-20pkt-line-height);
+  }
+
+  .header-menu__wrapper {
+    margin-top: 60px;
+  }
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="104px" height="104px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/Check/withboarder</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="52" cy="52" r="52"></circle>
+        <path d="M33.4285714,52.6190476 L74.8163265,52.6190476 C76.5746208,52.6190476 78,54.0444268 78,55.8027211 C78,57.5610154 76.5746208,58.9863946 74.8163265,58.9863946 L29.1836735,58.9863946 C27.4253792,58.9863946 26,57.5610154 26,55.8027211 C26,55.7168692 26.0033982,55.6318109 26.0100674,55.5476735 C26.003395,55.4566899 26,55.3647959 26,55.2721088 L26,34.047619 C26,31.9962757 27.6629424,30.3333333 29.7142857,30.3333333 C31.7656291,30.3333333 33.4285714,31.9962757 33.4285714,34.047619 L33.4285714,52.6190476 Z" id="path-3"></path>
+    </defs>
+    <g id="D_2.1_Subpages_desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="D_4.0.1.0_Subpage_realtor_search_feedback" transform="translate(-617.000000, -2430.000000)">
+            <g id="Icon/Check/withboarder" transform="translate(617.000000, 2430.000000)">
+                <g id="Group">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <circle stroke="#0198A5" stroke-width="4.33333333" cx="52" cy="52" r="49.8333333"></circle>
+                    <mask id="mask-4" fill="white">
+                        <use xlink:href="#path-3"></use>
+                    </mask>
+                    <use id="Mask" fill="#0198A5" transform="translate(52.000000, 44.659864) rotate(-45.000000) translate(-52.000000, -44.659864) " xlink:href="#path-3"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

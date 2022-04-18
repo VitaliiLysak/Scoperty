@@ -1,0 +1,75 @@
+<app-base-modal
+  class="base-modal-scoperty-plus-onboard"
+  [showMobileNavbar]="false"
+  [narrowSpacings]="false"
+  [disableHeader]="!(isMobileDevice$ | async)"
+  (dismiss)="onDismiss()">
+  <ng-container *ngIf="!((isMobileDevice$ | async) && isFinalSubstep)" app-base-modal-header alignMobile="left">
+    Scoperty Plus anmelden
+  </ng-container>
+
+  <div app-base-modal-body class="steps-body">
+    <app-scoperty-plus-navbar
+      *ngIf="!((isMobileDevice$ | async) && isFinalSubstep) && !isMobileNavStep"
+      [activeStepIndex]="activeStepIndex"
+    ></app-scoperty-plus-navbar>
+
+    <div class="steps-container">
+      <app-scoperty-plus-onboard-first-step
+        class="steps-item"
+        *ngIf="isFirstStep"
+        [activeStepIndex]="activeStepIndex"
+        [masterForm]="masterForm"
+        (goToNextStep)="goToNextStep($event)"
+        [parentForm]="masterForm[activeStepIndex]"
+        (setCountProperties)=setCountProperties($event)
+      ></app-scoperty-plus-onboard-first-step>
+
+      <app-scoperty-plus-onboard-second-step
+        class="steps-item"
+        *ngIf="isSecondStep"
+        [activeStepIndex]="activeStepIndex"
+        [propertiesCount]="propertiesCount"
+        (sub)="onSubAcquire($event)"
+        [(email)]="email"
+        (goToNextStep)="goToNextStep($event)"
+      ></app-scoperty-plus-onboard-second-step>
+
+      <app-scoperty-plus-onboard-third-step
+        class="steps-item"
+        *ngIf="isThirdStep"
+        [activeStepIndex]="activeStepIndex"
+        [parentForm]="masterForm[activeStepIndex]"
+        [masterForm]="masterForm"
+        (goToNextStep)="goToNextStep($event)"
+        (sendFormData)="sendFormData($event)"
+      ></app-scoperty-plus-onboard-third-step>
+
+      <app-scoperty-plus-edit-fields-nav
+        [hidden]="hideNavBarBox"
+        [class.desktop]="!(isTabletDeviceLandscaped$ | async) && !hideNavBarBox"
+        [mobile]="isMobileNavStep"
+        [editable]="navEditable"
+        (sectionRewind)="sectionRewind($event)"
+      ></app-scoperty-plus-edit-fields-nav>
+
+      <button
+        *ngIf="isMobileNavStep"
+        app-button
+        class="weiter-button"
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="goToNextStep()"
+      >
+        Weiter
+      </button>
+    </div>
+  </div>
+
+</app-base-modal>
+
+<div
+  *ngIf="isWhiteBackground"
+  class="white-background"
+  (click)="backdropClick()"></div>

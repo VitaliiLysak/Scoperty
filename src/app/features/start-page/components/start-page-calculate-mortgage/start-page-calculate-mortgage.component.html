@@ -1,0 +1,68 @@
+<section [attr.class]="{block: name, element: 'stretch-block'} | bem">
+  <div [attr.class]="{block: name, element: 'container'} | bem">
+    <div [attr.class]="{block: name, element: 'slider-block'} | bem">
+      <div [attr.class]="{block: name, element: 'stretch-title'} | bem">
+        Kalkulieren statt Spekulieren – das ist für dich drin.
+      </div>
+      <div [attr.class]="{block: name, element: 'stretch-row'} | bem">
+        <span [attr.class]="{block: name, element: 'stretch-row-title'} | bem">
+          Wie hoch ist deine aktuelle Monatskaltmiete?
+          <app-explanation
+            [attr.class]="{block: name, element: 'tooltip'} | bem"
+            [text]="tooltipText"
+          >
+          </app-explanation>
+        </span>
+      </div>
+      <div
+        [attr.class]="{
+          block: name,
+          element: 'row',
+          mods: {
+            'justify-content': 'start',
+            'flex-direction': 'column-reverse'
+          }
+        } | bem"
+      >
+        <div [attr.class]="{block: name, element: 'slider'} | bem">
+          <nouislider
+            id="landing-calculator-slider"
+            [min]="100" [max]="10000" [step]="100"
+            [(ngModel)]="currentAffordPrice"
+            [connect]="[ true, false ]"
+            ngDefaultControl
+          ></nouislider>
+        </div>
+        <div [attr.class]="{block: name, element: 'label-block'} | bem">
+          <label [attr.class]="{block: name, element: 'label'} | bem">
+            <input
+              app-input
+              maxlength="5"
+              readonly
+              [attr.class]="{block: name, element: 'input'} | bem"
+              [ngModel]="currentAffordPrice | cost"
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'price-block'} | bem">
+      <div [attr.class]="{block: name, element: 'price-content'} | bem">
+        <div [attr.class]="{block: name, element: 'price-title'} | bem">Das ist dein Budget</div>
+        <div [attr.class]="{block: name, element: 'price-value'} | bem">{{totalPrice | cost}}</div>
+      </div>
+      <div [attr.class]="{block: name, element: 'price-content'} | bem">
+        <button
+          id="landing-calculator-button"
+          app-button
+          size="medium"
+          color="secondary-dark"
+          stretch="true"
+          (click)="savePrice()"
+        >
+          Immobilien finden
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

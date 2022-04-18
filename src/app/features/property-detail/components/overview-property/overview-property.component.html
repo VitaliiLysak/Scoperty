@@ -1,0 +1,100 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <ng-container *ngIf="true; then withOwner else withoutOwner"></ng-container>
+
+  <!-- Has owner -->
+  <ng-template #withOwner>
+    <!-- Property info -->
+    <div [attr.class]="{ block: _name, element: 'section' } | bem">
+      <app-expandable-panel heading="Eckdaten">
+        <app-marker-detail-data [model]="marker" [mode]="userMode"></app-marker-detail-data>
+      </app-expandable-panel>
+    </div>
+
+    <!-- Property features -->
+    <div
+      *ngIf="marker.hasEquipment"
+      [attr.class]="{ block: _name, element: 'section' } | bem"
+    >
+      <app-expandable-panel heading="Ausstattung">
+        <app-marker-detail-data-equipment [model]="marker" [mode]="userMode"></app-marker-detail-data-equipment>
+      </app-expandable-panel>
+    </div>
+
+    <!-- Property description -->
+    <div
+      *ngIf="marker.hasDescription"
+      [attr.class]="{ block: _name, element: 'section' } | bem"
+    >
+      <app-expandable-panel heading="Beschreibung">
+        <app-marker-detail-data-description
+          [model]="marker"
+          [mode]="userMode"
+          descriptionArea="Description"
+        ></app-marker-detail-data-description>
+      </app-expandable-panel>
+    </div>
+
+    <!-- Energy info -->
+    <div
+      *ngIf="marker.hasEnergyInfo"
+      [attr.class]="{ block: _name, element: 'section' } | bem"
+    >
+      <app-expandable-panel heading="Bausubstanz & Energieausweis">
+        <app-marker-detail-data-energy-info [model]="marker" [mode]="userMode"></app-marker-detail-data-energy-info>
+      </app-expandable-panel>
+    </div>
+  </ng-template>
+
+  <!-- Has no owner -->
+  <ng-template #withoutOwner>
+    <!-- Property info -->
+    <div [attr.class]="{ block: _name, element: 'section' } | bem">
+      <app-expandable-panel heading="Eckdaten">
+        <app-marker-detail-data [model]="marker" [mode]="userMode"></app-marker-detail-data>
+      </app-expandable-panel>
+    </div>
+  </ng-template>
+
+  <!-- MFH Apartments -->
+  <ng-container *ngIf="marker.isPropertyOfTypeMFH">
+    <!-- Apartment overview -->
+    <div [attr.class]="{block: _name, element: 'section'} | bem">
+      <app-property-detail-apartment-overview [marker]="marker"></app-property-detail-apartment-overview>
+    </div>
+
+    <!-- Add apartment -->
+    <div [attr.class]="{block: _name, element: 'section'} | bem">
+      <app-property-detail-add-apartment
+        [attr.class]="{block: _name, element: 'add-apartment'} | bem"
+        [marker]="marker"
+        (addApartment)="addApartmentToProperty($event)"
+      ></app-property-detail-add-apartment>
+    </div>
+
+    <!-- Apartment list -->
+    <div [attr.class]="{block: _name, element: 'section'} | bem">
+      <app-property-detail-apartment-list [marker]="marker"></app-property-detail-apartment-list>
+    </div>
+  </ng-container>
+
+  <!-- Mortgage -->
+  <div [attr.class]="{ block: _name, element: 'section', mods: { 'type': 'mortgage' } } | bem">
+    <div [attr.class]="{ block: _name, element: 'mortgage-wrapper' } | bem">
+      <app-info-message
+        header="Hast du schon über deine Finanzierung nachgedacht?"
+        message="Berechne jetzt deinen maximalen Kaufpreis und lerne mehr über die Baufinanzierung kennen!"
+        actionLabel="Jetzt berechnen"
+        [hasCloseButton]="false"
+        (action)="goToBroker()"
+      ></app-info-message>
+    </div>
+  </div>
+</div>
+
+<!-- Location -->
+<div [attr.class]="{ block: _name, element: 'location-container' } | bem">
+  <div [attr.class]="{ block: _name, element: 'location-heading' } | bem">
+    Lage
+  </div>
+  <app-marker-detail-data-place [model]="marker"></app-marker-detail-data-place>
+</div>

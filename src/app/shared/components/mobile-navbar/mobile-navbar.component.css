@@ -1,0 +1,43 @@
+*:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.mobile-navbar__navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 91;
+
+  display: none;
+  align-items: center;
+
+  width: 100%;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 16px;
+
+  background-color: var(--neutrals-white-color);
+  box-shadow: 0 1px 4px 0 var(--neutrals-middle-middle-color);
+}
+
+.mobile-navbar__navbar-button {
+  padding: 0;
+  border: none;
+
+  line-height: 1;
+
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-navbar__navbar-img {
+  display: flex;
+}
+
+
+@media (max-width: 767px) {
+  .mobile-navbar__navbar {
+    display: flex;
+  }
+}

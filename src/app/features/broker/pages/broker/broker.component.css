@@ -1,0 +1,1023 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  cursor: default;
+  background-color: var(--background-initial);
+}
+
+:host * {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.page-broker__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  background-color: var(--brand-dark-green-color);
+}
+
+.page-broker__top-banner {
+  display: flex;
+  flex-direction: row;
+
+  max-width: 944px;
+
+  background-color: var(--brand-dark-green-color);
+}
+
+.page-broker__top-advantages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 74px;
+  padding: 0 70px;
+
+  background-color: var(--background-wild-sand);
+}
+
+.page-broker__advantage-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.page-broker__advantage-icon {
+  margin-top: 3px;
+
+  height: 24px;
+  width: 24px;
+
+  background: url('../../../../../assets/images/check-mark.png') no-repeat;
+  background-size: 100%;
+}
+
+.page-broker__advantage-text {
+  font-size: var(--font-bold-16pkt-size);
+  font-weight: var(--font-bold-16pkt-weight);
+  letter-spacing: var(--font-bold-16pkt-letter-spacing);
+  line-height: var(--font-bold-16pkt-line-height);
+  text-transform: uppercase;
+
+  color: var(--font-bold-16pkt-color);
+}
+
+.page-broker__top-banner-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-broker__left-element-container {
+  margin-top: 190px;
+  margin-bottom: 40px;
+
+  width: 510px;
+}
+
+.page-broker__top-banner-element--side-left {
+  justify-content: space-between;
+
+  width: 55%;
+}
+
+.page-broker__top-banner-element--side-right {
+  justify-content: center;
+
+  width: 50%;
+}
+
+.page-broker__title {
+  margin-bottom: 10px;
+
+  font-size: var(--font-bold-16pkt-size);
+  font-weight: var(--font-bold-16pkt-weight);
+  letter-spacing: var(--font-bold-16pkt-letter-spacing);
+  line-height: var(--font-bold-16pkt-line-height);
+  text-transform: uppercase;
+
+  color: hsl(0, 0%, 100%);
+}
+
+/* @FIXME: there's no such a font, later ask designer */
+.page-broker__first-slogan {
+  margin-bottom: 54px;
+
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 48px;
+
+  color: var(--background-initial);
+}
+
+.page-broker__second-slogan {
+  margin-bottom: 54px;
+
+  font-size: var(--font-semibold-24pkt-size);
+  font-weight: var(--font-semibold-24pkt-weight);
+  letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+  line-height: var(--font-semibold-24pkt-line-height);
+
+  color: hsl(0, 0%, 85%); /* @FIXME: specify this color from designer */
+}
+
+.page-broker__house-pic {
+  width: 455px;
+  height: 436px;
+
+  background: url('../../../../../assets/images/broker/broker-house-transparent.svg') no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.page-broker__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+/* @FIXME: there is no the font, later ask designer */
+.page-broker__subtitle-block {
+  margin: 144px 0 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 1136px;
+  width: 80%;
+  padding: 0 270px;
+
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  line-height: 88px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: hsl(0, 0%, 96%);
+}
+
+.page-broker__subtitle-block--first-frame {
+  margin: 120px 0 64px;
+
+  padding: 0;
+  width: 100%;
+
+  background: var(--background-initial);
+}
+
+/* @FIXME: there is no the font, later ask designer */
+.page-broker__info-graphic-title {
+  position: relative;
+  top: -20px;
+
+  width: 100%;
+
+  font-size: 64px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2.5px;
+  line-height: 64px;
+
+  color: var(--brand-green-blue-color);
+}
+
+.page-broker__info-graphic-title br {
+  display: none;
+}
+
+.page-broker__info-graphic-paragraph-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.page-broker__info-graphic-paragraph {
+  margin: 57px 0 23px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  max-width: 944px;
+  width: 100%;
+}
+
+.page-broker__cascade-wrapper {
+  position: absolute;
+  left: 0;
+
+  display: flex;
+
+  width: 100%;
+}
+
+.page-broker__cascade-block {
+  position: relative;
+
+  display: flex;
+}
+
+.page-broker__arrow--step-first {
+  position: absolute;
+  right: -154px;
+  bottom: -62px;
+
+  width: 134px;
+  height: 300px;
+
+  background: url('../../../../../assets/images/broker/first-arrow.svg') no-repeat;
+  background-size: 80%;
+}
+
+.page-broker__arrow--step-second {
+  position: absolute;
+  right: -232px;
+  bottom: -3px;
+
+  width: 186px;
+  height: 167px;
+
+  background: url('../../../../../assets/images/broker/second-arrow.svg') no-repeat;
+  background-size: 100%;
+}
+
+.page-broker__info-container {
+  display: flex;
+
+  max-width: 944px;
+  width: 80%;
+}
+
+.page-broker__info-block--side-left {
+  margin: 70px 20px 0 0;
+}
+
+.page-broker__info-block--without-top-marging {
+  margin: 10px 0 0 40px;
+}
+
+.page-broker__info-title-block {
+  margin-bottom: 38px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.page-broker__info-icon {
+  margin-right: 16px;
+  margin-left: -56px;
+
+  height: 40px;
+  width: 40px;
+  border-radius: 1px;
+
+  background-color: var(--brand-light-blue-color);
+}
+
+.page-broker__info-title {
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.page-broker__info-next-step {
+  width: 464px;
+
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+
+  color: hsl(0, 0%, 28%);
+}
+
+.page-broker__info-next-text {
+  margin-bottom: 30px;
+
+  padding-right: 15px;
+}
+
+/* @FIXME: there is no such a font, ask designer later */
+.page-broker__info-merits {
+  width: 464px;
+
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  line-height: 64px;
+
+  color: var(--brand-green-blue-color);
+}
+
+.page-broker__spoilers-block {
+  margin: 145px 0 110px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page-broker__spoilers-block ::ng-deep .spoiler__header--state-opened::after,
+.page-broker__spoilers-block ::ng-deep .spoiler__header--state-closed::after {
+  right: 28px;
+}
+
+.page-broker__row {
+  display: flex;
+
+  max-width: 944px;
+
+  -webkit-touch-callout: none;
+
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.page-broker__contacts-block {
+  margin: 32px 0 140px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.page-broker__contact {
+  margin-right: 16px;
+
+  height: 237px;
+  width: 45%;
+  max-width: 560px;
+}
+
+.page-broker__contact:last-child {
+  margin-right: 0;
+}
+
+.page-broker__steps-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100vw;
+
+  background-color: var(--neutrals-light-extreme-color);
+}
+
+.page-broker__steps-heading {
+  position: absolute;
+  left: 190px;
+  top: -21px;
+
+  font-size: 64px;
+  font-weight: bold;
+  letter-spacing: 2.5px;
+  line-height: 64px;
+  color: var(--brand-green-blue-color);
+}
+
+.page-broker__steps-explainer {
+  margin-top: 146px;
+
+  width: 100%;
+  max-width: 1320px;
+  padding: 0 48px;
+
+  color: var(--brand-dark-green-color);
+  font-family: "PT Serif", serif;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+}
+
+.page-broker__steps-cards {
+  margin-top: 50px;
+  margin-bottom: 104px;
+  margin-right: 48px;
+  margin-left: 96px;
+
+  display: flex;
+  align-items: stretch;
+
+  width: 100%;
+  max-width: 1200px;
+}
+.page-broker__steps-card-wrapper--order-first {
+  flex-basis: 30.6%;
+}
+
+.page-broker__steps-card-wrapper--order-center {
+  padding-left: 24px;
+  padding-right: 24px;
+  flex-basis: 36.6%;
+}
+
+.page-broker__steps-card-wrapper--order-last {
+  flex-basis: 32.6%;
+}
+
+.page-broker__steps-card-wrapper--order-first .page-broker__steps-card {
+  background-color: #E5FBF9;
+}
+
+.page-broker__steps-card-wrapper--order-center .page-broker__steps-card {
+  background-color: #C1F6F1;
+}
+
+.page-broker__steps-card-wrapper--order-last .page-broker__steps-card {
+  border-color: transparent;
+
+  background-color: #84EEE3;
+}
+
+.page-broker__steps-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  min-height: 344px;
+  padding: 24px;
+  border-top: 4px solid var(--brand-dark-green-color);
+}
+
+.page-broker__steps-card-number {
+  position: absolute;
+  top: -24px;
+  left: -24px;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+
+  color: white;
+  font-weight: 800;
+
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 1px;
+  text-align: center;
+
+  background-color: var(--brand-dark-green-color);
+}
+
+.page-broker__steps-card-button {
+  margin-top: 24px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  flex-grow: 2;
+}
+
+.page-broker__steps-card-wrapper--order-first .page-broker__steps-card-number {
+  left: -48px;
+}
+
+.page-broker__steps-card-title {
+  margin-top: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+.page-broker__steps-card-text {
+  margin-top: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+@media only screen and (max-width: 985px) {
+  .page-broker__steps-heading {
+    top: -53px !important;
+    left: 0 !important;
+
+    width: 100%;
+    padding: 16px;
+
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 1.5px;
+  }
+
+  .page-broker__steps-explainer {
+    margin-top: 24px;
+
+    padding: 0 16px;
+
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 1px;
+  }
+
+  .page-broker__steps-cards {
+    margin-top: 8px;
+    margin-bottom: 32px;
+
+    padding: 0 16px;
+  }
+
+  .page-broker__steps-card-wrapper--order-first .page-broker__steps-card-text {
+    display: none;
+  }
+
+  .page-broker__steps-card-text {
+    margin-top: 0;
+
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+
+  .page-broker__steps-card-title {
+    margin-top: 0;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 28px;
+  }
+
+  .page-broker__steps-card-number {
+    left: 50% !important;
+    top: -16px !important;
+    margin-left: -16px;
+
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+
+    font-size: 16px;
+  }
+
+  .page-broker__steps-card {
+    border-top: transparent;
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .page-broker__steps-cards {
+    flex-direction: column;
+  }
+
+  .page-broker__steps-card-wrapper {
+    margin-top: 32px;
+  }
+
+  .page-broker__steps-card-wrapper--order-center {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 487px) {
+  .page-broker__steps-explainer {
+    margin-top: 72px;
+  }
+}
+
+@media only screen and (max-width: 1495px) {
+  .page-broker__top-advantages {
+    padding: 0 50px;
+  }
+
+  .page-broker__advantage-text {
+    padding-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 1240px) {
+  .page-broker__arrow {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 761px) and (max-width: 1180px) {
+  .page-broker__top-banner {
+    width: 100%;
+  }
+
+  .page-broker__info-icon {
+    margin-left: 0;
+  }
+
+  .page-broker__top-advantages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: 176px;
+    padding: 30px 0;
+  }
+
+  .page-broker__advantage-block-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 95%;
+    height: 100%;
+  }
+
+  .page-broker__advantage-block {
+    justify-content: flex-start;
+
+    width: 50%;
+    height: 100%;
+  }
+
+  .page-broker__advantage-block-wrapper:last-child {
+    margin-top: 20px;
+  }
+
+  .page-broker__left-element-container {
+    margin-top: 99px;
+
+    width: 370px;
+  }
+
+  .page-broker__title {
+    width: 100%;
+  }
+
+  .page-broker__first-slogan {
+    width: 100%;
+  }
+
+  .page-broker__second-slogan {
+    width: 100%;
+  }
+
+  .page-broker__top-banner-element--side-right {
+    width: unset;
+  }
+
+  .page-broker__house-pic {
+    width: 350px;
+    height: 340px;
+  }
+
+  .page-broker__tip-wrapper {
+    width: 100%;
+  }
+
+  .page-broker__tip {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .page-broker__info-graphic-paragraph {
+    margin: 57px 0 23px;
+
+    width: 90%;
+    min-width: unset;
+  }
+
+  .page-broker__subtitle-block--first-frame {
+    width: 90%;
+  }
+
+  .page-broker__info-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 90%;
+    min-width: unset;
+  }
+
+  .page-broker__info-block--side-left {
+    order: 2;
+  }
+
+  .page-broker__info-next-step {
+    width: unset;
+  }
+
+  .page-broker__info-merits {
+    margin-left: 0;
+
+    padding-left: 0;
+  }
+
+  .page-broker__contact {
+    height: unset;
+  }
+
+  .page-broker__info-block--side-left {
+    max-width: 800px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .page-broker__top-banner {
+    width: 92%;
+  }
+
+  .page-broker__info-icon {
+    display: none;
+  }
+
+  .page-broker__subtitle-block--first-frame {
+    margin-bottom: 70px;
+
+    width: 92%;
+  }
+
+  .page-broker__top-banner-element--side-left {
+    position: relative;
+
+    width: 100%;
+  }
+
+  .page-broker__info-container {
+    flex-direction: column-reverse;
+
+    width: 92%;
+  }
+
+  .page-broker__left-element-container {
+    margin-top: 142px;
+
+    width: 100%;
+  }
+
+  .page-broker__top-banner-element--side-right {
+    position: relative;
+
+    width: 1px;
+  }
+
+  .page-broker__house-pic {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+
+    width: 249px;
+    height: 249px;
+  }
+
+  .page-broker__title {
+    font-size: var(--font-bold-16pkt-size);
+    font-weight: var(--font-bold-16pkt-weight);
+    letter-spacing: var(--font-bold-16pkt-letter-spacing);
+    line-height: var(--font-bold-16pkt-line-height);
+  }
+
+  /* @FIXME: there is no such a font in the styleguide (bold), ask designer */
+  .page-broker__first-slogan {
+    margin-bottom: 35px;
+
+    width: 50%;
+
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .page-broker__second-slogan {
+    margin-bottom: 40px;
+
+    width: 100%;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 28px;
+  }
+
+  .page-broker__top-advantages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: unset;
+    padding: 26px 0 25px;
+  }
+
+  .page-broker__advantage-block {
+    margin-bottom: 19px;
+
+    justify-content: flex-start;
+
+    width: 92%;
+  }
+
+  .page-broker__advantage-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .page-broker__tip {
+    width: 92%;
+    max-width: unset;
+    min-width: unset;
+  }
+
+  /* @FIXME: there's no such a font (bold), later ask designer */
+  .page-broker__info-graphic-title {
+    position: static;
+    margin-bottom: 10px;
+
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    line-height: 48px;
+    text-align: left;
+  }
+
+  .page-broker__info-title {
+    width: 100%;
+
+    font-size: var(--font-semibold-24pkt-size);
+    font-weight: var(--font-semibold-24pkt-weight);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+    line-height: var(--font-semibold-24pkt-line-height);
+  }
+
+  .page-broker__info-graphic-paragraph {
+    margin: 0 0 24px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    min-width: unset;
+    max-width: unset;
+    width: 92%;
+  }
+
+  .page-broker__arrow {
+    display: none;
+  }
+
+  .page-broker__info-block  {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    padding: 24px 0;
+  }
+
+  .page-broker__info-block--side-left {
+    padding-top: 0;
+  }
+
+  /* @FIXME: there's no such font (bold) in the styleguide */
+  .page-broker__info-merits {
+    margin-left: 0;
+
+    padding-left: 0;
+    width: 92%;
+
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1.25px;
+    line-height: 40px;
+  }
+
+  .page-broker__info-next-step {
+    width: 100%;
+
+    font-size: var(--font-light-16pkt-size);
+    font-weight: var(--font-light-16pkt-weight);
+    letter-spacing: var(--font-light-16pkt-letter-spacing);
+    line-height: var(--font-light-16pkt-line-height);
+  }
+
+  .page-broker__spoilers-block {
+    margin: 30px 0;
+  }
+
+  .page-broker__spoilers-block ::ng-deep .spoiler__header--state-opened::after,
+  .page-broker__spoilers-block ::ng-deep .spoiler__header--state-closed::after {
+    right: 14px;
+  }
+
+  .page-broker__row {
+    width: 92%;
+  }
+
+  .page-broker__contacts-block {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .page-broker__contact {
+    margin: 0 0 32px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 92%;
+  }
+
+  .page-broker__tip-wrapper--position-bottom {
+    margin-bottom: 32px;
+  }
+
+  .page-broker__tip-wrapper--padded-bottom {
+    margin-bottom: 73px;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+
+  .page-broker__spoilers-block {
+    margin-top: 30px;
+  }
+
+  .page-broker__top-banner {
+    width: 100%;
+    padding: 0 17px;
+  }
+
+  .page-broker__top-advantages {
+    padding: 26px 12px 25px;
+  }
+
+  .page-broker__house-pic {
+    right: 0;
+    top: 25px;
+
+    width: 160px;
+    height: 160px;
+  }
+
+  .page-broker__first-slogan {
+    width: 100%;
+  }
+
+  .page-broker__advantage-block {
+    width: 100%;
+  }
+
+  .page-broker__subtitle-block--first-frame {
+    margin-bottom: 40px;
+  }
+
+  .page-broker__info-graphic-paragraph,
+  .page-broker__contact,
+  .page-broker__row,
+  .page-broker__subtitle-block {
+    width: calc(100% - 34px);
+  }
+}

@@ -1,0 +1,16 @@
+/* Bootstrap Carousel */
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+
+.carousel-indicators li {
+  width: 40px;
+
+  border-top: none;
+  border-bottom: none;
+
+  opacity: 1;
+}

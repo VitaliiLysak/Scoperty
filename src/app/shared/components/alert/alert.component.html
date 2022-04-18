@@ -1,0 +1,11 @@
+<div [attr.class]="{ block: name, element: 'container', mods: { 'type': type } } | bem">
+  <div [attr.class]="{ block: name, element: 'icon' } | bem">
+    <mat-icon
+      [svgIcon]="icon"
+      appSvgSize="24px"
+    ></mat-icon>
+  </div>
+  <div [attr.class]="{ block: name, element: 'text' } | bem">
+    <ng-content></ng-content>
+  </div>
+</div>

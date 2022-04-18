@@ -1,0 +1,89 @@
+<div [attr.class]="{block: name, element: 'list-container', mods: {'edit-mode': searchAlert.editMode}} | bem">
+  <div [attr.class]="{block: name, element: 'delete'} | bem">
+    <button
+      app-icon-button
+      color="white"
+      (click)="deleteTemplate()"
+    >
+      <mat-icon svgIcon="delete"></mat-icon>
+    </button>
+  </div>
+  <div [attr.class]="{block: name, element: 'header-block'} | bem">
+    <div [attr.class]="{block: name, element: 'name-wrapper'} | bem">
+      <app-editable-text
+        [attr.class]="{block: name, element: 'input-block'} | bem"
+        identifier="search-alert"
+        [(editing)]="searchAlert.editMode"
+        [value]="nameOfTemplate"
+        (save)="onAlertNameSave($event)"
+        [editableTextValidators]="searchAlertNameValidators"
+        [editableTextValidatorErrorMessages]="validatorErrorMessages"
+      ></app-editable-text>
+      <div [attr.class]="{block: name, element: 'status-tag-wrapper'} | bem">
+        <app-selling-status-tag
+          *ngFor="let status of getOrderedSellingStatusItems"
+          [sellingStatus]="getStatusFE(status)"
+        ></app-selling-status-tag>
+      </div>
+      <span [attr.class]="{block: name, element: 'address-line'} | bem">
+        {{searchAlert.addressLine}} + {{searchAlert.radius | metersToKilometers | uppercase}} Umkreis
+      </span>
+    </div>
+  </div>
+  <div [attr.class]="{block: name, element: 'list-row'} | bem">
+    <div [attr.class]="{block: name, element: 'template-block', mods: {'first': 'block'}} | bem">
+      <div [attr.class]="{block: name, element: 'properties-block'} | bem">
+        <div [attr.class]="{block: name, element: 'properties'} | bem">
+          <div [attr.class]="{block: name, element: 'property', mods: {'transparent': !searchAlert.isActive}} | bem">
+            Immobilientyp
+          </div>
+          <div [attr.class]="{block: name, element: 'value-block', mods: {'transparent': !searchAlert.isActive}} | bem">
+            <p [attr.class]="{block: name, element: 'value'} | bem">
+              <span>{{ searchAlert.propertyTypes | propertyTypes }}</span>
+            </p>
+          </div>
+        </div>
+        <div [attr.class]="{block: name, element: 'properties'} | bem">
+          <div [attr.class]="{block: name, element: 'property', mods: {'transparent': !searchAlert.isActive}} | bem">
+            Budget
+          </div>
+          <div [attr.class]="{block: name, element: 'value-block', mods: {'transparent': !searchAlert.isActive}} | bem">
+            <p [attr.class]="{block: name, element: 'value'} | bem">
+              <ng-container *ngIf="showBudget else egal">
+                <span>ab {{ (searchAlert.priceMin || 0) | cost }}</span>
+                <span>bis {{ (searchAlert.priceMax || 0) | cost }}</span>
+              </ng-container>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'template-block', mods: {'second': 'block'}} | bem">
+      <div [attr.class]="{block: name, element: 'link-container'} | bem">
+        <div [attr.class]="{block: name, element: 'properties'} | bem">
+          <div [attr.class]="{block: name, element: 'property', mods: {'transparent': !searchAlert.isActive}} | bem">
+            Wohnfläche
+          </div>
+          <div [attr.class]="{block: name, element: 'value-block', mods: {'transparent': !searchAlert.isActive}} | bem">
+            <p [attr.class]="{block: name, element: 'value'} | bem">
+              <span>{{ livingArea | livingArea }}</span>
+            </p>
+          </div>
+        </div>
+        <div [attr.class]="{block: name, element: 'properties'} | bem">
+          <div [attr.class]="{block: name, element: 'property', mods: {'transparent': !searchAlert.isActive}} | bem">
+            Stadt
+          </div>
+          <div [attr.class]="{block: name, element: 'value-block', mods: {'transparent': !searchAlert.isActive}} | bem">
+            <p [attr.class]="{block: name, element: 'value'} | bem">
+              <span>{{ searchAlert.city }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #egal><span>egal</span></ng-template>

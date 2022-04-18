@@ -1,0 +1,60 @@
+<div class="property-view__object">
+  <!-- Close button -->
+  <div
+    class="property-view__object-close-button property-view__object-close-button--color-white"
+  >
+    <button
+      app-icon-button
+      color="white"
+      (click)="closePopup()"
+    >
+      <mat-icon
+        svgIcon="close"
+        appSvgSize="16px"
+      ></mat-icon>
+    </button>
+  </div>
+
+  <!-- Property view header -->
+  <div
+    class="property-view__object-image"
+  >
+    <div class="property-view__object-tag-wrapper">
+      <app-selling-status-tag type="small" sellingStatus="ForSale"></app-selling-status-tag>
+    </div>
+    <!-- Property image -->
+    <img
+      class="property-view__image property-view__image--fit-cover"
+      src="assets/images/scoperty_plus/sdp_bg.jpg"
+    >
+  </div>
+
+  <!-- Property view body -->
+  <div class="property-view__object-content">
+    <!-- Selling status -->
+
+    <div>
+      <img
+        class="property-view__object-logo"
+        src="assets/images/scoperty_plus/logo.svg"
+      >
+    </div>
+
+    <div class="property-view__object-text">
+      Du willst adressgenaue Immobilien, exklusiv 3 Tage vor Veröffentlichung sehen?
+    </div>
+
+    <!-- Property details button -->
+    <div class="property-view__property-details">
+      <button
+        app-button
+        size="medium"
+        color="primary-green"
+        [stretch]="true"
+        (click)="goToScopertyPlusOnBoard()"
+      >
+        Jetzt Plus entdecken
+      </button>
+    </div>
+  </div>
+</div>

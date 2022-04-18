@@ -1,0 +1,102 @@
+:host {
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 144px;
+
+  font-family: 'Nunito Sans', sans-serif;
+
+  background-color: var(--neutrals-light-extreme-color);
+  box-shadow: var(--box-shadow-cookie);
+}
+
+.cookies-law__container {
+  display: flex;
+  justify-content: space-between;
+
+  width: 1018px;
+}
+
+.cookies-law__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 696px;
+
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.cookies-law__buttons-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 104px;
+  width: 290px;
+}
+
+.cookies-law__link {
+  color: var(--brand-dark-green-color);
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+@media (max-width: 1025px) {
+  :host {
+    height: auto;
+    padding: 20px;
+  }
+
+  .cookies-law__container {
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .cookies-law__info {
+    max-width: 655px;
+    width: 100%;
+    padding-right: 10px;
+  }
+}
+
+@media (max-width: 660px) {
+  .cookies-law__container {
+    flex-direction: column;
+  }
+
+  .cookies-law__info {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+  :host {
+    padding: 16px;
+  }
+
+  .cookies-law__info {
+    margin-bottom: 16px;
+
+    padding: 0;
+
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .cookies-law__buttons-block {
+    width: 100%;
+  }
+}

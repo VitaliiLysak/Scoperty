@@ -1,0 +1,82 @@
+<div [attr.class]="{block: _name, element: 'slogan-block'} | bem">
+  <div [attr.class]="{block: _name, element: 'slogan-content-block'} | bem">
+    <div [attr.class]="{block: _name, element: 'slogan-content'} | bem">
+      <div [attr.class]="{block: _name, element: 'slogan-title'} | bem">
+        Scoperty. Der bessere Weg zur Traumimmobilie.
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'slogan-text'} | bem">
+        Bei Scoperty finden Menschen mit ihren Wünschen und Vorstellungen zueinander und kreieren einen
+        dynamischen Immobilienmarkt. Käufer und Verkäufer haben mit Scoperty die Möglichkeit, faire Immobilienpreise
+        zu schaffen und transparente Geschäfte abzuwickeln.
+      </div>
+
+      <!-- Links -->
+      <div [attr.class]="{block: _name, element: 'link-container'} | bem">
+        <a
+          id="landing-slogan-mehr-erfahzen-link"
+          app-button
+          buttonStyle="link"
+          size="large"
+          color="green"
+          [routerLink]="linkToAbout"
+          queryParamsHandling="merge"
+        >
+          Jetzt mehr erfahren
+          <mat-icon
+            svgIcon="chevron_right"
+            appSvgSize="24px"
+          ></mat-icon>
+        </a>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'link-container'} | bem">
+        <button
+          id="landing-slogan-disagreement-link"
+          app-button
+          buttonStyle="link"
+          size="large"
+          color="green"
+          (click)="onOpenContradictionPossibility()"
+        >
+          <ng-container *ngIf="(isSmallMobileDevice$ | async); else desktopButtonText">
+            Zur Widerspruchsmöglichkeit
+            <mat-icon svgIcon="chevron_right" appSvgSize="24px"></mat-icon>
+          </ng-container>
+          <ng-template #desktopButtonText>
+            Zur Widerspruchsmöglichkeit für Eigentümer
+            <span [attr.class]="{ block: _name, element: 'non-breaking-content' } | bem">
+              und Mieter
+              <mat-icon svgIcon="chevron_right" appSvgSize="24px"></mat-icon>
+            </span>
+          </ng-template>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slogan big text -->
+  <div [attr.class]="{block: _name, element: 'slogan-big-text'} | bem">
+    Fair.<br>
+    Transparent.<br>
+    Anders.
+  </div>
+
+  <!-- Slogan design images -->
+  <app-worm-image
+    [attr.class]="{block: _name, element: 'worm-image', mods: {'worm':'3'}} | bem"
+    width="454px"
+    height="540px"
+    color="green-blue"
+    rotate="-90deg"
+    [opacity]="0.86"
+  ></app-worm-image>
+  <app-worm-image
+    [attr.class]="{block: _name, element: 'worm-image', mods: {'worm':'4'}} | bem"
+    width="357px"
+    height="425px"
+    color="light-blue"
+    rotate="-29deg"
+    [opacity]="0.39"
+  ></app-worm-image>
+</div>

@@ -1,0 +1,130 @@
+<div
+  [attr.class]="{block: name, element: 'object-pagination'} | bem"
+  *ngIf="showPagination"
+>
+  <app-property-pagination
+    [propertyDetailData]="propertyDetailData"
+    [index]="indexPropertyPagination"
+    [scrapedWithoutAddressGroupedQuantity]="scrapedWithoutAddressGroupedQuantity"
+    (change)="onChange($event)"
+  ></app-property-pagination>
+</div>
+<div [attr.class]="{block: name, element: 'object'} | bem">
+  <!-- Close button -->
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'object-close-button',
+      mods: {
+        'color': hasImage ? 'white': 'default'
+      }
+    } | bem"
+  >
+    <button
+      id="map-short-detail-page-close-button"
+      app-icon-button
+      [color]="closeButtonColor"
+      (click)="closePopup()"
+    >
+      <mat-icon
+        svgIcon="close"
+        appSvgSize="16px"
+      ></mat-icon>
+    </button>
+  </div>
+
+  <!-- Property view header -->
+  <div
+    *ngIf="hasImage"
+    [attr.class]="{block: name, element: 'object-image'} | bem"
+  >
+    <!-- Property image -->
+    <app-image
+      [attr.class]="{block: name, element: 'image'} | bem"
+      [src]="image"
+      [mods]="{'fit': 'cover'}"
+    >
+    </app-image>
+  </div>
+
+  <!-- Property view body -->
+  <div [attr.class]="{ block: name, element: 'object-content', mods: {'marker' : showPagination ? 'grouped' : 'single'} } | bem">
+    <!-- Selling status -->
+    <div *ngIf="statusShow" [attr.class]="{ block: name, element: 'object-tag-wrapper' } | bem">
+      <div [attr.class]="{ block: name, element: 'object-tag' } | bem">
+        <app-selling-status-tag [sellingStatus]="marker.sellingStatus"></app-selling-status-tag>
+      </div>
+    </div>
+
+    <!-- Property address -->
+    <div [attr.class]="{block: name, element: 'object-info'} | bem">
+      <div [attr.class]="{ block: name, element: 'object-address' } | bem">
+        {{marker.Street}} {{marker.HouseNumber}}
+      </div>
+      <div [attr.class]="{ block: name, element: 'object-locality' } | bem">
+        {{marker.PostalCode}} {{marker.Locality}}
+        <span [attr.class]="{ block: name, element: 'object-locality-dot' } | bem">&#183;</span>
+        {{title}}
+      </div>
+    </div>
+
+    <!-- Property price -->
+    <div [attr.class]="{ block: name, element: 'object-price-wrapper' } | bem">
+      <div [attr.class]="{ block: name, element: 'object-price' } | bem">
+        {{ priceTitle }}
+      </div>
+      <div [attr.class]="{ block: name, element: 'object-price-value' } | bem">
+        {{ marker.isPropertyOfTypeMFH ? 'ab' : '' }} {{ markerPrice | cost }}
+      </div>
+    </div>
+
+    <!-- Property estimated price -->
+    <div
+      *ngIf="shouldShowEstimatedPrice"
+      [attr.class]="{ block: name, element: 'object-estimated-price-wrapper' } | bem"
+    >
+      <div [attr.class]="{ block: name, element: 'object-estimated-price' } | bem">
+        {{ estimatedPriceTitle }}
+      </div>
+      <div [attr.class]="{ block: name, element: 'object-estimated-price-value' } | bem">
+        {{ marker.isPropertyOfTypeMFH ? 'ab' : '' }} {{ estimatedPrice | cost }}
+      </div>
+    </div>
+
+    <!-- Property details button -->
+    <div [attr.class]="{block: name, element: 'property-details'} | bem">
+      <button
+        id="map-short-detail-page-to-property-button"
+        app-button
+        size="medium"
+        color="primary-green"
+        [stretch]="true"
+        (click)="goToPropertyDetail()"
+      >
+        {{ propertyDetailButtonText }}
+      </button>
+    </div>
+
+    <div
+      *ngIf="marker.hasMatchedProperty"
+      [attr.class]="{
+        block: name,
+        element: 'property-details',
+        mods: {'type': 'link'}
+      } | bem"
+    >
+      <a
+        id="map-short-detail-page-to-scoperty-page-link"
+        app-button
+        buttonStyle="link"
+        size="medium"
+        color="green"
+        [routerLink]="[matchedPropertyUrl]"
+        queryParamsHandling="merge"
+        target="_blank"
+      >
+        Zur Immobilie auf Scoperty
+      </a>
+    </div>
+  </div>
+</div>

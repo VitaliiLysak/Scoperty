@@ -1,0 +1,52 @@
+<div [attr.class]="{ block: _name, element: 'section' } | bem">
+  <!-- Title -->
+  <div [attr.class]="{ block: _name, element: 'section-name' } | bem">
+    <span [attr.class]="{ block: _name, element: 'name' } | bem">
+      Eigentümer ändern
+    </span>
+  </div>
+
+  <!-- Message -->
+  <div [attr.class]="{ block: _name, element: 'content' } | bem">
+    <div [attr.class]="{ block: _name, element: 'section-subname', mods: { 'margin': 'top' } } | bem">
+      <span [attr.class]="{ block: _name, element: 'subname' } | bem">
+        Willst du wirklich nicht mehr länger Eigentümer sein?
+        Was soll mit deinen Eingaben passieren?
+      </span>
+    </div>
+
+    <!-- Delete confirmation -->
+    <ng-container *ngIf="isConfirmDelete">
+      <div [attr.class]="{ block: _name, element: 'input-block' } | bem">
+        <app-ratio [label]="ratioLabel"
+                   name="save"
+                   value="save"
+                   [bindValue]="options.delete"></app-ratio>
+      </div>
+
+      <div [attr.class]="{ block: _name, element: 'input-block' } | bem">
+        <app-ratio label="Alle Eingaben löschen"
+                   name="save"
+                   value="not-save"
+                   [bindValue]="options.delete"></app-ratio>
+      </div>
+
+      <div [attr.class]="{ block: _name, element: 'attention-block' } | bem">
+        <div [attr.class]="{ block: _name, element: 'attention-name' } | bem">
+          <div [attr.class]="{ block: _name, element: 'attention-paragraph' } | bem">
+            Achtung:<br/>
+            Das Löschen kann nicht mehr rückgängig gemacht werden!
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- Delete -->
+    <div [attr.class]="{ block: _name, element: 'action-block' } | bem">
+      <button [attr.class]="{ block: _name, element: 'button', mods: { 'type':'primary', 'w': '262px' } } | bem"
+              (click)="onRemoveOwnership()">
+        Mich als Eigentümer löschen
+      </button>
+    </div>
+  </div>
+</div>

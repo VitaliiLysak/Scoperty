@@ -1,0 +1,58 @@
+*:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+:host {
+  display: block;
+
+  height: 100%;
+}
+
+.signup-modal__title {
+  margin: 0 0 24px;
+
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 18px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.signup-modal__title--separator-top {
+  margin-top: 24px;
+
+  padding-top: 24px;
+
+  border-top: 1px solid var(--neutrals-middle-middle-color);
+}
+
+.signup-modal__form-row {
+  margin-bottom: 16px;
+}
+
+:host ::ng-deep .signup-modal__form-row--link-inside span {
+  top: 4px;
+}
+
+.signup-modal__data-protection-explanation {
+  margin-bottom: 16px;
+
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.signup-modal__checkbox-message {
+  position: absolute;
+  margin-top: 8px;
+
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 1;
+
+  color: var(--color-feedback-error)
+}

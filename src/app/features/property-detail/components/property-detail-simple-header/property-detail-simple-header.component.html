@@ -1,0 +1,14 @@
+<div [attr.class]="{ block: name, element: 'content' } | bem">
+  <!-- Title -->
+  <div [attr.class]="{ block: name, element: 'title' } | bem">
+    {{ title }}
+  </div>
+
+  <!-- Subtitle -->
+  <div
+    *ngIf="marker.hasTitle"
+    [attr.class]="{ block: name, element: 'subtitle' } | bem"
+  >
+    {{ marker.fullAddress }}
+  </div>
+</div>

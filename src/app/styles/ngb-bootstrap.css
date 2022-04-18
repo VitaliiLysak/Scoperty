@@ -1,0 +1,4 @@
+/* Fix hidden tooltip when used inside a dialog, the dialog's z-index is 1100. */
+.tooltip {
+  z-index: 1200;
+}

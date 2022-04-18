@@ -1,0 +1,25 @@
+<div
+  [attr.class]="{ block: _name, element: 'container' } | bem"
+  [ngStyle]="cssStyle"
+  #container
+>
+  <!-- Image -->
+  <ng-container *ngIf="isMobileDevice$ | async; else showVideo">
+    <img
+      app-responsive-image
+      [src]="poster"
+      [multiResolution]="multiResolutionPoster"
+    >
+  </ng-container>
+
+  <!-- Video -->
+  <ng-template #showVideo>
+    <app-responsive-video
+      [poster]="poster"
+      [multiResolutionPoster]="multiResolutionPoster"
+      [src]="src"
+      [autoplay]="autoplay"
+      [loop]="loop"
+    ></app-responsive-video>
+  </ng-template>
+</div>

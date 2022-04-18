@@ -1,0 +1,90 @@
+.scoperty-plus-nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  box-sizing: border-box;
+
+  min-width: 288px;
+  max-width: 288px;
+
+  height: 406px;
+
+  padding: 24px;
+
+  color: var(--brand-dark-green-color);
+
+  background-color: var(--soperty-plus-fields-box);
+}
+
+.scoperty-plus-nav-label {
+  margin-bottom: 8px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+}
+
+.scoperty-plus-nav-label.has-sections {
+  font-size: 12px;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+.scoperty-plus-nav-element {
+  margin-top: 8px;
+
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+}
+
+.scoperty-plus-nav-element-line {
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.scoperty-plus-nav-element-link {
+  height: 100% !important;
+}
+
+.scoperty-plus-nav-element-name {
+  margin-bottom: 4px;
+
+  width: 100%;
+
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.scoperty-plus-nav-element-data {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+
+.scoperty-plus-nav-wrapper.mobile {
+  min-width: 100%;
+  max-width: 100%;
+
+  height: auto;
+  padding: 0;
+
+  background-color: transparent;
+}
+
+.scoperty-plus-nav-wrapper.mobile .scoperty-plus-nav-label {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+}

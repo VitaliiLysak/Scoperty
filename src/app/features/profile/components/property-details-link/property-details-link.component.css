@@ -1,0 +1,45 @@
+:host {
+  display: inline-block;
+}
+
+.property__link {
+  display: flex;
+  align-items: center;
+
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: hsl(185, 98%, 41%);
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.property__link--state-inactive {
+  color: hsl(0, 0%, 84%);
+}
+
+.property__link:hover {
+  color: hsl(185, 100%, 33%);
+}
+
+.property__link--state-inactive:hover {
+  color: hsl(0, 0%, 84%);
+  cursor: default;
+}
+
+.property__link:hover .property__arrow-icon-right {
+  border-color: hsl(185, 100%, 33%);
+}
+
+.property__arrow-icon-right {
+  margin-left: 5px;
+
+  border: solid hsl(185, 98%, 41%);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+
+  transform: rotate(-45deg);
+  cursor: pointer;
+}

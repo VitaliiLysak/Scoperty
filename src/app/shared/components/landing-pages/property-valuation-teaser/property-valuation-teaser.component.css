@@ -1,0 +1,143 @@
+:host {
+  display: block;
+
+  width: 100%;
+
+  background-color: var(--neutrals-light-middle-color);
+}
+
+.property-valuation-teaser__container {
+  justify-content: center;
+  flex-direction: row;
+
+  display: flex;
+
+  width: 100%;
+  padding: 72px 104px;
+}
+
+.property-valuation-teaser__content {
+  justify-content: center;
+  flex-direction: row;
+
+  display: flex;
+
+  width: 1016px;
+}
+
+.property-valuation-teaser__content--icon-position-right {
+  flex-direction: row-reverse;
+}
+
+.property-valuation-teaser__icon {
+  margin-right: 128px;
+  margin-left: 208px;
+
+  align-items: center;
+  justify-content: flex-end;
+  display: flex;
+
+  flex-shrink: 0;
+  width: 184px;
+
+  color: var(--secondary-cta-default-color);
+}
+
+.property-valuation-teaser__icon--icon-position-right {
+  margin-right: 208px;
+  margin-left: 128px;
+
+  justify-content: flex-start;
+}
+
+.property-valuation-teaser__explanation {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-valuation-teaser__explanation--icon-position-right {
+  align-items: flex-end;
+
+  display: flex;
+
+  text-align: right;
+}
+
+.property-valuation-teaser__explanation-header {
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+}
+
+.property-valuation-teaser__explanation-message {
+  margin-top: 24px;
+
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.property-valuation-teaser__explanation-actions {
+  margin-top: 24px;
+
+  width: 272px;
+}
+
+/* Responsive */
+
+@media (max-width: 1016px) {
+  .property-valuation-teaser__icon {
+    margin-right: 24px;
+    margin-left: 0;
+  }
+
+  .property-valuation-teaser__icon--icon-position-right {
+    margin-right: 0;
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 790px) {
+  .property-valuation-teaser__container {
+    padding: 24px 16px 20px;
+  }
+
+  .property-valuation-teaser__content {
+    flex-direction: column;
+  }
+
+  .property-valuation-teaser__icon {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 32px;
+    align-self: center;
+
+    justify-content: center;
+  }
+
+  .property-valuation-teaser__explanation-header,
+  .property-valuation-teaser__explanation-message {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .property-valuation-teaser__explanation-header {
+    font-weight: 600;
+  }
+
+  .property-valuation-teaser__explanation-message {
+    margin-top: 8px;
+  }
+
+  .property-valuation-teaser__explanation-actions {
+    margin-top: 24px;
+
+    width: 100%;
+  }
+}

@@ -1,0 +1,48 @@
+<div [attr.class]="{block: _name, element: 'body'} | bem">
+  <div [attr.class]="{block: _name, element: 'header'} | bem">
+    <div [attr.class]="{block: _name, element: 'close-btn'} | bem" (click)="close()"></div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'preview'} | bem">
+    <div [attr.class]="{block: _name, element: 'img-prev'} | bem" (click)="prevImage()">
+      <img src="../../../../../assets/images/arrow.svg">
+    </div>
+    <app-marker-detail-gallery-image
+      [attr.class]="{block: _name, element: 'image', mods: {'height': '100'}} | bem"
+      [src]="images[activeImageIndex]"
+      [mods]="{'fit': 'default'}"
+      (swipeleft)="nextImage()"
+      (swiperight)="prevImage()"
+    >
+    </app-marker-detail-gallery-image>
+    <div [attr.class]="{block: _name, element: 'img-next'} | bem" (click)="nextImage()">
+      <img src="../../../../../assets/images/arrow.svg">
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'controls-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'cap'} | bem"></div>
+    <span [attr.class]="{block: _name, element: 'image-title'} | bem">Außenansicht</span>
+    <span [attr.class]="{block: _name, element: 'counter'} | bem">{{activeImageIndex + 1}}/{{images.length}}</span>
+    <div [attr.class]="{block: _name, element: 'cap'} | bem"></div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'carousel'} | bem">
+    <ngu-carousel
+      [inputs]="carouselTile"
+      [dataSource]="images"
+    >
+      <ngu-tile NguCarouselItem *nguCarouselDef="let image; let i = index">
+        <app-marker-detail-gallery-image
+          [attr.class]="{block: _name, element: 'image', mods: {'type': 'mini'}} | bem"
+          [src]="image"
+          [mods]="{'canHover': true, 'fit': 'cover'}"
+          (click)="changeIndex(i)"
+        >
+        </app-marker-detail-gallery-image>
+      </ngu-tile>
+      <button NguCarouselPrev [attr.class]="{block: _name, element: 'leftRs'} | bem"></button>
+      <button NguCarouselNext [attr.class]="{block: _name, element: 'rightRs'} | bem"></button>
+    </ngu-carousel>
+  </div>
+</div>

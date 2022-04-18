@@ -1,0 +1,148 @@
+<div *ngIf="!isLoaded" [attr.class]="{block: _name, element: 'loader'} | bem"></div>
+<div
+  *ngIf="isMakeMeMoveShown != null"
+  [attr.class]="{block: _name, element: 'background-wrapper'} | bem"
+  (click)="toggleMakeMeMoveModal()"
+>
+</div>
+<div
+  *ngIf="isLoaded && offers.length > 0 && !hintShouldBeClosen"
+  [attr.class]="{block: _name, element: 'hint-wrapper'} | bem"
+>
+  <div [attr.class]="{block: _name, element: 'hint'} | bem">
+    <div [attr.class]="{block: _name, element: 'hint-text'} | bem">
+      {{pageTitle}}
+    </div>
+    <div [attr.class]="{block: _name, element: 'hint-close'} | bem" (click)="closeHint()">&times;</div>
+  </div>
+</div>
+
+<div [attr.class]="{block: _name, element: 'tip-block', mods: {'visible': !isTipHidden, 'mobile': 'hidden'}} | bem">
+  <div [attr.class]="{block: _name, element: 'tip-block-header'} | bem">
+    <div [attr.class]="{block: _name, element: 'tip-budge-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'tip-budge'} | bem">
+        Tipp
+      </div>
+    </div>
+    <div
+      [attr.class]="{block: _name, element: 'tip-close'} | bem"
+      (click)="closeTip()"
+    ></div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'text-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'tip-title'} | bem">
+      Hast du schon über deine Finanzierung nachgedacht?
+    </div>
+    <div [attr.class]="{block: _name, element: 'tip-message'} | bem">
+      Berechne jetzt deinen maximalen Kaufpreis und lerne mehr über die Baufinanzierung kennen!
+    </div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'mortgage-navigation'} | bem">
+    <div
+      [attr.class]="{block: _name, element: 'mortgage-navigation-button'} | bem"
+      [routerLink]="linkToMortgageRequest"
+      queryParamsHandling="merge"
+    >
+      Jetzt berechnen
+    </div>
+  </div>
+</div>
+
+<app-info-block
+  *ngIf="isLoaded && offersIsEmpty"
+  buttonText="Jetzt Gebot abgeben"
+>
+  <span>
+    Du hast noch kein Gebot bei Scoperty abgegeben. Sichere dir die Chance auf deine Traumimmobilie und biete
+  jetzt auf ein Objekt.
+  </span>
+</app-info-block>
+
+<div [attr.class]="{block: _name, element: 'list-wrapper'} | bem">
+  <div
+    *ngIf="isLoaded && offers.length > 0"
+    [attr.class]="{block: _name, element: 'list'} | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'list-column-titles', mods: {'mobile': 'hidden'}} | bem">
+      <div [attr.class]="{ block: _name, element: 'title-address'} | bem">
+        Immobilie
+      </div>
+      <div [attr.class]="{ block: _name, element: 'title-price'} | bem" >
+        Mein Gebot
+      </div>
+      <div [attr.class]="{ block: _name, element: 'title-date'} | bem">
+        <span>Datum</span>
+        <span>des Gebots</span>
+      </div>
+    </div>
+    <div
+      *ngFor="let offer of offers; let i = index; trackBy: trackByFn"
+      [attr.class]="{
+        block: _name,
+        element: 'list-item',
+        mods: {
+          'state' : (offer.isPropertyStatusInactive) ? 'inactive' : 'active',
+          'status' : (offer.status === 'new') ? 'new' : 'old'
+        }
+      } | bem"
+    >
+      <div [attr.class]="{ block: _name, element: 'new-icon', mods: {'mobile': 'shown'}} | bem">NEU</div>
+      <div [attr.class]="{ block: _name, element: 'title-address', mods: {'mobile': 'shown'}} | bem">
+        Immobilie
+      </div>
+      <div [attr.class]="{ block: _name, element: 'item-address-wrapper'} | bem">
+        <a
+          [attr.class]="{
+            block: _name,
+            element: 'item-address',
+            mods: {'state' : (offer.isPropertyStatusInactive) ? 'inactive' : 'active'}
+          } | bem"
+          [routerLink]="[ linkToPropertyDetail, offer.property.uuid ]"
+          queryParamsHandling="merge"
+          target="_blank"
+        >
+          <span [attr.class]="{ block: _name, element: 'item-address-container'} | bem">
+            {{offer.property.streetName}} {{offer.property.streetNumber}},
+          </span>
+          <span [attr.class]="{ block: _name, element: 'item-address-container'} | bem">
+            {{offer.property.zipCode}} {{offer.property.city}}
+          </span>
+        </a>
+      </div>
+      <div [attr.class]="{ block: _name, element: 'title-price', mods: {'mobile': 'shown'}} | bem">
+        Mein Gebot
+      </div>
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'item-price',
+          mods: {'state' : (offer.isPropertyStatusInactive) ? 'inactive' : 'active'}
+        } | bem"
+      >
+        {{offer.price | localNumber}} €
+      </div>
+      <div [attr.class]="{ block: _name, element: 'title-date', mods: {'mobile': 'shown'}} | bem">
+        Datum des Gebots
+      </div>
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'item-date',
+          mods: {'state' : (offer.isPropertyStatusInactive) ? 'inactive' : 'active'}
+        } | bem"
+      >
+        {{offer.OfferFormatedDate}}
+      </div>
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'item-link',
+          mods: {'state' : (offer.isPropertyStatusInactive) ? 'inactive' : 'active'}
+        } | bem"
+        (click)="changeOfferPrice(i)"
+      >
+        Gebot ändern
+      </div>
+    </div>
+  </div>
+</div>

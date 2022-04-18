@@ -1,0 +1,77 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'row'} | bem">
+    <div [attr.class]="{block: _name, element: 'row-key', mods: {'align-self': 'start'}} | bem">
+      Seitenaufrufe der Immobilie:
+    </div>
+    <div [attr.class]="{block: _name, element: 'row-value', mods: {'space': 'pre-line'}} | bem">
+      {{propertyStatistic.numberOfVisits | localNumber: '0'}} Aufrufe
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'row'} | bem">
+    <div [attr.class]="{block: _name, element: 'row-key'} | bem">
+      Immobilie auf Merkliste gesetzt:
+    </div>
+    <div [attr.class]="{block: _name, element: 'row-value'} | bem">
+      {{propertyStatistic.puttedOnFavorite | localNumber: '0'}} mal gemerkt
+    </div>
+  </div>
+
+  <div
+    [attr.class]="{block: _name, element: 'row'} | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'row-key'} | bem">
+      Erhaltene Gebote:
+    </div>
+    <div [attr.class]="{block: _name, element: 'row-value'} | bem">
+      {{propertyStatistic.receivedOffers | localNumber: '0'}} mal geboten
+    </div>
+  </div>
+
+  <div
+    [attr.class]="{block: _name, element: 'row'} | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'row-key'} | bem">
+      Vorauss. monatl. Betriebskosten:
+    </div>
+    <div [attr.class]="{block: _name, element: 'row-value'} | bem">
+      {{ model.OperationCost | cost: '-'}}
+      <app-tooltip
+        [page]="_name"
+        [tooltipText]="tooltipContent"
+        [attr.class]="{block: _name, element: 'tooltip'} | bem"
+      ></app-tooltip>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'row'} | bem">
+    <div [attr.class]="{block: _name, element: 'row-key'} | bem">
+      Quadratmeterpreis des Objektes:
+    </div>
+    <div [attr.class]="{block: _name, element: 'row-value'} | bem">
+      {{model.EstimatedPricePerM2 | costPerM2: '-'}}
+    </div>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'row'} | bem">
+    <div [attr.class]="{block: _name, element: 'row-key'} | bem">
+      Durchschnittspreis in {{model.Locality}}:
+    </div>
+    <div [attr.class]="{block: _name, element: 'row-value'} | bem">
+      {{propertyStatistic.cityAveragePriceM2 | costPerM2: '-'}}
+    </div>
+  </div>
+
+  <div
+    *ngIf="userNotAuthorized"
+    [attr.class]="{block: _name, element: 'blur-block'} | bem"
+  >
+    <app-cover-data-block
+      [text]="coverText"
+      buttonSize="medium"
+      (showSignup)="emitSignup($event)"
+    >
+    </app-cover-data-block>
+  </div>
+</div>
+

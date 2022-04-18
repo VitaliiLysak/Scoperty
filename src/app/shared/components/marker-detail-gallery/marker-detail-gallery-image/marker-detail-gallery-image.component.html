@@ -1,0 +1,31 @@
+<img
+  [attr.class]="{
+    block: _name,
+    element: 'image',
+    mods: {
+      'fit': (mods.fit === 'cover')? 'cover' : 'default',
+      'cursor': (mods.cursor === 'move')? 'move' : 'default'
+    }
+  } | bem"
+  [src]="_src"
+  (click)="_click($event)"
+/>
+<div
+  *ngIf="mods.state =='edit' && (isHovered || isActive)"
+  [attr.class]="{block: _name, element: 'backdrop'} | bem"
+></div>
+<div
+  *ngIf="mods.state =='edit' && isActive"
+  [attr.class]="{block: _name, element: 'checkbox'} | bem"
+  (click)="_selectImage()"
+>
+</div>
+<div
+  *ngIf="mods.state =='edit' && !isActive && isHovered"
+  [attr.class]="{block: _name, element: 'checkbox', mods: {'state': 'empty'}} | bem"
+  (click)="_selectImage()"
+></div>
+<div
+  *ngIf="mods.state =='edit' && !isActive && isHovered"
+  [attr.class]="{block: _name, element: 'move-icon'} | bem"
+></div>

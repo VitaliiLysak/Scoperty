@@ -1,0 +1,61 @@
+*:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+:host {
+  display: block;
+}
+
+.discover-market-value-popup__inner-block {
+  display: flex;
+  flex-direction: column;
+
+  min-height: inherit;
+
+  padding: 24px 104px;
+
+  background-color: var(--brand-green-blue-color);
+}
+
+.discover-market-value-popup__message {
+  margin-top: auto;
+  margin-bottom: 0;
+
+  color: var(--neutrals-white-color);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+.discover-market-value-popup__footer {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: 24px;
+}
+
+.discover-market-value-popup__button-wrapper {
+  width: 48%;
+}
+
+/* Responsive */
+
+@media (max-width: 790px) {
+  .discover-market-value-popup__footer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .discover-market-value-popup__button-wrapper {
+    width: 100%;
+  }
+
+  .discover-market-value-popup__button-wrapper--second-button {
+    margin-top: 16px;
+  }
+
+  .discover-market-value-popup__inner-block {
+    padding: 24px 16px;
+  }
+}

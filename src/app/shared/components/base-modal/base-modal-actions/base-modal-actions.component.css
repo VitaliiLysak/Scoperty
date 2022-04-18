@@ -1,0 +1,40 @@
+:host {
+  margin: 0;
+
+  display: block;
+}
+
+.base-modal__actions {
+  margin: -8px;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.base-modal__actions /deep/ > * {
+  margin: 8px;
+}
+
+.base-modal__actions--align-left {
+  justify-content: flex-start;
+}
+
+.base-modal__actions--align-center {
+  justify-content: center;
+}
+
+.base-modal__actions--align-right {
+  justify-content: flex-end;
+}
+
+.base-modal__actions--align-space-between {
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 580px) {
+  .base-modal__actions {
+    flex-direction: column;
+
+    width: 100%;
+  }
+}

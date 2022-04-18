@@ -1,0 +1,42 @@
+<div
+  *ngIf="!isMobileDevice"
+  [attr.class]="{block: _name, element: 'logo'} | bem"
+  (click)="onLogoClick()"
+>
+  <app-logo></app-logo>
+</div>
+<div [attr.class]="{block: _name, element: 'content'} | bem">
+  <div
+    *ngIf="isMobileDevice"
+    [attr.class]="{block: _name, element: 'logo'} | bem"
+    (click)="onLogoClick()"
+  >
+    <app-logo></app-logo>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'image-block'} | bem">
+    <div [attr.class]="{block: _name, element: 'image-container'} | bem">
+      <img
+        [attr.class]="{block: _name, element: 'image'} | bem"
+        src="../../../../../assets/images/chat-sad.svg"
+      >
+    </div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'info-block'} | bem">
+    <div [attr.class]="{block: _name, element: 'info-container'} | bem">
+      <div [attr.class]="{block: _name, element: 'title'} | bem">
+        Schade, dass du mit deiner Immobilie nicht bei Scoperty bleiben willst.
+      </div>
+      <div [attr.class]="{block: _name, element: 'text'} | bem">
+        Wir haben deine Anfrage erhalten und werden sie prüfen.
+      </div>
+      <button
+        id="dissent-back-to-homepage-button"
+        [attr.class]="{block: _name, element: 'button', mods: {'type':'primary'}} | bem"
+        (click)="apply()"
+      >
+        Zurück zur Startseite
+      </button>
+    </div>
+  </div>
+</div>

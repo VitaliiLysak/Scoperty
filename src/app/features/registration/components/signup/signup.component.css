@@ -1,0 +1,255 @@
+:host * {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.signup__content {
+  padding-top: 24px;
+}
+
+.signup__data-row {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.signup__data-key {
+  margin-bottom: 4px;
+
+  color: hsl(0, 0%, 28%);
+  font-weight: 300;
+
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.signup__input-container {
+  position: relative;
+}
+
+.signup__input {
+  width: 100%;
+  height: 44px;
+  padding: 7px 14px;
+  border: 1px solid hsl(0, 0%, 73%);
+  border-radius: 2px;
+
+  color: hsl(0, 0%, 28%);
+
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+
+  background-color: hsl(0, 0%, 100%);
+  outline: 0;
+}
+
+.signup__data-row:hover input{
+  border-color: hsl(185, 71%, 47%);
+}
+
+.signup__data-row:focus-within input{
+  border-color: hsl(185, 100%, 33%);
+}
+
+.signup__input--state-complete {
+  border: solid 1px hsl(0, 0%, 28%);
+}
+
+.signup__data-row--state-error:after {
+  position: absolute;
+  right: 10px;
+  bottom: 6px;
+
+  color: hsl(352, 99%, 41%);
+  font-weight: 300;
+  font-size: 20px;
+
+  content: '!';
+}
+
+.signup__data-row--state-error label {
+  color: hsl(352, 99%, 41%);
+}
+
+.signup__data-row--state-error input {
+  border: 1px solid hsl(352, 99%, 41%);
+
+  color: hsl(352, 99%, 41%);
+}
+
+.signup__data-row--state-error:hover label {
+  color: hsl(352, 99%, 41%);
+}
+
+.signup__data-row--state-error:hover input {
+  border: solid 1px hsl(352, 99%, 41%);
+
+  color: hsl(352, 99%, 41%);
+}
+
+.signup__data-row--state-error:focus-within input{
+  border: solid 1px hsl(352, 99%, 41%);
+
+  color: hsl(352, 99%, 41%);
+}
+
+.signup__message {
+  position: absolute;
+  margin-top: 2px;
+
+  display: block;
+
+  color: hsl(352, 99%, 41%);
+
+  font-size: 10px;
+  line-height: 10px;
+}
+
+.signup__toggle-password {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+
+  display: block;
+
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-align: right;
+
+  content: '';
+}
+
+.signup__toggle-password:hover {
+  cursor: pointer;
+}
+
+.signup__toggle-password--state-error {
+  color: hsl(352, 99%, 41%);
+}
+
+.signup__toggle-password--state-default {
+  color: var(--color-links-standart);
+}
+
+.signup__toggle-password--state-default:hover {
+  color: var(--color-links-hover);
+}
+
+.signup__valid-text {
+  margin-bottom: 8px;
+
+  display: flex;
+
+  height: 26px;
+
+  color: var(--neutrals-dark-middle-color);
+  font-weight: 300;
+
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.signup__valid-success-tick {
+  margin-left: 16px;
+
+  width: 24px;
+  height: 24px;
+
+  color: var(--brand-light-blue-color);
+}
+
+.signup__valid-info {
+  margin-bottom: 24px;
+
+  padding-top: 8px;
+}
+
+.signup__confirm {
+  margin-bottom: 24px;
+
+  max-width: 481px;
+
+  color: var(--font-bold-12pkt-color);
+  font-weight: 300;
+
+  font-size: var(--font-bold-12pkt-size);
+  line-height: var(--font-bold-12pkt-line-height);
+  letter-spacing: 0.5px;
+}
+
+.signup__confirm ::ng-deep .checkbox__label {
+
+  color: var(--font-light-16pkt-color);
+  font-weight: var(--font-light-16pkt-weight);
+  font-size: var(--font-light-16pkt-size);
+  line-height: var(--font-light-16pkt-line-height);
+  letter-spacing: var(--font-light-16pkt-letter-spacing);
+}
+
+.signup__terms-of-use {
+  margin-top: 16px;
+
+  display: flex;
+}
+
+.signup__terms-of-use-text {
+  margin-left: -8px;
+}
+
+.signup__terms-of-use-checkbox {
+  margin-top: -3px;
+}
+
+.signup__button {
+  width: 100%;
+  height: var(--height-buttons-primary--middle);
+  border-radius: var(--border-radius-buttons-primary);
+
+  font-weight: var(--font-weight-buttons-primary);
+
+  font-size: var(--font-size-buttons-primary--middle);
+  line-height: var(--line-height-buttons-primary--middle);
+  letter-spacing: var(--letter-spacing-buttons-primary--middle);
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+.signup__button--type-primary {
+  border: none;
+
+  color: var(--color-buttons-primary);
+
+  background-color: var(--background-color-buttons-primary-green);
+}
+
+.signup__button--type-primary:hover {
+  background-color: var(--background-color-buttons-primary-green-hover);
+}
+
+@media only screen and (max-width: 850px) {
+  :host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .signup__form {
+    width: 100%;
+    max-width: 481px;
+  }
+
+  .signup__button--type-primary {
+    margin-bottom: 32px;
+  }
+
+  .signup__content {
+    padding-top: 30px;
+  }
+}

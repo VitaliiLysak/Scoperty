@@ -1,0 +1,23 @@
+<label
+  [attr.class]="{
+    block: _name,
+    element: 'container',
+    mods: {
+      'size': size,
+      'checkboxType': checkboxType,
+      'input': model === true ? 'checked' : ''
+    }
+  } | bem">
+  <ng-content></ng-content>
+  <input
+    [id]="idForInput"
+    type="checkbox"
+    [name]="name"
+    [ngModel]="model"
+    (ngModelChange)="changeModel($event)"
+  >
+  <span
+    [attr.class]="{block: _name, element: 'checkmark'} | bem"
+    *ngIf="checkboxType === 'default'">
+  </span>
+</label>

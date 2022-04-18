@@ -1,0 +1,74 @@
+<app-base-modal [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    Authentifizierung
+  </ng-container>
+
+  <ng-container [ngSwitch]="currentError" app-base-modal-message>
+    <app-generic-error-alert *ngSwitchCase="Error.UnknownError"></app-generic-error-alert>
+
+    <app-alert *ngSwitchCase="Error.WrongCode" type="error">
+      Das sitzt noch nicht ganz.
+      Lass dir noch mal einen Code zusenden!
+    </app-alert>
+
+    <app-alert *ngSwitchCase="Error.SMSLimitExceededCode" type="error">
+      Du hast 15 mal einen falschen Code eingegeben.
+      Bitte beantrage einen neuen sms Code und versuche es erneut.
+    </app-alert>
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <!-- Explanation -->
+    <div [attr.class]="{ block: name, element: 'explanation' } | bem">
+      Wir haben dir gerade einen SMS-Code auf dein Mobiltelefon geschickt.
+    </div>
+
+    <!-- Enter code -->
+    <form [formGroup]="codeForm">
+      <app-form-field label="SMS-Code eingeben">
+        <input
+          id="phone-code"
+          type="text"
+          tabindex="1"
+          app-input
+          appValidateOnBlur [validateFormControl]="code"
+          [formControl]="code"
+          (keyup.enter)="confirmPhoneCode()"
+          #codeInput
+        >
+
+        <ng-template app-form-field-error-message error="required">
+          SMS-Code ist ein Pflichtfeld
+        </ng-template>
+      </app-form-field>
+    </form>
+
+    <!-- Resend code -->
+    <div [attr.class]="{ block: name, element: 'secondary-actions' } | bem">
+      <button
+        app-button
+        buttonStyle="link"
+        color="green"
+        size="medium"
+        [stretch]="true"
+        (click)="resendPhoneCode()"
+      >
+        SMS-Code erneut senden
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="confirmPhoneCode()"
+      >
+        Mobilfunknummer bestätigen
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

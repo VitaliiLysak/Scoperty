@@ -1,0 +1,9 @@
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'wrapper',
+    mods: { 'status': sellingStatus, type: type }
+  } | bem"
+>
+  {{ statusText }}
+</div>

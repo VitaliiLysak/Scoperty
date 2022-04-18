@@ -1,0 +1,36 @@
+<div [attr.class]="{block: _name, element: 'input-container'} | bem">
+  <button
+    app-icon-button
+    size="medium"
+    shape="left-round"
+    color="primary-green"
+    [disabled]="!decrementEnabled"
+    (click)="decrement()"
+  >
+    <mat-icon
+      svgIcon="remove"
+      appSvgSize="24px"
+    ></mat-icon>
+  </button>
+
+  <input
+    [attr.class]="{block: _name, element: 'input'} | bem"
+    type="text"
+    [ngModel]="value"
+    readonly
+  >
+
+  <button
+    app-icon-button
+    size="medium"
+    shape="right-round"
+    color="primary-green"
+    [disabled]="!incrementEnabled"
+    (click)="increment()"
+  >
+    <mat-icon
+      svgIcon="add"
+      appSvgSize="24px"
+    ></mat-icon>
+  </button>
+</div>

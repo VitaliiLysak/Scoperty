@@ -1,0 +1,31 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <!-- Privacy settings -->
+  <div [attr.class]="{ block: _name, element: 'container-item' } | bem">
+    <app-change-privacy [sellingStatus]="dirtyMarker.SellingStatus"
+                        (sellingStatusChange)="onSellingStatusChange($event)"></app-change-privacy>
+  </div>
+
+  <!-- Change owner -->
+  <div [attr.class]="{ block: _name, element: 'container-item' } | bem">
+    <app-change-owner (remove)="removeOwnership()"></app-change-owner>
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'separator', mods: {'h':'50px'}} | bem"></div>
+
+  <!-- Save settings -->
+  <div
+    [attr.class]="{
+      block: _name,
+      element: 'protect-block',
+      mods: {'state': (rights === 'owner_realtor')? 'inactive': 'active'}} | bem"
+  >
+    <button
+      id="myPropertiesSettingsSaveBtn"
+      [attr.class]="{block: _name, element: 'button', mods: {'type':'secondary', 'w': '100per'}} | bem"
+      [disabled]="!isDirtyMarkerUpdated"
+      (click)="saveSettings()"
+    >
+      Speichern
+    </button>
+  </div>
+</div>

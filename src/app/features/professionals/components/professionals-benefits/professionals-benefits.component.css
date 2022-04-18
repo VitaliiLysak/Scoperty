@@ -1,0 +1,146 @@
+:host {
+  display: flex;
+  justify-content: center;
+}
+
+.professionals-benefits__sup-panel-container {
+  margin-top: 104px;
+  margin-bottom: 48px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  width: 100%;
+  max-width: 1920px;
+}
+
+.professionals-benefits__sup-panel-element {
+  display: flex;
+  flex-direction: column;
+}
+
+.professionals-benefits__sup-panel-element--left-side {
+  margin-left: 40px;
+
+  width: 41.9%;
+  max-width: 817px;
+}
+
+.professionals-benefits__sup-panel-element--right-side {
+  margin-left: 128px;
+
+  align-items: flex-start;
+}
+
+.professionals-benefits__image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 817px;
+  height: 493px;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.professionals-benefits__sub-panel-show-now {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding-bottom: 88px;
+}
+
+.professionals-benefits__sub-panel-text {
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+
+  color: var(--font-semibold-20pkt-color);
+}
+
+.professionals-benefits__sub-panel-list {
+  margin-top: 24px;
+  margin-bottom: 48px;
+
+  padding-left: 32px;
+
+  font-size: var(--font-light-20pkt-size);
+  font-weight: var(--font-light-20pkt-weight);
+  letter-spacing: var(--font-light-20pkt-letter-spacing);
+  line-height: var(--font-light-20pkt-line-height);
+
+  color: var(--font-semibold-20pkt-color);
+}
+
+.professionals-benefits__feedback-button {
+  width: var(--width-buttons-primary--middle);
+}
+
+@media only screen and (max-width: 1220px) {
+  .professionals-benefits__sup-panel-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .professionals-benefits__sup-panel-element--left-side {
+    margin: 0 auto 128px;
+
+    width: 100%;
+  }
+
+  .professionals-benefits__sup-panel-element--right-side {
+   margin: auto;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .professionals-benefits__sub-panel-show-now {
+    margin: auto;
+
+    width: 92%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .professionals-benefits__image {
+    height: 194px;
+  }
+
+  .professionals-benefits__sup-panel-element--left-side {
+    margin: 0;
+  }
+
+  .professionals-benefits__sup-panel-element--right-side {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .professionals-benefits__sup-panel-container {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    background-color: var(--neutrals-light-extreme-color);
+  }
+
+  .professionals-benefits__feedback-button {
+    width: 100%;
+  }
+
+  .professionals-benefits__sub-panel-show-now {
+    width: 100%;
+
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+
+  .professionals-benefits__sub-panel-list {
+    margin: 16px auto;
+
+    padding-left: 32px;
+  }
+}

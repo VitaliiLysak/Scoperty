@@ -1,0 +1,290 @@
+<div [attr.class]="{block: _name, element: 'page-wrapper'} | bem">
+  <div [attr.class]="{block: _name, element: 'top-panel-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'top-panel'} | bem">
+      <div [attr.class]="{block: _name, element: 'top-panel-element-wrapper', mods: {'left':'side'}} | bem">
+        <div [attr.class]="{block: _name, element: 'top-panel-element'} | bem">
+          <div [attr.class]="{block: _name, element: 'page-title'} | bem">
+            Für Makler
+          </div>
+          <div [attr.class]="{block: _name, element: 'page-description'} | bem">
+            Mit Scoperty erhältst du exklusiven Zugang zu Immobilienverkäu<wbr>fern.
+          </div>
+          <div [attr.class]="{block: _name, element: 'button-container'} | bem">
+            <button
+              id="professionals-join-link"
+              app-button
+              size="medium"
+              color="primary-green"
+              [stretch]="true"
+              (click)="goAnchor('partnerForm')"
+            >
+              Jetzt Scoperty Partner werden
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'top-panel-element-wrapper', mods: {'right':'side'}} | bem">
+        <div [attr.class]="{block: _name, element: 'people-icon'} | bem">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-professionals-benefits></app-professionals-benefits>
+
+  <ng-container *ngIf="!(isMobileDevice$ | async)">
+    <div [attr.class]="{block: _name, element: 'paragraph-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'paragraph'} | bem">
+        <div [attr.class]="{block: _name, element: 'paragraph-icon'} | bem">
+        </div>
+        <div [attr.class]="{block: _name, element: 'paragraph-title'} | bem">
+          Deine Vorteile mit Scoperty:
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="(isMobileDevice$ | async)">
+    <div [attr.class]="{block: _name, element: 'paragraph'} | bem">
+      <div [attr.class]="{block: _name, element: 'paragraph-title'} | bem">
+        Deine Vorteile mit Scoperty:
+      </div>
+    </div>
+  </ng-container>
+
+  <div [attr.class]="{block: _name, element: 'advantages-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'advantages'} | bem">
+      <div [attr.class]="{block: _name, element: 'advantage-item'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-item-title'} | bem">
+          Exklusiver zugang zu verkäufern
+        </div>
+
+        <div [attr.class]="{block: _name, element: 'advantage-item-list'} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Unsere Leads sind immer exklusiv, wir geben sie nur an jeweils einen Makler weiter
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Potenzielle Kunden erhalten Informationen über dich und wählen dich deshalb bewusst als Partner aus
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Wir vermitteln konkrete Leads von verkaufswilligen Eigentümern, die bereits eine Preisorientierung erhalten haben
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Scoperty erhält erst nach erfolgreichem Abschluss eine Provisionszahlung von dir
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'advantage-item'} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-item-title'} | bem">
+          Vermittlung von finanziell vorgeprüften käufern
+        </div>
+
+        <div [attr.class]="{block: _name, element: 'advantage-item-list'} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Deine Immobilien werden zunächst nur einem exklusiven Käuferkreis zugänglich gemacht – finanziell
+              vorgeprüfte Interessenten mit fortgeschrittener konkreter Kaufabsicht
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Du entscheidest, wie lange die Exklusivität andauern soll – Stille Vermarktung wird so zum Kinderspiel
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Nach der Exklusivitätsphase wird deine Immobilie allen Usern der Website zugänglich gemacht – ein riesiger Kreis von Interessenten
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Scoperty erhält erst nach erfolgreichem Abschluss eine Provisionszahlung von dir
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'advantage-item', mods: {'single-column':'on-medium'}} | bem">
+        <div [attr.class]="{block: _name, element: 'advantage-item-title', mods: {'single-column':'on-medium'}} | bem">
+          Kostenlos inserieren
+        </div>
+
+        <div [attr.class]="{block: _name, element: 'advantage-item-list', mods: {'single-column':'on-medium'}} | bem">
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Du inserierst dein Objekt bei Scoperty kostenlos – nur für Leads fallen Kosten an
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Du profitierst vom Scoperty Effekt – unsere aussagekräftigen Immobilienschätzwerte sind für viele Zielgruppen interessant
+            </p>
+          </div>
+          <div [attr.class]="{block: _name, element: 'advantage-item-paragraph'} | bem">
+            <p [attr.class]="{block: _name, element: 'advantage-item-text'} | bem">
+              Du entscheidest, ob du Inserate ohne oder mit Adresse online stellen möchten
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="partnerForm"
+    [attr.class]="{block: _name, element: 'form-block-wrapper'} | bem"
+  >
+    <div [attr.class]="{block: _name, element: 'form-block-container'} | bem">
+      <div [attr.class]="{block: _name, element: 'form-block', mods: {'feedback': showFeedback}} | bem">
+
+        <ng-container *ngIf="showFeedback; then feedback else form"></ng-container>
+
+        <ng-template #feedback>
+          <div [attr.class]="{block: _name, element: 'feedback'} | bem">
+            <div [attr.class]="{block: _name, element: 'feedback-container'} | bem">
+              <div [attr.class]="{block: _name, element: 'feedback-icon-container'} | bem">
+                <div [attr.class]="{block: _name, element: 'feedback-icon'} | bem">
+                  <mat-icon
+                    [attr.class]="{block: _name, element: 'feedback-icon'} | bem"
+                    svgIcon="tick"
+                  ></mat-icon>
+                </div>
+              </div>
+
+              <div [attr.class]="{block: _name, element: 'feedback-text-container'} | bem">
+                <div [attr.class]="{block: _name, element: 'feedback-header'} | bem">
+                  Wir haben deine Anfrage erhalten!
+                </div>
+                <div [attr.class]="{block: _name, element: 'feedback-sub-header'} | bem">
+                  In Kürze werden wir uns bei dir telefonisch melden.
+                </div>
+              </div>
+
+              <ng-container *ngIf="!(isMobileDevice$ | async)">
+                <div [attr.class]="{block: _name, element: 'feedback-text'} | bem">
+                  Schalte heute noch deine erste Anzeige
+                </div>
+              </ng-container>
+
+              <ng-container *ngIf="(isMobileDevice$ | async)">
+                <div [attr.class]="{block: _name, element: 'feedback-text'} | bem">
+                  Schalte heute noch deine <wbr> erste Anzeige
+                </div>
+              </ng-container>
+
+              <div
+                [attr.class]="{block: _name, element: 'feedback-button'} | bem"
+              >
+                <button
+                  app-button
+                  size="medium"
+                  color="secondary-dark"
+                  [stretch]="true"
+                  (click)="handleFeedbackButton()"
+                >
+                  Jetzt Anzeige schalten
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #form>
+          <div [attr.class]="{block: _name, element: 'form-wrapper'} | bem">
+            <div [attr.class]="{block: _name, element: 'form-title'} | bem">
+              Jetzt Scoperty Partner werden!
+            </div>
+
+            <app-user-data-full-form
+              locationPrefix="professionals"
+              (userData)="handleUserData($event)"
+              [buttonText]="'Jetzt Scoperty-Partner werden'"
+            >
+            </app-user-data-full-form>
+
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="!(isMobileDevice$ | async)">
+    <div [attr.class]="{block: _name, element: 'paragraph-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'paragraph', mods: {'mx':'0'}} | bem">
+        <div [attr.class]="{block: _name, element: 'paragraph-title'} | bem">
+          Es sind noch Fragen offen?
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'invocation-container'} | bem">
+        <div [attr.class]="{block: _name, element: 'invocation-wrapper'} | bem">
+          <div [attr.class]="{block: _name, element: 'invocation'} | bem">
+            So kannst du uns erreichen
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="(isMobileDevice$ | async)">
+    <div [attr.class]="{block: _name, element: 'paragraph', mods: {'position':'bottom'}} | bem">
+      <div [attr.class]="{block: _name, element: 'paragraph-title'} | bem">
+        Es sind noch Fragen offen?
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'invocation-wrapper'} | bem">
+      <div [attr.class]="{block: _name, element: 'invocation'} | bem">
+        So kannst du uns erreichen
+      </div>
+    </div>
+  </ng-container>
+
+  <div [attr.class]="{block: _name, element: 'contacts-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'contacts-item-wrapper', mods: {'type':'email'}} | bem">
+      <div [attr.class]="{block: _name, element: 'contacts-item'} | bem">
+        <div [attr.class]="{block: _name, element: 'contacts-name-wrapper'} | bem">
+          <div [attr.class]="{block: _name, element: 'contacts-icon', mods: {'type':'email'}} | bem">
+          </div>
+          <div [attr.class]="{block: _name, element: 'contacts-name'} | bem">
+            E-mail
+          </div>
+        </div>
+        <a
+          id="professionals-email-link"
+          href="mailto:makler@scoperty.de"
+          [attr.class]="{block: _name, element: 'contacts-info', mods: {'type':'email'}} | bem"
+        >
+          makler@scoperty.de
+        </a>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'contacts-item-wrapper', mods: {'type':'phone'}} | bem">
+      <div [attr.class]="{block: _name, element: 'contacts-item'} | bem">
+        <div [attr.class]="{block: _name, element: 'contacts-name-wrapper'} | bem">
+          <div [attr.class]="{block: _name, element: 'contacts-icon', mods: {'type':'phone'}} | bem">
+          </div>
+          <div [attr.class]="{block: _name, element: 'contacts-name'} | bem">
+            Telefon
+          </div>
+        </div>
+        <a
+          id="professionals-phone-link"
+          [attr.class]="{block: _name, element: 'contacts-info'} | bem"
+          [href]="phoneNumber"
+        >
+          089&nbsp;124&nbsp;794&nbsp;100
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

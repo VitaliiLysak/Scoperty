@@ -1,0 +1,22 @@
+<!-- Header -->
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'header',
+    mods: {
+      'state': opened ? 'opened' : 'closed',
+      'height': spoilerHeight,
+      'type': type
+    }
+  } | bem"
+  (click)="toggleSpoiler()"
+>
+  <div [attr.class]="{block: _name, element: 'text'} | bem">
+    {{heading}}
+  </div>
+</div>
+
+<!-- Content -->
+<div [attr.class]="{block: _name, element: 'body', mods: {'state': opened ? 'opened' : 'closed', 'type': type}} | bem">
+  <ng-content></ng-content>
+</div>

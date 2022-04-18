@@ -1,0 +1,92 @@
+:host {
+  display: flex;
+
+  width: 100%;
+  max-width: 1224px;
+  padding: 160px 0 160px 104px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.start-page-find-broker__container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 1072px;
+  height: 540px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.start-page-find-broker__content {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 452px;
+  padding: 80px 40px 80px 56px;
+  border-radius: 2px;
+
+  background-color: var(--background-initial-transparent-09);
+}
+
+.start-page-find-broker__title {
+  margin-bottom: 56px;
+
+  font-family: 'PT Serif';
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+
+  color: var(--brand-dark-green-color);
+}
+
+@media (max-width: 1200px) {
+  .start-page-find-broker__container {
+    width: 100%;
+  }
+
+  :host {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 790px) {
+  :host {
+    padding: 0;
+  }
+
+  .start-page-find-broker__container {
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 0 16px 64px;
+    height: 380px;
+  }
+
+  .start-page-find-broker__content {
+    margin-right: 0;
+
+    width: 100%;
+    max-width: none;
+    padding: 24px 16px;
+  }
+}
+
+@media (max-width: 555px) {
+  .start-page-find-broker__container {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .start-page-find-broker__title {
+    margin-bottom: 24px;
+
+    max-width: 256px;
+
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+}

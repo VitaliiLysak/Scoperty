@@ -1,0 +1,30 @@
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'wrapper',
+    mods: { 'search-alert' : isSearchAlertOnMap ? 'on-map' : 'default' }
+  } | bem"
+>
+  <button
+    id="map-search-alert-open-button"
+    [ngbPopover]="searchAlertPopover"
+    placement="right"
+    container="body"
+    triggers="manual"
+    [autoClose]="false"
+    popoverClass="search-alert-popup"
+    #popover="ngbPopover"
+    app-button
+    color="secondary-green"
+    size="medium"
+    [stretch]="true"
+    (click)="openSearchAlertModal()"
+  >
+    {{contentText}}
+  </button>
+  <ng-template #searchAlertPopover>
+    <app-search-alert-popup
+      (close)="popover.close()"
+    ></app-search-alert-popup>
+  </ng-template>
+</div>

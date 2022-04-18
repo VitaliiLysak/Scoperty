@@ -1,0 +1,36 @@
+<!-- Title -->
+<div [attr.class]="{block: _name, element: 'paragraph-wrapper'} | bem">
+  <div [attr.class]="{block: _name, element: 'paragraph'} | bem">
+    <div [attr.class]="{block: _name, element: 'paragraph-icon'} | bem"></div>
+    <div [attr.class]="{block: _name, element: 'paragraph-title'} | bem">
+      Management Team
+    </div>
+  </div>
+</div>
+
+<!-- Founder list -->
+<div [attr.class]="{ block: _name, element: 'founders' } | bem">
+  <app-founder
+    *ngFor="let founder of founders"
+    [attr.class]="{ block: _name, element: 'founder' } | bem"
+    [founder]="founder"
+  ></app-founder>
+</div>
+
+<!-- Design images -->
+<app-worm-image
+  [attr.class]="{block: _name, element: 'worm-image', mods: {'worm':'1'}} | bem"
+  width="328px"
+  height="392px"
+  color="green-blue"
+  rotate="172deg"
+  [opacity]="0.86"
+></app-worm-image>
+<app-worm-image
+  [attr.class]="{block: _name, element: 'worm-image', mods: {'worm':'2'}} | bem"
+  width="250px"
+  height="298px"
+  color="light-blue"
+  rotate="-127deg"
+  [opacity]="0.39"
+></app-worm-image>

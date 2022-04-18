@@ -1,0 +1,56 @@
+<div
+  [attr.class]="{
+  block: name,
+  element: 'wrapper',
+  mods: {
+    'margin-bottom': searchClicked? 'none' : 'default',
+    'mobile-size': (isSmallMobileDevice$ | async) && (page !== 'onboarding-process'),
+    'mode-onboarding-process': page === 'onboarding-process',
+    'mode': mode
+  }
+} | bem"
+>
+  <div [attr.class]="{block: name, element: 'icon', mods: {'display': searchClicked? 'none' : 'default'}} | bem">
+  </div>
+  <input
+    #search
+    [id]="inputId"
+    [attr.class]="{
+      block: name,
+      element: 'input',
+      mods: { 'display-big': bigField && bigSearch | async, 'border-on-mobile': 'none'}
+    } | bem"
+    [appAutofocus]="focused"
+    [formControl]="searchControl"
+    [(ngModel)]="address"
+    (keypress)="onKeypressInput($event)"
+    (keyup.enter)="searchHandler(false)"
+    (blur)="onBlurHandler($event)"
+    (click)="searchHandler(true)"
+    [placeholder]="placeholderValue"
+    type="text"
+    autocorrect="off"
+    autocapitalize="off"
+    spellcheck="false"
+    aria-describedby="basic-addon2"
+  >
+</div>
+
+<div
+  *ngIf="mode === 'disagreement' && searchControl.invalid && (searchControl.dirty || searchControl.touched)"
+  [attr.class]="{block: name, element: 'message-reg'} | bem"
+>
+  <div *ngIf="searchControl.errors.required">
+    Adresse ist ein Pflichtfeld
+  </div>
+  <div *ngIf="searchControl.errors.property">
+    Bitte wähle deine Adresse aus der Liste oder starte den Widerspruchsprozess neu über die Detailseite deiner Immobilie.
+  </div>
+</div>
+
+<div
+  *ngIf="bigField && bigSearch | async"
+  [attr.class]="{block: name, element: 'close'} | bem"
+  (click)="searchHandler(false)"
+>
+</div>

@@ -1,0 +1,102 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  --inputs-width: 832px;
+}
+
+.start-page-buy-property__form {
+  margin-bottom: 48px;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.start-page-buy-property__row {
+  display: flex;
+
+  width: var(--inputs-width);
+}
+
+.start-page-buy-property__item {
+  margin-right: 24px;
+
+  width: 100%;
+}
+
+.start-page-buy-property__title {
+  margin-bottom: 24px;
+
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  line-height: 28px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-buy-property__button-container {
+  width: calc(100% - var(--inputs-width));
+}
+
+@media (max-width: 990px) {
+  .start-page-buy-property__form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .start-page-buy-property__row {
+    margin-bottom: 32px;
+
+    width: 100%;
+  }
+
+  .start-page-buy-property__item:last-child {
+    margin-right: 0;
+  }
+
+  .start-page-buy-property__button-container {
+    width: unset;
+  }
+}
+
+@media (max-width: 686px) {
+  .start-page-buy-property__row {
+    margin-bottom: 16px;
+
+    flex-direction: column;
+
+    width: 100%;
+  }
+
+  .start-page-buy-property__item {
+    margin: 0 0 16px;
+  }
+
+  .start-page-buy-property__button-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .start-page-buy-property__title {
+    display: none;
+  }
+
+  .start-page-buy-property__row {
+    align-items: center;
+  }
+
+  .start-page-buy-property__form {
+    margin-bottom: 32px;
+
+    align-items: center;
+  }
+}

@@ -1,0 +1,30 @@
+.start-page-tabs-description__container {
+  width: 100%;
+
+  font-weight: 600;
+  letter-spacing: 0.7px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-tabs-description__row {
+  display: flex;
+}
+
+.start-page-tabs-description__row p {
+  max-width: 558px;
+  width: 100%;
+}
+
+.start-page-tabs-description__icon {
+  margin-right: 16px;
+
+  width: 16px;
+  height: 30px;
+}
+
+@media (max-width: 686px) {
+  .start-page-tabs-description__icon {
+    margin-right: 8px;
+  }
+}

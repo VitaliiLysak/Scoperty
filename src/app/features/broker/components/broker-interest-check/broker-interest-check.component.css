@@ -1,0 +1,19 @@
+:host {
+  display: block;
+
+  width: 100%;
+  min-height: 990px;
+}
+
+.broker-interest-check__frame {
+  width: 100%;
+}
+
+/* CSS specific to iOS devices */
+@supports (-webkit-overflow-scrolling: touch) {
+  /* for iframe */
+  .broker-interest-check__frame {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}

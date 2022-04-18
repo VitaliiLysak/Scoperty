@@ -1,0 +1,13 @@
+<div [attr.class]="{ block: name, element: 'feedback', mods: { 'type': type } } | bem">
+  <div [attr.class]="{ block: name, element: 'feedback-icon' } | bem">
+    <mat-icon [svgIcon]="svgIcon" appSvgSize="76px"></mat-icon>
+  </div>
+  <div [attr.class]="{ block: name, element: 'feedback-text-container' } | bem">
+    <div [attr.class]="{ block: name, element: 'feedback-text', mods: { 'mode': 'large' } } | bem">
+      {{ heading }}
+    </div>
+    <div [attr.class]="{ block: name, element: 'feedback-text' } | bem">
+      {{ message }}
+    </div>
+  </div>
+</div>

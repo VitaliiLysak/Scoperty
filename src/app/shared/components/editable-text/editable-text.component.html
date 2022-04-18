@@ -1,0 +1,63 @@
+<div [attr.class]="{
+  block: _name,
+  element: 'list-container',
+  mods: { 'state' : wasTouchedAndHasErrors ? 'error' : 'default' }
+} | bem">
+  <!-- label -->
+  <label *ngIf="hasLabel && editing"
+         [attr.class]="{ block: _name, element: 'label' } | bem"
+         [attr.for]="identifier">
+    {{ label }}
+  </label>
+
+  <div [attr.class]="{ block: _name, element: 'name-wrapper' } | bem">
+    <ng-container *ngIf="editing; else nonEditableText">
+      <!-- Editable text -->
+      <ng-container *ngIf="editableTextInputMask; then maskInput else defaultInput"></ng-container>
+
+      <ng-template #maskInput>
+        <input
+          type="text"
+          [attr.id]="identifier"
+          [attr.class]="{ block: _name, element: 'input' } | bem"
+          [formControl]="temporaryValueControl"
+          [textMask]="{ mask: editableTextInputMask }"
+          (keypress)="onKeyPress($event)"
+          #editableText>
+      </ng-template>
+
+      <ng-template #defaultInput>
+        <input
+          type="text"
+          [attr.id]="identifier"
+          [attr.class]="{ block: _name, element: 'input' } | bem"
+          [formControl]="temporaryValueControl"
+          (keypress)="onKeyPress($event)"
+          #editableText>
+      </ng-template>
+
+      <!-- Save button -->
+      <button [attr.class]="{ block: _name, element: 'edit-btn' } | bem"
+              (click)="onSave()">
+        Speichern
+      </button>
+
+      <!-- Error message -->
+      <div *ngIf="wasTouchedAndHasErrors"
+           [attr.class]="{ block: _name, element: 'error-message' } | bem">
+        {{ firstErrorMessage }}
+      </div>
+    </ng-container>
+
+    <ng-template #nonEditableText>
+      <!-- Non-editable text -->
+      <div [attr.class]="{ block: _name, element: 'no-edit-text' } | bem">
+        {{ nonEditableTextTransform(value) }}
+      </div>
+
+      <!-- Edit icon -->
+      <div [attr.class]="{ block: _name, element: 'edit' } | bem"
+           (click)="activateEditingMode()"></div>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div *ngFor="let description of descriptionTexts" [attr.class]="{block: _name, element: 'row'} | bem">
+    <mat-icon
+      [attr.class]="{block: _name, element: 'icon'} | bem"
+      svgIcon="logo_icon"
+    ></mat-icon>
+    <p>
+     {{description}}
+    </p>
+  </div>
+</div>

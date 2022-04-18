@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="calendar-container">
+    <label class="input-label">
+      {{ label }}
+    </label>
+    <input
+      type="text"
+      class="input-field"
+      placeholder="TT.MM.JJJJ"
+      readonly
+      [(ngModel)]="result"
+      [ngClass]="{ 'ng-not-empty': result, 'valid-error': validError }"
+      (input)="onInput($event)"
+      (click)="onShowCalendar($event)"
+      (focus)="onShowCalendar($event)"
+    />
+    <div
+      class="date-popup-container"
+      [ngClass]="{
+        'isActive': showCalendar,
+        'isMobile': (isMobileDevice$ | async)
+      }">
+      <div class="month-container">
+        <button
+          app-button
+          buttonStyle="link"
+          color="green"
+          (click)="updateMonth($event, 'dec')"
+        >
+          <mat-icon svgIcon="chevron_left"></mat-icon>
+        </button>
+        <div class="month-year">
+          <span class="month">{{ months[month] }}</span>
+          <span class="year">{{ year }}</span>
+        </div>
+        <button
+          app-button
+          buttonStyle="link"
+          color="green"
+          (click)="updateMonth($event, 'inc')"
+        >
+          <mat-icon svgIcon="chevron_right"></mat-icon>
+        </button>
+      </div>
+      <div class="week-container">
+        <span class="week">Mo</span>
+        <span class="week">Di</span>
+        <span class="week">Mi</span>
+        <span class="week">Do</span>
+        <span class="week">Fr</span>
+        <span class="week">Sa</span>
+        <span class="week">So</span>
+      </div>
+      <div class="day-container">
+        <div
+          class="day"
+          *ngFor="let day of days"
+          [ngClass]="{'isSelected': day === date.getDate(), 'isDisabled': isDisableDay(day) }"
+          (click)="selectDay(day)">
+          <span>
+            {{ day }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-select-input
+    class="time-select"
+    [items]="callBackTime"
+    [active]="currentTime"
+    [disabled]="!callBackTime.length"
+    placeholder="09:00"
+    name="time"
+    (select)="onTimeSelect($event)"
+  ></app-select-input>
+
+</div>

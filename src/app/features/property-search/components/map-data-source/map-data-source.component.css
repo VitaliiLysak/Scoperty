@@ -1,0 +1,46 @@
+.map-data-source__data-source {
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+
+  padding: 0 6px;
+
+  color: var(--neutrals-dark-middle-color);
+
+  font-size: 10px;
+  line-height: 14px;
+  white-space: nowrap;
+  text-align: left;
+
+  background-color: var(--background-initial-transparent-07);
+}
+
+.map-data-source__data-source-link,
+.map-data-source__data-source-link:link,
+.map-data-source__data-source-link:hover,
+.map-data-source__data-source-link:visited {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  white-space: inherit;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 736px) {
+  .map-data-source__data-source {
+    width: auto;
+    padding: 0 3px;
+
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 450px) {
+  .map-data-source__data-source {
+    left: 0;
+  }
+}

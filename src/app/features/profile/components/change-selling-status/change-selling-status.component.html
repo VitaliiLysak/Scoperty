@@ -1,0 +1,67 @@
+<!-- Open for offers -->
+<div
+  *ngIf="isOwner"
+  class="change-selling-status__section"
+  [ngClass]="{ 'change-selling-status__section--disabled': isDisabled }"
+>
+  <app-settings-item
+    identifier="open-for-offers"
+    label="Offen für Gebote"
+    message="Aktiviere diese Funktion, wenn du wissen willst was deine Immobilie auf dem Markt wirklich wert ist. Und erhalte echte Gebote von potenziellen Käufern."
+    [value]="openForOffers"
+    (valueChange)="onOpenForOffersChange($event)"
+  >
+  </app-settings-item>
+</div>
+
+<!-- Put up for sale -->
+<div
+  class="change-selling-status__section"
+  [ngClass]="{ 'change-selling-status__section--disabled': isDisabled }"
+>
+  <app-settings-item
+    identifier="put-up-for-sale"
+    label="Zum Verkauf stellen"
+    message="Aktiviere diese Funktion wenn du deiner Immobilie einen Verkaufspreis geben willst und möchtest, dass sie in der Anzeigenlisten erscheint."
+    [value]="putUpForSale"
+    (valueChange)="onPutUpForSaleChange($event)"
+  >
+    <!-- Selling price -->
+    <div
+      *ngIf="putUpForSale"
+      class="change-selling-status__selling-price"
+    >
+      <div class="change-selling-status__title">
+        <ng-container *ngIf="sellingPriceEditing; else notEditingTitle">
+          Bestimme deinen Kaufpreis
+        </ng-container>
+        <ng-template #notEditingTitle>
+          Dein Verkaufspreis
+        </ng-template>
+      </div>
+      <div class="change-selling-status__editable-component">
+        <app-editable-text
+          identifier="selling-price"
+          label="Kaufpreis"
+          [value]="sellingPrice"
+          [nonEditableTextTransform]="sellingPriceTransform()"
+          [editableTextValidators]="sellingPriceValidators"
+          [editableTextValidatorErrorMessages]="sellingPriceErrorMessages"
+          [editableTextInputMask]="sellingPriceInputMask"
+          [(editing)]="sellingPriceEditing"
+          (valueChange)="onSellingPriceChange($event)"
+          (save)="onSellingPriceSave($event)"
+        >
+        </app-editable-text>
+      </div>
+    </div>
+  </app-settings-item>
+</div>
+
+<div
+  *ngIf="isDisabled"
+  class="change-selling-status__message-block"
+>
+  Deine Immobilie steht zum Verkauf. Dein Makler hat eine Anzeige geschaltet.
+  Um den Status deiner Immobilie zu ändern, muss dein Makler die Anzeige wieder ausschalten.
+</div>

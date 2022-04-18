@@ -1,0 +1,68 @@
+.radio-container {
+  display: flex;
+  flex-direction: column;
+
+  width: 176px;
+}
+
+.radio-container p {
+  margin-bottom: 0;
+}
+
+.radio-label {
+  height: 43px;
+  width: 84px;
+  border-radius: 2px;
+  padding: 12px 0;
+
+  color: var(--neutrals-dark-light-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 16px;
+  text-align: center;
+
+  cursor: pointer;
+
+  background-color: var(--neutrals-light-middle-color);
+}
+
+.radio-label:hover {
+  border: 2px solid var(--secondary-cta-default-color);
+}
+
+.buttons-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttons-wrapper input {
+  display: none;
+}
+
+input:checked ~ .radio-label {
+  color: var(--neutrals-white-color);
+
+  background-color: var(--secondary-cta-default-color);
+}
+
+@media (max-width: 450px) {
+  .radio-container {
+    width: 100%;
+  }
+
+  .radio-label {
+    width: 100%;
+  }
+
+  .input-label-wrapper-left {
+    margin-right: 6px;
+  }
+
+  .input-label-wrapper {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}

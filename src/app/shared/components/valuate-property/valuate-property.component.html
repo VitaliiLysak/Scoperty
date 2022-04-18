@@ -1,0 +1,97 @@
+<div
+  [attr.class]="{
+    block: name,
+    element: 'container',
+    mods: {
+      'is-user-logged-in': userLoggedIn,
+      'is-inline-editable': inlineEditable
+    }
+  } | bem"
+>
+  <!-- Heading -->
+  <div
+    *ngIf="hasHeading"
+    [attr.class]="{ block: name, element: 'heading' } | bem"
+  >
+    {{ heading }}
+  </div>
+
+  <!-- Body -->
+  <div [attr.class]="{ block: name, element: 'body' } | bem">
+    <div [attr.class]="{ block: name, element: 'content' } | bem">
+      <!-- Gauge -->
+      <div [attr.class]="{ block: name, element: 'gauge-container' } | bem">
+        <app-valuate-property-gauge [property]="property"></app-valuate-property-gauge>
+      </div>
+
+      <!-- Form -->
+      <div
+        *ngIf="inlineEditable"
+        [attr.class]="{ block: name, element: 'form-container' } | bem"
+      >
+        <div [attr.class]="{ block: name, element: 'form-title' } | bem">
+          Der Schätzwert bezieht sich  auf folgende Annahmen
+        </div>
+
+        <div
+          [attr.class]="{ block: name, element: 'form' } | bem"
+          [formGroup]="propertyValuationForm"
+        >
+          <div [attr.class]="{ block: name, element: 'form-item' } | bem">
+            <app-form-field label="Wohnfläche" [showValidation]="false">
+              <input
+                app-input
+                formControlName="livingArea"
+                placeholder="m2"
+                [textMask]="{ mask: livingAreaInputMask }"
+              >
+            </app-form-field>
+          </div>
+
+          <div [attr.class]="{ block: name, element: 'form-item' } | bem">
+            <app-form-field label="Baujahr">
+              <input
+                app-input
+                formControlName="constructionYear"
+                [textMask]="{ mask: constructionYearInputMask }"
+              >
+
+              <ng-template app-form-field-error-message error="required">
+                Bitte eine Baujahr eingeben
+              </ng-template>
+            </app-form-field>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div
+          *ngIf="userLoggedIn"
+          [attr.class]="{ block: name, element: 'actions' } | bem"
+        >
+          <ng-container *ngTemplateOutlet="action"></ng-container>
+        </div>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div
+      *ngIf="!userLoggedIn"
+      [attr.class]="{ block: name, element: 'actions' } | bem"
+    >
+      <ng-container *ngTemplateOutlet="action"></ng-container>
+    </div>
+  </div>
+</div>
+
+<!-- Action -->
+<ng-template #action>
+  <button
+    [disabled]="propertyValuationForm.invalid"
+    app-button
+    color="primary-green"
+    [stretch]="shouldStretchButton"
+    (click)="clickButton()"
+  >
+    {{ buttonLabel }}
+  </button>
+</ng-template>

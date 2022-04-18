@@ -1,0 +1,119 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+
+  width: 100%;
+  height: 100%;
+
+  color: var(--neutrals-dark-middle-color);
+  font-weight: 300;
+  font-size: 16px;
+
+  font-family: 'Nunito Sans';
+  line-height: 24px;
+  letter-spacing: 0.5px;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overview-property__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 1224px;
+  padding: 64px 0 0;
+
+  background-color: var(--background-initial);
+}
+
+.overview-property__section {
+  margin-bottom: 64px;
+
+  width: 808px;
+}
+
+.overview-property__section--type-mortgage {
+  display: flex;
+  justify-content: center;
+}
+
+.overview-property__mortgage-wrapper {
+  position: relative;
+  margin-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 36px 80px 16px;
+  border-radius: 32px 0 32px 0;
+
+  background-color: var(--neutrals-middle-light-color);
+}
+
+.overview-property__location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 1224px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.overview-property__location-heading {
+  margin-bottom: 24px;
+
+  display: flex;
+
+  width: 808px;
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+
+@media (max-width: 1224px) {
+  .overview-property__container {
+    width: 100%;
+
+    padding: 32px 16px 0;
+  }
+
+  .overview-property__location-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 808px) {
+  .overview-property__section {
+    margin-bottom: 32px;
+
+    width: 100%;
+  }
+
+  .overview-property__location-heading {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .overview-property__mortgage-wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 570px) {
+  .overview-property__mortgage-wrapper {
+    padding: 24px 16px 16px;
+  }
+}

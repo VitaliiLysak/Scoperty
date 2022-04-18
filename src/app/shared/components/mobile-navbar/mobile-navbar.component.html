@@ -1,0 +1,10 @@
+<div [attr.class]="{block: _name, element: 'navbar'} | bem">
+  <button
+    [attr.class]="{block: _name, element: 'navbar-button'} | bem"
+    (click)="onLogoClick()"
+  >
+    <app-logo
+      [attr.class]="{block: _name, element: 'navbar-img'} | bem"
+    ></app-logo>
+  </button>
+</div>

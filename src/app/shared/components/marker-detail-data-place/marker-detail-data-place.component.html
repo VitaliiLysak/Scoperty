@@ -1,0 +1,62 @@
+<div [attr.class]="{block: _name, element: 'row'} | bem">
+  <div [attr.class]="{block: _name, element: 'controls', mods: {'color' : 'red', 'display': regPage? 'none' : 'default'}} | bem">
+    <div [attr.class]="{block: _name, element: 'controls-wrapper'} | bem">
+      <div
+        [attr.class]="{block: _name, element: 'button', mods: {'activated': activeButton.shop}} | bem"
+        (click)="_toggleButton('shop')"
+        (mouseover)="_toggleHover('shop')"
+        (mouseout)="_toggleHover('shop')"
+      >
+        <img [attr.class]="{block: _name, element: 'icon'} | bem" [attr.src]="cartIconUrl"/>
+        <div [attr.class]="{block: _name, element: 'button-text'} | bem">
+          Einkaufsmöglichkeiten
+        </div>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'button', mods: {'activated': activeButton.food}} | bem"
+        (click)="_toggleButton('food')"
+        (mouseover)="_toggleHover('food')"
+        (mouseout)="_toggleHover('food')"
+      >
+        <img [attr.class]="{block: _name, element: 'icon'} | bem" [attr.src]="croissantIconUrl"/>
+        <div [attr.class]="{block: _name, element: 'button-text'} | bem">
+          Bäckereien
+        </div>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'button', mods: {'activated': activeButton.play}} | bem"
+        (click)="_toggleButton('play')"
+        (mouseover)="_toggleHover('play')"
+        (mouseout)="_toggleHover('play')"
+      >
+        <img [attr.class]="{block: _name, element: 'icon'} | bem" [attr.src]="swingIconUrl"/>
+        <div [attr.class]="{block: _name, element: 'button-text'} | bem">
+          Kindergärten
+        </div>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'button', mods: {'activated': activeButton.library}} | bem"
+        (click)="_toggleButton('library')"
+        (mouseover)="_toggleHover('library')"
+        (mouseout)="_toggleHover('library')"
+      >
+        <img [attr.class]="{block: _name, element: 'icon'} | bem" [attr.src]="bookIconUrl"/>
+        <div [attr.class]="{block: _name, element: 'button-text'} | bem">
+          Schulen
+        </div>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'button', mods: {'activated': activeButton.hospital}} | bem"
+        (click)="_toggleButton('hospital')"
+        (mouseover)="_toggleHover('hospital')"
+        (mouseout)="_toggleHover('hospital')"
+      >
+        <img [attr.class]="{block: _name, element: 'icon'} | bem" [attr.src]="medecineIconUrl"/>
+        <div [attr.class]="{block: _name, element: 'button-text'} | bem">
+          Ärtze
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'map', mods: {'height': regPage? '180px':'default'}} | bem"></div>
+</div>

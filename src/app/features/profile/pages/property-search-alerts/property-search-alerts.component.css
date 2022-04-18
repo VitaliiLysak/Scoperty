@@ -1,0 +1,123 @@
+:host {
+
+  width: 100%;
+
+  font-family: 'Nunito Sans', sans-serif;
+
+  cursor: default;
+}
+
+.property-search-alerts__container {
+  display: flex;
+  justify-content: center;
+
+  padding-top: 60px;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.property-search-alerts__loader  {
+  margin-top: 100%;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid var(--neutrals-light-extreme-color);
+
+  border-color: var(--background-genoa) transparent var(--background-genoa) transparent;
+
+  animation: loader 1.4s linear infinite;
+}
+
+.property-search-alerts__templates-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 945px;
+
+  background-color: hsl(60, 7%, 97%); /* We don't the same color in the style-guide */
+}
+
+.property-search-alerts__add-template {
+
+  margin-bottom: 32px;
+  align-self: flex-start;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.property-search-alerts__plus-icon {
+  display: inline-block;
+
+  color: var(--secondary-cta-default-color);
+}
+
+.property-search-alerts__search-alerts-item {
+  margin-bottom: 32px;
+}
+
+@media (max-width: 1200px) {
+  .property-search-alerts__add-template {
+    margin: 0 auto 32px;
+
+    width: 100%;
+    max-width: 945px;
+  }
+
+  .property-search-alerts__templates-container {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-search-alerts__loader  {
+    /* loader position is not centered after remove entire-profile padding-bottom */
+    margin: 20% auto;
+  }
+
+  .property-search-alerts__templates-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-width: 320px;
+  }
+}
+
+@media (max-width: 576px) {
+  .property-search-alerts__templates-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    min-width: 320px;
+  }
+
+  .property-search-alerts__container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .property-search-alerts__add-template {
+    margin: 30px auto 10px;
+
+    width: 100%;
+  }
+
+  .property-search-alerts__templates-container {
+    padding: 0 17px;
+  }
+}

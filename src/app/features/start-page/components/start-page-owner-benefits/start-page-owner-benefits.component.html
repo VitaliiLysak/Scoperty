@@ -1,0 +1,28 @@
+<div [attr.class]="{block: _name, element: 'title'} | bem">
+  Die Scoperty Vorteile
+</div>
+<div *ngIf="isMediumDevice$ | async" [attr.class]="{block: _name, element: 'subtitle'} | bem">
+  FÜR EIGENTÜMER
+</div>
+<div [attr.class]="{block: _name, element: 'row'} | bem">
+  <app-start-page-owner-benefits-item
+    [attr.class]="{block: _name, element: 'item'} | bem"
+    ownerText="Finde deinen besten Verkaufspreis durch professionelle Bewertung und echtes Marktinteresse"
+    buyerText="Scoperty bietet dir einen top Marktüberblick mit aktuellen Schätzwerten"
+    [icon]="[ 'statistics_with_arrow', 'statistics' ]"
+    [isFirstColumn]="true"
+  ></app-start-page-owner-benefits-item>
+
+  <app-start-page-owner-benefits-item
+    [attr.class]="{block: _name, element: 'item'} | bem"
+    ownerText="Erhalte interessante unverbindliche Angebote auf deine Immobilie"
+    buyerText="Biete auf Immobilien bevor sie auf den Markt kommen"
+    [icon]="[ 'megaphone_with_arrow', 'megaphone' ]"
+  ></app-start-page-owner-benefits-item>
+
+  <app-start-page-owner-benefits-item
+    ownerText="Erleichtere dir den Verkauf durch vorqualifizierte Käufer und geprüfte Makler"
+    buyerText="Warte nicht bis ein Objekt zum Verkauf steht und sichere dir einen Vorsprung"
+    [icon]="[ 'realtor_with_arrow', 'realtor' ]"
+  ></app-start-page-owner-benefits-item>
+</div>

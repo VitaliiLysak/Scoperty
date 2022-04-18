@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>B_mobile_Icon_Profile</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="B_mobile_Icon_Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(12.000000, 11.000000)" stroke="#23C1CF" stroke-width="1.5">
+            <path d="M12.2816842,4.22943158 C12.2816842,6.56450526 10.3884632,8.45848421 8.05263158,8.45848421 C6.79376842,8.45848421 5.66261053,7.90787368 4.88804211,7.03477895 C4.22564211,6.28825263 3.8232,5.30564211 3.8232,4.22943158 C3.8232,1.8936 5.7168,0 8.05225263,0 C10.3884632,-2.692583e-15 12.2816842,1.8936 12.2816842,4.22943158 Z" id="Shape"></path>
+            <path d="M15.2791579,14.3272421 C15.2499789,14.2681263 15.2200421,14.2090105 15.1897263,14.1506526 C13.8433263,11.5836632 11.1528,9.83141053 8.05263158,9.83141053 C3.60568421,9.83141053 0,13.4370947 0,17.8840421 L16.1052632,17.8840421 C16.1052632,17.1128842 15.9968842,16.3659789 15.7945263,15.66" id="Shape" stroke-linecap="round" stroke-linejoin="round"></path>
+        </g>
+    </g>
+</svg>

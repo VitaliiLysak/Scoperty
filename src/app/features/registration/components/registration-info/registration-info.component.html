@@ -1,0 +1,119 @@
+<div [attr.class]="{ block: _name, element: 'info' } | bem">
+  <div
+    *ngIf="isDeleteMode"
+    [attr.class]="{block: _name, element: 'sad-face'} | bem"
+  ></div>
+
+  <div [attr.class]="{block: _name, element: 'container', mods: {'delete-mode': isDeleteMode}} | bem">
+    <ng-container *ngIf="isDeleteMode">
+      <div [attr.class]="{block: _name, element: 'block-list', mods: {'position' : 'bottom'}} | bem">
+        <div
+          [attr.class]="{
+              block: _name,
+              element: 'title',
+              mods: {
+                'mode' : 'sub',
+                'mb' : '20px',
+                'mb-mobile' : '16px',
+                'margin': 'left'
+              }
+            } | bem"
+        >
+          So funktioniert der Widerspruch
+        </div>
+        <div
+          [attr.class]="{
+              block: _name,
+              element: 'text-small',
+              mods: {
+                'second': 'block',
+                'margin': 'left',
+                'ml-mobile':'0',
+                'mb-mobile':'22px'
+              }
+            } | bem"
+        >
+          Du bist Eigentümer oder Mieter der Immobilie.
+        </div>
+        <div [attr.class]="{block: _name, element: 'ordered-list', mods: {'mb-mobile' : '25px'}} | bem">
+          <div
+            [attr.class]="{
+                block: _name,
+                element: 'text-small',
+                mods: {
+                  'second': 'block',
+                  'ordered': 'list'
+                }
+              } | bem"
+          >
+            <span>1.</span>
+            <p>Wir verifizieren deine Telefonnummer</p>
+          </div>
+          <div
+            [attr.class]="{
+                block: _name,
+                element: 'text-small',
+                mods: {
+                  'second': 'block',
+                  'ordered': 'list'
+                }
+              } | bem"
+          >
+            <span>2.</span>
+            <p>Gib uns die Adresse der Immobilie</p>
+          </div>
+          <div
+            [attr.class]="{
+                block: _name,
+                element: 'text-small',
+                mods: {
+                  'second': 'block',
+                  'ordered': 'list'
+                }
+              } | bem"
+          >
+            <span>3.</span>
+            <p>Mit Absenden des Formulars ist die Immobilie inaktiv</p>
+          </div>
+          <div
+            [attr.class]="{
+                block: _name,
+                element: 'text-small',
+                mods: {
+                  'second': 'block',
+                  'ordered': 'list'
+                }
+              } | bem"
+          >
+            <span>4.</span>
+            <p>Scoperty ruft dich an, um dein berechtigtes Interesse zu überprüfen</p>
+          </div>
+          <div
+            [attr.class]="{
+                block: _name,
+                element: 'text-small',
+                mods: {
+                  'second': 'block',
+                  'ordered': 'list'
+                }
+              } | bem"
+          >
+            <span>5.</span>
+            <p>Nach Prüfung löschen wir deine Daten innerhalb von zwei Wochen</p>
+          </div>
+        </div>
+      </div>
+
+      <button
+        *ngIf="(isSmallMobileDevice$ | async)"
+        app-button
+        size="medium"
+        color="primary-dark"
+        [stretch]="true"
+        (click)="onAcceptInfo()"
+      >
+        Weiter
+      </button>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div
+  [attr.class]="{block: _name, element: 'content', mods: {'state': 'default'}} | bem"
+>
+  <div [attr.class]="{block: _name, element: 'map-block'} | bem">
+    <div *ngIf="showLoader" [attr.class]="{block: _name, element: 'loader-block'} | bem">
+      <div [attr.class]="{block: _name, element: 'loader'} | bem"></div>
+    </div>
+    <app-map
+      [isSidebarShown]="isSidebarShown"
+      (markerActivate)="onMarkerActivate($event)"
+    ></app-map>
+  </div>
+  <div [attr.class]="{block: _name, element: 'filter-block', mods:{'position': isSidebarShown? 'relative' : 'absolute'}} | bem">
+    <app-search-request-button
+      *ngIf="(isSmallDevice$ | async)"
+      [showPopup]="(isSmallDevice$ | async)"
+      [isSearchAlertOnMap]="true"
+    ></app-search-request-button>
+    <app-map-filters></app-map-filters>
+    <app-sidebar
+      [activeMarker]="activeMarker"
+      (sidebarShown)="setStateSidebar($event)"
+    ></app-sidebar>
+  </div>
+</div>
+<router-outlet></router-outlet>

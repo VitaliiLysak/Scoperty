@@ -1,0 +1,8 @@
+<a [attr.class]="{ block: _name, element: 'link' } | bem"
+   [routerLink]="[ '/property-detail', propertyId ]"
+   queryParamsHandling="merge"
+   target="_blank"
+>
+  Besucheransicht
+  <i [attr.class]="{ block: _name, element: 'arrow-icon-right' } | bem"></i>
+</a>

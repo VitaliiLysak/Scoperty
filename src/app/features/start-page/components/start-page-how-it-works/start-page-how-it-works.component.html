@@ -1,0 +1,55 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div [attr.class]="{block: _name, element: 'info'} | bem">
+      <div [attr.class]="{block: _name, element: 'title'} | bem">
+        Biete auf Immobilien, bevor sie auf den Markt kommen.
+      </div>
+      <div [attr.class]="{block: _name, element: 'text'} | bem">
+        Mit Scoperty kannst du ein Gebot für ein Objekt abgeben, das noch gar nicht zum Verkauf steht.
+      </div>
+
+      <!-- Links -->
+      <a
+        id="landing-how-it-works-mahr-erfahren-link"
+        app-button
+        buttonStyle="link"
+        size="large"
+        color="green"
+        [routerLink]="linkToHowItWorks"
+        queryParamsHandling="merge"
+      >
+        Mehr erfahren
+        <mat-icon
+          svgIcon="chevron_right"
+          appSvgSize="24px"
+        ></mat-icon>
+      </a>
+    </div>
+
+    <!-- How it works image -->
+    <img
+      [attr.class]="{block: _name, element: 'image'} | bem"
+      app-responsive-image
+      src="assets/images/start-page/macbook-withdetailpage.png"
+      [multiResolution]="false"
+    >
+  </div>
+
+  <!-- How it works design images -->
+  <app-worm-image
+    [attr.class]="{block: _name, element: 'worm-image', mods: {'worm':'1'}} | bem"
+    width="379px"
+    height="450px"
+    color="green"
+    rotate="-85deg"
+    [opacity]="0.75"
+  ></app-worm-image>
+  <app-worm-image
+    [attr.class]="{block: _name, element: 'worm-image', mods: {'worm':'2'}} | bem"
+    width="368px"
+    height="436px"
+    color="dark-green"
+    rotate="196deg"
+    [opacity]="0.75"
+  ></app-worm-image>
+</div>

@@ -1,0 +1,19 @@
+<div [attr.class]="{ block: _name, element: 'section' } | bem">
+  <div [attr.class]="{ block: _name, element: 'section-name' } | bem">
+      <span [attr.class]="{ block: _name, element: 'name' } | bem">
+        Privatsphäre
+      </span>
+  </div>
+
+  <div [attr.class]="{ block: _name, element: 'content' } | bem">
+    <div [attr.class]="{ block: _name, element: 'section-subname', mods: { 'margin': 'top' } } | bem">
+      <app-settings-item
+        identifier="privacy-settings"
+        label="Deaktiviert"
+        message="Aktiviere diese Funktion wenn du deine Immobilie auf der Karte mit den Schätzwerten verbergen möchtest."
+        [value]="privacy"
+        (valueChange)="onPrivacyChange($event)"
+      ></app-settings-item>
+    </div>
+  </div>
+</div>

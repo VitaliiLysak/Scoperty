@@ -1,0 +1,353 @@
+<div [attr.class]="{block: name, element: 'content'} | bem">
+  <div
+    *ngIf="marker.isRealtor"
+    [attr.class]="{
+      block: name,
+      element: 'data-block',
+      mods: {'py': '40px'}
+    } | bem"
+  >
+    <div [attr.class]="{block: name, element: 'display-set-title'} | bem">
+      Anzeigeeinstellungen
+    </div>
+
+    <div
+      *ngIf="!isPropertyActivateInfo && !hasListing"
+      [attr.class]="{block: name, element: 'alert'} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'alert-content'} | bem">
+        <div [attr.class]="{block: name, element: 'alert-text'} | bem">
+          Damit du die Immobilie bearbeiten kannst, muss du die Anzeige aktivieren.
+        </div>
+        <div
+          [attr.class]="{block: name, element: 'close-button'} | bem"
+          (click)="isPropertyActivateInfo = true"
+        >
+          <i aria-hidden="true" [attr.class]="{block: name, element: 'close-icon'} | bem"></i>
+        </div>
+      </div>
+    </div>
+
+    <div [attr.class]="{block: name, element: 'display-set-row', mods:{'mb': '16px'}} | bem">
+        <span [attr.class]="{block: name, element: 'display-set-name'} | bem">
+          Anzeige schalten
+        </span>
+      <div [attr.class]="{block: name, element: 'sw-btn'} | bem">
+        <input
+          id="switcher"
+          type="checkbox"
+          [checked]="hasListing"
+          (click)='switcherClick($event)'
+          [attr.class]="{block: name, element: 'sw-input'} | bem"
+        >
+        <label for="switcher" [attr.class]="{block: name, element: 'sw-label'} | bem"></label>
+      </div>
+    </div>
+    <div
+      [attr.class]="{
+        block: name,
+        element: 'protect-block',
+        mods: {'state': (marker.isRealtor && !hasListing) ? 'inactive': 'active'}
+      } | bem"
+    >
+      <div [attr.class]="{block: name, element: 'display-set-row'} | bem">
+        <app-checkbox
+          name="show_property_address"
+          [required]="true"
+          [checked]="!dirtyMarker.ShowAddress"
+          (changed)="propertyHide($event)"
+        >
+          Adresse auf Karte nicht anzeigen
+        </app-checkbox>
+        <app-tooltip
+          [tooltipText]="tooltipContent"
+          [attr.class]="{block: name, element: 'tooltip'} | bem"
+          [page]="name"
+        ></app-tooltip>
+      </div>
+    </div>
+    <div
+      *ngIf="hasListing"
+      [attr.class]="{block: name, element: 'separator', mods:{'size': '20px', 'mobile-size': '30px'}} | bem">
+    </div>
+    <button
+      *ngIf="hasListing"
+      [attr.class]="{block: name, element: 'button', mods: {'type':'primary', 'w': '270px'}} | bem"
+      (click)='switcherClick($event)'
+    >
+      Anzeige löschen
+    </button>
+  </div>
+
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'protect-block',
+      mods: {'state': ((marker.isRealtor && !hasListing) || (marker.isOwner && isOwnerRealtorRights)) ? 'inactive': 'active'}
+    } | bem"
+  >
+    <div
+      [attr.class]="{block: name, element: 'data-container'} | bem"
+    >
+      <!-- Basic property info -->
+      <div
+        id='detailDataBlock'
+        [attr.class]="{block: name, element: 'data-block', mods: {'border': 'bottom'}} | bem"
+      >
+        <div
+          [attr.class]="{block: name, element: 'data-row', mods: {'justify-content': 'space'}} | bem"
+          (click)="toggleDataSection('detailData')"
+        >
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Eckdaten
+          </div>
+          <i
+            [attr.class]="{
+              block: name,
+              element: 'arrow-icon',
+              mods: {'state': !isPropertyDataShown? 'closed': 'default'}
+            } | bem"
+          ></i>
+        </div>
+        <div
+          *ngIf="isPropertyDataShown"
+          [attr.class]="{block: name, element: 'data-content'} | bem"
+        >
+          <app-marker-detail-data
+            [model]="dirtyMarker"
+            [mode]="'edit'"
+            page="myProperties"
+            block="equipmentData"
+            (changeProperty)="changePropertyFromEvent($event)"
+            (inputed)="inputed($event)"
+          ></app-marker-detail-data>
+        </div>
+      </div>
+
+      <!-- Images -->
+      <div
+        id='galleryBlock'
+        [attr.class]="{block: name, element: 'data-block', mods: {'border': 'bottom'}} | bem"
+      >
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'data-row',
+            mods: {
+               'justify-content': 'space'
+             }
+          } | bem"
+          (click)="toggleDataSection('imagesData')"
+        >
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Bilder
+          </div>
+          <i
+            [attr.class]="{
+              block: name,
+              element: 'arrow-icon',
+              mods: {'state': !isPropertyImagesShown? 'closed': 'default'}
+            } | bem"
+          ></i>
+        </div>
+        <div *ngIf="isPropertyImagesShown">
+          <div
+            [attr.class]="{block: name, element: 'separator', mods:{'size': '20px', 'mobile-size': '25px'}} | bem"></div>
+          <div [attr.class]="{block: name, element: 'data-sub-title', mods: {'width': '83per'}} | bem">
+            Aufschlussreiche Aufnahmen von deiner Immobilie führen zu einem höheren
+            Interesse bei potenzierellen Käufern und somit zu höheren Verkauspreisen.
+          </div>
+          <div [attr.class]="{block: name, element: 'gallery-block'} | bem">
+            <app-marker-detail-gallery
+              [error]="imageUploadError"
+              [model]="marker"
+              [mode]="'edit'"
+              (changeImageOrder)="changeImageOrder($event)"
+              (uploadImage)="uploadImage($event)"
+              (removeImages)="removeImages($event)"
+            ></app-marker-detail-gallery>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accessoires -->
+      <div [attr.class]="{block: name, element: 'data-block', mods: {'border': 'bottom'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'data-row', mods: {'justify-content': 'space'}} | bem"
+          (click)="toggleDataSection('equipmentData')"
+        >
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Ausstattung
+          </div>
+          <i
+            [attr.class]="{
+              block: name,
+              element: 'arrow-icon',
+              mods: {'state': !isPropertyEquipmentShown? 'closed': 'default'}
+            } | bem"
+          ></i>
+        </div>
+        <div
+          *ngIf="isPropertyEquipmentShown"
+          [attr.class]="{block: name, element: 'separator', mods:{'size': '20px', 'mobile-size': '25px'}} | bem">
+        </div>
+        <app-marker-detail-data-equipment
+          *ngIf="isPropertyEquipmentShown"
+          [attr.class]="{block: name, element: 'data'} | bem"
+          [model]="dirtyMarker"
+          [mode]="'edit'"
+          page="profile"
+          (changeProperty)="changePropertyFromEvent($event)"
+          (changePropertyFromEquipment)="changePropertyFromEquipment($event)"
+        ></app-marker-detail-data-equipment>
+      </div>
+
+      <!-- Description -->
+      <div [attr.class]="{block: name, element: 'data-block', mods: {'border': 'bottom'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'data-row', mods: {'justify-content': 'space'}} | bem"
+          (click)="toggleDataSection('descriptionData')"
+        >
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Beschreibung
+          </div>
+          <i
+            [attr.class]="{
+              block: name,
+              element: 'arrow-icon',
+              mods: {'state': !isPropertyDescriptionShown? 'closed': 'default'}
+            } | bem"
+          ></i>
+        </div>
+        <div
+          *ngIf="isPropertyDescriptionShown"
+          [attr.class]="{block: name, element: 'data-content'} | bem"
+        >
+          <div
+            *ngIf="isPropertyDescriptionShown"
+            [attr.class]="{block: name, element: 'data-content-row'} | bem"
+          >
+            <app-string-input
+              [attr.class]="{block: name, element: 'app-string-input', mods: {'w': '100per'}} | bem"
+              [initialValue]="dirtyMarker.Title"
+              maxLength="50"
+              label="Überschrift deiner Immobilie"
+              [fieldMods]="{
+                'w': '100per',
+                'h': '44px',
+                'p': '14px-7px'
+              }"
+              (blurred)="changeProperty('Title', $event)"
+            ></app-string-input>
+          </div>
+        </div>
+        <app-marker-detail-data-description
+          *ngIf="isPropertyDescriptionShown"
+          [model]="dirtyMarker"
+          [mode]="displayMode"
+          descriptionArea="Description"
+          label="Immobilienbeschreibung"
+          (changeProperty)="changePropertyFromEvent($event)"
+        ></app-marker-detail-data-description>
+      </div>
+
+      <!-- Energy certificate -->
+      <div [attr.class]="{block: name, element: 'data-block', mods: {'border': 'bottom', 'mobile-py':'4px'}} | bem">
+        <div
+          [attr.class]="{block: name, element: 'data-row', mods: {'justify-content': 'space'}} | bem"
+          (click)="toggleDataSection('energyData')"
+        >
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Energieausweis
+          </div>
+          <i
+            [attr.class]="{
+              block: name,
+              element: 'arrow-icon',
+              mods: {'state': !isPropertyEnergyShown? 'closed': 'default'}
+            } | bem"
+          ></i>
+        </div>
+        <div
+          *ngIf="isPropertyEnergyShown"
+          [attr.class]="{block: name, element: 'separator', mods:{'size': '20px', 'mobile-size': '25px'}} | bem">
+        </div>
+        <app-marker-detail-data-energy-info
+          *ngIf="isPropertyEnergyShown"
+          [attr.class]="{block: name, element: 'data'} | bem"
+          [model]="dirtyMarker"
+          [mode]="displayMode"
+          (changeProperty)="changePropertyFromEvent($event)"
+          (certificateChange)="onCertificateChange($event)"
+        ></app-marker-detail-data-energy-info>
+      </div>
+
+      <!-- Provision -->
+      <div
+        *ngIf="dirtyMarker.isRealtor"
+        [attr.class]="{block: name, element: 'data-block', mods: {'border': 'bottom'}} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'data-row', mods: {'justify-content': 'space'}} | bem">
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Provision
+          </div>
+        </div>
+        <div [attr.class]="{block: name, element: 'data-content'} | bem">
+          <div [attr.class]="{block: name, element: 'data-content-row'} | bem">
+            <app-number-input
+              [attr.class]="{block: name, element: 'app-number-input', mods: {'w': '100per'}} | bem"
+              [initialValue]="dirtyMarker.RealtorPercentage"
+              postfix=" %"
+              [validatorNames]="['percent']"
+              [allowDecimal]="true"
+              [integerLimit]="5"
+              label="Maklerprovision"
+              [fieldMods]="{
+                'w': '100per',
+                'h': '44px',
+                'p': '14px-7px'
+              }"
+              (blurred)="changeProperty('RealtorPercentage', $event)"
+            ></app-number-input>
+          </div>
+        </div>
+
+        <app-marker-detail-data-description
+          [model]="dirtyMarker"
+          [mode]="displayMode"
+          descriptionArea="RealtorPercentageDescription"
+          label="Erklärung"
+          (changeProperty)="changePropertyFromEvent($event)"
+        ></app-marker-detail-data-description>
+      </div>
+
+      <!-- Contact -->
+      <div
+        *ngIf="featureToggleService.contactEditing"
+        [attr.class]="{block: name, element: 'data-block'} | bem"
+      >
+        <div
+          [attr.class]="{block: name, element: 'data-row', mods: {'justify-content': 'space'}} | bem"
+          (click)="toggleDataSection('contactData')"
+        >
+          <div [attr.class]="{block: name, element: 'data-title'} | bem">
+            Kontakt
+          </div>
+          <i
+            [attr.class]="{
+              block: name,
+              element: 'arrow-icon',
+              mods: {'state': !isPropertyContactShown? 'closed': 'default'}
+            } | bem"
+          ></i>
+        </div>
+        <app-marker-detail-contact-info
+          *ngIf="isPropertyContactShown"
+          [model]="dirtyMarker"
+          [mode]="displayMode"
+          (changeProperty)="changePropertyFromEvent($event)"
+        ></app-marker-detail-contact-info>
+      </div>
+    </div>
+  </div>
+</div>

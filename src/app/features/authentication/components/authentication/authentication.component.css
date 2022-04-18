@@ -1,0 +1,66 @@
+.authentication__form-field {
+  margin-bottom: 16px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.authentication__form-field--mfh-true {
+  margin-bottom: 48px;
+}
+
+.authentication__form-field:last-child {
+  margin-bottom: 0;
+}
+
+.authentication__form-field-items {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+}
+
+.authentication__form-field-item {
+  display: flex;
+}
+
+.authentication__form-field-item--item-floor {
+  margin-right: 16px;
+
+  width: 40%;
+}
+
+.authentication__form-field-item--item-living-area {
+  width: 60%;
+}
+
+.authentication__owner-or-realtor--authenticated-false {
+  margin: 48px 0;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 580px) {
+  .authentication__form-field--mfh-true {
+    margin-bottom: 32px;
+  }
+
+  .authentication__owner-or-realtor--authenticated-false {
+    margin: 32px 0;
+  }
+
+  .authentication__form-field-items {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .authentication__form-field-item {
+    margin-top: 16px;
+
+    width: 100%;
+  }
+
+  .authentication__form-field-item:first-child {
+    margin-top: 0;
+  }
+}

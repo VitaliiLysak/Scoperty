@@ -1,0 +1,321 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 4px;
+
+  -webkit-font-smoothing: antialiased;
+
+  letter-spacing: 0.5px;
+  font-family: 'Nunito Sans', sans-serif;
+
+  background-color: var(--neutrals-white-color);
+  background: transparent;
+}
+
+.property-view__object-pagination{
+  position: absolute;
+  top: -27px;
+
+  width: 224px;
+  height: 24px;
+
+  background: var(--neutrals-white-color);
+}
+
+.property-view__object {
+  position: relative;
+
+  width: 288px;
+
+  border-radius: 4px;
+
+  cursor: default;
+  box-shadow: 0 2px 8px 0 var(--neutrals-black-color--opacity-20);
+
+  background: var(--neutrals-white-color);
+}
+
+.property-view__object-content--marker-grouped {
+  height: 202px;
+}
+
+.property-view__object-content--marker-grouped .property-view__object-price-wrapper {
+  position: fixed;
+  bottom: 60px;
+
+  width: 256px;
+}
+
+.property-view__object-content--marker-grouped .property-view__property-details {
+  position: fixed;
+  bottom: 10px;
+
+  width: 256px;
+}
+
+.property-view__object:after {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+  border-width: 8px 7.5px 0 7.5px;
+  border-style: solid;
+  border-color: var(--neutrals-white-color) transparent transparent transparent;
+
+  transform: translateX(-50%);
+
+  content: '';
+}
+
+.property-view__object-image {
+  position: relative;
+
+  height: 158px;
+  width: 100%;
+}
+
+.property-view__image {
+  height: 100%;
+}
+
+.property-view__object-attributes {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.property-view__object-content {
+  padding: 16px;
+}
+
+.property-view__info-text {
+  margin-bottom: 8px;
+
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+
+  color: var(--neutrals-middle-extreme-color);
+}
+
+.property-view__object-close-button {
+  position: absolute;
+  top: 21px;
+  right: 16px;
+  z-index: 1;
+
+  height: 16px;
+
+  cursor: pointer;
+}
+
+.property-view__object-close-button--color-white {
+  top: 16px;
+}
+
+.property-view__preview-block {
+  margin-top: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.property-view__preview-block-link {
+  margin-top: 4px;
+}
+
+.property-view__preview-arrow {
+  margin: 2px;
+
+  border: solid var(--secondary-cta-default-color);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+
+  cursor: pointer;
+}
+
+.property-view__preview-arrow:hover {
+  border-color: var(--secondary-cta-hover-color);
+}
+
+.property-view__preview-arrow--type-left {
+  transform: rotate(135deg);
+}
+
+.property-view__preview-arrow--type-right {
+  transform: rotate(-45deg);
+}
+
+.property-view__preview-label {
+  margin: 0 8px;
+
+  display: inline-block;
+
+  color: var(--neutrals-middle-extreme-color);
+}
+
+.property-view__info-apartment-block {
+  margin-top: 10px;
+
+  padding-top: 10px;
+  border-top: 1px solid var(--neutrals-middle-light-color);
+}
+
+.property-view__object-tag-wrapper {
+  padding-bottom: 8px;
+}
+
+.property-view__object-tag {
+  margin-bottom: 8px;
+}
+
+.property-view__favourite-container {
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+}
+
+.property-view__object-price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.property-view__object-price {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  white-space: nowrap;
+  text-transform: uppercase;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-view__object-price-value {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 24px;
+  white-space: nowrap;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-view__object-estimated-price-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.property-view__object-estimated-price {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  white-space: nowrap;
+  text-transform: uppercase;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.property-view__object-estimated-price-value {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+  white-space: nowrap;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.property-view__object-info {
+  margin-bottom: 24px;
+}
+
+.property-view__object-address {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.property-view__object-locality {
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  text-transform: uppercase;
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.property-view__object-locality-dot {
+  margin-left: 4px;
+  margin-right: 4px;
+
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.property-view__object-type {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  z-index: 1;
+
+  height: 20px;
+  padding: 5px 8px;
+  border-radius: 2px;
+
+  color: var(--neutrals-white-color);
+  font-weight: 600;
+
+  font-size: 12px;
+  line-height: 10px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: var(--brand-dark-green-color);
+}
+
+.property-view__rented-apartments {
+  margin-top: 8px;
+
+  height: 16px;
+
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  text-align: center;
+
+  color: var(--neutrals-dark-extreme-color);
+}
+
+.property-view__property-details {
+  margin-top: 8px;
+}
+
+.property-view__property-details--type-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}

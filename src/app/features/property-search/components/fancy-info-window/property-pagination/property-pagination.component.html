@@ -1,0 +1,31 @@
+<div [attr.class]="{block: name, element: 'wrapper'} | bem">
+  <button
+    app-button
+    buttonStyle="link"
+    color="primary-green"
+    [attr.class]="{block: name, element: 'prev-button'} | bem"
+    (click)="prev()"
+  >
+    <mat-icon
+      svgIcon="chevron_left"
+      appSvgSize="24px"
+    ></mat-icon>
+  </button>
+
+  <span [attr.class]="{block: name, element: 'text'} | bem">
+    Object {{index+1}} von {{propertyDetailDataLength}}
+  </span>
+
+  <button
+    app-button
+    buttonStyle="link"
+    color="primary-green"
+    [attr.class]="{block: name, element: 'next-button'} | bem"
+    (click)="next()"
+  >
+    <mat-icon
+      svgIcon="chevron_right"
+      appSvgSize="24px"
+    ></mat-icon>
+  </button>
+</div>

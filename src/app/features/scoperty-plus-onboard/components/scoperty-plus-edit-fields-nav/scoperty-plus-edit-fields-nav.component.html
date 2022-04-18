@@ -1,0 +1,24 @@
+<div class="scoperty-plus-nav-wrapper" [class.mobile]="mobile" *ngIf="!hidden">
+  <div class="scoperty-plus-nav-label" [class.has-sections]="sectionNames.length">
+    <ng-container *ngIf="sectionNames.length else noSectionsLabel">Zusammenfassung Deiner Suche</ng-container>
+    <ng-template #noSectionsLabel>Starte mit der Suche und werde Scoperty Mitglied!</ng-template>
+  </div>
+
+  <ng-container *ngFor="let section of sectionNames">
+    <div *ngFor="let element of sections[section]" class="scoperty-plus-nav-element">
+      <span class="scoperty-plus-nav-element-name">{{element.name}}</span>
+      <div class="scoperty-plus-nav-element-line">
+        <div class="scoperty-plus-nav-element-data">{{element.data}}</div>
+        <a
+          class="scoperty-plus-nav-element-link"
+          app-button
+          buttonStyle="link"
+          color="green"
+          *ngIf="isEditable(element)"
+          (click)="rewindSection(section)">
+          ändern
+        </a>
+      </div>
+    </div>
+  </ng-container>
+</div>

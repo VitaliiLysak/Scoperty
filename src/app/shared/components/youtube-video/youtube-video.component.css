@@ -1,0 +1,22 @@
+:host {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+.youtube-video__container {
+  position: relative;
+
+  padding-bottom: 56.25%; /* Youtube's videos has the aspect ratio of 16:9 */
+  height: 0;
+}
+
+.youtube-video__frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  max-height: 100%;
+}

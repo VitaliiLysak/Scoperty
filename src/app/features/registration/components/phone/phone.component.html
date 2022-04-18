@@ -1,0 +1,255 @@
+<ng-container *ngIf="mode === 'delete'; then delTemplate else setTemplate"></ng-container>
+
+<ng-template #setTemplate>
+  <form
+    [attr.class]="{block: _name, element: 'form'} | bem"
+    [formGroup]="phoneForm">
+    <div [attr.class]="{block: _name, element: 'content'} | bem">
+      <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+        <app-string-input
+          label="Mobilfunknummer"
+          placeholder="Deine Telefonnummer eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['phoneRequired', 'phonePattern']"
+          (blurred)="_blurred('number', $event)"
+          (created)="_created('number', $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'container-link'} | bem">
+        <div
+          [attr.class]="{block: _name, element: 'code-link'} | bem"
+          (click)="getCode()"
+        >
+          Code anfordern
+          <img
+            [attr.class]="{block: _name, element: 'link-arrow'} | bem"
+            src="../../../../assets/images/arrow-right-blue.svg"
+          >
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'sub-title'} | bem">
+        Warum muss ich auf Scoperty meine Mobilfunknummer hinterlegen?
+      </div>
+      <div [attr.class]="{block: _name, element: 'sub-text'} | bem">
+        Wir kontaktieren dich telefonisch sobald deine Mobilfunknummer bestätigt ist
+        um sicher zu stellen, dass du der tatsächliche Eigentümer bist.
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'input-row', mods: {'mb':'32px'}} | bem">
+        <app-string-input
+          label="SMS-Code"
+          placeholder="Deinen SMS-Code eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['codeRequired']"
+          (blurred)="_blurred('code', $event)"
+          (created)="_created('code', $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'role-container'} | bem">
+        <div [attr.class]="{block: _name, element: 'roles-block'} | bem">
+          <div
+            [attr.class]="{block: _name, element: 'checkbox-row'} | bem"
+            (click)="selectOption('owner')"
+          >
+            <app-ratio
+              label="Hiermit bestätige ich, dass ich der Eigentümer bin"
+              name="role"
+              value="owner"
+            ></app-ratio>
+          </div>
+          <div
+            [attr.class]="{block: _name, element: 'checkbox-row'} | bem"
+            (click)="selectOption('realtor')"
+          >
+            <app-ratio
+              label="Ich bin Makler und hiermit bestätige ich das ich die Rechte besitze diese Immobilie zu verkaufen"
+              name="role"
+              value="realtor"
+            ></app-ratio>
+          </div>
+        </div>
+        <div
+          *ngIf="userRoleChose"
+          [attr.class]="{block: _name, element: 'message', mods: {'type': 'static'}} | bem"
+        >
+          <span>Wählen Sie eine Rolle für den Benutzer aus</span>
+        </div>
+      </div>
+      <button
+        [attr.class]="{block: _name, element: 'button', mods: {'type':'primary'}} | bem"
+        (click)="apply()"
+      >
+        Verifizieren
+      </button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #delTemplate>
+  <form
+    [attr.class]="{block: _name, element: 'form'} | bem"
+    [formGroup]="phoneForm">
+    <div [attr.class]="{block: _name, element: 'content'} | bem">
+
+      <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+        <app-string-input
+          inputId="dissent-first-name-input"
+          label="Vorname"
+          placeholder="Vorname eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['nameLength', 'nameRequired']"
+          (blurred)="_blurred(CognitoUserFields.GivenName, $event)"
+          (created)="_created(CognitoUserFields.GivenName, $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+        <app-string-input
+          inputId="dissent-surname-input"
+          label="Nachname"
+          placeholder="Nachname eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['surnameRequired']"
+          (blurred)="_blurred(CognitoUserFields.FamilyName, $event)"
+          (created)="_created(CognitoUserFields.FamilyName, $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+        <app-string-input
+          inputId="dissent-email-input"
+          label="E-Mail-Adresse"
+          placeholder="E-Mail-Adresse eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['emailRequired', 'emailPattern']"
+          (blurred)="_blurred('email', $event)"
+          (created)="_created('email', $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'input-row', mods: {'mb':'8px'}} | bem">
+        <app-string-input
+          inputId="dissent-phone-number-input"
+          label="Mobilfunknummer"
+          placeholder="Deine Telefonnummer eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['phoneRequired', 'phonePattern']"
+          (blurred)="_blurred('number', $event)"
+          (created)="_created('number', $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'container-link'} | bem">
+        <div
+          id="dissent-request-code-link"
+          [attr.class]="{block: _name, element: 'link'} | bem"
+          (click)="getCodeDissent()"
+        >
+          Code anfordern
+          <i [attr.class]="{block: _name, element: 'arrow-icon-right'} | bem"></i>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'sub-title'} | bem">
+        Warum muss ich auf SCOPERTY meine Mobilfunknummer hinterlegen?
+      </div>
+      <div
+        *ngIf="!(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'sub-text'} | bem">
+        Wir kontaktieren dich telefonisch, sobald deine Mobilfunknummer bestätigt ist,
+        um sicher zu stellen, dass du der tatsächliche Eigentümer oder Mieter bist.
+      </div>
+      <div
+        *ngIf="(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'sub-text'} | bem">
+        Wir kontaktieren dich telefonisch sobald deine Mobilfunknummer bestätigt ist
+        um sicher zu stellen, dass du der tatsächliche Eigentümer bist.
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'input-row', mods: {'mb':'32px'}} | bem">
+        <app-string-input
+          inputId="dissent-sms-code-input"
+          label="SMS-Code"
+          placeholder="Deinen SMS-Code eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['codeRequired']"
+          (blurred)="_blurred('code', $event)"
+          (created)="_created('code', $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'role-container'} | bem">
+        <div [attr.class]="{block: _name, element: 'roles-block', mods: {'h': 'auto'}} | bem">
+          <div
+            id="dissent-owner-radio-button"
+            [attr.class]="{block: _name, element: 'checkbox-row'} | bem"
+            (click)="selectOption('owner')"
+          >
+            <app-ratio
+              label="Ich bin Eigentümer der Immobilie"
+              name="role"
+              value="owner"
+              [bindValue]="selectedOption"
+            ></app-ratio>
+          </div>
+          <div
+            id="dissent-realtor-radio-button"
+            [attr.class]="{block: _name, element: 'checkbox-row'} | bem"
+            (click)="selectOption('realtor')"
+          >
+            <app-ratio
+              label="Ich bin Mieter der Immobilie"
+              name="role"
+              value="realtor"
+              [bindValue]="selectedOption"
+            ></app-ratio>
+          </div>
+        </div>
+        <div
+          *ngIf="userRoleChose"
+          [attr.class]="{block: _name, element: 'message', mods: {'type': 'static'}} | bem"
+        >
+          <span>Wählen Sie eine Rolle für den Benutzer aus</span>
+        </div>
+      </div>
+      <button
+        id="dissent-verify-button"
+        [attr.class]="{block: _name, element: 'button', mods: {'type':'primary'}} | bem"
+        (click)="apply()"
+      >
+        Verifizieren
+      </button>
+    </div>
+  </form>
+</ng-template>

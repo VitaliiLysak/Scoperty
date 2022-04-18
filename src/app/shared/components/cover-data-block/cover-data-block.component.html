@@ -1,0 +1,20 @@
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'wrapper',
+    mods: {'narrow': narrow, 'background': backgroundColor}
+  } | bem"
+>
+  <div [attr.class]="{block: _name, element: 'text'} | bem">
+    {{text}}
+  </div>
+  <button
+    app-button
+    color="secondary-green"
+    [size]="buttonSize"
+    [stretch]="true"
+    (click)="emitSignup()"
+  >
+    Freischalten
+  </button>
+</div>

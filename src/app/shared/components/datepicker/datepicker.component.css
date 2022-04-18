@@ -1,0 +1,188 @@
+.date-popup-container {
+  position: absolute;
+  z-index: 10000;
+  top: calc(100% + 10px);
+  left: 0;
+
+  display: none;
+
+  height: auto;
+  width: 288px;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+              0 1px 2px rgba(0, 0, 0, 0.24);
+  background: var(--neutrals-white-color);
+}
+
+.date-popup-container.isActive {
+  display: block;
+}
+
+.date-popup-container.isMobile {
+  position: initial;
+
+  margin-top: 8px;
+
+  box-shadow: 0 0 16px 0 hsl(0, 0%, 77%);
+}
+
+.month-container {
+  margin-bottom: 8px;
+  margin-top: 5px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 0;
+}
+
+.time-select {
+  margin-top: 20px;
+  margin-left: 8px;
+
+  width: 146px;
+}
+
+.calendar-container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.week-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  padding: 0 16px;
+}
+
+.year,
+.month {
+  height: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.week {
+  height: 16px;
+  width: 18px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'Nunito Sans';
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.day {
+  margin-right: 6px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  height: 33px;
+  width: 33px;
+
+  text-align: center;
+  color: var(--secondary-cta-default-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  cursor: pointer;
+}
+
+.day:nth-child(7n) {
+  margin-right: 0;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: row;
+
+  flex-flow: wrap;
+
+  padding: 5px 8px;
+}
+
+.day {
+  border-radius: 100%;
+}
+
+.input-field {
+  box-sizing: border-box;
+
+  padding: 5px 7px 5px 16px;
+
+  height: 44px;
+  width: 100%;
+  border: 1px solid var(--neutrals-middle-extreme-color);
+  border-radius: 2px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.input-label {
+  margin-bottom: 4px;
+
+  height: 16px;
+
+  color: var(--neutrals-dark-middle-color);
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+}
+
+.month-year .month {
+  margin-right: 5px;
+}
+
+.isDisabled {
+  color: var(--neutrals-middle-extreme-color);
+
+  pointer-events: none;
+}
+
+.day > .isDisabled {
+  pointer-events: none;
+}
+
+.day.isSelected {
+  border-radius: 2px;
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--background-color-buttons-primary-green);
+}
+
+.day:hover {
+  border: 2px solid var(--background-color-buttons-primary-green);
+  border-radius: 2px;
+}
+
+.valid-error {
+  border-color: var(--feedback-error-color);
+}

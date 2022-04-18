@@ -1,0 +1,45 @@
+<div [attr.class]="{block: _name, element: 'content'} | bem">
+  <div
+    [attr.class]="{block: _name, element: 'checkbox-row'} | bem"
+  >
+    Immobilie komplett löschen
+  </div>
+  <div [attr.class]="{block: _name, element: 'text', mods: {'mb':'22px'}} | bem">
+    Wir löschen alle Daten zu dieser Immobilie aus unserer Datenbank.
+    Diese Aktion kann nicht rückgängig gemacht werdern
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'agreement'} | bem">
+    <div [attr.class]="{block: _name, element: 'agreement-button-wrapper'} | bem">
+      <app-checkbox
+        inputId="confirm-dissent-checkbox"
+        name="confirm_dissent"
+        [mods]="{'font-size': '12px', 'line-height':'18px'}"
+        [required]="true"
+        [checked]="false"
+        (changed)="toggleAgreementButton()"
+      >
+        Hiermit bestätige ich, dass die vorgenannten Angaben richtig sind
+        und ich zur Geltendmachung des Widerspruchs berechtigt bin.
+      </app-checkbox>
+    </div>
+    <div [attr.class]="{block: _name, element: 'text-with-link'} | bem">
+      Es gilt unsere
+      <a
+        [attr.class]="{block: _name, element: 'link'} | bem"
+        href="https://www.interhyp.de/ueber-interhyp/datenschutz/"
+        target="_blank"
+      >
+        Datenschutzerklärung
+      </a>
+    </div>
+  </div>
+
+  <button
+    id="dissent-send-objection-button"
+    [attr.class]="{block: _name, element: 'button', mods: {'type':'primary'}} | bem"
+    (click)="apply()"
+  >
+    Widerspruch absenden
+  </button>
+</div>

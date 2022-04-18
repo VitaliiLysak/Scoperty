@@ -1,0 +1,59 @@
+.change-selling-status__section {
+  margin-top: 20px;
+}
+
+.change-selling-status__section--disabled {
+  opacity: 0.2;
+
+  pointer-events: none;
+  user-select: none;
+}
+
+.change-selling-status__section:first-child {
+  margin-top: 0;
+}
+
+.change-selling-status__selling-price {
+  margin-top: 20px;
+}
+
+.change-selling-status__title {
+  width: 240px;
+
+  font-weight: 600;
+
+  color: var(--primary-cta-default-color);
+}
+
+.change-selling-status__editable-component {
+  margin-top: 8px;
+
+  min-width: 350px;
+}
+
+.change-selling-status__message-block {
+  margin-top: 30px;
+
+  padding: 16px 44px 16px 16px;
+  border-radius: 2px;
+
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  background-color: var(--brand-green-blue-color);
+}
+
+@media (max-width: 450px) {
+  .change-selling-status__editable-component {
+    margin-top: 8px;
+
+    min-width: unset;
+  }
+
+  .change-selling-status__message-block {
+    padding: 16px;
+  }
+}

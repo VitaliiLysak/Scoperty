@@ -1,0 +1,446 @@
+@import 'app/styles/bootstrap.css';
+@import 'app/styles/ngb-bootstrap.css';
+@import 'app/styles/angular-material.css';
+@import 'app/styles/ngx-multi-modal.css';
+
+/* FIXME: Replace all nouislider style files with single file */
+@import 'app/features/property-search/components/map-filters/nouislider.min.css';
+@import 'app/features/start-page/pages/start-page/nouislider.component.css';
+@import 'app/features/scoperty-plus-onboard/components/scoperty-plus-onboard-first-step/nouislider.component.css';
+@import 'app/shared/components/marker-detail-make-me-move/nouislider.css';
+@import 'app/shared/components/marker-detail-data-place/snazzy-info-window/snazzy-info-window.min.css';
+@import 'app/shared/components/select/select.component.css';
+
+/* App */
+
+html {
+  font-size: 16px;
+
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+html, body {
+  overscroll-behavior: none;
+}
+
+*:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+/* Remove red area around empty and invalid inputs, that are required, Firefox only */
+input:invalid,
+input:required {
+  box-shadow: none;
+}
+
+/* For form button if there are some invalid fields, FF */
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+:-moz-ui-invalid {
+  box-shadow:none;
+}
+
+/* IMPORTANT!
+* fixes auto-complete meny with places hidding behind modal */
+div.pac-container {
+  position: absolute !important;
+  z-index: 10000 !important;
+}
+
+/* Hide shadows appear in inputs on iPhones */
+input,
+input[type=text],
+input[type=email],
+input[type=password] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Fix centering placeholders for iOS (mobile\tablets) */
+input {
+  line-height: unset;
+}
+
+/* Autocomplete item with icon and address */
+.pac-item {
+  line-height: 40px;
+
+  cursor: pointer;
+}
+
+/* Base parts of autocompleted address */
+.pac-item-query {
+  padding-right: 3px;
+
+  color: hsl(0, 0%, 28%);
+  font-weight: 300;
+  font-size: 14px;
+  font-family: 'Nunito Sans';
+  letter-spacing: 0.5px;
+}
+
+/* Icon parent tag */
+.pac-icon {
+  margin: 10px 6px 0;
+}
+
+@-moz-document url-prefix() {
+  body {
+    font-weight: lighter !important;
+  }
+  body * {
+    font-weight: 400;
+  }
+}
+
+div.modal.fade .modal-dialog {
+  transition: 0.2s;
+}
+
+div.modal.fade.show.in {
+  overflow-y: auto;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-root_fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 767px) {
+  app-root {
+    /*position: fixed;*/
+    /*top:0;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+  }
+  .modal-backdrop {
+    display: none !important;
+  }
+}
+
+
+/*@media (min-width: 768px) {*/
+
+
+/*app-root {*/
+
+
+/*display: block;*/
+
+
+/*!*padding-top: 48px;*!*/
+
+
+/*}*/
+
+
+/*}*/
+
+.ngxp__container {
+  background-color: #484848;
+}
+
+.ngxp__container {
+  top: -20px !important;
+  z-index: 50;
+
+  max-width: 400px;
+  border: none !important;
+  border-radius: 8px;
+
+  color: white;
+
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ngxp__arrow {
+  top: 100%;
+
+  border-width: 25px 5px 0 5px !important;
+  border-color: #484848 transparent transparent transparent !important;
+}
+
+@media (max-width: 768px) {
+  .ngxp__container {
+    max-width: calc(100vw - 20px);
+  }
+  /*.estimated__block .ngxp__container {*/
+    /*transform: translate3d(4px, -196px, 0px) !important;*/
+  /*}*/
+  /*.estimated__block .ngxp__arrow {*/
+    /*left: 237px !important;*/
+  /*}*/
+}
+
+@media (max-width: 350px) {
+  .ngxp__container {
+    max-width: calc(100vw - 60px);
+  }
+}
+
+[style*='--class:"markers-cluster"'],
+[style*='counter-reset: someuniqidformarkercluster'] {
+  display: flex;
+}
+
+[style*='--class:"markers-cluster"']:before,
+[style*='counter-reset: someuniqidformarkercluster']:before {
+  position: absolute;
+  z-index: -1;
+
+  display: block;
+
+  width: 50%;
+  min-width: 100px;
+  height: 1.5em;
+  border-radius: .5em;
+
+  background: hsl(185, 71%, 47%);
+
+  content: ' ';
+}
+
+.cookie-law-wrapper {
+  position: static!important;
+
+  display: flex!important;
+  justify-content: center;
+
+  padding: 4px 0;
+
+  font-size: 12px !important;
+  letter-spacing: 0.5px !important;
+
+  background-color: hsl(0, 0%, 28%) !important;
+  -webkit-font-smoothing: unset!important;
+}
+
+.cookie-law-wrapper .dismiss {
+  position: static !important;
+
+  display: inline !important;
+
+  padding: 0 !important;
+}
+
+.cookie-law-wrapper .dismiss svg {
+  display: none !important;
+}
+
+.cookie-law-wrapper .dismiss:after {
+  content: '> Diesen Hinweis nicht mehr anzeigen' !important;
+}
+
+.cookie-law-wrapper .copy {
+  padding: 0 20px !important;
+
+  font-size: 12px !important;
+}
+
+.cookie-law-wrapper .copy span {
+  font-weight: 200!important;
+  letter-spacing: 1px;
+}
+
+.cookie-law .cookie-law-wrapper .copy a {
+  /* margin-left: 27px; */
+  color: hsl(185, 71%, 47%);
+  font-family: 'Nunito Sans'!important;
+  text-decoration: none!important;
+}
+
+.cookie-law .cookie-law-wrapper .copy a:hover {
+  color: hsl(185, 100%, 33%);
+}
+
+cookie-law {
+  flex: 0 0 auto;
+}
+
+cookie-law[seen="true"] {
+  flex-basis: 0;
+}
+
+.ngucarousel-items .item {
+  padding: 0 5px !important;
+
+  transform: none !important;
+}
+
+@media (max-width: 970px) {
+  /* .cookie-law-wrapper .copy a {
+    margin: 0!important;
+    display: block;
+  } */
+}
+
+@media (max-width: 550px) {
+  .cookie-law-wrapper {
+    padding: 10px 15px!important;
+  }
+  .cookie-law-wrapper .copy {
+    padding: 0 !important;
+  }
+  .cookie-law-wrapper .dismiss {
+    display: block !important;
+  }
+  /* .cookie-law .cookie-law-wrapper .copy a {
+    margin: 15px 0!important;
+  } */
+}
+
+.marker {
+  position: relative;
+  z-index:1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  border: 1px solid var(--neutrals-white-color);
+  border-radius: 3px;
+
+  width: 115px;
+  height: 20px;
+
+  color: var(--primary-cta-default-color);
+  font-family: 'Nunito Sans';
+  font-size: 10px;
+  font-weight: bold;
+  line-height: 20px;
+  text-align: center;
+
+  cursor: pointer;
+  background-color: var(--neutrals-white-color);
+
+  box-shadow: 0 1px 4px 0 var(--neutrals-black-color--opacity-30);
+}
+
+.marker-without-address {
+  position: relative;
+  z-index:1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  border: 1px solid var(--neutrals-white-color);
+  border-radius: 3px;
+
+  width: auto;
+  height: 22px;
+  padding: 0px 5px;
+
+  color: var(--neutrals-white-color);
+  font-family: 'Nunito Sans';
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 12px;
+  text-align: center;
+  letter-spacing: 0.5;
+
+  cursor: pointer;
+  background: linear-gradient(
+    0deg,
+    var(--property-for-sale-status-color) 0%,
+    var(--property-for-sale-status-lighter-color) 100%
+  );
+}
+
+.marker:before {
+  position: absolute;
+  top: 19px;
+  left: 50px;
+
+  display: block;
+
+  border-style: solid;
+  border-width: 6px 6px 0 6px;
+  border-color: var(--neutrals-white-color) transparent transparent transparent;
+
+  width: 0;
+  height: 0;
+
+  filter: drop-shadow(0px 2px 1px var(--neutrals-black-color--opacity-20));
+
+  content: '';
+}
+
+.marker--hover-active {
+  z-index: 4;
+
+  border-color: var(--brand-light-blue-light-color);
+
+  background-color: var(--brand-light-blue-light-color);
+}
+
+.marker--hover-active:before {
+  border-color: var(--brand-light-blue-light-color) transparent transparent transparent;
+}
+
+.marker--status-ofo {
+  z-index: 2;
+
+  color: var(--neutrals-white-color);
+
+  background: linear-gradient(
+    0deg,
+    var(--property-make-me-move-status-color-dark) 0%,
+    var(--property-make-me-move-status-color-light) 100%
+  );
+}
+
+.marker--hover-ofo {
+  z-index: 4;
+
+  color: var(--neutrals-white-color);
+
+  background: linear-gradient(
+    0deg,
+    var(--property-make-me-move-status-color-lighter) 0%,
+    var(--property-make-me-move-status-color-lightest) 100%
+  );
+}
+
+.marker--status-for-sale {
+  z-index: 3;
+
+  color: var(--neutrals-white-color);
+
+  background: linear-gradient(
+    0deg,
+    var(--property-for-sale-status-color) 0%,
+    var(--property-for-sale-status-lighter-color) 100%
+  );
+}
+
+.marker--hover-for-sale {
+  z-index: 4;
+
+  color: var(--neutrals-white-color);
+
+  background: linear-gradient(
+    0deg,
+    var(--property-for-sale-status-light-color) 0%,
+    var(--property-for-sale-status-lightest-color) 100%
+  );
+}

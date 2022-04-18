@@ -1,0 +1,44 @@
+<app-base-modal (dismiss)="onDismiss()">
+  <ng-container app-base-modal-header>
+    Status ändern
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <app-tag [attr.class]="{ block: _name, element: 'hint' } | bem">
+      Tipp
+    </app-tag>
+
+    <div [attr.class]="{ block: _name, element: 'heading' } | bem">
+      Aktiviere jetzt den Status „Offen für Gebote“ um den echten Marktwert deiner Immobilie zu erfahren.
+    </div>
+
+    <div [attr.class]="{ block: _name, element: 'open-for-offers' } | bem">
+      <div [attr.class]="{ block: _name, element: 'open-for-offers-label' } | bem">
+        Offen für Gebote
+      </div>
+      <app-switch
+        identifier="change-selling-status_open-for-offers"
+        [(value)]="openForOffers"
+      ></app-switch>
+    </div>
+
+    <div [attr.class]="{ block: _name, element: 'message' } | bem">
+      Aktiviere den Status, um den echten Marktpreis deiner Immobilie zu erfahren.
+      Interessierte potenzielle Käufer können dir dann unverbindliche Gebote senden.
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="onChangeSellingStatus()"
+      >
+        Status speichern
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

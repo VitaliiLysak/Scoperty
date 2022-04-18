@@ -1,0 +1,44 @@
+<p class="substep6_caption">
+  Zur Nutzung von Scoperty Plus melde dich mit deinem Scoperty Konto an oder registriere dich neu.
+</p>
+
+<div class="substep6_form-container">
+  <form class="substep6_form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <app-form-field label="E-Mail-Adresse">
+      <input
+        name="email"
+        type="email"
+        app-input
+        appValidateOnBlur
+        required
+        [validateFormControl]="email"
+        formControlName="email"
+      >
+
+      <ng-template app-form-field-error-message error="required">
+        Bitte eine E-Mail-Adresse eingeben
+      </ng-template>
+      <ng-template app-form-field-error-message error="email">
+        Falsche E-Mail-Adresse
+      </ng-template>
+    </app-form-field>
+
+    <button
+      class="substep6_submit"
+      app-button
+      color="primary-green"
+      size="medium"
+      type="submit"
+      [stretch]="true"
+    >
+      Weiter
+    </button>
+  </form>
+
+  <img
+    *ngIf="!(isMobileDevice$ | async)"
+    class="substep6_image"
+    alt="exposes"
+    [src]="imageUrl"
+  >
+</div>

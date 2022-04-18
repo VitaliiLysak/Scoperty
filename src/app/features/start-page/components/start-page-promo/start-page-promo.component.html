@@ -1,0 +1,20 @@
+<section
+  [attr.class]="{block: name, element: 'media-block'} | bem"
+>
+  <div [attr.class]="{block: name, element: 'media-container'} | bem">
+    <div [attr.class]="{block: name, element: 'media-content'} | bem">
+      <div [attr.class]="{block: name, element: 'media-title'} | bem">
+        Alle Immobilien in deiner Stadt.
+      </div>
+      <div [attr.class]="{block: name, element: 'media-text'} | bem">
+        Scoperty gibt dir einen topaktuellen Marktüberblick mit dynamischen Schätzwerten.
+        Verschaffe dir mit Scoperty als Käufer oder Verkäufer einen Vorsprung am Immobilienmarkt.
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'image-block'} | bem" (click)="goToMap('NURNBERG')">
+      <img
+        [attr.class]="{block: name, element: 'map-image'} | bem"
+        src="../../../../../assets/images/start-page/price_grid.svg">
+    </div>
+  </div>
+</section>

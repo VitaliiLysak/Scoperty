@@ -1,0 +1,147 @@
+<app-base-modal [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    Anmelden
+  </ng-container>
+
+  <ng-container *ngIf="isNeedToShowMessage" app-base-modal-message>
+    <app-alert *ngIf="isConfirmUserPath" type="success">
+      Du hast deine E-Mail-Adresse erfolgreich bestätigt.
+      Melde dich jetzt mit deinen Zugangsdaten an!
+    </app-alert>
+
+    <ng-container [ngSwitch]="currentError">
+      <app-alert *ngSwitchCase="AuthError.UserNotFound" type="error">
+        Die E-Mail-Adresse oder das Passwort sind uns leider nicht bekannt.
+      </app-alert>
+
+      <app-alert *ngSwitchCase="AuthError.NotAuthorizedException" type="error">
+        Die E-Mail-Adresse oder das Passwort sind uns leider nicht bekannt.
+      </app-alert>
+
+      <ng-container *ngSwitchCase="AuthError.UnconfirmedEmail">
+        <app-alert type="error">
+          Wir haben dir eine E-Mail zur Bestätigung deiner Daten gesendet.
+          Bitte bestätige zuerst deine E-Mail-Adresse, um dich erneut anzumelden.
+        </app-alert>
+
+        <div [attr.class]="{ block: name, element: 'section-resend' } | bem">
+          <button
+            app-button
+            buttonStyle="link"
+            color="green"
+            (click)="resendEmail()"
+          >
+            E-Mail zur Bestätigung erneut senden
+          </button>
+        </div>
+      </ng-container>
+
+      <app-generic-error-alert *ngSwitchCase="AuthError.UnknownError"></app-generic-error-alert>
+    </ng-container>
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <div [attr.class]="{block: name, element: 'section-heading'} | bem">
+      {{ 'Bereits registriert?' | uppercase }}
+    </div>
+
+    <form
+      [formGroup]="loginForm"
+      autocomplete="on"
+    >
+      <!-- Email -->
+      <div [attr.class]="{ block: name, element: 'form-field' } | bem">
+        <app-form-field label="E-Mail-Adresse">
+          <input
+            id="login-email-input"
+            #emailInput
+            name="email"
+            type="email"
+            app-input
+            appValidateOnBlur [validateFormControl]="email"
+            [formControl]="email"
+          >
+
+          <ng-template app-form-field-error-message error="required">
+            Bitte eine E-Mail-Adresse eingeben
+          </ng-template>
+          <ng-template app-form-field-error-message error="pattern">
+            Falsche E-Mail-Adresse
+          </ng-template>
+        </app-form-field>
+      </div>
+
+      <!-- Password -->
+      <div [attr.class]="{ block: name, element: 'form-field', mods: {'margin-bottom': '24px'} } | bem">
+        <app-form-field label="Passwort">
+          <input
+            id="login-password-input"
+            name="password"
+            type="password"
+            app-input
+            appValidateOnBlur [validateFormControl]="password"
+            [formControl]="password"
+            (keyup.enter)="login()"
+          >
+
+          <ng-template app-form-field-error-message error="required">
+            Passwort ist ein Pflichtfeld
+          </ng-template>
+        </app-form-field>
+      </div>
+
+      <!-- Actions -->
+      <div>
+        <div [attr.class]="{ block: name, element: 'action' } | bem">
+          <button
+            id="login-login-button"
+            app-button
+            color="primary-green"
+            size="medium"
+            type="submit"
+            [stretch]="true"
+            (click)="login()"
+          >
+            Anmelden
+          </button>
+        </div>
+
+        <div [attr.class]="{ block: name, element: 'action' } | bem">
+          <button
+            id="login-password-reset-link"
+            app-button
+            buttonStyle="link"
+            color="green"
+            size="medium"
+            (click)="forgotPassword()"
+          >
+            Passwort vergessen
+          </button>
+        </div>
+      </div>
+
+      <!-- Register -->
+      <div
+        *ngIf="!isConfirmUserPath"
+        [attr.class]="{ block: name, element: 'register-container' } | bem"
+      >
+        <div [attr.class]="{ block: name, element: 'section-heading' } | bem">
+          Neu bei Scoperty?
+        </div>
+
+        <div [attr.class]="{ block: name, element: 'register-action' } | bem">
+          <button
+            id="login-signup-link"
+            app-button
+            color="secondary-green"
+            size="medium"
+            [stretch]="true"
+            (click)="register()"
+          >
+            Registrieren
+          </button>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</app-base-modal>

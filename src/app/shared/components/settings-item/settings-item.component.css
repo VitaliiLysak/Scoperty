@@ -1,0 +1,17 @@
+.settings-item__header {
+  display: flex;
+}
+
+.settings-item__label {
+  width: 240px;
+
+  font-weight: 600;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.settings-item__message {
+  margin-top: 12px;
+
+  line-height: 24px;
+}

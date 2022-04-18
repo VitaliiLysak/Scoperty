@@ -1,0 +1,51 @@
+.input-requirements__requirements--mode-default {
+  margin-top: 16px;
+
+  white-space: nowrap;
+}
+
+.input-requirements__requirement--mode-default {
+  margin-top: 8px;
+
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.input-requirements__requirement--mode-default:first-child {
+  margin-top: 0;
+}
+
+.input-requirements__icon--mode-default {
+  margin-left: 8px;
+
+  display: inherit;
+
+  color: var(--brand-light-blue-color);
+}
+
+.input-requirements__requirement--mode-small {
+  margin-left: 3px;
+
+  display: inline-block;
+
+  color: var(--brand-dark-green-color);
+
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.38px;
+}
+
+.input-requirements__requirement--mode-small:first-child {
+  margin: 0;
+}
+
+.input-requirements__requirements--mode-small {
+  margin-top: 9px;
+}

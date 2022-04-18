@@ -1,0 +1,59 @@
+<div [attr.class]="{block: name, element: 'row'} | bem">
+    <app-favourite
+      [attr.class]="{block: name, element: 'object-fav', mods: {location: locationPrefix}} | bem"
+      [marker]="marker"
+      theme="light"
+      size="large"
+    ></app-favourite>
+</div>
+<a
+  [attr.class]="{block: name, element: 'object'} | bem"
+  target="_blank"
+  [routerLink]="[ linkToPropertyDetail, marker.PropertyId ]"
+  queryParamsHandling="merge"
+>
+  <div [attr.class]="{block: name, element: 'object-image'} | bem">
+    <div *ngIf="!marker.hasImages" [attr.class]="{block: name, element: 'image-block'} | bem"></div>
+    <div
+      *ngIf="marker.hasImages"
+      [attr.class]="{block: name, element: 'preview'} | bem"
+    >
+      <app-image
+        [attr.class]="{block: name, element: 'image', mods: {'height': '100'}} | bem"
+        [src]="marker.firstImage"
+        [mods]="{'fit': 'container'}"
+      >
+      </app-image>
+    </div>
+    <div *ngIf="marker.Source" [attr.class]="{block: name, element: 'source-name'} | bem">
+      {{ marker.Source }}
+    </div>
+  </div>
+  <div [attr.class]="{block: name, element: 'object-content'} | bem">
+    <div [attr.class]="{block: name, element: 'object-status'} | bem">
+      <app-selling-status-tag [sellingStatus]="marker.sellingStatus"></app-selling-status-tag>
+    </div>
+    <div appMultilineTruncate [text]="markerTitle" [attr.class]="{block: name, element: 'object-title'} | bem">
+      {{markerTitle}}
+    </div>
+    <div *ngIf="markerAddress" [attr.class]="{block: name, element: 'object-info'} | bem">
+      {{markerAddress}}
+    </div>
+    <div [attr.class]="{block: name, element: 'object-footer'} | bem">
+      <div [attr.class]="{block: name, element: 'object-price'} | bem">
+        <ng-container *ngIf="marker.isStatusForSale">
+          <span [attr.class]="{block: name, element: 'object-price-text'} | bem">
+            KAUFPREIS
+          </span>
+          <span *ngIf="marker.isPropertyOfTypeMFH">ab </span>{{ marker.SalePrice | cost }}
+        </ng-container>
+        <ng-container *ngIf="!marker.isStatusForSale">
+          <span [attr.class]="{block: name, element: 'object-price-text'} | bem">
+            SCHÄTZWERT
+          </span>
+          <span *ngIf="marker.isPropertyOfTypeMFH">ab </span>{{ marker.EstimatedPrice | cost }}
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</a>

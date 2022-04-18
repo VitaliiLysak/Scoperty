@@ -1,0 +1,16 @@
+<div 
+  [attr.class]="{
+    block: _name,
+    element: 'icon',
+    mods: {
+      'on-page': page,
+      'background': bgColor
+    }
+  } | bem">
+  i
+  <div [attr.class]="{block: _name, element: 'content', mods: {'position': direction}} | bem">
+    <div [attr.class]="{block: _name, element: 'text'} | bem">
+      {{tooltipText}}
+    </div>
+  </div>
+</div>

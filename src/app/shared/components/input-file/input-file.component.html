@@ -1,0 +1,46 @@
+<label class="input-file_label" for="file-input">
+  {{label}}
+</label>
+
+<input #fileInput
+  id="file-input"
+  class="input-file_input-file"
+  type="file"
+  [accept]="accept"
+  (change)="onChange($event)"
+>
+
+<div
+  class="input-file_select-file-container"
+  [ngClass]="{
+    'input-file_link-container': buttonType === 'link',
+    'input-file_select-file-container--column-mobile': mode === 'mobile-column'
+  }">
+  <button
+    *ngIf="buttonType !== 'link'"
+    class="input-file_select-file-button"
+    [ngClass]="{
+      'secondary-green': buttonType === 'secondary-green',
+      'input-file_select-file-button--column-mobile': mode === 'mobile-column',
+      'input-file_select-file-button--mobile-max': mobileMaxWidth
+    }"
+    (click)="onClick()"
+  >
+    {{buttonName}}
+  </button>
+
+  <a
+    class="input-file_link-button"
+    [ngClass]="{
+      'input-file_link-button--column-mobile': mode === 'mobile-column'
+    }"
+    *ngIf="buttonType === 'link'"
+    (click)="onClick()"
+  >
+    {{buttonName}}
+  </a>
+
+  <p
+    class="input-file_select-file-caption"
+    *ngIf="showFileName">{{fileName}}</p>
+</div>

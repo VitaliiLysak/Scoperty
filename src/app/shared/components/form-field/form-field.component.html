@@ -1,0 +1,42 @@
+<!-- Label -->
+<label
+  *ngIf="hasLabel"
+  [attr.for]="identifier"
+  [attr.class]="{ block: _name, element: 'label' } | bem"
+>
+  {{ label }}
+</label>
+
+<!-- Form control -->
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'input-container',
+    mods: {
+      'state': showValidation && hasErrors ? 'error' : 'default'
+    }
+   } | bem">
+  <ng-content></ng-content>
+
+  <!-- Suffix -->
+  <div
+    *ngIf="hasSuffix"
+    [attr.class]="{block: _name, element: 'suffix'} | bem"
+  >
+    <ng-content select="[appFormFieldSuffix]"></ng-content>
+  </div>
+</div>
+
+<!-- Error message -->
+<div
+  *ngIf="hasErrors && firstErrorElement"
+  [attr.class]="{
+    block: _name,
+    element: 'message',
+    mods: {
+      'fixed-height-error-message': fixedHeightErrorMessage
+    }
+  } | bem"
+>
+  <ng-container *ngTemplateOutlet="firstErrorElement?.templateRef"></ng-container>
+</div>

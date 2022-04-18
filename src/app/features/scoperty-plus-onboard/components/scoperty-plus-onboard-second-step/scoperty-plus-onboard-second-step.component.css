@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+.second-step_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ssecond-step_label {
+  margin-bottom: 48px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif', serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+@media (max-width: 1120px) {
+  .ssecond-step_label {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,139 @@
+:host {
+  justify-content: center;
+
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+}
+
+.founders__paragraph-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  max-width: 945px;
+}
+
+.founders__paragraph {
+  margin-bottom: 48px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.founders__paragraph-icon {
+  margin-left: -56px;
+  margin-right: 16px;
+
+  height: 40px;
+  width: 40px;
+  border-radius: 1px;
+
+  background-color: var(--brand-light-blue-color);
+}
+
+.founders__paragraph-title {
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.founders__founders {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  max-width: 945px;
+}
+
+.founders__founder {
+  margin-right: 114px;
+  margin-bottom: 48px;
+
+  width: 368px;
+  max-width: 368px;
+}
+
+.founders__founder:nth-child(2n) {
+  margin-right: 0;
+}
+
+.founders__worm-image--worm-1 {
+  position: absolute;
+  z-index: 1;
+  top: 255px;
+  right: -65px;
+}
+
+.founders__worm-image--worm-2 {
+  position: absolute;
+  z-index: 2;
+  top: 255px;
+  right: -100px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1300px) {
+  .founders__paragraph-wrapper {
+    margin-left: 0;
+
+    width: 945px;
+  }
+
+  .founders__worm-image--worm-1,
+  .founders__worm-image--worm-2 {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 761px) and (max-width: 1299px) {
+  .founders__paragraph-icon {
+    margin-left: 0;
+  }
+
+  .founders__paragraph-wrapper,
+  .founders__founders {
+    width: 100%;
+  }
+
+  .founders__founder {
+    width: 40%;
+    max-width: 450px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .founders__paragraph {
+    margin: 26px 0 23px;
+  }
+
+  .founders__paragraph-icon {
+    display: none;
+  }
+
+  .founders__founders-block {
+    margin-bottom: 25px;
+  }
+
+  .founders__paragraph-wrapper,
+  .founders__founders {
+    width: 100%;
+  }
+
+  .founders__founder {
+    margin-right: 0;
+    margin-bottom: 24px;
+
+    width: 100%;
+    max-width: none;
+  }
+}

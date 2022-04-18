@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/mobilenav/avatar</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M12,4.375 C13.45,4.375 14.625,5.55 14.625,7 C14.625,8.45 13.45,9.625 12,9.625 C10.55,9.625 9.375,8.45 9.375,7 C9.375,5.55 10.55,4.375 12,4.375 Z M12,15.625 C15.7125,15.625 19.625,17.45 19.625,18.25 L19.625,19.625 L4.375,19.625 L4.375,18.25 C4.375,17.45 8.2875,15.625 12,15.625 Z M12,2 C9.2375,2 7,4.2375 7,7 C7,9.7625 9.2375,12 12,12 C14.7625,12 17,9.7625 17,7 C17,4.2375 14.7625,2 12,2 Z M12,13.25 C8.6625,13.25 2,14.925 2,18.25 L2,22 L22,22 L22,18.25 C22,14.925 15.3375,13.25 12,13.25 Z" id="path-1"></path>
+    </defs>
+    <g id="Icon/mobilenav/avatar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bounding_Boxes">
+            <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+        </g>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#23C1CF" fill-rule="nonzero" xlink:href="#path-1"></use>
+        <g id="color/standard" mask="url(#mask-2)" fill="#02BECF">
+            <rect id="Rectangle-24" x="0" y="0" width="24.0833333" height="24"></rect>
+        </g>
+    </g>
+</svg>

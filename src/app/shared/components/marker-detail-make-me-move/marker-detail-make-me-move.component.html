@@ -1,0 +1,178 @@
+<div [attr.class]="{block: name, element: 'container', mods: {'on-page': page, 'mobile-full-height': !isTipShown}} | bem">
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'bid-settings',
+      mods: {'mobile-full-height': !isTipShown}
+    } | bem"
+  >
+    <ng-container *ngIf="step === 'firstStep'">
+      <div [attr.class]="{block: name, element: 'header'} | bem">
+        Gebot abgeben
+        <button
+          app-icon-button
+          color="white"
+          (click)="close()"
+        >
+          <mat-icon
+            appSvgSize="18px"
+            svgIcon="close"
+            [attr.class]="{block: name, element: 'button-close'} | bem"
+          ></mat-icon>
+        </button>
+      </div>
+      <div [attr.class]="{block: name, element: 'content'} | bem">
+        <div [attr.class]="{block: name, element: 'row'} | bem">
+          Platziere ein unverbindliches Gebot, noch bevor eine Wohnung zum Verkauf steht!
+        </div>
+        <form
+          [formGroup]="offerForm"
+          [attr.class]="{block: name, element: 'form'} | bem"
+        >
+          <div
+            *ngIf="model.isPropertyOfTypeMFH"
+            [attr.class]="{block: name, element: 'input-block'} | bem"
+          >
+            <div [attr.class]="{block: name, element: 'input-block-key'} | bem">
+              {{ 'Wie gross soll deine Wohnung mindestens sein?' | uppercase }}
+            </div>
+            <app-form-field>
+              <input
+                id="square"
+                type="text"
+                tabindex="1"
+                placeholder="Verrate uns das Minimum"
+                app-input
+                appValidateOnBlur [validateFormControl]="square"
+                [formControl]="square"
+                [textMask]="{mask: squareMask}"
+              >
+
+              <ng-template app-form-field-error-message error="required">
+                Gib deine m2 Zahl ein
+              </ng-template>
+            </app-form-field>
+          </div>
+          <div [attr.class]="{block: name, element: 'input-block'} | bem">
+            <div
+              [attr.class]="{block: name, element: 'input-block-key'} | bem"
+            >
+              {{ 'Was ist dein Gebot?' | uppercase }}
+            </div>
+            <app-form-field>
+              <input
+                id="price"
+                type="text"
+                tabindex="1"
+                placeholder="Gib hier dein Gebot ein"
+                app-input
+                appValidateOnBlur [validateFormControl]="price"
+                [formControl]="price"
+                [textMask]="{mask: priceMask}"
+              >
+
+              <ng-template app-form-field-error-message error="required">
+                Gib einen Betrag ein
+              </ng-template>
+            </app-form-field>
+          </div>
+          <div [attr.class]="{block: name, element: 'button'} | bem">
+            <button
+              app-button
+              color="primary-green"
+              size="medium"
+              [stretch]="true"
+              (click)="saveOfferPrice()"
+            >
+              {{!(isSmallMobileDevice$ | async) ? 'Gebot abgeben' : 'Gebot abschicken'}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="step === 'secondStep'">
+      <div [attr.class]="{block: name, element: 'header'} | bem">
+        {{ secondStepTitle }}
+        <div [attr.class]="{block: name, element: 'button-close'} | bem" (click)="close()">&times;</div>
+      </div>
+      <div
+        [attr.class]="{block: name, element: 'row-block'} | bem"
+      >
+        <mat-icon
+          [attr.class]="{block: name, element: 'check-icon'} | bem"
+          svgIcon="check"
+        ></mat-icon>
+        <div [attr.class]="{
+            block: name,
+            element: 'text',
+            mods: {
+              'font': '600',
+              'width': page === 'offers' ? '190px' : '170px'
+            }
+          } | bem"
+        >
+          {{ secondStepText }}
+        </div>
+      </div>
+      <div
+        [attr.class]="{
+          block: name,
+          element: 'extra-block',
+          mods: {'height': !model.isPropertyOfTypeMFH ? '160px' : 'default'}
+        } | bem"
+      >
+        <div [attr.class]="{block: name, element: 'extra-block-title'} | bem">
+          Hast du schon mal über deine Baufinanzierung nachgedacht?
+        </div>
+        <button
+          app-button
+          color="primary-green"
+          size="medium"
+          [stretch]="true"
+          [routerLink]="linkToBroker"
+          queryParamsHandling="merge"
+          (click)="close()"
+        >
+          Jetzt informieren
+        </button>
+      </div>
+      <div [attr.class]="{block: name, element: 'extra-inner'} | bem">
+        <div [attr.class]="{block: name, element: 'button'} | bem">
+          <button
+            app-button
+            color="secondary-green"
+            size="medium"
+            [stretch]="true"
+            (click)="close()"
+          >
+            Weiter
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="isTipShown" [attr.class]="{block: name, element: 'bid-info'} | bem">
+    <div [attr.class]="{block: name, element: 'row-title'} | bem">
+      Proaktiv zu deiner Wunsch-Immobilie!
+    </div>
+    <ol [attr.class]="{block: name, element: 'row-text'} | bem">
+      <li *ngFor="let text of offerDescriptions">
+        {{ text }}
+      </li>
+    </ol>
+    <div [attr.class]="{block: name, element: 'row-link'} | bem">
+      <button
+        app-button
+        buttonStyle="link"
+        color="light-blue"
+        (click)="closeTip()"
+      >
+        Schliessen
+      </button>
+    </div>
+  </div>
+</div>
+<!-- The event on DIV element is here for closing dialog after click process on it -->
+<button [attr.class]="{block: name, element: 'modal-wrapper'} | bem"  (click)="close()"></button>

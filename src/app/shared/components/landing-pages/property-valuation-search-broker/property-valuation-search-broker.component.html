@@ -1,0 +1,19 @@
+<app-base-modal [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    Makler anfragen
+  </ng-container>
+
+  <ng-container *ngIf="showErrorMessage" app-base-modal-message>
+    <app-generic-error-alert></app-generic-error-alert>
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <app-user-data-full-form
+      buttonColor="primary-green"
+      buttonText="Absenden"
+      (userData)="handleUserData($event)"
+      (dataProtectionClick)="dismiss()"
+    >
+    </app-user-data-full-form>
+  </ng-container>
+</app-base-modal>

@@ -1,0 +1,116 @@
+:host {
+  justify-content: center;
+
+  display: flex;
+
+  width: 100%;
+  padding: 88px 16px 96px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.property-valuation-market-value-determination__container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  width: 100%;
+  max-width: 1224px;
+}
+
+.property-valuation-market-value-determination__explanation {
+  margin-right: 24px;
+  margin-left: 104px;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 496px;
+}
+
+.property-valuation-market-value-determination__explanation-heading {
+  margin-bottom: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif';
+  font-weight: normal;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+}
+
+.property-valuation-market-value-determination__explanation-message {
+  color: var(--brand-dark-green-color);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.property-valuation-market-value-determination__explanation-message p:last-child {
+  margin-bottom: 0;
+}
+
+.property-valuation-market-value-determination__explanation-message strong {
+  font-weight: 600;
+}
+
+.property-valuation-market-value-determination__video {
+  display: flex;
+
+  width: 600px;
+  height: 337.5px;
+}
+
+/* Responsive */
+
+@media (max-width: 1224px) {
+  .property-valuation-market-value-determination__explanation {
+    margin-left: 0;
+  }
+
+  .property-valuation-market-value-determination__video {
+    margin-bottom: 24px;
+  }
+}
+
+@media (max-width: 790px) {
+  :host {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .property-valuation-market-value-determination__container {
+    flex-direction: column-reverse;
+  }
+
+  .property-valuation-market-value-determination__explanation {
+    margin-right: 0;
+
+    max-width: unset;
+  }
+
+  .property-valuation-market-value-determination__explanation-heading {
+    margin-bottom: 16px;
+  }
+
+  .property-valuation-market-value-determination__video {
+    width: 100%;
+    height: unset;
+  }
+}
+
+@media (max-width: 450px) {
+  .property-valuation-market-value-determination__explanation-heading {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .property-valuation-market-value-determination__explanation-message {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+}

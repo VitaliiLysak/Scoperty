@@ -1,0 +1,70 @@
+<app-base-modal (dismiss)="onDismiss()">
+  <ng-container app-base-modal-header>
+    E-Mail-Adresse bestätigen
+  </ng-container>
+
+  <ng-container [ngSwitch]="currentError" app-base-modal-message>
+    <app-generic-error-alert *ngSwitchCase="AuthError.UnknownError"></app-generic-error-alert>
+  </ng-container>
+
+  <ng-container app-base-modal-title>
+    <div [attr.class]="{block: name, element: 'title'} | bem">
+      Deine E-Mail-Adresse wurde noch nicht bestätigt.
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    Bitte bestätige Deine E-Mail-Adresse über den Link in der E-Mail.
+    <div [attr.class]="{block: name, element: 'link-block'} | bem">
+      <a
+        id="error-unconfirmed-email-resend-link"
+        app-button
+        buttonStyle="link"
+        color="green"
+        (click)="showEmailForm()"
+      >
+        Bestätigungsmail nochmal abschicken
+        <mat-icon svgIcon="chevron_right"></mat-icon>
+      </a>
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <div [hidden]="!isEmailShown" >
+      <hr [attr.class]="{block: name, element: 'separator'} | bem"/>
+      <div [attr.class]="{block: name, element: 'form'} | bem">
+        <!-- User email -->
+        <app-form-field label="E-Mail-Adresse eingeben">
+          <input
+            id="error-unconfirmed-email-email-input"
+            #emailInput
+            type="email"
+            tabindex="1"
+            app-input
+            appValidateOnBlur [validateFormControl]="userEmail"
+            [formControl]="userEmail"
+          >
+
+          <ng-template app-form-field-error-message error="required">
+            Bitte eine E-Mail-Adresse eingeben
+          </ng-template>
+          <ng-template app-form-field-error-message error="pattern">
+            Falsche E-Mail-Adresse
+          </ng-template>
+        </app-form-field>
+      </div>
+      <app-base-modal-actions>
+        <button
+          id="error-unconfirmed-email-resend-button"
+          app-button
+          color="secondary-green"
+          size="medium"
+          [stretch]="true"
+          (click)="sendMessageAgain()"
+        >
+          Abschicken
+        </button>
+      </app-base-modal-actions>
+    </div>
+  </ng-container>
+</app-base-modal>

@@ -1,0 +1,36 @@
+<div [attr.class]="{block: _name, element: 'sup-panel-container'} | bem">
+  <div [attr.class]="{block: _name, element: 'sup-panel-element', mods: {'left':'side'}} | bem">
+    <div
+      [attr.class]="{block: _name, element: 'image'} | bem"
+      app-responsive-image
+      src="assets/images/for_professional/couple.jpg"
+      [multiResolution]="true"
+    ></div>
+  </div>
+  <div [attr.class]="{block: _name, element: 'sup-panel-element', mods: {'right':'side'}} | bem">
+    <div [attr.class]="{block: _name, element: 'sub-panel-show-now'} | bem">
+      <div [attr.class]="{block: _name, element: 'sub-panel-text'} | bem">
+        Deine Vorteile mit Scoperty
+      </div>
+      <ul [attr.class]="{block: _name, element: 'sub-panel-list'} | bem">
+        <li>Zielgenaue Vermarktung von Immobilien</li>
+        <li>Exklusiver Zugang zu vorqualifizierten Käufern</li>
+        <li>Erfolgsabhängige Vergütung</li>
+      </ul>
+      <div
+        [attr.class]="{block: _name, element: 'feedback-button'} | bem"
+      >
+        <a
+          id="professionals-show-now-link"
+          app-button
+          size="medium"
+          color="secondary-green"
+          [stretch]="true"
+          [href]="realtorsMailToLink"
+        >
+          Jetzt Anzeige schalten
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

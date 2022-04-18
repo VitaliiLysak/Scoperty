@@ -1,0 +1,27 @@
+<app-base-modal (dismiss)="onDismiss()">
+  <ng-container app-base-modal-title>
+    {{ title }}
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <div [attr.class]="{block: _name, element: 'message', mods: {'type': type}} | bem">
+      {{ message }}
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions align="space-between">
+      <ng-container *ngFor="let button of buttons">
+        <button
+          app-button
+          [buttonStyle]="getButtonStyle(button)"
+          [color]="getButtonColor(button)"
+          size="medium"
+          (click)="onContinue(button)"
+        >
+          {{ button.label }}
+        </button>
+      </ng-container>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

@@ -1,0 +1,57 @@
+:host {
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.how-it-works-faq__row {
+  display: flex;
+
+  width: 100%;
+}
+
+.how-it-works-faq__row--type-spoiler {
+  margin: 8px 0;
+
+  flex-direction: column;
+
+  border-radius: 4px;
+
+  background-color: var(--background-wild-sand);
+}
+
+.how-it-works-faq__row--type-spoiler ::ng-deep .spoiler__header--state-opened::after,
+.how-it-works-faq__row--type-spoiler ::ng-deep .spoiler__header--state-closed::after {
+  right: 28px;
+}
+
+.how-it-works-faq__row--width-calc {
+  width: calc(100% - 126px);
+  max-width: 944px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 760px) {
+  .how-it-works-faq__row--type-spoiler {
+    margin: 4px 0;
+
+    width: calc(100% + 16px);
+  }
+
+  .how-it-works-faq__row--type-spoiler:last-child {
+    margin-bottom: 32px;
+  }
+
+  .how-it-works-faq__row--type-spoiler ::ng-deep .spoiler__header--state-opened::after,
+  .how-it-works-faq__row--type-spoiler ::ng-deep .spoiler__header--state-closed::after {
+    right: 14px;
+  }
+
+  .how-it-works-faq__row--width-calc {
+    width: 100%;
+  }
+}

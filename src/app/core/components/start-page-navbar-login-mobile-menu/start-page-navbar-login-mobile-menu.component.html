@@ -1,0 +1,114 @@
+<ul [attr.class]="{ block: name, element: 'login-menu', mods: { 'theme': theme } } | bem">
+  <ng-container *ngIf="isMyPropertiesOpened; else loginMenu">
+    <!-- Main menu (1. level) -->
+    <li [attr.class]="{ block: name, element: 'login-menu-item-2' } | bem">
+      <button
+        app-button
+        buttonStyle="link"
+        size="large"
+        color="dark"
+        (click)="hideMyPropertyPages()"
+      >
+        <div>
+          <mat-icon
+            [attr.class]="{ block: name, element: 'login-menu-item-2-image' } | bem"
+            svgIcon="chevron_left"
+            appSvgSize="24px"
+          ></mat-icon>
+        </div>
+        <div [attr.class]="{ block: name, element: 'login-menu-item-2-text' } | bem">
+          Mein Bereich
+        </div>
+      </button>
+    </li>
+
+    <!-- Sub menu (2. level) -->
+    <li
+      *ngFor="let menuItem of menuItems; first as isFirst"
+      [attr.class]="{ block: name, element: 'login-menu-item-3', mods: {'first': isFirst} } | bem"
+    >
+      <button
+        app-button
+        buttonStyle="link"
+        color="dark"
+        [color]="getLinkColor(routerLink.isActive)"
+        [routerLink]="[ menuItem.link ]"
+        queryParamsHandling="merge"
+        routerLinkActive #routerLink="routerLinkActive"
+      >
+        {{ menuItem.label }}
+      </button>
+    </li>
+  </ng-container>
+
+  <!-- aaa -->
+  <ng-template #loginMenu>
+    <!-- My properties -->
+    <li [attr.class]="{ block: name, element: 'login-menu-item' } | bem">
+      <button
+        app-button
+        buttonStyle="link"
+        size="large"
+        color="dark"
+        (click)="showMyPropertyPages()"
+      >
+        <div [attr.class]="{ block: name, element: 'login-menu-item-text' } | bem">
+          Mein Bereich
+        </div>
+        <div>
+          <mat-icon
+            [attr.class]="{ block: name, element: 'login-menu-item-image' } | bem"
+            svgIcon="chevron_right"
+            appSvgSize="24px"
+          ></mat-icon>
+        </div>
+      </button>
+    </li>
+
+    <!-- Profile -->
+    <li [attr.class]="{ block: name, element: 'login-menu-item' } | bem">
+      <a
+        app-button
+        buttonStyle="link"
+        size="large"
+        [color]="getLinkColor(routerLink.isActive)"
+        [routerLink]="linkToProfile"
+        queryParamsHandling="merge"
+        routerLinkActive #routerLink="routerLinkActive"
+      >
+        <div [attr.class]="{ block: name, element: 'login-menu-item-text' } | bem">
+          Profil
+        </div>
+        <div>
+          <mat-icon
+            [attr.class]="{ block: name, element: 'login-menu-item-image' } | bem"
+            svgIcon="chevron_right"
+            appSvgSize="24px"
+          ></mat-icon>
+        </div>
+      </a>
+    </li>
+
+    <!-- Logout -->
+    <li [attr.class]="{ block: name, element: 'login-menu-item' } | bem">
+      <button
+        app-button
+        buttonStyle="link"
+        color="delete"
+        size="large"
+        (click)="userLogout()"
+      >
+        <div [attr.class]="{ block: name, element: 'login-menu-item-text' } | bem">
+          Ausloggen
+        </div>
+        <div>
+          <mat-icon
+            [attr.class]="{ block: name, element: 'login-menu-item-image' } | bem"
+            svgIcon="chevron_right"
+            appSvgSize="24px"
+          ></mat-icon>
+        </div>
+      </button>
+    </li>
+  </ng-template>
+</ul>

@@ -1,0 +1,9 @@
+:host {
+  display: block;
+
+  width: 100%;
+}
+
+.property-sale__advertisement-message {
+  cursor: pointer;
+}

@@ -1,0 +1,134 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <!-- Realtor badge -->
+  <div *ngIf="marker.isRealtor"
+      [attr.class]="{block: _name, element: 'badge'} | bem">
+    Ich bin Makler
+  </div>
+
+  <!-- Property info -->
+  <div *ngIf="marker"
+       [attr.class]="{ block: _name, element: 'title', mods: { 'type': 'address' } } | bem">
+    {{propertyAddress}}
+  </div>
+
+  <!-- Sale status -->
+  <div [attr.class]="{ block: _name, element: 'sale-status-container' } | bem">
+    <app-change-selling-status
+      [saleStatus]="saleStatus"
+      [isOwner] = "marker.isOwner"
+      [isRealtor]="marker.isRealtor"
+      [hasRealtor]="marker.hasRealtor"
+      (saleStatusChange)="onSaleStatusChange($event)"
+      (saleStatusSave)="onSaleStatusSave($event)"
+    ></app-change-selling-status>
+  </div>
+
+  <!-- Estimated value -->
+  <div [attr.class]="{ block: _name, element: 'estimated-value-container' } | bem">
+    <app-my-properties-estimated-value [property]="marker"></app-my-properties-estimated-value>
+  </div>
+
+  <!-- Your Bids -->
+  <div *ngIf="marker.isOwner" [attr.class]="{block: _name, element: 'bids-block'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      Deine Gebote
+    </div>
+    <div
+      *ngIf="offers != null && offers.length > 0; else offersInfoBlock"
+      [attr.class]="{block: _name, element: 'bids-content'} | bem"
+    >
+      <div [attr.class]="{block: _name, element: 'bids-block-title'} | bem">
+        <div [attr.class]="{block: _name, element: 'headline'} | bem">
+          BIETER
+        </div>
+        <div [attr.class]="{block: _name, element: 'headline'} | bem">
+          GEBOT
+        </div>
+      </div>
+      <div
+        *ngFor="let offer of offers"
+        [attr.class]="{block: _name, element: 'row', mods: {'state':'active'}} | bem"
+      >
+        <div [attr.class]="{block: _name, element: 'key'} | bem">
+          <span class="text-truncate">{{offer.user.profile.givenName}}</span>
+          <span>&nbsp;</span>
+          <span class="text-truncate">{{offer.user.profile.familyName}}</span>
+        </div>
+        <div [attr.class]="{block: _name, element: 'value'} | bem">
+          {{offer.price.toLocaleString('de-DE')}} €
+        </div>
+        <div
+          [attr.class]="{block: _name, element: 'link'} | bem"
+          (click)="openContactForm()"
+        >
+          <span *ngIf="!(isSmallMobileDevice$ | async)" class="text-truncate">Nachricht schreiben</span>
+          <img *ngIf="(isSmallMobileDevice$ | async)" src="../../../../../assets/images/message-icon.svg">
+        </div>
+      </div>
+    </div>
+
+    <ng-template #offersInfoBlock>
+      <div
+        *ngIf="!isOffersInfoHidden"
+        [attr.class]="{block: _name, element: 'alert'} | bem"
+      >
+        <div [attr.class]="{block: _name, element: 'alert-content'} | bem">
+          <div [attr.class]="{block: _name, element: 'alert-text'} | bem">
+            Hier kannst du deine Gebote von potenziellen Käufern auf deine Immobilie sehen.
+            Es liegen noch keine Gebote vor.
+          </div>
+          <div
+            [attr.class]="{block: _name, element: 'close-button'} | bem"
+            (click)="isOffersInfoHidden = true"
+          >
+            <i aria-hidden="true" [attr.class]="{block: _name, element: 'close-icon'} | bem"></i>
+          </div>
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'sub-title', mods: {'margin-top':'30px', 'margin-bottom':'5px'}} | bem">
+        Noch keine Gebote?
+        Mach jetzt deine Immobilie attraktiver indem du weitere Informationen zur Verfügung stellst.
+      </div>
+      <a
+        app-button
+        color="green"
+        buttonStyle="link"
+        [stretch]="true"
+        (click)="_activateTab('edit', 'detailDataBlock')"
+      >
+        Immobilie bearbeiten
+        <mat-icon svgIcon="chevron_right"></mat-icon>
+      </a>
+    </ng-template>
+  </div>
+
+  <!-- Property statistics -->
+  <div [attr.class]="{block: _name, element: 'content', mods: {'price':'trend'}} | bem">
+    <app-marker-detail-estimated-price-trend
+      [userNotAuthorized]="userNotAuthorized"
+      [isLoading]="priceTrendsLoading"
+      [priceTrends]="priceTrends"
+    ></app-marker-detail-estimated-price-trend>
+  </div>
+
+  <!-- Property statistics -->
+  <div [attr.class]="{block: _name, element: 'statistics-block'} | bem">
+    <div [attr.class]="{block: _name, element: 'content-title', mods: {'type': 'statistics'}} | bem">
+      Die Immobilie in Zahlen
+    </div>
+    <app-marker-detail-statistics
+      [userNotAuthorized]="userNotAuthorized"
+      [model]="marker"
+    ></app-marker-detail-statistics>
+  </div>
+
+  <!-- Mortgage info message -->
+  <div *ngIf="showMortgageInfo"
+       [attr.class]="{ block: _name, element: 'mortgage-block' } | bem">
+    <app-info-message header="Hast du schon über deine Anschlussfinanzierung nachgedacht?"
+                      message="Berechne jetzt deinen maximalen Kaufpreis und lerne mehr über die Baufinanzierung kennen!"
+                      actionLabel="Jetzt berechnen"
+                      (dismiss)="hideMortgageMessage()"
+                      (action)="goToMortgagePage()"></app-info-message>
+  </div>
+</div>

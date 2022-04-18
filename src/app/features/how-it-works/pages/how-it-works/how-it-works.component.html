@@ -1,0 +1,460 @@
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'container',
+    mods: {
+      'background-color': 'dark',
+      'height': '365',
+      'first': 'block'
+    }
+  } | bem"
+>
+  <div [attr.class]="{block: _name, element: 'header-title'} | bem">
+    <div [attr.class]="{block: _name, element: 'header-text'} | bem">
+      SO FUNKTIONIERT'S
+    </div>
+    <div [attr.class]="{block: _name, element: 'header-main-text'} | bem">
+      Immobilien – neu gedacht, einfach gemacht.
+    </div>
+  </div>
+</div>
+
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'container',
+    mods: {
+      'background-color': 'aquamarine',
+      'second': 'block'
+    }
+  } | bem"
+>
+  <div [attr.class]="{block: _name, element: 'row', mods: {'second': 'block'}} | bem">
+    <div [attr.class]="{block: _name, element: 'container-image'} | bem">
+      <img src="/assets/images/scribble_help.svg" [attr.class]="{block: _name, element: 'image'} | bem">
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'row-text' } | bem">
+      Auf dem Scoperty Marktplatz ermitteln Eigentümer den aktuellen Schätzwert ihrer Immobilie und können unverbindlich testen, was Käufer für ihre Immobilie bereit wären zu zahlen. Zusätzlich haben sie Zugang zu einem ausgewählten
+      Maklernetzwerk zur Unterstützung des Verkaufsprozesses und können ihre Immobilie kostenfrei vermarkten.
+      Käufer können nach allen Immobilien suchen und proaktiv Gebote auch auf nicht zum Verkauf stehenden Immobilien abgeben. Sie erhöhen dadurch die Chance, ihre Traumimmobilie zu finden. Über Interhyp haben Käufer Zugang zu über
+      400 Finanzierungsgebern. Der Kauf und Verkauf von Immobilien wird mit Scoperty so einfach wie nie zuvor.
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="!(isMobileDevice$ | async)"
+  [attr.class]="{block: _name, element: 'separator', mods: {'size': '100px'} } | bem"
+>
+</div>
+
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+
+    <ng-container *ngIf="!(isMobileDevice$ | async)">
+      <div [attr.class]="{block: _name, element: 'title'} | bem">
+        <div [attr.class]="{block: _name, element: 'row'} | bem">
+          <div [attr.class]="{block: _name, element: 'title-icon'} | bem"></div>
+          Was bedeutet der jeweilige Status der Immobilie?
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="(isMobileDevice$ | async)">
+      <div [attr.class]="{block: _name, element: 'title', mods: {'mobile': 'view'} } | bem">
+        Was bedeutet der jeweilige Status der Immobilie?
+      </div>
+    </ng-container>
+
+  </div>
+
+  <!-- Selling status explanations -->
+  <div [attr.class]="{block: _name, element: 'card-container'} | bem">
+    <div [attr.class]="{block: _name, element: 'badge-container'} | bem">
+      <app-badge
+        [attr.class]="{block: _name, element: 'badge'} | bem"
+        text="Einzigartige Funktion bei Scoperty!"
+        rotate="-15deg"
+      ></app-badge>
+    </div>
+    <!-- Rows -->
+    <div *ngFor="let row of sellingStatusExplanationRows"
+         [attr.class]="{block: _name, element: 'row', mods: {'cards': 'block'}} | bem">
+      <!-- Columns / Item -->
+      <div *ngFor="let sellingStatusExplanation of sellingStatusExplanationsForRow(row)"
+           [attr.class]="{block: _name, element: 'card', mods: {'color': sellingStatusExplanation.sellingStatus}} | bem">
+        <div [attr.class]="{block: _name, element: 'card-button'} | bem">
+          {{ getSellingStatusName(sellingStatusExplanation) }}
+        </div>
+        <div [attr.class]="{block: _name, element: 'card-title'} | bem">
+          {{ sellingStatusExplanation.title }}
+        </div>
+        <div [attr.class]="{block: _name, element: 'card-text'} | bem"
+             [innerHTML]="sellingStatusExplanation.text"></div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="!(isMobileDevice$ | async)"
+    [attr.class]="{block: _name, element: 'separator', mods: {'size': '100px'} } | bem"
+  >
+  </div>
+
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+
+    <ng-container *ngIf="!(isMobileDevice$ | async)">
+      <div
+        id="advantages"
+        [attr.class]="{block: _name, element: 'title', mods: {'margin-vert': '42px'}} | bem"
+      >
+        <div [attr.class]="{block: _name, element: 'row'} | bem">
+          <div [attr.class]="{block: _name, element: 'title-icon'} | bem"></div>
+          Welche Vorteile bietet Scoperty?
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'row', mods: {'justify': 'end', 'advantage': 'block'}} | bem">
+        <div [attr.class]="{block: _name, element: 'title-block'} | bem">
+          Gesucht? <br> Gefunden.
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="(isMobileDevice$ | async)">
+      <div id="advantages" [attr.class]="{block: _name, element: 'row', mods: {'advantages': 'block'}} | bem">
+        <div [attr.class]="{block: _name, element: 'title-block', mods: {'advantages': 'block'}} | bem">
+          Gesucht? <br> Gefunden.
+        </div>
+      </div>
+      <div [attr.class]="{block: _name, element: 'title', mods: {'advantages': 'block'}} | bem">
+        Scoperty ist neu und einzigartig.
+      </div>
+    </ng-container>
+
+    <div [attr.class]="{block: _name, element: 'row', mods: {'width': 'calc'}} | bem">
+      <div
+        id="hiw-for-buyer-tab-button"
+        [attr.class]="{
+          block: _name,
+          element: 'button',
+          mods: {'type': 'tab-switcher', state: userTargetTabs.buy ? 'active' : 'default'}
+        } | bem"
+        (click)="changeActiveTab('buy')"
+      >
+        Für Käufer
+      </div>
+      <div
+        id="hiw-for-seller-tab-button"
+        [attr.class]="{
+          block: _name,
+          element: 'button',
+          mods: {'type': 'tab-switcher', state: userTargetTabs.sell ? 'active' : 'default'}
+        } | bem"
+        (click)="changeActiveTab('sell')"
+      >
+        Für Eigentümer
+      </div>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'row', mods: {'type': 'target-description', 'width': 'calc'} } | bem">
+      <div [attr.class]="{block: _name, element: 'text', mods: {'type': 'header', 'margin': '10px'} } | bem">
+        <ng-container *ngIf="userTargetTabs.buy">
+          Transparente Marktwerte
+        </ng-container>
+        <ng-container *ngIf="userTargetTabs.sell">
+          Volle Wertschätzung
+        </ng-container>
+      </div>
+
+      <p [attr.class]="{block: _name, element: 'text', mods: {'margin': '10px'} } | bem">
+        <ng-container *ngIf="userTargetTabs.buy">
+          Auf dem Scoperty Marktplatz findest du Schätzungen zu allen Objekten in deiner Umgebung. Nutze dafür einfach  die Karte mit der Immobilienübersicht oder gib eine konkrete  Adresse ein, um dein Wunsch-Zuhause zu finden.
+        </ng-container>
+        <ng-container *ngIf="userTargetTabs.sell">
+          Mit Scoperty findest du den besten Verkaufspreis für deine Immobilie heraus. Dabei unterstützt dich der Schätzwert, der anhand eines hochmodernen Algorithmus berechnet wird. Verbessere den Schätzwert deiner Immobilie, indem du weitere Informationen zu deinem Objekt bei Scoperty angibst.
+        </ng-container>
+      </p>
+
+      <div
+        *ngIf="!(isMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'separator', mods: {'size': '32px'} } | bem"
+      >
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text', mods: {'type': 'header', 'margin': '10px'} } | bem">
+        <ng-container *ngIf="userTargetTabs.buy">
+          Interesse zeigen
+        </ng-container>
+        <ng-container *ngIf="userTargetTabs.sell">
+          Markt sondieren
+        </ng-container>
+      </div>
+
+      <p [attr.class]="{block: _name, element: 'text', mods: {'margin': '10px'} } | bem">
+        <ng-container *ngIf="userTargetTabs.buy">
+          Du kannst dem Eigentümer einer Immobilie auf dem Scoperty Marktplatz proaktiv dein Kaufinteresse bekunden, bevor das Objekt überhaupt zum Verkauf kommt. Auf der Detailseite des Objekts kannst du ein Gebot auf die Immobilie abgeben. Wir informieren dich, sobald der Eigentümer dein Gebot gelesen hat.
+        </ng-container>
+        <ng-container *ngIf="userTargetTabs.sell">
+          Mit Scoperty kannst du ganz einfach herausfinden, was deine Immobilie am Markt wert ist. Erhalte unverbindliche Gebote für deine Immobilie  und finde so den echten Marktpreis heraus.
+        </ng-container>
+      </p>
+
+      <div
+        *ngIf="!(isMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'separator', mods: {'size': '32px'} } | bem"
+      >
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'text', mods: {'type': 'header', 'margin': '10px'} } | bem">
+        <ng-container *ngIf="userTargetTabs.buy">
+          Finanzierung sicherstellen
+        </ng-container>
+        <ng-container *ngIf="userTargetTabs.sell">
+          Makler finden
+        </ng-container>
+      </div>
+
+      <p [attr.class]="{block: _name, element: 'text', mods: {'margin': '10px'} } | bem">
+        <ng-container *ngIf="userTargetTabs.buy">
+          Hast du dein Wunsch-Zuhause gefunden, wirst du bei unserem  Partner Interhyp die passende Baufinanzierung für dich finden und kannst den Kauf klar machen.
+        </ng-container>
+        <ng-container *ngIf="userTargetTabs.sell">
+          Hast du dich für einen Verkauf entschieden, findest du in unserem geprüften Netzwerk den passenden Makler für deine Immobilie.
+        </ng-container>
+      </p>
+    </div>
+
+    <div
+      *ngIf="!(isMobileDevice$ | async)"
+      [attr.class]="{block: _name, element: 'separator', mods: {'size': '100px'} } | bem"
+    >
+    </div>
+
+    <ng-container *ngIf="!(isMobileDevice$ | async)">
+      <div id="faq" [attr.class]="{block: _name, element: 'title', mods: {'margin-vert': '42px'}} | bem">
+        <div [attr.class]="{block: _name, element: 'row'} | bem">
+          <div [attr.class]="{block: _name, element: 'title-icon'} | bem"></div>
+          Häufige Fragen zu Scoperty
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="(isMobileDevice$ | async)">
+      <div [attr.class]="{block: _name, element: 'title', mods: {'mobile': 'view'} } | bem">
+        Häufige Fragen zu Scoperty
+      </div>
+    </ng-container>
+
+    <!-- Faq -->
+    <app-how-it-works-faq></app-how-it-works-faq>
+
+    <div
+      *ngIf="!(isMobileDevice$ | async)"
+      [attr.class]="{block: _name, element: 'separator', mods: {'size': '100px'} } | bem"
+    >
+    </div>
+  </div>
+</div>
+
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'container',
+    mods: {'background-color': 'dark', 'padding-bottom': '60px'}
+  } | bem"
+>
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <ng-container *ngIf="!(isMobileDevice$ | async)">
+      <div
+        id="availability"
+        [attr.class]="{block: _name, element: 'title', mods: {'color': 'white', 'margin-vert': '42px'}} | bem"
+      >
+        <div [attr.class]="{block: _name, element: 'row'} | bem">
+          <div [attr.class]="{block: _name, element: 'title-icon'} | bem"></div>
+          Wann ist Scoperty in meiner Region verfügbar?
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="(isMobileDevice$ | async)">
+      <div [attr.class]="{block: _name, element: 'title', mods: {'mobile': 'view', 'color': 'inverted'} } | bem">
+        Wann ist Scoperty in meiner Region verfügbar?
+      </div>
+    </ng-container>
+
+    <div [attr.class]="{block: _name, element: 'row', mods: {'type': 'column', 'width': 'calc'}} | bem">
+      <p [attr.class]="{block: _name, element: 'text', mods: {'color': 'white', 'bottom-bar': 'description'}} | bem">
+        Wir arbeiten kontinuierlich daran, unser Angebot in ganz Deutschland einzuführen. Gerne informieren wir dich,
+        wenn Scoperty auch in deiner Region verfügbar ist.
+      </p>
+
+      <div [attr.class]="{block: _name, element: 'block', mods: {'font-size': 'normal',  type: 'lead-form'} } | bem">
+        <ng-container *ngIf="shouldShowAnyFeedback; then anyFeedback else form"></ng-container>
+
+        <ng-template #form>
+          <div
+            [attr.class]="{
+              block: _name,
+              element: 'text',
+              mods: {
+                'type': 'header',
+                'bottom-bar': 'form',
+                'margin-bottom': '15px'
+              }
+            } | bem"
+          >
+            BITTE SCHICKT MIT EINE E-MAIL, WENN ES SCOPERTY AUCH BEI MIR GIBT!
+          </div>
+
+          <form
+            [formGroup]="userDataForm"
+            [attr.class]="{block: _name, element: 'row', mods: {'inputs': 'wrapper'} } | bem"
+          >
+            <label
+              for="hiw-subscribe-email"
+              [attr.class]="{
+                block: _name,
+                element: 'label',
+                mods: {'state-error': email.invalid && email.touched && email.dirty}
+              } | bem"
+            >
+              <span [attr.class]="{block: _name, element: 'label-text'} | bem">
+                E-Mail-Adresse
+              </span>
+              <input
+                id="hiw-subscribe-email"
+                formControlName="email"
+                type="email"
+                [(ngModel)]="userData.email"
+                placeholder="E-Mail-Adresse eingeben"
+                appValidateOnBlur
+                [validateFormControl]="email"
+                [attr.class]="{
+                  block: _name,
+                  element: 'input',
+                  mods: {
+                    'state' : (email.valid && (email.dirty || email.touched))
+                              ? 'filled'
+                              : (email.invalid && email.dirty && email.touched)
+                                ? 'error' : 'default'
+                  }
+                } | bem"
+              >
+
+              <!-- Errors -->
+              <div *ngIf="email.invalid && email.dirty && email.touched">
+                <div
+                  *ngIf="email.errors.required else wrongEmailAddress"
+                  [attr.class]="{block: _name, element: 'invalid-feedback'} | bem"
+                >
+                  Bitte eine E-Mail-Adresse eingeben
+                </div>
+                <ng-template #wrongEmailAddress>
+                  <div
+                    *ngIf="email.errors.email || email.errors.pattern"
+                    [attr.class]="{block: _name, element: 'invalid-feedback'} | bem"
+                  >
+                    Falsche E-Mail-Adresse
+                  </div>
+                </ng-template>
+              </div>
+            </label>
+
+            <label
+              for="hiw-subscribe-zipcode"
+              [attr.class]="{
+                block: _name,
+                element: 'label',
+                mods: {'state-error': zipCode.invalid && (zipCode.touched || zipCode.dirty)}
+              } | bem"
+            >
+              <span [attr.class]="{block: _name, element: 'label-text'} | bem">
+                PLZ für deine Region
+              </span>
+              <input
+                id="hiw-subscribe-zipcode"
+                formControlName="zipCode"
+                type="text"
+                pattern="[0-9]{5}"
+                maxlength="5"
+                [(ngModel)]="userData.zipCode"
+                placeholder="Deine PLZ eingeben"
+                [attr.class]="{
+                  block: _name,
+                  element: 'input',
+                  mods: {
+                    'state' : (zipCode.valid && (zipCode.dirty && zipCode.touched))
+                              ? 'filled'
+                              : (zipCode.invalid && (zipCode.dirty || zipCode.touched))
+                                ? 'error' : 'default'
+                  }
+                } | bem"
+              >
+              <div *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
+                <div
+                  *ngIf="zipCode.errors.required"
+                  [attr.class]="{block: _name, element: 'invalid-feedback'} | bem"
+                >
+                  Bitte eine PLZ eingeben
+                </div>
+                <div
+                  *ngIf="zipCode.errors.pattern && !zipCode.errors.required"
+                  [attr.class]="{block: _name, element: 'invalid-feedback'} | bem"
+                >
+                  Falsche PLZ
+                </div>
+              </div>
+            </label>
+          </form>
+
+          <!-- Data protection explanation -->
+          <div [attr.class]="{ block: _name, element: 'data-protection-explanation' } | bem">
+            Es gilt unsere
+            <a
+              id="hiw-subscribe-data-protection-link"
+              app-button
+              buttonStyle="link"
+              color="inline-green"
+              [routerLink]="linkToDataProtection"
+              queryParamsHandling="merge"
+            >Datenschutzerklärung</a>.
+          </div>
+
+          <div [attr.class]="{ block: _name, element: 'actions' } | bem">
+            <button
+              id="hiw-subscribe-button"
+              app-button
+              size="medium"
+              color="primary-green"
+              [stretch]="true"
+              (click)="sendLeadForm()"
+            >
+              {{ (isMobileDevice$ | async) ? 'Benachrichtige mich' : 'Benachrichtigungen aktivieren' }}
+            </button>
+          </div>
+        </ng-template>
+
+        <!-- Feedback -->
+        <ng-template #anyFeedback>
+          <!-- Success feedback -->
+          <app-how-it-works-feedback
+            *ngIf="shouldShowSuccessFeedback; else failureFeedback"
+            type="success"
+            heading="Vielen Dank für dein Interesse an Scoperty!"
+            message="Wir werden dich informieren, sobald es Neuigkeiten gibt."
+          ></app-how-it-works-feedback>
+
+          <!-- Failure feedback -->
+          <ng-template #failureFeedback>
+            <app-how-it-works-feedback
+              type="error"
+              heading="Oops! Etwas ist schief gelaufen."
+              message="Bitte probiere es zu einem späteren Zeitpunkt nochmal."
+            ></app-how-it-works-feedback>
+          </ng-template>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

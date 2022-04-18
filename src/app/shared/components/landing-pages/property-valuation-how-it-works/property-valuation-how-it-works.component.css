@@ -1,0 +1,116 @@
+:host {
+  display: flex;
+
+  justify-content: center;
+
+  padding: 96px 24px;
+
+  background-color: var(--neutrals-light-extreme-color);
+}
+
+.property-valuation-how-it-works__container {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 1224px;
+}
+
+.property-valuation-how-it-works__heading {
+  margin-bottom: 40px;
+
+  font-family: 'PT Serif';
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+  text-align: center;
+  color: var(--brand-dark-green-color);
+}
+
+.property-valuation-how-it-works__list {
+  display: flex;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.property-valuation-how-it-works__list-item {
+  margin-left: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.property-valuation-how-it-works__list-item:first-child {
+  margin-left: 0;
+}
+
+.property-valuation-how-it-works__icon {
+  margin-bottom: 24px;
+
+  display: flex;
+  justify-content: center;
+
+  color: var(--brand-light-blue-color);
+}
+
+.property-valuation-how-it-works__message {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 28px;
+  text-align: center;
+
+  color: var(--brand-dark-green-color);
+}
+
+/* Responsive */
+
+@media (max-width: 1016px) {
+  .property-valuation-how-it-works__list {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .property-valuation-how-it-works__list-item {
+    margin-top: 24px;
+    margin-left: 0;
+
+    max-width: 360px;
+  }
+
+  .property-valuation-how-it-works__list-item:first-child {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  :host {
+    padding: 24px 16px 56px;
+  }
+
+  .property-valuation-how-it-works__heading {
+    margin-bottom: 32px;
+
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .property-valuation-how-it-works__list-item {
+    max-width: unset;
+  }
+
+  .property-valuation-how-it-works__icon {
+    margin-bottom: 16px;
+  }
+
+  .property-valuation-how-it-works__message {
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 24px;
+  }
+}

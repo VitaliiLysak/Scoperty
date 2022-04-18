@@ -1,0 +1,107 @@
+<div [attr.class]="{block: _name} | bem">
+  <div
+    [attr.class]="{block: _name, element: 'button-logo'} | bem"
+    (click)="onLogoClick()"
+  >
+    <app-logo></app-logo>
+  </div>
+  <div [attr.class]="{block: _name, element: 'button-close'} | bem" (click)="close()"></div>
+  <div [attr.class]="{block: _name, element: 'links'} | bem">
+    <div *ngIf="userNotAuthorized && !(isSmallMobileDevice$ | async)">
+      <div [attr.class]="{block: _name, element: 'link'} | bem" (click)=onShowSignup()>
+        REGISTRIEREN
+      </div>
+      <div [attr.class]="{block: _name, element: 'link'} | bem" (click)=onShowLogin()>
+        LOGIN
+      </div>
+    </div>
+    <div *ngIf="!userNotAuthorized && !(isSmallMobileDevice$ | async)">
+      <div
+        [attr.class]="{block: _name, element: 'link'} | bem"
+        [routerLink]="linkToProfile"
+        queryParamsHandling="merge"
+        fragment="startBlock"
+        routerLinkActive="active"
+        (click)="close()"
+      >
+        PROFIL
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'link'} | bem"
+        [routerLink]="linkToProfile"
+        queryParamsHandling="merge"
+        fragment="meineObjecte"
+        routerLinkActive="active"
+        (click)="close()"
+      >
+        MEINE IMMOBILIEN
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'link', mods: {'color' : 'red'}} | bem"
+        (click)="onLogout()"
+      >
+        AUSLOGGEN
+      </div>
+    </div>
+    <div [attr.class]="{block: _name, element: 'wrapper'} | bem">
+      <div
+        [attr.class]="{block: _name, element: 'link', mods: {'size' : 'small'}} | bem"
+        [routerLink]="linkToHowItWorks"
+        queryParamsHandling="merge"
+        fragment="main"
+        (click)="close()"
+      >
+        <span *ngIf="!(isSmallMobileDevice$ | async)">
+          SO FUNKTIONIERT'S
+        </span>
+        <span *ngIf="(isSmallMobileDevice$ | async)">
+          Wie funktionierts?
+        </span>
+      </div>
+      <div
+        [attr.class]="{block: _name, element: 'link', mods: {'size' : 'small'}} | bem"
+        [routerLink]="linkToAbout"
+        queryParamsHandling="merge"
+        fragment="main"
+        (click)="close()"
+      >
+        <span *ngIf="!(isSmallMobileDevice$ | async)">
+          ÜBERIMMOATLAS
+        </span>
+        <span *ngIf="(isSmallMobileDevice$ | async)">
+          Über uns
+        </span>
+      </div>
+      <div
+        *ngIf="!(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'link', mods: {'size' : 'small'}} | bem"
+        [routerLink]="linkToPrivacy"
+        queryParamsHandling="merge"
+        fragment="main"
+        (click)="close()"
+      >
+        DATENSCHUTZ
+      </div>
+      <div
+        *ngIf="!(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'link', mods: {'size' : 'small'}} | bem"
+        [routerLink]="linkToImpressum"
+        queryParamsHandling="merge"
+        fragment="main"
+        (click)="close()"
+      >
+        IMPRESSUM
+      </div>
+      <div
+        *ngIf="(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: _name, element: 'link', mods: {'size' : 'small'}} | bem"
+        [routerLink]="linkToImpressum"
+        queryParamsHandling="merge"
+        fragment="contactBlock"
+        (click)="close()"
+      >
+        Kontakt
+      </div>
+    </div>
+  </div>
+</div>

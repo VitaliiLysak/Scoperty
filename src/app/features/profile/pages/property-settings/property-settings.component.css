@@ -1,0 +1,255 @@
+:host {
+  margin: 0 auto;
+
+  display: flex;
+
+  max-width: 560px;
+
+  font-family: "Nunito Sans";
+
+  background-color: hsl(0, 0%, 100%);
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.property-settings__container {
+  margin: 0 0 120px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+}
+
+.property-settings__container-item {
+  margin-top: 50px;
+}
+
+.property-settings__container-item:first-child {
+  margin-top: 0;
+}
+
+.property-settings__section {
+  margin-top: 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.property-settings__section--mt-55px {
+  margin-top: 55px;
+}
+
+.property-settings__section-name {
+  margin-bottom: 9px;
+
+  display: flex;
+}
+
+.property-settings__name {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 28px;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.property-settings__section-subname {
+  display: flex;
+  flex-direction: column;
+}
+
+.property-settings__section-subname--margin-top {
+  margin: 11px 0 25px 0;
+}
+
+.property-settings__subname {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.property-settings__attention-block {
+  margin-top: 26px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: 	hsl(0, 94%, 43%);
+}
+
+.property-settings__attention-name {
+  margin-bottom: 10px;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+.property-settings__attention-paragraph {
+  margin-bottom: 0.5rem;
+}
+
+.property-settings__protect-block {
+  width: 100%;
+}
+
+.property-settings__protect-block--state-inactive {
+  opacity: 0.3;
+
+  pointer-events: none;
+}
+
+.property-settings__input-block {
+  margin-top: 16px;
+
+  display: flex;
+  align-items: center;
+}
+
+.property-settings__input-block--mb-27px {
+  margin-bottom: 27px;
+}
+
+.property-settings__input-block--type-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+
+  color: hsl(0, 0%, 28%);
+}
+
+.property-settings__button {
+  width: 165px;
+  height: 40px;
+  border: 2px solid hsl(0, 0%, 85%);
+  border-radius: 4px;
+
+  font-family: "Nunito Sans";
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 22px;
+
+  color: hsl(0, 0%, 85%);
+
+  background-color: hsl(0, 0%, 100%);
+  outline: none;
+}
+
+.property-settings__button--w-262px {
+  width: 262px;
+}
+
+.property-settings__button--type-primary {
+  border: 2px solid var(--feedback-error-color);
+
+  color: 	var(--feedback-error-color);
+
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.property-settings__button--type-secondary {
+  border: 2px solid var(--secondary-cta-hover-color);
+
+  color: var(--secondary-cta-hover-color);
+
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.property-settings__button--type-primary:hover {
+  border-color: var(--feedback-error-color);
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--feedback-error-color);
+}
+
+.property-settings__button--type-secondary:hover {
+  border-color: var(--secondary-cta-default-color);
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--secondary-cta-default-color);
+}
+
+.property-settings__button--w-100per {
+  width: 100%;
+}
+
+.property-settings__button[disabled] {
+  border-color: hsl(0, 0%, 73%);
+
+  color: hsl(0, 0%, 73%);
+
+  background-color: inherit;
+  cursor: default;
+}
+
+.property-settings__separator {}
+
+.property-settings__separator--h-50px {
+  height: 50px;
+}
+
+@media (max-width: 958px) {
+  :host {
+    width: 95%;
+  }
+}
+
+@media (max-width: 450px) {
+  :host {
+    width: 100%;
+  }
+
+  .property-settings__container {
+    margin: 0 auto 40px;
+
+    width: calc(100% - 34px);
+  }
+
+  .property-settings__section-name {
+    margin-bottom: 10px;
+  }
+
+  .property-settings__section {
+    margin-top: 20px;
+  }
+
+  .property-settings__button--type-primary {
+    width: 100%;
+  }
+
+  .property-settings__input-block {
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,22 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'heading-block'} | bem" (click)="toggleBlock()" id="{{locationPrefix}}-accordion-panel-heading-block">
+    <div [attr.class]="{block: _name, element: 'heading'} | bem">
+      <ng-content select="[app-panel-title]">
+      </ng-content>
+    </div>
+    <div [attr.class]="{block: _name, element: 'button-container'} | bem">
+      <div [attr.class]="{block: _name, element: 'button', mods: {'opened': opened}} | bem"></div>
+    </div>
+  </div>
+  <div
+    *ngIf="opened"
+    [attr.class]="{block: _name, element: 'body', mods: {'spinner': !isLoaded}} | bem"
+    (scroll)="scrollBlock()"
+  >
+    <div [attr.class]="{block: _name, element: 'scroll-block'} | bem" id="{{locationPrefix}}-accordion-panel-content-block">
+      <ng-content select="[app-panel-content]">
+      </ng-content>
+    </div>
+    <div *ngIf="!isLoaded" [attr.class]="{block: _name, element: 'loader'} | bem"></div>
+  </div>
+</div>

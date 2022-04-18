@@ -1,0 +1,28 @@
+:host {
+  width: 100%;
+  height: 100%;
+}
+
+.delete-account__attention {
+  margin-bottom: 48px;
+
+  color: var(--text-alert);
+}
+
+.delete-account-body-container {
+  height: 100%;
+}
+
+.delete-account-button {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .delete-account-body-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding-bottom: 140px;
+  }
+}

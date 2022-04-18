@@ -1,0 +1,130 @@
+<!-- User logged in -->
+<ng-container *ngIf="isUserLoggedIn else loginButtonNotLoggedInUser">
+  <div [attr.class]="{ block: name, element: 'login-button-container', mods: { 'logged-in': true, 'mobile': (isMobileDevice$ | async), 'theme': theme, 'menu-visible': isMenuVisible } } | bem">
+    <!-- Login button, mobile -->
+    <div
+      *ngIf="(isMobileDevice$ | async); else loginButtonDesktop"
+      [attr.class]="{ block: name, element: 'login-button', mods: { 'logged-in': true, 'mobile': (isMobileDevice$ | async), 'theme': theme, 'menu-visible': isMenuVisible } } | bem"
+    >
+      <button
+        app-icon-button
+        [color]="loginButtonColor"
+        (click)="toggleMenuVisibility()"
+      >
+        <mat-icon svgIcon="person_outline" appSvgSize="32px"></mat-icon>
+      </button>
+    </div>
+
+    <!-- Login button, desktop -->
+    <ng-template #loginButtonDesktop>
+      <div appClickOutside (clickOutside)="hideMenu()">
+        <button
+          app-button
+          id="start-page-navbar-profile-drop-down"
+          [narrowPadding]="true"
+          [color]="loginButtonColor"
+          (click)="toggleMenuVisibility()"
+        >
+          <mat-icon svgIcon="person_outline" appSvgSize="32px"></mat-icon>
+          <mat-icon svgIcon="arrow_drop_down" appSvgSize="32px"></mat-icon>
+        </button>
+      </div>
+    </ng-template>
+
+    <!-- Login menu -->
+    <div
+      *ngIf="isMenuVisible"
+      [attr.class]="{ block: name, element: 'login-button-menu-container', mods: { 'mobile': (isMobileDevice$ | async) } } | bem"
+    >
+      <!-- Login menu, mobile -->
+      <ng-container *ngIf="(isMobileDevice$ | async); else loginMenuDesktop">
+        <app-start-page-navbar-login-mobile-menu
+          [theme]="theme"
+          (logout)="userLogout()"
+        ></app-start-page-navbar-login-mobile-menu>
+      </ng-container>
+
+      <!-- Login menu , desktop -->
+      <ng-template #loginMenuDesktop>
+        <div [attr.class]="{ block: name, element: 'login-button-menu-arrow' } | bem"></div>
+        <ul
+          [attr.class]="{ block: name, element: 'login-button-menu', mods: { 'mobile': (isMobileDevice$ | async), 'theme': theme } } | bem"
+        >
+          <!-- Profile -->
+          <li [attr.class]="{ block: name, element: 'login-button-menu-item' } | bem">
+            <button
+              app-button
+              id="start-page-navbar-profile-link"
+              buttonStyle="link"
+              [color]="getLinkColor(routerLink.isActive)"
+              [routerLink]="linkToProfile"
+              queryParamsHandling="merge"
+              routerLinkActive #routerLink="routerLinkActive"
+            >
+              Profil
+            </button>
+          </li>
+
+          <!-- My properties -->
+          <li [attr.class]="{ block: name, element: 'login-button-menu-item' } | bem">
+            <button
+              app-button
+              buttonStyle="link"
+              id="start-page-navbar-my-space-link"
+              [color]="getLinkColor(routerLink.isActive)"
+              [routerLink]="linkToMyProperties"
+              queryParamsHandling="merge"
+              routerLinkActive #routerLink="routerLinkActive"
+            >
+              Mein Bereich
+            </button>
+          </li>
+
+          <!-- Logout -->
+          <li [attr.class]="{ block: name, element: 'login-button-menu-item' } | bem">
+            <button
+              app-button
+              id="start-page-navbar-log-out-link"
+              buttonStyle="link"
+              color="delete"
+              (click)="userLogout()"
+            >
+              Ausloggen
+            </button>
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+  </div>
+</ng-container>
+
+<!-- User not logged in -->
+<ng-template #loginButtonNotLoggedInUser>
+  <div [attr.class]="{ block: name, element: 'login-button-container', mods: { 'mobile': (isMobileDevice$ | async), 'theme': theme } } | bem">
+    <!-- Login button, mobile -->
+    <ng-container *ngIf="(isMobileDevice$ | async); else loginButtonDesktop2">
+      <div [attr.class]="{ block: name, element: 'login-button' } | bem">
+        <button
+          app-icon-button
+          [color]="loginButtonColor"
+          (click)="userLogin()"
+        >
+          <mat-icon svgIcon="person_outline" appSvgSize="32px"></mat-icon>
+        </button>
+      </div>
+    </ng-container>
+
+    <!-- Login button, desktop -->
+    <ng-template #loginButtonDesktop2>
+      <button
+        app-button
+        id="start-page-navbar-sign-in-button"
+        [color]="loginButtonColor"
+        [stretch]="true"
+        (click)="userLogin()"
+      >
+        Anmelden
+      </button>
+    </ng-template>
+  </div>
+</ng-template>

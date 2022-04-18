@@ -1,0 +1,71 @@
+.authentication-phone-number__form-field {
+  margin-bottom: 16px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.authentication-phone-number__form-field:last-child {
+  margin-bottom: 0;
+}
+
+.authentication-phone-number__mobile-phone-explanation {
+  margin-bottom: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+.authentication-phone-number__editable-phone-number-container {
+  margin-top: 48px;
+
+  min-height: 68px;
+}
+
+.authentication-phone-number__editable-phone-number {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.authentication-phone-number__editable-phone-number-title {
+  margin-bottom: 20px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.authentication-phone-number__editable-phone-number-text {
+  margin-right: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 22px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 580px) {
+  .authentication-phone-number__mobile-phone-explanation {
+    margin-bottom: 16px;
+  }
+
+  .authentication-phone-number__editable-phone-number-container {
+    margin-top: 32px;
+  }
+
+  .authentication-phone-number__editable-phone-number-title {
+    margin-bottom: 16px;
+
+    width: 70%;
+  }
+}

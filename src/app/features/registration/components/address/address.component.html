@@ -1,0 +1,118 @@
+<form
+  [attr.class]="{block: _name, element: 'form'} | bem"
+  [formGroup]="addressForm">
+  <div [attr.class]="{block: _name, element: 'content'} | bem">
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'checkbox-row',
+        mods: {'state': marker && marker.PropertyId && !marker.isPropertyOfTypeEFH ? 'disabled' : 'default'}
+      } | bem"
+      (click)="selectOption('house')"
+    >
+      <app-ratio
+        label="Haus"
+        name="type"
+        value="house"
+        [bindValue]="selectedOption"
+      ></app-ratio>
+    </div>
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'checkbox-row',
+        mods: {'state': marker && marker.PropertyId && marker.isPropertyOfTypeEFH ? 'disabled' : 'default'}
+       } | bem"
+      (click)="selectOption('apartment')"
+    >
+      <app-ratio
+        label="Wohnung"
+        name="type"
+        value="apartment"
+        [bindValue]="selectedOption"
+      ></app-ratio>
+    </div>
+
+    <div
+      [attr.class]="{
+      block: _name,
+      element: 'protect-block',
+      mods: {'state': selectedOption ==='house'? 'inactive': 'active'}} | bem"
+    >
+      <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+        <app-string-input
+          inputId="dissent-floor-input"
+          label="Stockwerk"
+          placeholder="Hier stockwerk eingeben"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [validatorNames]="['floorRequired', 'floorNumber']"
+          [isDisableControl]="selectedOption ==='house'"
+          [initialValue]="prefillFloor"
+          (blurred)="_blurred('floor', $event)"
+          (created)="_created('floor', $event)"
+        ></app-string-input>
+      </div>
+
+      <div [attr.class]="{block: _name, element: 'input-row'} | bem">
+        <app-string-input
+          inputId="dissent-house-side-input"
+          label="Welche Seite im Haus? (optional)"
+          [fieldMods]="{
+              'w': '100per',
+              'h': '44px',
+              'p': '14px-7px'
+            }"
+          [isDisableControl]="selectedOption ==='house'"
+          [initialValue]="prefillLocation"
+          (blurred)="_blurred('door', $event)"
+          (created)="_created('door', $event)"
+        ></app-string-input>
+      </div>
+    </div>
+
+    <!-- Search bar -->
+    <div [attr.class]="{block: _name, element: 'search-bar-wrapper'} | bem">
+      <app-search-bar
+        inputId="dissent-search-address-input"
+        mode="disagreement"
+        placeholderValue="Suche"
+        [searchClicked]="true"
+        [address]="initAddress"
+      ></app-search-bar>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'map-container'} | bem">
+      <app-marker-detail-data-place
+        [attr.class]="{block: _name, element: 'block', mods: {'background': 'white'}} | bem"
+        [model]="marker"
+        [regPage]="true"
+        mode="show"
+      ></app-marker-detail-data-place>
+    </div>
+
+    <!-- @FIXME: on iPhone 7 only the button is recognized as submit button and it cause to closing modal and reloading entire page -->
+    <button
+      id="dissent-further-button"
+      type="button"
+      [attr.class]="{block: _name, element: 'button', mods: {'type': 'primary'}} | bem"
+      (click)="apply()"
+    >
+      Weiter
+    </button>
+    <div
+      *ngIf="(role === 'global' || role === 'realtor') && !needPrefillData"
+      [attr.class]="{block: _name, element: 'skip-link'} | bem"
+      (click)="showAddressSkipModal()"
+    >
+      Überspringen
+      <img
+        [attr.class]="{block: _name, element: 'arrow-link'} | bem"
+        src="../../../../../assets/images/arrow-right-blue.svg"
+      >
+    </div>
+  </div>
+</form>

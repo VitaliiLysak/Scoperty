@@ -1,0 +1,63 @@
+:host {
+  width: 100%;
+  max-width: 912px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-owner-benefits__title {
+  margin-bottom: 64px;
+
+  font-family: 'PT Serif';
+  font-size: 24px;
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+.start-page-owner-benefits__row {
+   display: flex;
+ }
+
+.start-page-owner-benefits__item {
+  margin-right: 24px;
+}
+
+.start-page-owner-benefits__subtitle {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 18px;
+}
+
+@media (max-width: 935px) {
+  .start-page-owner-benefits__item {
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 670px) {
+  .start-page-owner-benefits__row {
+    flex-direction: column;
+  }
+
+  .start-page-owner-benefits__item {
+    margin-bottom: 64px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .start-page-owner-benefits__subtitle {
+    margin-bottom: 8px;
+
+    font-size: 12px;
+    letter-spacing: 0.7px;
+    line-height: 16px;
+  }
+
+  .start-page-owner-benefits__title {
+    margin-bottom: 80px;
+  }
+}
+

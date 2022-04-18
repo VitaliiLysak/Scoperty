@@ -1,0 +1,71 @@
+:host {
+  width: 100%;
+
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+input {
+  color: var(--color-input-filled);
+}
+
+input.fullwidth {
+  width: 100% !important;
+}
+
+input[searchplacemode="search-alert"] {
+  height: 32px;
+  width: 214px;
+
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  line-height: 16px;
+}
+
+.search-place__wrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: 28px;
+  padding: 0 8px;
+}
+
+.search-place__wrapper--margin-bottom-none {
+  border-bottom: none;
+}
+
+.search-place__wrapper:focus-within,
+.search-place__wrapper--state-empty {
+  outline: none;
+}
+
+.search-place__wrapper--mobile-size-true {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  height: 50px;
+  border: none;
+
+  outline: none;
+}
+
+.search-place__wrapper--mobile-size-true:hover {
+  border: none;
+
+  outline: none;
+}
+
+.search-place__wrapper:focus-within {
+  border-bottom: none;
+
+  outline: 0;
+}
+
+.search-place__data-row-reg {
+  position: relative;
+}

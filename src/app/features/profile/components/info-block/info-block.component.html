@@ -1,0 +1,15 @@
+<div [attr.class]="{block: _name, element: 'info-container'} | bem">
+  <div [attr.class]="{block: _name, element: 'info-text'} | bem">
+    <ng-content></ng-content>
+  </div>
+  <div [attr.class]="{block: _name, element: 'info-button'} | bem">
+    <button
+      app-button
+      color="primary-green"
+      [stretch]="true"
+      (click)="navigateToMapPage()"
+    >
+      {{buttonText}}
+    </button>
+  </div>
+</div>

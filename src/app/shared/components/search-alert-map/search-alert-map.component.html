@@ -1,0 +1,13 @@
+<div [attr.class]="{block: 'search-alert-map', element: 'container'} | bem">
+  <div
+    #mapWrapper
+    [attr.class]="{block: 'search-alert-map', element: 'wrapper'} | bem">
+  </div>
+  <canvas
+    #mapCanvas
+    [@mapDragAnimation]="mapDrag$ | async"
+    [attr.class]="{block: 'search-alert-map', element: 'canvas'} | bem">
+  </canvas>
+</div>
+
+<div *ngIf="mapDrag$ | async" [attr.class]="{block: 'search-alert-map', element: 'backdrop'} | bem"></div>

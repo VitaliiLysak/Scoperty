@@ -1,0 +1,303 @@
+.noUi-target, .noUi-target * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    -ms-touch-action: none;
+    touch-action: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .noUi-target {
+    position: relative;
+
+    direction: ltr;
+  }
+  
+  .noUi-base {
+    position: relative;
+    z-index: 1 ;
+  
+    width: 100%;
+    height: 100%;
+  
+    background-color: var(--neutrals-middle-middle-color);
+  }
+  
+  .noUi-connect {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+  
+  .noUi-origin {
+    position: absolute;
+    bottom: 15px;
+  
+    height: 0;
+    width: 0;
+  }
+  
+  .noUi-handle {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .noUi-state-tap .noUi-connect,
+  .noUi-state-tap .noUi-origin {
+    -webkit-transition: top .3s, right .3s, bottom .3s, left .3s;
+    transition: top .3s, right .3s, bottom .3s, left .3s;
+  }
+  
+  .noUi-state-drag * {
+    cursor: inherit !important;
+  }
+  
+  .noUi-base,
+  .noUi-handle {
+    border-radius: 2px;
+  
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .noUi-horizontal {
+    height: 4px;
+  }
+  
+  .noUi-horizontal .noUi-handle {
+    left: -7px;
+  
+    width: 24px;
+    height: 24px;
+    border-radius: 14px;
+    border: 6px solid var(--secondary-cta-default-color);
+
+    background: var(--neutrals-white-color);
+    outline : none;
+  }
+  
+  .noUi-vertical {
+    width: 18px
+  }
+  
+  .noUi-vertical .noUi-handle {
+    left: -6px;
+    top: -17px;
+  
+    width: 28px;
+    height: 34px;
+  }
+  
+  .noUi-target {
+    border-radius: 2px;
+  
+    background: var(--neutrals-light-light-color);
+    box-shadow: inset 0 1px 1px var(--neutrals-light-middle-color), 0 3px 6px -5px var(--neutrals-middle-extreme-color);
+  }
+  
+  .noUi-connect {
+    border-radius: 4px;
+  
+    background: var(--brand-dark-green-color);
+    box-shadow: inset 0 0 3px var(--brand-green-blue-color);
+
+    -webkit-transition: background 450ms;
+    transition: background 450ms
+  }
+  
+  .noUi-draggable {
+    cursor: ew-resize;
+  }
+  
+  .noUi-vertical .noUi-draggable {
+    cursor: ns-resize;
+  }
+  
+  .noUi-handle {
+    cursor: default;
+  }
+  
+  .noUi-active {
+    box-shadow: inset 0 0 1px var(--neutrals-white-color), inset 0 1px 7px var(--neutrals-middle-middle-color), 0 3px 6px -3px var(--neutrals-middle-extreme-color);
+  }
+  
+  
+  .noUi-handle:after {
+    left: 17px;
+  }
+  
+  .noUi-vertical .noUi-handle:after,
+  .noUi-vertical .noUi-handle:before {
+    left: 6px;
+    top: 14px;
+  
+    width: 14px;
+    height: 1px;
+  }
+  
+  .noUi-vertical .noUi-handle:after {
+    top: 17px;
+  }
+  
+  [disabled] .noUi-connect {
+    background: var(--neutrals-middle-extreme-color);
+  }
+  
+  [disabled] .noUi-handle, [disabled].noUi-handle, [disabled].noUi-target {
+    cursor: not-allowed;
+  }
+  
+  .noUi-pips, .noUi-pips * {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  
+  .noUi-pips {
+    position: absolute;
+  
+    color: var(--neutrals-dark-light-color);
+  }
+  
+  .noUi-value {
+    position: absolute;
+  
+    white-space: nowrap;
+    text-align: center;
+  }
+  
+  .noUi-value-sub {
+    font-size: 10px;
+  
+    color: var(--neutrals-middle-middle-color);
+  }
+  
+  .noUi-marker {
+    position: absolute;
+  
+    background: var(--neutrals-middle-middle-color);
+  }
+  
+  .noUi-marker-large,
+  .noUi-marker-sub {
+    background: var(--neutrals-middle-extreme-color);
+  }
+  
+  .noUi-pips-horizontal {
+    top: 100%;
+    left: 0;
+  
+    height: 80px;
+    width: 100%;
+    padding: 10px 0;
+  }
+  
+  .noUi-value-horizontal {
+    -webkit-transform: translate3d(-50%, 50%, 0);
+    transform: translate3d(-50%, 50%, 0)
+  }
+  
+  .noUi-marker-horizontal.noUi-marker {
+    margin-left: -1px;
+  
+    width: 2px;
+    height: 5px;
+  }
+  
+  .noUi-marker-horizontal.noUi-marker-sub {
+    height: 10px;
+  }
+  
+  .noUi-marker-horizontal.noUi-marker-large {
+    height: 15px;
+  }
+  
+  .noUi-pips-vertical {
+    top: 0;
+    left: 100%;
+  
+    padding: 0 10px;
+    height: 100%;
+  }
+  
+  .noUi-value-vertical {
+  
+    padding-left: 25px;
+
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+  
+  .noUi-marker-vertical.noUi-marker {
+    margin-top: -1px;
+  
+    width: 5px;
+    height: 2px;
+  }
+  
+  .noUi-marker-vertical.noUi-marker-sub {
+    width: 10px;
+  }
+  
+  .noUi-marker-vertical.noUi-marker-large {
+    width: 15px;
+  }
+  
+  .noUi-tooltip {
+    position: absolute;
+  
+    display: block;
+  
+    padding: 5px;
+    border: 1px solid var(--neutrals-middle-middle-color);
+    border-radius: 3px;
+
+    color: var(--neutrals-dark-color);
+    white-space: nowrap;
+  
+    text-align: center;
+  
+    background: var(--neutrals-white-color);
+  }
+  
+  .noUi-horizontal .noUi-tooltip {
+    bottom: 120%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+  
+  .noUi-vertical .noUi-tooltip {
+    top: 50%;
+    right: 120%;
+
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+  
+  @media (max-width: 450px) {
+    .noUi-horizontal .noUi-handle {
+      left: -14px;
+    }
+  }
+
+  .noUi-tooltip {
+    border: none;
+
+    color: var(--brand-dark-green-color);
+    font-family: 'Nunito Sans';
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    line-height: 18px;
+
+    background: transparent;
+  }
+  

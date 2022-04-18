@@ -1,0 +1,21 @@
+<!-- Play icon -->
+<div
+  *ngIf="showPlayIcon"
+  [attr.class]="{ block: name, element: 'play-icon-container' } | bem"
+>
+  <button app-icon-button (click)="playVideo()">
+    <mat-icon svgIcon="play_video" [appSvgSize]="playIconSize"></mat-icon>
+  </button>
+</div>
+
+<!-- Video -->
+<video
+  [attr.class]="{ block: name, element: 'video' } | bem"
+  [src]="src"
+  width="100%"
+  height="auto"
+  #video
+>
+  <!-- No video tag support -->
+  Dein Webbrowser unterstützt keine Videos.
+</video>

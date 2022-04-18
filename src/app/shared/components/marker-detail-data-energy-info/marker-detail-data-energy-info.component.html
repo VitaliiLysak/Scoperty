@@ -1,0 +1,252 @@
+<ng-container *ngIf="mode === 'show'; then showMode else editMode"></ng-container>
+<ng-template #showMode>
+  <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">Energieausweis</div>
+      <div
+        [attr.class]="{
+          block: name,
+          element: 'row-value',
+          mods: {'state': 'show', 'color': (model.EnergyCertificateStatus !== 'null')? 'blue' : 'default'}
+        } | bem"
+        (click)="loadEnergySertificate()"
+      >
+        {{transformCertificateStatus(staticStorage.energyCertificateStatusGlossary, model.EnergyCertificateStatus)}}
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">Ausstattung</div>
+      <div [attr.class]="{block: name, element: 'row-value', mods: {'state': 'show'}} | bem">
+        {{transformBeFe(staticStorage.facilitiesQualityGlossary, model.FacilitiesQuality)}}
+      </div>
+    </div>
+  </div>
+  <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">Energie­ausweistyp</div>
+      <div [attr.class]="{block: name, element: 'row-value', mods: {'state': 'show'}} | bem">
+        {{transformBeFe(staticStorage.energyCertificateTypeGlossary, model.EnergyCertificateType)}}
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">Energieträger</div>
+      <div [attr.class]="{block: name, element: 'row-value', mods: {'state': 'show'}} | bem">
+        {{transformBeFe(staticStorage.energySourceGlossary, model.EnergySource)}}
+      </div>
+    </div>
+  </div>
+  <div [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">Klasse</div>
+      <div [attr.class]="{block: name, element: 'row-value', mods: {'state': 'show'}} | bem">
+        {{transformBeFe(staticStorage.energyConsumptionClassGlossary, model.EnergyConsumptionClass)}}
+      </div>
+    </div>
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">Heizungsart</div>
+      <div [attr.class]="{block: name, element: 'row-value', mods: {'state': 'show'}} | bem">
+        {{transformBeFe(staticStorage.heatingTypeGlossary, model.HeatingType)}}
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="model.hasEnergyCertificateFile"
+    [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">
+        <a
+          app-button
+          buttonStyle="link"
+          color="green"
+          size="medium"
+          tabindex="0"
+          target="_blank"
+          [href]="model.EnergyCertificateURL"
+        >
+          Energieausweis einsehen
+        </a>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #editMode>
+  <div [attr.class]="{block: name, element: 'row-block'} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': '272px', 'direction': 'column', 'type': 'container'}} | bem">
+      <label [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'size': '100'}} | bem">
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="actives.get('EnergySource')"
+          [items]="staticStorage.energySourceGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'EnergySource', staticStorage.energySourceGlossary)"
+          label="Energieträger"
+          placeholder="Auswählen"
+        ></app-select>
+      </label>
+      <label [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'size': '100'}} | bem">
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="actives.get('HeatingType')"
+          [items]="staticStorage.heatingTypeGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'HeatingType', staticStorage.heatingTypeGlossary)"
+          label="Heizungsart"
+          placeholder="Auswählen"
+        ></app-select>
+      </label>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: name, element: 'row-block'} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': '272px', 'direction': 'column', 'type': 'container'}} | bem">
+      <label [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'size': '100'}} | bem">
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="actives.get('EnergyCertificateStatus')"
+          [items]="staticStorage.energyCertificateStatusGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'EnergyCertificateStatus', staticStorage.energyCertificateStatusGlossary)"
+          label="Energieausweis"
+          placeholder="Auswählen"
+        ></app-select>
+      </label>
+
+      <label
+        *ngIf="isEnergyCertificationNotSubject"
+        [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'size': '100'}} | bem"
+      >
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="actives.get('EnergyCertificateDate')"
+          [items]="staticStorage.energyCertificateDateGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'EnergyCertificateDate', staticStorage.energyCertificateDateGlossary)"
+          label="Ausweisdatum"
+          placeholder="Auswählen"
+        ></app-select>
+      </label>
+    </div>
+
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': '272px', 'direction': 'column', 'type': 'container'}} | bem">
+      <label
+        *ngIf="isEnergyCertificationNotSubject"
+        [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'size': '100'}} | bem"
+      >
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="actives.get('EnergyCertificateType')"
+          [items]="staticStorage.energyCertificateTypeGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'EnergyCertificateType', staticStorage.energyCertificateTypeGlossary)"
+          label="Ausweistyp"
+          placeholder="Auswählen"
+        ></app-select>
+      </label>
+
+      <div [attr.class]="{block: name, element: 'row', mods: {'size': '100'}} | bem">
+        <app-number-input
+          [attr.class]="{block: name, element: 'number-input'} | bem"
+          [disabled]="isDisabledEnergyCertificateValue"
+          [initialValue]="model.EnergyCertificateValue"
+          [label]="labelEnergyCertificationValue"
+          [integerLimit]="6"
+          [decimalLimit]="2"
+          [allowDecimal]="true"
+          [postfix]="' kWh/(m\u00B2\u00D7a)'"
+          [useOurMaskGenerator]="true"
+          decimalSymbol=","
+          thousandsSeparatorSymbol="."
+          [fieldMods]="{
+            'w': '272px',
+            'h': '44px',
+            'p': '14px-7px',
+            'mobile-w': '100per',
+            'input': isDisabledEnergyCertificateValue ? 'disabled' : 'default'
+          }"
+          (blurred)="saveProperty('EnergyCertificateValue', $event)"
+        ></app-number-input>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="isEnergyCertificationNotSubject && isEnergyCertificateStatusHasValue && !model.hasEnergyCertificateFile"
+    [attr.class]="{block: name, element: 'row-block'} | bem"
+    style="flex-direction: column;"
+  >
+    <app-input-file
+      accept="application/pdf"
+      label="Energieausweis hochladen"
+      (change)="onCertificateChange($event)"
+    ></app-input-file>
+  </div>
+
+  <div
+    *ngIf="isEnergyCertificationNotSubject && isEnergyCertificateStatusHasValue && model.hasEnergyCertificateFile"
+    [attr.class]="{block: name, element: 'row', mods: {'height': '40px', 'direction-on-mobile': 'column'}} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': 'half'}} | bem">
+      <div [attr.class]="{block: name, element: 'row-key', mods: {'size': 'half'}} | bem">
+        <a
+          app-button
+          buttonStyle="link"
+          color="green"
+          size="medium"
+          tabindex="0"
+          target="_blank"
+          [href]="model.EnergyCertificateURL"
+        >
+          Energieausweis einsehen
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: name, element: 'row-block'} | bem">
+    <div [attr.class]="{block: name, element: 'row', mods: {'size': '272px', 'direction': 'column', 'type': 'container'}} | bem">
+      <label
+        *ngIf="selectEnergyCertificateDate"
+        [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'size': '100'}} | bem"
+      >
+        <app-select
+          [attr.class]="{block: name, element: 'row-select'} | bem"
+          [active]="actives.get('EnergyConsumptionClass')"
+          [items]="staticStorage.energyConsumptionClassGlossary"
+          [allowClear]="true"
+          (select)="savePropertyFromSelect($event, 'EnergyConsumptionClass', staticStorage.energyConsumptionClassGlossary)"
+          label="Klasse"
+          placeholder="Auswählen"
+        ></app-select>
+      </label>
+
+      <label
+        *ngIf="isShowWaterHeatingIncluded"
+        [attr.class]="{block: name, element: 'row', mods: {'size': '100', 'state': 'edit', 'type': 'tabs'}} | bem"
+      >
+        <div [attr.class]="{block: name, element: 'row-key', mods: {'mb': '10px'}} | bem">
+          Energieverbrauch für Warmwasser ist enthalten
+        </div>
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'row-value',
+            mods: {'childs': 'start', 'state': 'custom-edit', 'display': 'flex', 'buttons': 'poll'}
+          } | bem"
+        >
+          <div
+            [attr.class]="{block: name, element: 'button', mods: {'state': model.WaterHeatingIncluded? 'active' : 'default'}} | bem"
+            (click)="savePropertyBoolean(true, 'WaterHeatingIncluded')"
+          >
+            Ja
+          </div>
+          <div
+            [attr.class]="{block: name, element: 'button', mods: {'state': !model.WaterHeatingIncluded? 'active' : 'default'}} | bem"
+            (click)="savePropertyBoolean(false, 'WaterHeatingIncluded')"
+          >
+            Nein
+          </div>
+        </div>
+      </label>
+    </div>
+  </div>
+</ng-template>

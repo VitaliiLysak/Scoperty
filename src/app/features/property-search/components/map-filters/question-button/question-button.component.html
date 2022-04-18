@@ -1,0 +1,18 @@
+<div>
+  <div
+    #poperId
+    [ngClass]="containerClass"
+    [popper]="questionPopper"
+    [popperShowOnStart]="false"
+    [popperTrigger]="'click'"
+    [popperPlacement]="placement"
+    [popperModifiers]="popperModifiers"
+    (mouseenter)="triggerClickOnPopper(poperId)"
+  >
+    <div [attr.class]="{block: _name, element: 'icon'} | bem">?</div>
+    <div [attr.class]="{block: _name, element: 'star-sign'} | bem">*</div>
+  </div>
+  <popper-content #questionPopper [attr.class]="{block: _name, element: 'popper-content'} | bem">
+    <ng-content></ng-content>
+  </popper-content>
+</div>

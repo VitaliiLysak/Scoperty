@@ -1,0 +1,51 @@
+:host {
+  display: block;
+}
+
+.substep6_caption {
+  color: var(--brand-dark-green-color);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.substep6_form-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.substep6_form {
+  margin-top: 48px;
+
+  width: 288px;
+}
+
+.substep6_submit {
+  margin-top: 24px;
+}
+
+.substep6_image {
+  margin-top: 27px;
+  margin-left: 70px;
+
+  height: 218px;
+  width: 300px;
+}
+
+
+@media (max-width: 768px) {
+  .substep6_form {
+    margin-top: 0;
+
+    width: 100%;
+  }
+
+  .substep6_caption {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+}

@@ -1,0 +1,37 @@
+<app-base-modal [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header></ng-container>
+
+  <ng-container app-base-modal-body>
+    <!-- Title -->
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      {{'Neu bei Scoperty?' | uppercase}}
+    </div>
+
+    <button
+      app-button
+      color="primary-green"
+      size="medium"
+      [stretch]="true"
+      (click)="openSignup()"
+    >
+      Registrieren
+    </button>
+
+    <div [attr.class]="{block: _name, element: 'separator-line'} | bem"></div>
+
+    <!-- Title -->
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      {{'Bereits registriert?' | uppercase}}
+    </div>
+
+    <button
+      app-button
+      color="secondary-green"
+      size="medium"
+      [stretch]="true"
+      (click)="openLogin()"
+    >
+      Anmelden
+    </button>
+  </ng-container>
+</app-base-modal>

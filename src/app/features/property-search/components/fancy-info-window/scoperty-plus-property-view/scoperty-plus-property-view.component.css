@@ -1,0 +1,181 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 4px;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  letter-spacing: 0.5px;
+  font-family: 'Nunito Sans', sans-serif;
+
+  background-color: var(--neutrals-white-color);
+  background: transparent;
+}
+
+.property-view__object-pagination{
+  position: absolute;
+  top: -27px;
+
+  width: 224px;
+  height: 24px;
+
+  background: var(--neutrals-white-color);
+}
+
+.property-view__object {
+  position: relative;
+
+  height: 354px;
+  width: 288px;
+
+  border-radius: 4px;
+
+  cursor: default;
+  box-shadow: 0 2px 8px 0 var(--neutrals-black-color--opacity-20);
+
+  background: var(--neutrals-white-color);
+}
+
+.property-view__object-content--marker-grouped {
+  height: 202px;
+}
+
+.property-view__object-content--marker-grouped .property-view__object-price-wrapper {
+  position: fixed;
+  bottom: 60px;
+
+  width: 256px;
+}
+
+.property-view__object-content--marker-grouped .property-view__property-details {
+  position: fixed;
+  bottom: 10px;
+
+  width: 256px;
+}
+
+.property-view__object:after {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+
+  width: 0;
+  height: 0;
+  border-width: 8px 7.5px 0 7.5px;
+  border-style: solid;
+  border-color: var(--neutrals-white-color) transparent transparent transparent;
+
+  transform: translateX(-50%);
+
+  content: '';
+}
+
+.property-view__object-image {
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+
+  height: 158px;
+}
+
+.property-view__image {
+  width: 288px;
+
+  filter: blur(2px);
+  transform: scale(1.1);
+}
+
+.property-view__object-content {
+  padding: 16px;
+}
+
+.property-view__object-close-button {
+  position: absolute;
+  top: 21px;
+  right: 16px;
+  z-index: 1;
+
+  height: 16px;
+
+  cursor: pointer;
+}
+
+.property-view__object-close-button--color-white {
+  top: 16px;
+}
+
+.property-view__preview-block-link {
+  margin-top: 4px;
+}
+
+.property-view__preview-arrow {
+  margin: 2px;
+
+  border: solid var(--secondary-cta-default-color);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+
+  cursor: pointer;
+}
+
+
+.property-view__info-apartment-block {
+  margin-top: 10px;
+
+  padding-top: 10px;
+  border-top: 1px solid var(--neutrals-middle-light-color);
+}
+
+.property-view__object-tag-wrapper {
+  position: absolute;
+  left: 17px;
+  bottom: 17px;
+  z-index: 10;
+}
+
+.property-view__object-logo {
+  width: 124px;
+  height: 24px;
+}
+
+.property-view__object-text {
+  margin-top: 7px;
+
+  color: hsl(189, 100%, 14%);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+.property-view__rented-apartments {
+  margin-top: 8px;
+
+  height: 16px;
+
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+  text-align: center;
+
+  color: var(--neutrals-dark-extreme-color);
+}
+
+.property-view__property-details {
+  margin-top: 16px;
+}
+
+.property-view__property-details--type-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+}

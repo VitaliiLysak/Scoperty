@@ -1,0 +1,12 @@
+<label [attr.class]="{block: _name, element: 'container', mods:{'size': size === 'large'? 'large' : 'small'}} | bem">
+  {{label}}
+  <input
+    type="radio"
+    [name]="name"
+    [value]="value"
+    [(ngModel)]="bindValue"
+    (change)='onChange($event)'
+    required
+  >
+  <span [attr.class]="{block: _name, element: 'checkmark'} | bem"></span>
+</label>

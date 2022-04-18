@@ -1,0 +1,70 @@
+<!-- Phone number, if user is authenticated -->
+<div
+  *ngIf="userIsAuthenticated; else userNotAuthenticatedMobilePhone"
+  [attr.class]="{ block: name, element: 'editable-phone-number-container' } | bem"
+>
+  <ng-container *ngIf="!phoneNumberIsEditable; else editablePhoneNumber">
+    <div [attr.class]="{ block: name, element: 'editable-phone-number-title' } | bem">
+      Deine hinterlegte Mobilfunknummer
+    </div>
+
+    <!-- Phone number -->
+    <div [attr.class]="{ block: name, element: 'editable-phone-number' } | bem">
+      <div [attr.class]="{ block: name, element: 'editable-phone-number-text' } | bem">
+        {{ phoneNumber.value }}
+      </div>
+
+      <button
+        app-button
+        buttonStyle="link"
+        size="medium"
+        color="green"
+        (click)="editPhoneNumber()"
+      >
+        Ändern
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #editablePhoneNumber>
+    <ng-container *ngTemplateOutlet="phoneNumberFormField"></ng-container>
+  </ng-template>
+</div>
+
+<!-- Phone number, if user is not authenticated -->
+<ng-template #userNotAuthenticatedMobilePhone>
+  <!-- Phone number explanation -->
+  <div [attr.class]="{ block: name, element: 'mobile-phone-explanation' } | bem">
+    Wir benötigen deine Mobilnummer, um dich als Person eindeutig zu identifizieren.
+    In Einzelfällen werden wir dich anrufen und deine Angaben prüfen, um Missbrauch zu vermeiden.
+  </div>
+
+  <!-- Phone number -->
+  <ng-container *ngTemplateOutlet="phoneNumberFormField"></ng-container>
+</ng-template>
+
+<ng-template #phoneNumberFormField>
+  <div [attr.class]="{ block: name, element: 'form-field' } | bem">
+    <app-form-field label="Mobilfunknummer">
+      <input
+        id="mobile-phone"
+        type="text"
+        app-input
+        appValidateOnBlur [validateFormControl]="phoneNumber"
+        [formControl]="phoneNumber"
+      >
+
+      <ng-template app-form-field-error-message error="required">
+        Mobilfunknummer ist ein Pflichtfeld
+      </ng-template>
+
+      <ng-template app-form-field-error-message error="pattern">
+        Bitte gib eine gültige Mobilfunknummer ein
+      </ng-template>
+
+      <ng-template app-form-field-error-message error="invalidformat">
+        Bitte gib eine gültige Mobilfunknummer ein
+      </ng-template>
+    </app-form-field>
+  </div>
+</ng-template>

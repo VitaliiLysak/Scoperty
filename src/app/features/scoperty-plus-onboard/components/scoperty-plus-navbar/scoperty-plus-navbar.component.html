@@ -1,0 +1,32 @@
+<div *ngIf="!(isMobileDevice$ | async)" class="nav">
+  <div class="nav_container">
+    <hr>
+
+    <div
+      class="nav_tabs-wrapper one"
+      [ngClass]="{'active': activeStepIndex >= 0}">
+      <span class="round-tabs">1</span>
+      <span class="nav_tabs-label">Was suchst du?</span>
+    </div>
+
+    <div
+      class="nav_tabs-wrapper two"
+      [ngClass]="{'active': activeStepIndex >= 5}">
+      <span class="round-tabs">2</span>
+      <span class="nav_tabs-label">Melde dich an</span>
+    </div>
+
+    <div
+      class="nav_tabs-wrapper three"
+      [ngClass]="{'active': activeStepIndex >= 8}">
+      <span class="round-tabs">3</span>
+      <span class="nav_tabs-label">Mach den Scoperty Plus Check</span>
+    </div>
+  </div>
+</div>
+
+<div class="nav_loader-line"></div>
+
+<div *ngIf="(isMobileDevice$ | async)" class="nav-mobile">
+  Schritt {{ index }} von 3
+</div>

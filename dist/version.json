@@ -1,0 +1,6 @@
+{
+  "stage": "STAGE",
+  "pipelineId": "PIPELINE_ID",
+  "commitHash": "COMMIT_HASH",
+  "date": "DATE"
+}

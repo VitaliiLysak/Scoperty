@@ -1,0 +1,87 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+}
+
+.property-detail-apartment-list__status-block {
+  margin-bottom: 104px;
+}
+
+.property-detail-apartment-list__status-block--has-no-apartments-true {
+  margin-bottom: 32px;
+}
+
+.property-detail-apartment-list__status-block:last-child {
+  margin-bottom: 0;
+}
+
+.property-detail-apartment-list__header {
+  margin-bottom: 32px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.property-detail-apartment-list__header-main {
+  font-family: 'PT Serif';
+  color: var(--brand-dark-green-color);
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 32px;
+  letter-spacing: 1px;
+}
+
+.property-detail-apartment-list__header-off {
+  color: var(--neutrals-dark-light-color);
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.property-detail-apartment-list__item {
+  margin-bottom: 32px;
+}
+
+.property-detail-apartment-list__item:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 850px) {
+  .property-detail-apartment-list__status-block {
+    margin-bottom: 24px;
+  }
+
+  .property-detail-apartment-list__status-block--has-no-apartments-true {
+    margin-bottom: 8px;
+  }
+
+  .property-detail-apartment-list__item {
+    margin: 0 auto 32px;
+  }
+}
+
+@media (max-width: 500px) {
+  .property-detail-apartment-list__header {
+    margin-bottom: 16px;
+
+    align-items: center;
+  }
+
+  .property-detail-apartment-list__header-main {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .property-detail-apartment-list__header-off {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.7px;
+  }
+}

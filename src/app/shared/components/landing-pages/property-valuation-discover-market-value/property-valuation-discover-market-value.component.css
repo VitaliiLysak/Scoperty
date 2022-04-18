@@ -1,0 +1,210 @@
+:host {
+  display: block;
+
+  background-color: hsl(143, 10%, 55%); /* Not using styleguide css variable because it depends on the image colors */
+}
+
+.property-valuation-discover-market-value__container {
+  justify-content: center;
+
+  display: flex;
+
+  width: 100%;
+  padding: 128px 16px 96px;
+
+  background-size: cover;
+  background-position-y: center;
+  background-repeat: no-repeat;
+}
+
+.property-valuation-discover-market-value__inner-container {
+  display: flex;
+
+  width: 100%;
+  max-width: 1224px;
+}
+
+.property-valuation-discover-market-value__content-container {
+  position: relative;
+
+  width: 808px;
+}
+
+.property-valuation-discover-market-value__content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  padding: 48px 104px 40px 104px;
+  border-radius: 2px;
+
+  background-color: var(--neutrals-white-color-90);
+}
+
+.property-valuation-discover-market-value__content-heading-container {
+  margin-bottom: 24px;
+}
+
+.property-valuation-discover-market-value__content-heading {
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif';
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+}
+
+.property-valuation-discover-market-value__content-sub-heading {
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.85px;
+  line-height: 21px;
+}
+
+.property-valuation-discover-market-value__content-message {
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+
+  color: var(--brand-dark-green-color);
+
+  font-size: 16px;
+  letter-spacing: 1px;
+  line-height: 28px;
+}
+
+.property-valuation-discover-market-value__partner {
+  position: absolute;
+  top: 0;
+  left: -202px;
+
+  color: var(--neutrals-dark-color);
+}
+
+.property-valuation-discover-market-value__badge {
+  position: absolute;
+  top: 24px;
+  right: -90px;
+}
+
+.property-valuation-discover-market-value__list {
+  position: relative;
+
+  margin: 0 0 24px;
+
+  flex-grow: 1;
+
+  padding-left: 0;
+  padding-top: 8px;
+
+  list-style: none;
+}
+
+.property-valuation-discover-market-value__list-item {
+  margin-bottom: 16px;
+  position: relative;
+
+  padding-left: 32px;
+
+  font-weight: 600;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--brand-dark-green-color);
+}
+
+.property-valuation-discover-market-value__list-item-icon {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  margin-right: 8px;
+
+  display: inline-flex;
+
+  vertical-align: middle;
+
+  color: var(--secondary-cta-hover-color);
+}
+
+.property-valuation-discover-market-value__list-item:last-child {
+  margin-bottom: 0;
+}
+
+.property-valuation-discover-market-value__popup {
+  position: absolute;
+  top: unset;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+}
+
+.property-valuation-discover-market-value__popup--mobile-true {
+  top: 0;
+  bottom: unset;
+}
+
+/* Responsive */
+
+@media (max-width: 1660px) {
+  .property-valuation-discover-market-value__partner {
+    top: unset;
+    bottom: -66px;
+    left: 0;
+
+    color: var(--neutrals-white-color);
+  }
+}
+
+@media (max-width: 960px) {
+  .property-valuation-discover-market-value__badge {
+    display: none;
+  }
+}
+
+@media (max-width: 790px) {
+  .property-valuation-discover-market-value__container {
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
+
+  .property-valuation-discover-market-value__content-container {
+    width: 100%;
+  }
+
+  .property-valuation-discover-market-value__content {
+    padding: 24px 16px;
+  }
+
+  .property-valuation-discover-market-value__content-heading-container {
+    margin-bottom: 16px;
+  }
+
+  .property-valuation-discover-market-value__content-heading {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .property-valuation-discover-market-value__content-message {
+    margin-bottom: 0;
+
+    flex-direction: column-reverse;
+
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    line-height: 24px;
+  }
+
+  .property-valuation-discover-market-value__list {
+    margin-bottom: 0;
+
+    padding-top: 0;
+  }
+}

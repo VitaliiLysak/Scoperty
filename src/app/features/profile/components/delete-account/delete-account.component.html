@@ -1,0 +1,38 @@
+<app-base-modal [autoOverflowOnContainer]="false" [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    Account löschen
+  </ng-container>
+  <ng-container app-base-modal-title>
+    Willst du wirklich deinen Account löschen?
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <div class="delete-account-body-container">
+      <div class="delete-account__attention">
+        Achtung: Dies kann nicht mehr rückgängig gemacht werden.
+      </div>
+      <app-checkbox
+        name="deleteAccount"
+        [mods]="{'size': 'large'}"
+        (changed)="checkboxChanged($event)"
+      >
+        <span>Ja, ich möchte meinen Account löschen</span>
+      </app-checkbox>
+    </div>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions align="space-between">
+      <button
+        class="delete-account-button"
+        app-button
+        color="secondary-red"
+        size="medium"
+        [disabled]="!checkboxChecked"
+        (click)="apply()"
+      >
+        Jetzt löschen
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

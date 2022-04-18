@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/phone</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M9.44,5.33333333 C9.6,7.70666667 10,10.0266667 10.64,12.24 L7.44,15.44 C6.34666667,12.24 5.65333333,8.85333333 5.41333333,5.33333333 L9.44,5.33333333 Z M35.7333333,37.3866667 C38,38.0266667 40.32,38.4266667 42.6666667,38.5866667 L42.6666667,42.56 C39.1466667,42.32 35.76,41.6266667 32.5333333,40.56 L35.7333333,37.3866667 Z M12,0 L2.66666667,0 C1.2,0 0,1.2 0,2.66666667 C0,27.7066667 20.2933333,48 45.3333333,48 C46.8,48 48,46.8 48,45.3333333 L48,36.0266667 C48,34.56 46.8,33.36 45.3333333,33.36 C42.0266667,33.36 38.8,32.8266667 35.8133333,31.84 C35.5466667,31.7333333 35.2533333,31.7066667 34.9866667,31.7066667 C34.2933333,31.7066667 33.6266667,31.9733333 33.0933333,32.48 L27.2266667,38.3466667 C19.68,34.48 13.4933333,28.32 9.65333333,20.7733333 L15.52,14.9066667 C16.2666667,14.16 16.48,13.12 16.1866667,12.1866667 C15.2,9.2 14.6666667,6 14.6666667,2.66666667 C14.6666667,1.2 13.4666667,0 12,0 Z" id="path-1"></path>
+    </defs>
+    <g id="D_2.1_Subpages_desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="D_3.0.0.0_Subpage_mortgage" transform="translate(-137.000000, -4708.000000)">
+            <g id="Phone" transform="translate(104.000000, 4676.000000)">
+                <g id="Icon/phone" transform="translate(25.000000, 24.000000)">
+                    <g id="Bounding_Boxes">
+                        <polygon id="Shape" points="0 0 64 0 64 64 0 64"></polygon>
+                    </g>
+                    <g id="color/active" transform="translate(8.000000, 8.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Mask" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>
+                        <g id="color/brand/dark" mask="url(#mask-2)" fill="#003C47">
+                            <g transform="translate(-8.000000, -8.000000)" id="Rectangle-19">
+                                <rect x="-0.222222222" y="0" width="64.2222222" height="64"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

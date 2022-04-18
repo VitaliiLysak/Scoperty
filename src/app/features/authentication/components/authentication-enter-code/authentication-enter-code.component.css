@@ -1,0 +1,27 @@
+:host {
+  display: block;
+
+  height: 100%;
+}
+
+.authentication-enter-code__explanation {
+  margin-bottom: 24px;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  color: var(--brand-dark-green-color);
+}
+
+.authentication-enter-code__secondary-actions {
+  margin-top: 8px;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 580px) {
+  .authentication-enter-code__explanation {
+    margin-bottom: 16px;
+  }
+}

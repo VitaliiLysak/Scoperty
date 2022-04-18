@@ -1,0 +1,948 @@
+:host {
+  overflow: hidden;
+
+  width: 100%;
+
+  color: var(--font-second-color);
+  font-family: 'Nunito Sans';
+
+  background-color: var(--background-initial);
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+.search-broker__page-wrapper {
+  width: 100%;
+}
+
+.search-broker__top-panel-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: 100%;
+  height: 560px;
+
+  background-color: var(--brand-light-blue-color);
+}
+
+.search-broker__top-panel {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+
+  width: 917px;
+}
+
+.search-broker__top-panel-element--left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.search-broker__top-panel-element--right-side {
+  position: absolute;
+  right: 116px;
+  top: 68px;
+
+  height: 193px;
+  width: 320px;
+
+  background: url('../../../../../assets/images/search-broker/Scribble_realtor.svg') no-repeat;
+  background-size: 100%;
+}
+
+.search-broker__top-panel-element-wrapper {
+  margin-bottom: 180px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 181px;
+  width: 598px;
+}
+
+.search-broker__top-panel-title {
+  margin-bottom: 13px;
+
+  font-size: var(--font-bold-16pkt-size);
+  font-weight: var(--font-bold-16pkt-weight);
+  letter-spacing: var(--font-bold-16pkt-letter-spacing);
+  line-height: var(--font-bold-16pkt-line-height);
+  text-transform: uppercase;
+
+  color: var(--font-bold-16pkt-color);
+}
+
+/* @FIXME: there is no such a font (bold), later ask designer */
+.search-broker__page-description {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 48px;
+
+  color: var(--font-first-color);
+}
+
+.search-broker__advantage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+
+  width: 100%;
+  height: 600px;
+
+  background-size: 100%;
+}
+
+.search-broker__button-container {
+  margin-top: 48px;
+
+  max-width: 418px;
+}
+
+.search-broker__advantage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 431px;
+  width: 847px;
+  padding: 52px 95px 58px;
+  border-radius: 2px;
+
+  background-color: hsla(0, 0%, 100%, 0.75); /* @FIXME: later specify this color */
+}
+
+.search-broker__advantage-question {
+  width: 539px;
+
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.search-broker__advantage-description {
+  font-size: var(--font-light-20pkt-size);
+  font-weight: var(--font-light-20pkt-weight);
+  letter-spacing: var(--font-light-20pkt-letter-spacing);
+  line-height: var(--font-light-20pkt-line-height);
+
+  color: var(--font-light-20pkt-color);
+}
+
+.search-broker__possibilities-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  height: 100%;
+
+  background-color: var(--background-initial);
+}
+
+.search-broker__possibilities-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  height: 882px;
+}
+
+.search-broker__possibilities {
+  padding: 95px 0;
+  width: 1136px;
+}
+
+.search-broker__possibilities-title-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+
+.search-broker__possibilities-title {
+  margin-left: 95px;
+
+  padding-bottom: 19px;
+
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+  text-transform: uppercase;
+
+  color: var(--brand-light-blue-color);
+}
+
+.search-broker__possibilities-list-container {
+  margin-left: 190px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+
+.search-broker__possibilities-list {
+  display: flex;
+  flex-direction: column;
+
+  width: 730px;
+}
+
+.search-broker__possibilities-item {
+  padding-bottom: 11px;
+
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+
+  color: var(--font-semibold-20pkt-color);
+}
+
+.search-broker__how-works {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  height: 423px;
+  width: 847px;
+  border-radius: 2px;
+  padding: 57px 0 68px 95px;
+
+  background-color: var(--background-wild-sand);
+}
+
+.search-broker__how-works-title {
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.search-broker__how-works-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.search-broker__how-works-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding-bottom: 23px;
+}
+
+.search-broker__how-works-item:last-child {
+  padding-bottom: 0;
+}
+
+.search-broker__how-works-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  height: 43px;
+  width: 43px;
+  border: 3px solid var(--brand-light-blue-color);
+  border-radius: 50%;
+
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+
+  color: var(--brand-light-blue-color);
+}
+
+.search-broker__how-works-description {
+  margin-left: 14.5px;
+
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+  text-transform: uppercase;
+
+  color: var(--font-semibold-20pkt-color);
+}
+
+.search-broker__request-container {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  height: 1000px;
+
+  background-color: var(--brand-light-blue-color);
+}
+
+.search-broker__request-paper-plane {
+  position: absolute;
+  left: 0;
+  bottom: 301px;
+
+  height: 413px;
+  width: 413px;
+
+  background: url('../../../../../assets/images/search-broker/paper-plane.svg') no-repeat;
+  background-size: 100%;
+}
+
+.search-broker__request-wrapper {
+  margin-left: 190px;
+
+  width: 945px;
+}
+
+.search-broker__request {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 454px;
+}
+
+.search-broker__request-title {
+  margin: 54px 0 50px;
+
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.search-broker__request-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 659px;
+  width: 454px;
+  border-radius: 2px;
+  padding: 46px 32px 60px;
+
+  background-color: var(--background-initial);
+}
+
+.search-broker__feedback {
+  margin-top: 94px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  height: 286px;
+}
+
+.search-broker__feedback-icon-container {
+  position: relative;
+}
+
+.search-broker__feedback-icon {
+  height: 64px;
+  width: 64px;
+
+  color: var(--secondary-cta-hover-color);
+}
+
+.search-broker__feedback-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  flex-basis: 66%;
+  height: 153px;
+}
+
+.search-broker__feedback-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.search-broker__feedback-text--mode-large {
+  font-size: var(--font-semibold-32pkt-size);
+  font-weight: var(--font-semibold-32pkt-weight);
+  letter-spacing: var(--font-semibold-32pkt-letter-spacing);
+  line-height: var(--font-semibold-32pkt-line-height);
+
+  color: var(--font-semibold-32pkt-color);
+}
+
+.search-broker__feedback-text--mode-small {
+  flex-basis: 48%;
+
+  font-size: var(--font-semibold-20pkt-size);
+  font-weight: var(--font-semibold-20pkt-weight);
+  letter-spacing: var(--font-semibold-20pkt-letter-spacing);
+  line-height: var(--font-semibold-20pkt-line-height);
+
+  color: var(--font-semibold-20pkt-color);
+}
+
+@media only screen and (min-width: 2000px) {
+  .search-broker__advantage-container {
+    height: 900px;
+    padding: 0 17%;
+
+    background-size: cover;
+  }
+
+  .search-broker__request-paper-plane {
+    bottom: 184px;
+
+    height: 536px;
+    width: 580px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .search-broker__request-paper-plane {
+    bottom: 275px;
+
+    height: 444px;
+    width: 498px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .search-broker__advantage-container {
+    height: 700px;
+    padding: 0 10%;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .search-broker__advantage-container {
+    padding: 0 6%;
+  }
+
+  .search-broker__advantage {
+    width: 847px;
+    padding: 52px 95px 58px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .search-broker__request-paper-plane {
+    top: 300px;
+
+    height: 200px;
+    width: 200px;
+  }
+
+  .search-broker__possibilities {
+    width: 1136px;
+  }
+
+  .search-broker__advantage-container {
+    padding: 0 6%;
+
+    background-position: 70% 1%;
+    background-size: 124%;
+  }
+
+  .search-broker__advantage {
+    width: 770px;
+    padding: 52px 75px 58px;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1199px) {
+  .search-broker__advantage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .search-broker__request-paper-plane {
+    top: 300px;
+
+    height: 135px;
+    width: 135px;
+  }
+
+  .search-broker__possibilities {
+    width: 100%;
+  }
+
+  .search-broker__possibilities-list-container {
+    margin-left: 0;
+
+    justify-content: flex-end;
+  }
+
+  .search-broker__possibilities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 91%;
+  }
+
+  .search-broker__request-wrapper {
+    margin-left: 0;
+
+    padding-left: 95px;
+  }
+}
+
+@media only screen and (min-width: 761px) and (max-width: 1023px) {
+  .search-broker__advantage {
+    height: 360px;
+    width: 80%;
+    max-width: 847px;
+    padding: 20px;
+  }
+
+  .search-broker__top-panel-element--left-side {
+    margin-left: 95px;
+  }
+
+  .search-broker__top-panel-element--right-side {
+    right: 70px;
+    top: 65px;
+  }
+
+  .search-broker__advantage-container {
+    align-items: center;
+    justify-content: flex-end;
+
+    padding-bottom: 40px;
+
+    background-position: 70% 1%;
+    background-size: 124%;
+  }
+
+  .search-broker__possibilities-wrapper {
+    width: 100%;
+    height: unset;
+  }
+
+  .search-broker__possibilities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .search-broker__possibilities-title-container,
+  .search-broker__how-works-list {
+    width: 80%;
+  }
+
+  .search-broker__possibilities-title {
+    margin-left: 0;
+  }
+
+  .search-broker__possibilities-list-container {
+    margin-left: 0;
+
+    width: 80%;
+  }
+
+  .search-broker__top-panel,
+  .search-broker__possibilities-list,
+  .search-broker__possibilities-item {
+    width: 100%;
+  }
+
+  .search-broker__request-paper-plane {
+    display: none;
+  }
+
+  .search-broker__request-wrapper {
+    margin-left: 0;
+
+    width: 80%;
+  }
+
+  .search-broker__how-works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+    height: unset;
+    padding: 40px 0;
+  }
+
+  .search-broker__how-works-title {
+    width: 80%;
+  }
+
+  .search-broker__how-works-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-broker__how-works-description {
+    margin-left: 0;
+  }
+
+  .search-broker__how-works-number {
+    margin: 20px 0;
+  }
+
+  .search-broker__how-works-item {
+    padding-bottom: 0;
+  }
+
+  .search-broker__advantage-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .search-broker__page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-broker__top-panel-container {
+    height: 431px;
+  }
+
+  .search-broker__top-panel-element--left-side {
+    align-items: center;
+  }
+
+  .search-broker__top-panel-element--right-side {
+    top: 30px;
+    right: 20px;
+
+    height: 130px;
+    width: 210px;
+  }
+
+  .search-broker__top-panel-element-wrapper,
+  .search-broker__possibilities-wrapper {
+    width: 92%;
+  }
+
+  /* @FIXME: there's no such a font (bold), later specify from designer */
+  .search-broker__page-description {
+    max-width: 530px;
+
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    line-height: 40px;
+
+    color: var(--font-first-color);
+  }
+
+  .search-broker__advantage-question {
+    margin-bottom: 15px;
+
+    width: 100%;
+
+    font-size: var(--font-semibold-24pkt-size);
+    font-weight: var(--font-semibold-24pkt-weight);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+    line-height: var(--font-semibold-24pkt-line-height);
+  }
+
+  .search-broker__advantage-container {
+    align-items: center;
+
+    height: 431px;
+    padding: 0;
+
+    background-position: 9% 0%;
+    background-size: 179%;
+  }
+
+  .search-broker__advantage-wrapper {
+    position: relative;
+
+    display: flex;
+    justify-content: flex-start;
+
+    width: 92%;
+    height: 200px;
+  }
+
+  .search-broker__advantage {
+    position: absolute;
+    top: -132px;
+
+    width: 100%;
+    max-width: 550px;
+    height: fit-content;
+    padding: 28px 17px 17px;
+  }
+
+  /* @FIXME: Fix image-covering-text-block issues with indents on Safari (desktop & mobile) */
+  @supports (-webkit-overflow-scrolling: touch) {
+    .search-broker__advantage-wrapper {
+      position: unset;
+    }
+
+    .search-broker__advantage {
+      position: relative;
+    }
+  }
+
+  .search-broker__advantage-description {
+    font-size: var(--font-light-16pkt-size);
+    font-weight: var(--font-light-16pkt-weight);
+    letter-spacing: var(--font-light-16pkt-letter-spacing);
+    line-height: var(--font-light-16pkt-line-height);
+  }
+
+  .search-broker__possibilities-container {
+    justify-content: flex-start;
+
+    width: 92%;
+  }
+
+  .search-broker__top-panel,
+  .search-broker__possibilities,
+  .search-broker__possibilities-list,
+  .search-broker__how-works-list{
+    width: 100%;
+  }
+
+  .search-broker__request-container {
+    width: 100%;
+    height: unset;
+    padding-bottom: 30px;
+  }
+
+  .search-broker__possibilities-item {
+    font-size: var(--font-semibold-16pkt-size);
+    font-weight: var(--font-semibold-16pkt-weight);
+    letter-spacing: var(--font-semibold-16pkt-letter-spacing);
+    line-height: var(--font-semibold-16pkt-line-height);
+  }
+
+  .search-broker__possibilities-title {
+    margin-left: 0;
+
+    font-size: var(--font-bold-16pkt-size);
+    font-weight: var(--font-bold-16pkt-weight);
+    letter-spacing: var(--font-bold-16pkt-letter-spacing);
+    line-height: var(--font-bold-16pkt-line-height);
+  }
+
+  .search-broker__possibilities-list-container {
+    margin-left: 0;
+  }
+
+  .search-broker__possibilities-wrapper {
+    height: unset;
+  }
+
+  .search-broker__possibilities {
+    padding: 20px 0 56px;
+  }
+
+  .search-broker__how-works-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+
+    background-color: var(--background-wild-sand);
+  }
+
+  .search-broker__how-works {
+    width: 92%;
+    height: unset;
+    padding: 25px 0 24px;
+  }
+
+  .search-broker__how-works-title {
+    width: 100%;
+    padding: 0 0 24px;
+
+    font-size: var(--font-semibold-24pkt-size);
+    font-weight: var(--font-semibold-24pkt-weight);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+    line-height: var(--font-semibold-24pkt-line-height);
+  }
+
+  .search-broker__how-works-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-broker__how-works-number {
+    margin-bottom: 11px;
+
+    height: 34px;
+    width: 34px;
+  }
+
+  .search-broker__how-works-description {
+    margin-left: 0;
+
+    font-size: var(--font-bold-16pkt-size);
+    font-weight: var(--font-bold-16pkt-weight);
+    letter-spacing: var(--font-bold-16pkt-letter-spacing);
+    line-height: var(--font-bold-16pkt-line-height);
+  }
+
+  .search-broker__request-paper-plane {
+    display: none;
+  }
+
+  .search-broker__request-wrapper {
+    margin-left: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  .search-broker__request-title {
+    margin: 0;
+
+    padding: 27px 0 24px;
+
+    font-size: var(--font-semibold-24pkt-size);
+    font-weight: var(--font-semibold-24pkt-weight);
+    letter-spacing: var(--font-semibold-24pkt-letter-spacing);
+    line-height: var(--font-semibold-24pkt-line-height);
+  }
+
+  .search-broker__request {
+    width: 92%;
+  }
+
+  .search-broker__request-form-wrapper {
+    width: 100%;
+    max-width: 465px;
+  }
+
+  .search-broker__request-form-wrapper--feedback-mode-false {
+    height: unset;
+  }
+
+  .search-broker__request-form-wrapper--feedback-mode-true {
+    height: 501px;
+  }
+
+  .search-broker__feedback {
+    margin-top: 48px;
+
+    height: 359px;
+  }
+
+  .search-broker__feedback-text-container {
+    flex-basis: 75%;
+    height: 218px;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .search-broker__top-panel-element--right-side {
+    top: 30px;
+    right: 20px;
+
+    height: 98px;
+    width: 160px;
+  }
+
+  .search-broker__request-form-wrapper {
+    padding: 30px 16px;
+  }
+
+  .search-broker__advantage {
+    top: -135px;
+  }
+
+  .search-broker__advantage-wrapper {
+    height: 238px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .search-broker__feedback-text--mode-large {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .search-broker__feedback-text--mode-small {
+    flex-basis: 70%;
+
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 24px;
+  }
+
+  .search-broker__advantage {
+    top: -135px;
+  }
+
+  .search-broker__advantage-wrapper {
+    height: 293px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .search-broker__advantage {
+    top: -176px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .search-broker__advantage {
+    top: -215px;
+  }
+
+  .search-broker__advantage-wrapper {
+    height: 315px;
+  }
+
+  .search-broker__button-container {
+    margin-top: 8px;
+  }
+
+  .search-broker__top-panel-element-wrapper {
+    margin-bottom: 160px;
+  }
+
+  .search-broker__top-panel-title {
+    margin-bottom: 8px;
+  }
+
+  .search-broker__top-panel-element--right-side{
+    top: 15px;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="settings-item">
+  <!-- Label with switch -->
+  <div class="settings-item__header">
+    <div class="settings-item__label">
+      {{ label }}
+    </div>
+    <app-switch [identifier]="identifier"
+                [value]="value"
+                (valueChange)="onValueChange($event)"></app-switch>
+  </div>
+
+  <!-- Message -->
+  <div class="settings-item__message">
+    {{ message }}
+  </div>
+
+  <!-- Additional content -->
+  <ng-content></ng-content>
+</div>

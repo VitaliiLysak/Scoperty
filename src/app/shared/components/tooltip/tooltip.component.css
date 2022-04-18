@@ -1,0 +1,126 @@
+.tooltip__icon {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+
+  line-height: 16px;
+  user-select: none;
+  font-weight: 600;
+  font-size: 16px;
+
+  background-color: var(--color-links-standart);
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
+.tooltip__icon:hover .tooltip__content {
+  display: block
+}
+
+.tooltip__content {
+  position: absolute;
+  right: -109px;
+  bottom: 30px;
+  z-index: 1;
+
+  display: none;
+
+  width: 245px;
+  padding: 10px;
+  border-radius: 3px;
+
+  white-space: normal;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+
+  background-color: hsl(0, 0%, 28%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 2px hsl(0, 0%, 50%);
+}
+
+.tooltip__content:before {
+  position: absolute;
+  right: 112px;
+  bottom: -12px;
+
+  display: block;
+
+  border-style: solid;
+  border-width: 12px 5px 0 5px;
+  border-color: transparent;
+  border-top-color: hsl(0, 0%, 28%);
+
+  content: '';
+}
+
+.tooltip__icon--on-page-marker-detail-statistics .tooltip__content {
+  right: -55px;
+
+  width: 200px;
+}
+
+.tooltip__icon--on-page-marker-detail-statistics .tooltip__content:before {
+  right: 59px;
+}
+
+.tooltip__content--position-bottom {
+  top: 23px;
+  right: -27px;
+
+  height: 67px;
+  width: 200px;
+}
+
+.tooltip__content--position-bottom:before {
+  top: -7px;
+  left: 157px;
+
+  width: 0;
+  height: 0;
+  border-bottom: 8px solid hsl(0, 0%, 28%);
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-top: 0;
+}
+
+.tooltip__content--position-left {
+  right: 26px;
+  bottom: -25px;
+
+  width: 260px;
+}
+
+.tooltip__content--position-left:before {
+  right: -10px;
+  bottom: 26px;
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+@media (max-width: 450px) {
+  .tooltip__icon--on-page-start-page {
+    background-color: hsl(186, 58%, 82%);
+  }
+
+  .tooltip__icon--on-page-marker-detail-statistics .tooltip__content {
+    left: -30px;
+  }
+
+  .tooltip__icon--on-page-marker-detail-statistics .tooltip__content:before {
+    right: unset;
+    left: 32px;
+  }
+
+  .tooltip__icon--on-page-property-edit .tooltip__content {
+    right: -20px;
+  }
+
+  .tooltip__icon--on-page-property-edit .tooltip__content:before {
+    right: 22px;
+  }
+}

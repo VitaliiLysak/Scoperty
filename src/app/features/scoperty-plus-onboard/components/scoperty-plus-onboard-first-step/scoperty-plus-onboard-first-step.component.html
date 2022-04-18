@@ -1,0 +1,197 @@
+<p class="first-step_heading" *ngIf="stepItems[activeStepIndex]?.label as label">{{ label }}</p>
+
+<ng-container [ngSwitch]="activeStepIndex">
+  <ng-container *ngSwitchCase="0">
+    <div class="radio-button-container">
+      <div class="radio-button-wrapper">
+        <input
+          id="house"
+          type="radio"
+          name="property_type"
+          value="single_family_house"
+          (click)="setFormValueByClick('property_type', 'single_family_house')">
+        <label
+          class="radio-button radio-button-left"
+          for="house">
+          Haus
+        </label>
+      </div>
+
+      <div class="radio-button-wrapper">
+        <input
+          id="apartment"
+          type="radio"
+          name="property_type"
+          value="apartment"
+          (click)="setFormValueByClick('property_type', 'apartment')">
+        <label
+          class="radio-button radio-button-right"
+          for="apartment">
+          Wohnung
+        </label>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="1">
+      <div class="slider-container">
+        <div class="slider">
+          <nouislider
+            [min]="50"
+            [max]="500"
+            [step]="1"
+            [ngModel]="sliderLivingArea"
+            (ngModelChange)="changeSliderValue($event)"
+            [tooltips]="true"
+            [connect]="[ true, false ]"
+            [format]="sliderFormatter"
+            name="living_area"
+            ngDefaultControl
+          ></nouislider>
+        </div>
+        <div class="lebel-block">
+          <label class="label">
+            <input
+              app-input
+              class="slider-input"
+              [ngModel]="curentLivingArea"
+              (ngModelChange)="changeInputSliderValue($event)"
+              type="input"
+              maxlength="8"
+              [textMask]="{mask: squareInputMask}"
+            />
+          </label>
+          <div class="min-max-container">
+            <p>&lt; 50 m²</p>
+            <p>> 500 m²</p>
+          </div>
+        </div>
+
+        <button
+          app-button
+          color="primary-green"
+          size="medium"
+          [stretch]="true"
+          (click)="setFormValueByClick('living_area', curentLivingArea)"
+        >
+          Weiter
+        </button>
+      </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="2">
+    <div class="container-step3 radio-button-wrapper">
+      <div class="radio-button-container-step3">
+        <div *ngFor="let field of stepItems[activeStepIndex].data['number_of_rooms'].value">
+          <div class="radio-button-step3">
+            <input
+              [id]="field"
+              type="radio"
+              [value]="field"
+              (click)="setFormValueByClick('number_of_rooms', field)">
+            <label
+              class="radio-button radio-button-small"
+              [for]="field">
+              ab {{field}}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="3">
+    <form [formGroup]="parentForm" class="checkbox-form">
+      <div class="checkbox-container">
+        <app-checkbox-input
+          size="large"
+          [checkboxType]="(isMobileDevice$ | async) ? 'button-max-size' : 'button-large'"
+          formControlName="has_balcony"
+        >
+          Balkon
+        </app-checkbox-input>
+
+        <app-checkbox-input
+          size="large"
+          [checkboxType]="(isMobileDevice$ | async) ? 'button-max-size' : 'button-large'"
+          formControlName="has_terrace"
+        >
+          Terrasse
+        </app-checkbox-input>
+
+        <app-checkbox-input
+          size="large"
+          [checkboxType]="(isMobileDevice$ | async) ? 'button-max-size' : 'button-large'"
+          formControlName="has_garden"
+        >
+          Garten
+        </app-checkbox-input>
+      </div>
+
+      <button
+        class="mobile-full-width-button"
+        app-button
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="goToNewStep()"
+      >
+        Weiter
+      </button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="4">
+    <form [formGroup]="parentForm">
+      <div class="place-selector">
+        <app-form-field class="place-form-field">
+          <app-search-place
+            class="search-place"
+            size="small"
+            [formControl]="searchPlaceControl"
+            ngDefaultControl
+            (placeChange)="onPlaceChange($event)"
+            (setFullAddress)="getFullSavedAddress($event)">
+          </app-search-place>
+        </app-form-field>
+        <app-search-radius-control
+          schema="smaller"
+          giveRadiusExceededFeedback="true"
+          [locationPrefix]="locationPrefix"
+          [(searchRadius)]="radius"></app-search-radius-control>
+      </div>
+      <div class="map">
+        <app-search-alert-map
+          minZoom="6"
+          schema="smaller"
+          [(radius)]="radius"
+          (locationChange)="onLocationChange($event)"
+          [location]="location"
+          [(zoom)]="zoom"
+        >
+        </app-search-alert-map>
+      </div>
+
+      <button
+        app-button
+        class="search-map_save-button mobile-full-width-button"
+        color="primary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="setSearchMapFormValue()"
+      >
+        Weiter
+      </button>
+    </form>
+  </ng-container>
+
+  <ng-container *ngSwitchCase="5">
+    <div class="loader">
+        <div class="bar"></div>
+    </div>
+    <p class="loader-text">Wir suchen, welche der exklusiven Exposés deinen Suchkriterien entsprechen</p>
+  </ng-container>
+  <ng-container *ngSwitchCase="14">
+
+  </ng-container>
+</ng-container>

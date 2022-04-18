@@ -1,0 +1,144 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.start-page-how-it-works__container {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding: 56px 16px 16px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.start-page-how-it-works__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  max-width: 1016px;
+}
+
+.start-page-how-it-works__info {
+  max-width: 392px;
+  margin-right: 128px;
+  z-index: 10;
+}
+
+.start-page-how-it-works__title {
+  margin-bottom: 16px;
+
+  font-family: 'PT Serif';
+  font-size: 32px;
+  font-weight: normal;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-how-it-works__text {
+  margin-bottom: 24px;
+
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.start-page-how-it-works__image {
+  margin-right: -254px;
+
+  max-width: 748px;
+}
+
+.start-page-how-it-works__worm-image {
+  position: absolute;
+}
+
+.start-page-how-it-works__worm-image--worm-1 {
+  position: absolute;
+  left: 0;
+  top: -42px;
+}
+
+.start-page-how-it-works__worm-image--worm-2 {
+  position: absolute;
+  left: -100px;
+  top: -154px;
+}
+
+/* Responsive */
+
+@media (max-width: 1580px) {
+  .start-page-how-it-works__image {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .start-page-how-it-works__content {
+    width: 100%;
+  }
+
+  .start-page-how-it-works__info {
+    margin-right: 16px;
+  }
+
+  .start-page-how-it-works__image {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 790px) {
+  .start-page-how-it-works__worm-image {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
+  .start-page-how-it-works__container {
+    padding: 56px 16px;
+  }
+
+  .start-page-how-it-works__content {
+    flex-direction: column-reverse;
+  }
+
+  .start-page-how-it-works__info {
+    margin-right: 0;
+  }
+
+  .start-page-how-it-works__image {
+    margin-bottom: 32px;
+
+    width: auto;
+    height: auto;
+    max-width: 392px;
+  }
+}
+
+@media (max-width: 450px) {
+  .start-page-how-it-works__title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .start-page-how-it-works__text {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+
+  .start-page-how-it-works__image {
+    max-width: 100%;
+  }
+}

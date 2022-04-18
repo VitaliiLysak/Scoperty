@@ -1,0 +1,18 @@
+<div class="substep7_email-field">
+  <p class="substep7_email-caption">{{email}}</p>
+  <a
+    app-button
+    buttonStyle="link"
+    size="medium"
+    color="green"
+    (click)="onEmailEdit()"
+  >
+    Ändern
+  </a>
+</div>
+
+<app-sign-up
+  [controlsWidth]="controlsWidth"
+  [predefinedEmail]="email"
+  (signUp)="onSignUp($event)"
+></app-sign-up>

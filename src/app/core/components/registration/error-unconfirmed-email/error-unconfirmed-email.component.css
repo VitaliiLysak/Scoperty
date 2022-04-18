@@ -1,0 +1,40 @@
+*:not([class^="icon"]) {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.error-unconfirmed-email__link-block {
+  margin-top: 32px;
+}
+
+.error-unconfirmed-email__arrow-icon-right {
+  margin-left: 5px;
+
+  border: solid var(--color-links-standart);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+.error-unconfirmed-email__link:hover .error-unconfirmed-email__arrow-icon-right {
+  border-color: var(--color-links-hover);
+}
+
+.error-unconfirmed-email__title {
+  text-align: left;
+}
+
+.error-unconfirmed-email__separator {
+  margin-bottom: 24px;
+  margin-top: 0;
+
+  height: 1px;
+  border: 0;
+
+  background-color: var(--neutrals-middle-extreme-color);
+}
+
+.error-unconfirmed-email__form {
+  margin-bottom: 16px;
+}

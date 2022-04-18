@@ -1,0 +1,20 @@
+<div [attr.class]="{block: name, element: 'wrapper'} | bem">
+  <!-- Property info -->
+  <div [attr.class]="{block: name, element: 'header-info-container'} | bem">
+    <app-property-detail-info
+      [marker]="activeMarker"
+      [offerPrice]="offerPrice"
+      (toggleMakeMeMoveModal)="openMakeMeMoveModal($event)"
+      (toggleContactMeForm)="openContactMeForm()"
+    ></app-property-detail-info>
+  </div>
+
+  <!-- Property images -->
+  <div [attr.class]="{block: name, element: 'header-images-container'} | bem">
+    <app-property-detail-images
+      [marker]="activeMarker"
+      [offerPrice]="offerPrice"
+      (toggleSlideshow)="openSlideshow()"
+    ></app-property-detail-images>
+  </div>
+</div>

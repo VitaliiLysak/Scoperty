@@ -1,0 +1,39 @@
+<div [attr.class]="{block: name, element: 'inner-block'} | bem">
+  <!-- Message -->
+  <div [attr.class]="{block: name, element: 'message'} | bem">
+    Bitte gib eine Adresse aus den Metropolregionen Berlin, Hamburg, München, Köln, Frankfurt oder Nürnberg ein
+    oder suche auf der Karte um Schätzwerte zu sehen.
+  </div>
+
+  <!-- Footer -->
+  <div [attr.class]="{block: name, element: 'footer'} | bem">
+    <div [attr.class]="{block: name, element: 'button-wrapper'} | bem">
+      <button
+        app-button
+        color="primary-white"
+        size="medium"
+        [stretch]="true"
+        (click)="changeAddress()"
+      >
+        Adresse erneut eingeben
+      </button>
+    </div>
+
+    <div
+      [attr.class]="{
+          block: name,
+          element: 'button-wrapper',
+          mods: { 'second': 'button' }
+        } | bem">
+      <button
+        app-button
+        color="secondary-white"
+        size="medium"
+        [stretch]="true"
+        (click)="goToMap()"
+      >
+        Auf Karte suchen
+      </button>
+    </div>
+  </div>
+</div>

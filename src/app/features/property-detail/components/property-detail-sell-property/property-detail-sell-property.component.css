@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+}
+
+.property-detail-sell-property__heading {
+  margin-bottom: 48px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+}
+
+.property-detail-sell-property__list {
+  margin-bottom: auto;
+
+  padding-left: 0;
+
+  list-style: none;
+}
+
+.property-detail-sell-property__list-item {
+  margin-top: 14px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+}
+
+.property-detail-sell-property__list-item:first-child {
+  margin-top: 0;
+}
+
+.property-detail-sell-property__list-item::before {
+  margin-right: 8px;
+
+  display: inline-block;
+
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+
+  color: var(--brand-dark-green-color);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 24px;
+  text-align: center;
+
+  background-color: var(--brand-light-blue-color);
+
+  content: attr(data-count);
+}
+
+.property-detail-sell-property__actions {
+  margin-top: 96px;
+}
+
+/* Responsive */
+
+@media (max-width: 450px) {
+  .property-detail-sell-property__heading {
+    margin-bottom: 16px;
+  }
+
+  .property-detail-sell-property__actions {
+    margin-top: 32px;
+  }
+}

@@ -1,0 +1,326 @@
+:host {
+  overflow: hidden;
+
+  width: 100%;
+}
+
+:host,
+:host * {
+  font-family: 'Nunito Sans';
+}
+
+.marker-detail-estimated-price-trend__legend {
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+}
+
+.marker-detail-estimated-price-trend__legend-item {
+  margin-right: 16px;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  flex-wrap: nowrap;
+
+  font-weight: 600;
+
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.7px;
+}
+
+.marker-detail-estimated-price-trend__legend-item:last-child {
+  margin-right: 0;
+}
+
+.marker-detail-estimated-price-trend__legend-item:before {
+  margin-right: 8px;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+
+  content: '';
+}
+
+.marker-detail-estimated-price-trend__legend-item--type-property {
+  color: var(--brand-light-blue-color);
+}
+
+.marker-detail-estimated-price-trend__legend-item--type-property:before {
+  background-color: var(--brand-light-blue-color);
+}
+
+.marker-detail-estimated-price-trend__legend-item--type-city {
+  color: var(--neutrals-dark-light-color);
+}
+
+.marker-detail-estimated-price-trend__legend-item--type-city:before {
+  background-color: var(--neutrals-dark-light-color);
+}
+
+.marker-detail-estimated-price-trend__no-property-price-trend {
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 22px;
+
+  color: var(--feedback-error-color);
+}
+
+.marker-detail-estimated-price-trend__icon-container {
+  margin-right: 4px;
+
+  display: flex;
+}
+
+.marker-detail-estimated-price-trend__loading-indicator-container {
+  display: flex;
+  justify-content: center;
+}
+
+.marker-detail-estimated-price-trend__chartjs-block,
+.marker-detail-estimated-price-trend__no-price-trends {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  overflow: hidden;
+
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  line-height: 24px;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.marker-detail-estimated-price-trend__chartjs-block--page-details-false {
+  margin: 0 -20px;
+
+  padding: 40px 20px 14px;
+}
+
+.marker-detail-estimated-price-trend__chartjs-block--page-details-true {
+  margin: 0 -100px;
+
+  padding: 40px 100px 14px;
+}
+
+.marker-detail-estimated-price-trend__no-price-trends {
+  margin: 0 -20px;
+
+  padding: 12px 20px;
+}
+
+.marker-detail-estimated-price-trend__title {
+  margin-bottom: 18px;
+
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.marker-detail-estimated-price-trend__description {
+  margin-bottom: 22px;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.chartjs-render-monitor {
+  animation: none;
+  transition: none;
+  transition-delay: 0s;
+  transition-duration: 0s;
+}
+
+.marker-detail-estimated-price-trend__content {
+  position: relative;
+}
+
+.marker-detail-estimated-price-trend__content-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+}
+
+.marker-detail-estimated-price-trend__row--page-details-true {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 752px;
+  height: 348px;
+}
+
+.marker-detail-estimated-price-trend__row--page-details-true #chartjs-chart {
+  width: 100%!important;
+  min-width: 573px;
+}
+
+.marker-detail-estimated-price-trend__content--page-details-false {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 348px;
+
+  background-color: var(--neutrals-light-extreme-color);
+}
+
+.marker-detail-estimated-price-trend__block {
+  position: absolute;
+  top: -40px;
+  right: 0;
+
+  min-width: 161px;
+  width: 100%;
+
+  transform: translateZ(1px);
+
+  will-change: transform;
+}
+
+.marker-detail-estimated-price-trend__tooltip {
+  position: absolute;
+  z-index: 1;
+
+  display: flex;
+
+  width: 190px;
+  height: 36px;
+
+  box-shadow: 0 2px 2px 0 var(--neutrals-middle-middle-color);
+
+  opacity: 0;
+}
+
+.marker-detail-estimated-price-trend__tooltip-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 55%;
+  padding: 0 8px;
+  border-radius: 4px 0 0 4px;
+
+  color: var(--neutrals-white-color);
+  font-weight: 600;
+
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+
+  background-color: var(--brand-dark-green-color);
+}
+
+.marker-detail-estimated-price-trend__tooltip-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 45%;
+  padding: 0 8px;
+  border-radius: 0 4px 4px 0;
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.marker-detail-estimated-price-trend__img-container {
+  display: flex;
+  align-items: center;
+}
+
+.marker-detail-estimated-price-trend__img-container--type-increase {
+  color: var(--feedback-success-color);
+}
+
+.marker-detail-estimated-price-trend__img-container--type-decrease {
+  color: var(--feedback-error-color);
+}
+
+.marker-detail-estimated-price-trend__difference--type-positive {
+  color: var(--feedback-success-color);
+}
+
+.marker-detail-estimated-price-trend__difference--type-negative {
+  color: var(--feedback-error-color);
+}
+
+.marker-detail-estimated-price-trend__difference--type-neutral {
+  color: var(--brand-dark-green-color);
+}
+
+.marker-detail-estimated-price-trend__tooltip-arrow-left {
+  position: absolute;
+  bottom: 11px;
+  left: -7px;
+
+  display: block;
+
+  border-style: solid;
+  border-width: 12px 5px 0 5px;
+  border-color: var(--brand-dark-green-color) transparent transparent transparent;
+
+  transform: rotate(90deg);
+
+  content: '';
+}
+
+.marker-detail-estimated-price-trend__tooltip-arrow-right {
+  position: absolute;
+  bottom: 11px;
+  right: -7px;
+
+  display: block;
+
+  border-style: solid;
+  border-width: 12px 5px 0 5px;
+  border-color: var(--neutrals-white-color) transparent transparent transparent;
+
+  transform: rotate(270deg);
+
+  content: '';
+}
+
+[data-size=xsmall] :host .marker-detail-estimated-price-trend__tooltip,
+[data-size=small] :host .marker-detail-estimated-price-trend__tooltip,
+[data-size=medium] :host .marker-detail-estimated-price-trend__tooltip {
+  width: 150px;
+}
+
+@media (max-width: 450px) {
+  .marker-detail-estimated-price-trend__block {
+    min-width: 102px;
+  }
+}

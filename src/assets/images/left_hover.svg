@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/arrow/left</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="15.41 7.41 14 6 8 12 14 18 15.41 16.59 10.83 12"></polygon>
+    </defs>
+    <g id="Icon/arrow/left" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bounding_Boxes">
+            <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
+        </g>
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#000000" xlink:href="#path-1"></use>
+        <g id="color/clicked" mask="url(#mask-2)" fill="#0198A5">
+            <rect id="Rectangle-25" x="0" y="0" width="24.0833333" height="24"></rect>
+        </g>
+    </g>
+</svg>

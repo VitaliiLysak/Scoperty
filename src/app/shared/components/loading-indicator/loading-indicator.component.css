@@ -1,0 +1,40 @@
+:host {
+  display: inline-block;
+}
+
+.loading-indicator__loader  {
+  border-radius: 50%;
+  border-width: 10px;
+  border-style: solid;
+  border-color: var(--brand-green-blue-color) transparent var(--brand-green-blue-color) transparent;
+
+  animation: loader 1.4s linear infinite;
+}
+
+.loading-indicator__loader--size-small {
+  border-width: 8px;
+  width: 40px;
+  height: 40px;
+}
+
+.loading-indicator__loader--size-medium {
+  width: 100px;
+  height: 100px;
+}
+
+.loading-indicator__loader--size-large {
+  width: 150px;
+  height: 150px;
+}
+
+/* Animations */
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+

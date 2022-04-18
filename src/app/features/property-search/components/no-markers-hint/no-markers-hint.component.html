@@ -1,0 +1,18 @@
+<div [attr.class]="{block: _name, element: 'content', mods: {'content': isSidebarShown ? 'margin' : 'default'}} | bem">
+  <button
+    app-icon-button
+    color="primary-green"
+    (click)="dismiss()"
+  >
+    <mat-icon svgIcon="close" appSvgSize="16px"></mat-icon>
+  </button>
+
+  <div [attr.class]="{block: _name, element: 'content-text'} | bem">
+    <div [attr.class]="{block: _name, element: 'title'} | bem">
+      Keine Ergebnisse!
+    </div>
+    <div [attr.class]="{block: _name, element: 'text'} | bem">
+      Zoome heraus oder passe deine Kriterien an
+    </div>
+  </div>
+</div>

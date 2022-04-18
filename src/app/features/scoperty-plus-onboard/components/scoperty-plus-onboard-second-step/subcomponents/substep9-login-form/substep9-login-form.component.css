@@ -1,0 +1,54 @@
+.substep8_caption {
+  color: var(--brand-dark-green-color);
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.substep8_email-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 288px;
+}
+
+.substep8_email-caption {
+  overflow: hidden;
+
+  flex-grow: 1;
+  padding-right: 10px;
+  height: 24px;
+
+  color: var(--primary-cta-default-color);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+  text-overflow: ellipsis;
+}
+
+.substep8_error {
+  color: var(--error-input-color2);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 10px;
+}
+
+.substep8_confirm-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.substep8_confirm-block > * {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .substep8_email-field {
+    width: 100%;
+  }
+}

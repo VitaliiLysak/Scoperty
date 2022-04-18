@@ -1,0 +1,32 @@
+<ng-container *ngIf="mode === 'show' then showMode else editMode"></ng-container>
+<ng-template #showMode>
+  <pre
+    [attr.class]="{block: name, element: 'row', mods: {'type': 'multirow'}} | bem"
+  >
+    {{model[descriptionArea]}}
+  </pre>
+</ng-template>
+<ng-template #editMode>
+  <div [attr.class]="{block: name, element: 'row'} | bem">
+    <label
+      [attr.class]="{block: name, element: 'row', mods: {'state': 'edit', 'flex': '100per'}} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'row-key'} | bem">
+        {{label}}
+      </div>
+      <textarea
+        rows="8"
+        wrap="soft"
+        [attr.class]="{
+          block: name,
+          element: 'row-textarea',
+          mods: {
+            'state': model[descriptionArea] !== ''? 'filled' : 'empty'
+          }
+        } | bem"
+        value="{{model[descriptionArea]}}"
+        (blur)="saveProperty($event, descriptionArea)"
+      ></textarea>
+    </label>
+  </div>
+</ng-template>

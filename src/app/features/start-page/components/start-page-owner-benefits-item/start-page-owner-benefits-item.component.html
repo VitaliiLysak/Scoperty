@@ -1,0 +1,38 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <div [attr.class]="{block: _name, element: 'text', mods: {'margin-right-on-mobile': '16px'}} | bem">
+    <ng-container *ngIf="!(isMediumDevice$ | async); else mobileViewOwner">
+      {{ownerText}}
+    </ng-container>
+
+    <ng-template #mobileViewOwner>
+      <div [attr.class]="{block: _name, element: 'subtitle'} | bem">
+        FÜR EIGENTÜMER
+      </div>
+      {{ownerText}}
+    </ng-template>
+  </div>
+
+  <mat-icon
+    [attr.class]="{block: _name, element: 'icon'} | bem"
+    [svgIcon]="iconForLayout"
+  ></mat-icon>
+
+  <ng-container *ngIf="isFirstColumn && !(isMediumDevice$ | async)">
+    <div [attr.class]="{block: _name, element: 'subtitle', mods: {'position': 'absolute'}} | bem">
+      FÜR KÄUFER
+    </div>
+  </ng-container>
+
+  <div [attr.class]="{block: _name, element: 'text', mods: {'align-items': 'start'}} | bem">
+    <ng-container *ngIf="!(isMediumDevice$ | async); else mobileViewBuyer">
+      {{buyerText}}
+    </ng-container>
+
+    <ng-template #mobileViewBuyer>
+      <div [attr.class]="{block: _name, element: 'subtitle'} | bem">
+        FÜR KÄUFER
+      </div>
+      {{buyerText}}
+    </ng-template>
+  </div>
+</div>

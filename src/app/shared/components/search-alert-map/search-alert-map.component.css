@@ -1,0 +1,44 @@
+:host {
+  height: 100%;
+  width: 100%;
+}
+
+.search-alert-map__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.search-alert-map__canvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  opacity: 0.31;
+
+  pointer-events: none;
+}
+
+.search-alert-map__backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  z-index: 5001;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.search-alert-map__container {
+  position: relative;
+  left: 0;
+  top: 0;
+
+  z-index: 5000;
+
+  width: 100%;
+  height: 100%;
+}

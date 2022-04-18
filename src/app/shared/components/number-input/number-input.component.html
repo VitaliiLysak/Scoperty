@@ -1,0 +1,46 @@
+<div
+  [attr.class]="{
+    block: _name,
+    element: 'container',
+    mods: {
+      'state' : (inputFormControl.invalid && (inputFormControl.dirty || inputFormControl.touched))? 'invalid' : 'valid'
+    }
+  } | bem">
+  <label *ngIf="label" [attr.class]="{block: _name, element: 'label'} | bem">
+    {{label}}
+  </label>
+  <div [attr.class]="{block: _name, element: 'field-container'} | bem">
+    <input
+      type="text"
+      [formControl]="inputFormControl"
+      [attr.class]="{block: _name, element: 'field', mods: fieldMods} | bem"
+      [attr.disabled]="disabled ? true : null"
+      [class.input-int__field--state-filled]='isFilled'
+      [placeholder]="placeholder"
+      [textMask]="{mask: mask}"
+      [(ngModel)]="value"
+      (input)="onInput($event, inputFormControl.invalid)"
+      (blur)='onBlur($event, inputFormControl.invalid)'
+    />
+    <div
+      *ngIf="inputFormControl.invalid && (inputFormControl.dirty || inputFormControl.touched)"
+      [attr.class]="{block: _name, element: 'message'} | bem"
+    >
+      <div *ngIf="inputFormControl.errors.yearErr">
+        Wert nicht möglich! Bitte gib eine Jahreszahl ein.
+      </div>
+      <div *ngIf="inputFormControl.errors.plzErr">
+        Falsche PLZ! Bitte gebe die richtige ein.
+      </div>
+      <div *ngIf="inputFormControl.errors.livingAreaMinErr">
+        Bitte gib mindestens {{ 1 | number }} ein
+      </div>
+      <div *ngIf="inputFormControl.errors.livingAreaMaxErr">
+        Bitte gib maximal {{ 10000 | number }} ein
+      </div>
+      <div *ngIf="inputFormControl.errors.required && requiredError">
+        {{requiredError}}
+      </div>
+    </div>
+  </div>
+</div>

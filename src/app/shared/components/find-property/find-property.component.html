@@ -1,0 +1,60 @@
+<div [attr.class]="{ block: name, element: 'wrapper' } | bem">
+  <div [attr.class]="{ block: name, element: 'search-place-container' } | bem">
+    <app-form-field
+      [label]="inputLabel"
+      [fixedHeightErrorMessage]="true"
+      [showValidation]="false"
+    >
+      <app-search-place
+        locationPrefix="landing-sell"
+        [formControl]="searchControl"
+        [checkUnsupportedCity]="checkUnsupportedCity"
+        ngDefaultControl
+        (placeChange)="onPlaceChange($event)"
+        (placeSelect)="placeSelectedFromListChange($event)"
+        #searchPlace
+      ></app-search-place>
+
+      <ng-template app-form-field-error-message error="emptyString">
+        Bitte gib eine Adresse ein
+      </ng-template>
+
+      <ng-template app-form-field-error-message error="place">
+        Bitte wähle einen Vorschlag aus
+      </ng-template>
+
+      <ng-template app-form-field-error-message error="getPlace">
+        Da ist etwas schief gelaufen! Bitte versuche es erneut.
+      </ng-template>
+    </app-form-field>
+  </div>
+
+  <!-- Actions -->
+  <div
+    [attr.class]="{
+      block: name,
+      element: 'button-wrapper',
+      mods: { 'indicator': isLoading && (isMobileDevice$ | async) ? 'mobile' : 'default' }
+    } | bem"
+  >
+    <button
+      id="landing-sell-search-property-button"
+      app-button
+      color="primary-green"
+      size="medium"
+      [disabled]="isLoading"
+      [stretch]="true"
+      (click)="search()"
+    >
+      {{ searchButtonLabel }}
+    </button>
+
+    <!-- Loading indicator -->
+    <div [attr.class]="{ block: name, element: 'indicator-wrapper' } | bem">
+      <app-loading-indicator
+        *ngIf="isLoading"
+        size="small"
+      ></app-loading-indicator>
+    </div>
+  </div>
+</div>

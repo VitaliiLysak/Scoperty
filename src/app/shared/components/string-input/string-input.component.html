@@ -1,0 +1,78 @@
+<div
+  [attr.class]="{
+    block: name,
+    element: 'container',
+    mods: {
+      'state' : (inputFormControl.invalid && (inputFormControl.dirty && inputFormControl.touched))? 'invalid' : 'valid',
+      'error-positioning': errorPositioning
+    }
+  } | bem">
+  <label [attr.class]="{block: name, element: 'label'} | bem">
+    {{label}}
+  </label>
+  <div [attr.class]="{block: name, element: 'field-container'} | bem">
+    <input
+      [id]="inputId"
+      type="text"
+      [formControl]="inputFormControl"
+      [attr.class]="{block: name, element: 'field', mods: fieldMods} | bem"
+      [class.input-str__field--state-filled]='isFilled'
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      appValidateOnBlur
+      [maxlength]="maxLength"
+      [validateFormControl]="inputFormControl"
+      appDisableControl
+      [disableControl]="isDisableControl"
+      (input)="onInput($event, inputFormControl.invalid)"
+      (blur)='onBlur($event, inputFormControl.invalid)'
+    />
+    <div
+      *ngIf="isInvalid else emptymessage"
+      [attr.class]="{block: name, element: 'message', mods: {'error-positioning': errorPositioning}} | bem"
+    >
+      <div *ngIf="inputFormControl.errors.maxLengthErr">
+        Bitte verwende maximal 50 Zeichen
+      </div>
+      <div *ngIf="inputFormControl.errors.nameRequiredErr">
+        Vorname ist ein Pflichtfeld
+      </div>
+      <div *ngIf="inputFormControl.errors.surnameRequiredErr">
+        Nachname ist ein Pflichtfeld
+      </div>
+      <div *ngIf="inputFormControl.errors.emailRequiredErr">
+        Bitte eine E-Mail-Adresse eingeben
+      </div>
+      <div *ngIf="inputFormControl.errors.phoneRequiredErr">
+        Mobilfunknummer ist ein Pflichtfeld
+      </div>
+      <div *ngIf="inputFormControl.errors.codeRequiredErr">
+        SMS-Code ist ein Pflichtfeld
+      </div>
+      <div *ngIf="inputFormControl.errors.floorRequiredErr">
+        Stockwerk ist ein Pflichtfeld
+      </div>
+      <div *ngIf="inputFormControl.errors.nameLengthErr && !inputFormControl.errors.nameRequiredErr">
+        Vorname muss mindestens zwei Buchstaben lang
+      </div>
+      <div *ngIf="inputFormControl.errors.emailPatternErr && !inputFormControl.errors.emailRequiredErr">
+        Falsche E-Mail-Adresse
+      </div>
+      <div *ngIf="inputFormControl.errors.phonePatternErr && !inputFormControl.errors.phoneRequiredErr">
+        Bitte überprüfe deine Mobilfunknummer noch mal!
+      </div>
+      <div *ngIf="inputFormControl.errors.codeErr && !inputFormControl.errors.codeRequiredErr">
+        Dein eingegebener Code ist falsch.
+      </div>
+      <div *ngIf="inputFormControl.errors.floorNumberErr && !inputFormControl.errors.floorRequiredErr">
+        Geben Sie die richtige bodennummer ein
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #emptymessage>
+  <div [attr.class]="{block: name, element: 'message', mods: {'error-positioning': errorPositioning}} | bem">
+    &nbsp;&nbsp;&nbsp;
+  </div>
+</ng-template>

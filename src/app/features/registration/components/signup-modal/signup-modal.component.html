@@ -1,0 +1,182 @@
+<app-base-modal locationPrefix="signup" [showMobileNavbar]="false" (dismiss)="dismiss()">
+  <ng-container app-base-modal-header alignMobile="left">
+    Registrieren
+  </ng-container>
+
+  <ng-container *ngIf="showErrorMessage" app-base-modal-message>
+    <app-generic-error-alert></app-generic-error-alert>
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    <form
+      [formGroup]="verifyForm"
+      [attr.class]="{block: name, element: 'form'} | bem"
+    >
+      <!-- Title -->
+      <div
+        *ngIf="!(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: name, element: 'title'} | bem"
+      >
+        {{'Neu bei Scoperty?' | uppercase}}
+      </div>
+
+      <!-- User email -->
+      <div [attr.class]="{block: name, element: 'form-row'} | bem">
+        <app-form-field label="E-Mail-Adresse">
+          <input
+            id="signup-email-input"
+            name="email"
+            type="email"
+            tabindex="1"
+            app-input
+            appValidateOnBlur [validateFormControl]="email"
+            [formControl]="email"
+            #emailInput
+          >
+
+          <ng-template app-form-field-error-message error="required">
+            Bitte eine E-Mail-Adresse eingeben
+          </ng-template>
+          <ng-template app-form-field-error-message error="pattern">
+            Falsche E-Mail-Adresse
+          </ng-template>
+        </app-form-field>
+      </div>
+
+      <!-- Password -->
+      <div [attr.class]="{block: name, element: 'form-row'} | bem">
+        <app-form-field label="Passwort">
+          <input
+            id="signup-password-input"
+            type="password"
+            tabindex="2"
+            appValidateOnBlur [validateFormControl]="password"
+            app-input
+            appPasswordInput
+            [formControl]="password"
+            (keyup.enter)="signup()"
+            #passwordInput="appPasswordInput"
+          >
+          <button
+            app-button
+            buttonStyle="link"
+            size="small"
+            color="green"
+            appFormFieldSuffix
+            (click)="passwordInput.toggleVisibility()"
+          >
+            {{ passwordInput.visible ? 'Verbergen' : 'Zeigen' }}
+          </button>
+
+          <ng-template app-form-field-error-message error="required">
+            Passwort ist ein Pflichtfeld
+          </ng-template>
+        </app-form-field>
+
+        <!-- Password requirements -->
+        <app-input-requirements [control]="password" [mode]="(isSmallMobileDevice$ | async) ? 'small' :'default'">
+          <ng-template app-input-requirement requirement="minlength">
+            {{(isSmallMobileDevice$ | async) ? 'Min. 8 Zeichen,' : 'Mindestens 8 Zeichen'}}
+          </ng-template>
+          <ng-template app-input-requirement requirement="letter">
+            {{(isSmallMobileDevice$ | async)? 'min. 1 Buchstabe,' : 'Mindestens 1 Groß- und Kleinbuchstabe'}}
+          </ng-template>
+          <ng-template app-input-requirement requirement="number">
+            {{(isSmallMobileDevice$ | async)? 'min. 1 Zahl' : 'Mindestens 1 Zahl'}}
+          </ng-template>
+        </app-input-requirements>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'form-row', mods: {'link': 'inside'}} | bem">
+        <app-form-field>
+          <app-checkbox-input
+            inputId="signup-confirmation-checkbox"
+            size="mini"
+            [formControl]="acceptedTermsConditions"
+          >
+            Ich stimme den
+            <a
+              id="signup-terms-of-service-link"
+              app-button
+              buttonStyle="link"
+              color="inline-green"
+              [href]="termsOfServiceLink"
+              target="_blank"
+            >
+              Nutzungsbedingungen
+            </a>
+            zu.
+          </app-checkbox-input>
+          <ng-template app-form-field-error-message error="required">
+            Bitte akzeptiere die Nutzungsbedingungen.
+          </ng-template>
+        </app-form-field>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'form-row'} | bem">
+        <app-form-field>
+          <app-checkbox-input
+            inputId="signup-marketing-checkbox"
+            size="mini"
+            [formControl]="acceptedEmailInform"
+          >
+            Ich willige ein, dass ich per E-Mail, oder Telefon zu Angeboten
+            von Scoperty im Bereich Immobilien informiert werden möchte.
+            Diese Einwilligung kann jederzeit und ohne Angabe von
+            Gründen widerrufen werden.
+          </app-checkbox-input>
+        </app-form-field>
+      </div>
+
+      <!-- Data protection explanation -->
+      <div [attr.class]="{ block: name, element: 'data-protection-explanation' } | bem">
+        Es gilt unsere
+        <a
+          id="signup-data-protection-link"
+          app-button
+          buttonStyle="link"
+          color="inline-green"
+          [href]="dataProtectionPageLink"
+          target="_blank"
+        >
+          Datenschutzerklärung
+        </a>.
+      </div>
+
+      <button
+        id="signup-register-button"
+        app-button
+        color="primary-green"
+        size="medium"
+        type="submit"
+        [stretch]="true"
+        [disabled]="isSigningUpInProcess"
+        (click)="signup()"
+      >
+        Registrieren
+      </button>
+
+      <div
+        *ngIf="!(isSmallMobileDevice$ | async)"
+        [attr.class]="{block: name, element: 'desktop-content'} | bem"
+      >
+
+        <!-- Title -->
+        <div [attr.class]="{block: name, element: 'title' , mods: {'separator': 'top'}} | bem">
+          {{'Bereits registriert?' | uppercase}}
+        </div>
+
+        <button
+          id="signup-login-button"
+          app-button
+          color="secondary-green"
+          size="medium"
+          [stretch]="true"
+          (click)="openLogin()"
+        >
+          Anmelden
+        </button>
+      </div>
+    </form>
+  </ng-container>
+</app-base-modal>

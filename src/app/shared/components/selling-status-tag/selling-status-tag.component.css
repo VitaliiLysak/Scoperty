@@ -1,0 +1,55 @@
+.selling-status-tag__wrapper {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 24px;
+  border-radius: 2px;
+
+  color: var(--font-white);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+.selling-status-tag__wrapper--type-regular {
+  width: 136px;
+  padding: 0 16px;
+}
+
+.selling-status-tag__wrapper--type-small {
+  width: 94px;
+  padding: 0 8px;
+}
+
+.selling-status-tag__wrapper--status-ForSale {
+  background-color: var(--property-for-sale-status-color);
+}
+
+.selling-status-tag__wrapper--status-MakeMeMove {
+  background-color: var(--property-make-me-move-status-color);
+}
+
+.selling-status-tag__wrapper--status-Active {
+  justify-content: center;
+
+  min-width: 136px;
+  border: 2px solid var(--brand-dark-green-color);
+
+  color: var(--brand-dark-green-color);
+
+  background-color: var(--background-initial);
+}
+
+.selling-status-tag__wrapper--status-NotActiveYet {
+  color: var(--brand-dark-green-color);
+
+  background-color: var(--background-initial);
+}
+
+.selling-status-tag__wrapper--status-Idle {
+  color: var(--neutrals-middle-extreme-color);
+
+  background-color: var(--background-initial);
+}

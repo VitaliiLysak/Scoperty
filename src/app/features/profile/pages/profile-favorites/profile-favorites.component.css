@@ -1,0 +1,393 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  padding-top: 60px;
+
+  font-family: 'Nunito Sans', sans-serif;
+
+  cursor: default;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.profile-favorites__loader {
+  margin: 160px auto;
+
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid var(--neutrals-light-extreme-color);
+
+  border-color: var(--background-genoa) transparent var(--background-genoa) transparent;
+
+  animation: loader 1.4s linear infinite;
+}
+
+.profile-favorites__info-block {
+  margin: 60px auto;
+}
+
+.profile-favorites__info-text {
+  width: 560px;
+
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-align: center;
+  line-height: 24px;
+
+  color: var(--neutrals-dark-extreme-color);
+}
+
+.profile-favorites__favorite-block {
+  margin: 0 auto 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 945px;
+  width: 100%;
+
+  background-color: hsl(60, 7%, 97%); /* We don't have the same color in the style-guide*/
+}
+
+.profile-favorites__favorite-block-item {
+ margin-bottom: 80px;
+}
+
+.profile-favorites__favorite-block-item:last-child {
+  margin-bottom: 0;
+}
+
+.profile-favorites__tip-block {
+  margin-bottom: 64px;
+
+  max-width: 945px;
+  width: 100%;
+  height: 165px;
+  border-radius: 32px 0;
+
+  background-color: var(--neutrals-middle-light-color);
+}
+
+.profile-favorites__tip-block--visible-true {
+  display: initial;
+}
+
+.profile-favorites__tip-block--visible-false {
+  display: none;
+}
+
+.profile-favorites__tip-block--top-margined-true {
+  margin-top: 64px;
+}
+
+.profile-favorites__tip-block-header {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  width: 100%;
+}
+
+.profile-favorites__tip-budge-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 100%;
+}
+
+.profile-favorites__tip-budge {
+  position: absolute;
+  margin: -12px 0 0 129px;
+
+  height: 24px;
+  width: 83px;
+  border-radius: 2px;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
+
+  color: var(--neutrals-white-color);
+
+  background-color: var(--brand-green-blue-color);
+}
+
+.profile-favorites__tip-close {
+  margin: 16px 16px 0 0;
+
+  display: flex;
+  align-items: center;
+
+  width: 12px;
+  height: 12px;
+
+  background: url('../../../../../assets/images/close-button.svg') no-repeat;
+  background-size: 100%;
+}
+
+.profile-favorites__tip-close:hover {
+  background: url('../../../../../assets/images/close-button-hover.svg') no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}
+
+.profile-favorites__tip-close:hover .profile-favorites__close--left-side,
+.profile-favorites__tip-close:hover .profile-favorites__close--right-side {
+  border-color: hsl(185, 99%, 33%); /* We don't have the same color in the style-guide*/
+}
+
+.profile-favorites__text-container {
+  padding: 0 100px 21px 129px;
+}
+
+.profile-favorites__tip-title {
+  width: 100%;
+
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 0.63px;
+  line-height: 24px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.profile-favorites__tip-message {
+  width: 100%;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.profile-favorites__mortgage-navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  padding: 0 100px 21px 129px;
+}
+
+.profile-favorites__mortgage-navigation-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 158px;
+  height: 40px;
+  border: 2px solid var(--brand-dark-green-color);
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+  font-size: 16px;
+
+  font-family: 'Nunito Sans';
+  line-height: 24px;
+  letter-spacing: 0.8px;
+
+  background-color: transparent;
+
+  outline: none;
+}
+
+.profile-favorites__mortgage-navigation-button:hover {
+  color: var(--neutrals-white-color);
+
+  background-color: var(--brand-dark-green-color);
+
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.profile-favorites__address-status-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.profile-favorites__address-status-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.profile-favorites__address-status-icon--status-active {
+  background-color: var(--property-active-status-color);
+}
+
+.profile-favorites__address-status-icon--status-inactive {
+  background-color: var(--property-inactive-status-color);
+}
+
+.profile-favorites__address-status-icon--status-for-sale {
+  background-color: var(--property-for-sale-status-color);
+}
+
+.profile-favorites__address-status-text {
+  margin-left: 8px;
+}
+
+.profile-favorites__immovable-property {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: var(--neutrals-middle-extreme-color);
+}
+
+.profile-favorites__object-property {
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.profile-favorites__object-property--capitalize-first {
+  text-transform: capitalize;
+}
+
+@media (max-width: 944px) {
+  .profile-favorites__loader  {
+    margin: 70px auto 0;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    max-width: 768px;
+  }
+
+  .profile-favorites__loader  {
+    margin: 40px auto;
+  }
+
+  .profile-favorites__loader--element-carousel  {
+    margin: 145px auto;
+  }
+
+  .profile-favorites__tip-block {
+    position: relative;
+
+    margin-bottom: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 90%;
+    height: 259px;
+    padding: 24px 16px 16px;
+  }
+
+  .profile-favorites__tip-block-header {
+    position: absolute;
+    top: -10px;
+
+    width: 100%;
+  }
+
+  .profile-favorites__tip-budge-wrapper {
+    position: absolute;
+    left: 0;
+
+    height: 20px;
+    width: 46px;
+  }
+
+  .profile-favorites__tip-budge {
+    margin: 0px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 46px;
+
+    height: 20px;
+
+    font-weight: 600;
+
+    font-size: 12px;
+    line-height: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .profile-favorites__tip-close {
+    position: absolute;
+    right: 16px;
+    top: 9px;
+
+    width: 16px;
+    height: 16px;
+  }
+
+  .profile-favorites__text-container {
+    padding: 0;
+  }
+
+  .profile-favorites__tip-title {
+    margin-bottom: 16px;
+  }
+
+  .profile-favorites__mortgage-navigation {
+    padding: 0;
+  }
+
+  .profile-favorites__mortgage-navigation-button {
+    width: 100%;
+  }
+
+  .profile-favorites__favorite-block {
+    margin: 0 0 32px;
+
+    width: 100%;
+  }
+
+  .profile-favorites__favorite-block-item {
+    margin-bottom: 16px;
+  }
+
+  .profile-favorites__info-block {
+    max-width: 768px;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .profile-favorites__info-text {
+    width: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .profile-favorites__tip-block {
+    width: calc(100% - 34px);
+  }
+
+  .profile-favorites__property-image--display-on-mobile-none {
+    display: none;
+  }
+}

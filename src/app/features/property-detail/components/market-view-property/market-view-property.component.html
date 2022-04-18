@@ -1,0 +1,69 @@
+<div [attr.class]="{ block: _name, element: 'property-container' } | bem">
+  <!-- Property valuation -->
+  <div [attr.class]="{ block: _name, element: 'property-valuation-container' } | bem">
+    <div [attr.class]="{ block: _name, element: 'property-valuation-title' } | bem">
+      Bewertung deiner Immobilie
+    </div>
+
+    <app-valuate-property
+      [attr.class]="{ block: _name, element: 'property-valuation' } | bem"
+      [property]="marker"
+      [inlineEditable]="true"
+      [userLoggedIn]="!showSellProperty"
+      buttonLabel="Schätzwert verbessern"
+      [buttonStretch]="true"
+      (buttonClick)="makeMePropertyOwner($event)"
+    ></app-valuate-property>
+  </div>
+
+  <!-- Sell Property -->
+  <div
+    *ngIf="showSellProperty"
+    [attr.class]="{ block: _name, element: 'sell-property-container' } | bem"
+  >
+    <app-property-detail-sell-property (buttonClick)="makeMePropertyOwner()"></app-property-detail-sell-property>
+  </div>
+</div>
+
+<!-- Price trends -->
+<div [attr.class]="{
+    block: _name,
+    element: 'content',
+    mods: {'type': 'trend', 'padding-top': !marker.isStatusForSale ? '25px' : 'default'}
+  } | bem"
+>
+  <app-marker-detail-estimated-price-trend
+    [attr.class]="{block: _name, element: 'block', mods: {'width': '70'}} | bem"
+    [userNotAuthorized]="userNotAuthorized"
+    [isLoading]="priceTrendsLoading"
+    [priceTrends]="priceTrends"
+    (showSignup)="showSignup()"
+  ></app-marker-detail-estimated-price-trend>
+</div>
+
+<!-- Property statistics -->
+<div [attr.class]="{block: _name, element: 'content', mods: {'margin-bottom': '0'}} | bem">
+  <div [attr.class]="{block: _name, element: 'header'} | bem">
+    <div [attr.class]="{block: _name, element: 'title', mods: {'type': 'statistics'}} | bem">
+      Die Immobilie in Zahlen
+    </div>
+  </div>
+  <app-marker-detail-statistics
+    [attr.class]="{block: _name, element: 'block', mods: {'width': '70'}} | bem"
+    [userNotAuthorized]="userNotAuthorized"
+    [model]="marker"
+    (showSignup)="showSignup()"
+  ></app-marker-detail-statistics>
+</div>
+
+<div [attr.class]="{block: _name, element: 'disagreement-link'} | bem">
+  <button
+    app-button
+    buttonStyle="link"
+    color="green"
+    (click)="openPrefilledDisagreementProcess()"
+  >
+    <span>Zum Widerspruchsprozess für Eigentümer und Mieter</span>
+    <mat-icon svgIcon="chevron_right"></mat-icon>
+  </button>
+</div>

@@ -1,0 +1,467 @@
+:host {
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: stretch;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+}
+
+:host * {
+  font-family: 'Nunito Sans';
+}
+
+.marker-detail-gallery__image-grid {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: stretch;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+
+  user-select: none;
+}
+
+.marker-detail-gallery__image {
+  position: relative;
+  margin: 8px 0;
+
+  max-width: calc((100% - 20px) / 2);
+  max-height: 160px;
+}
+
+.gu-mirror {
+  position: fixed;
+}
+
+.marker-detail-gallery__container:hover .marker-detail-gallery__checkbox {
+  visibility: visible;
+}
+
+.marker-detail-gallery__checkbox {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+
+  width: 20px;
+  height: 20px;
+  border: 1px solid  hsl(185, 71%, 47%);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+  visibility: hidden;
+}
+
+
+.tick{
+  position: absolute;
+  top: 6px;
+  right: 21px;
+
+  font-size: 10px;
+
+  visibility: hidden;
+}
+
+.tick:before {
+  position: absolute;
+  left: 0.4em;
+  top: 20%;
+  margin-top: -0.5em;
+
+  display: block;
+
+  border: solid 0.8em hsl(185, 71%, 47%);
+  border-radius: .8em;
+
+  content: " ";
+}
+.tick:after {
+  position: absolute;
+  left: 1em;
+  top: 40%;
+  margin-top: -0.2em;
+
+  display: block;
+
+  width: 0.4em;
+  height: 0.7em;
+
+  border: solid white;
+  border-width: 0 0.2em 0.2em 0;
+
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  content: " ";
+}
+
+.choose-image .tick{
+  visibility: visible;
+}
+
+.choose-image .marker-detail-gallery__checkbox {
+  visibility: visible;
+}
+
+/* .choose-image .marker-detail-gallery__image {
+  border-color: hsl(185, 71%, 47%);
+  opacity: 0.7;
+} */
+
+.marker-detail-gallery__del-image-btn {
+  padding: 10px 0;
+
+  color: hsl(185, 71%, 47%);
+}
+
+.marker-detail-gallery__upload-images-btn {
+  margin: 40px 0;
+
+  display: inline-block;
+
+  height: 32px;
+  width: 160px;
+  border: 2px solid hsl(185, 71%, 47%);
+
+  border-radius: 9px;
+
+  font-size: 16px;
+  text-align: center;
+  color: hsl(185, 71%, 47%);
+
+  background-color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
+.marker-detail-gallery__close-preview-btn {
+  margin-left: auto;
+  margin-right: 0;
+
+  width: 32px;
+  height: 16px;
+
+  cursor: pointer;
+  transform: scale(.8);
+
+  transition: transform .2s linear 0s;
+}
+
+.marker-detail-gallery__close-preview-btn:hover {
+  transform: scale(1);
+}
+
+.marker-detail-gallery__close-preview-btn:before,
+.marker-detail-gallery__close-preview-btn:after {
+  display: block;
+
+  width: 100%;
+  height: 2px;
+
+  background: hsl(185, 68%, 47%);
+
+  content: '';
+}
+
+.marker-detail-gallery__close-preview-btn:before {
+  transform: translate(0, 1px) rotate(-45deg);
+}
+.marker-detail-gallery__close-preview-btn:after {
+  transform: translate(0, -1px) rotate(45deg);
+}
+
+
+.marker-detail-gallery__container_preview {
+  position: relative;
+
+  margin: auto;
+
+  height: 320px;
+  padding: 15px;
+}
+
+.marker-detail-gallery__image_preview {
+  object-fit: contain;
+
+  width: 100%;
+  height: 100%;
+}
+
+.marker-detail-gallery__wrapper-controls {
+  display: flex;
+  justify-content: space-between;
+}
+.marker-detail-gallery__btn-control {
+  width: 120px;
+  border: none;
+
+  text-align: center;
+  color: hsl(185, 71%, 47%);
+
+  background-color: hsl(0, 0%, 100%);
+  cursor: pointer;
+  outline: 0;
+}
+
+.marker-detail-gallery__error {
+  margin-top: 7px;
+
+  color: hsl(353, 98%, 41%);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25px;
+  line-height: 10px;
+  text-align: center;
+}
+
+
+.marker-detail-gallery__counter {
+  color: hsl(0, 0%, 57%);
+}
+.marker-detail-gallery__counter-value {
+  color: hsl(0, 0%, 73%);
+}
+
+.marker-detail-gallery__wrapper-miniatures {
+  overflow: hidden;
+
+  display: flex;
+  justify-content: space-between;
+
+  flex-wrap: wrap;
+
+  width: 100%;
+  padding: 12px 16px;
+}
+
+.marker-detail-gallery__container-miniatures {
+  width: 100px;
+  height: 60px;
+}
+
+.marker-detail-gallery__image-miniatures {
+  object-fit: contain;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+}
+
+.marker-detail-gallery__upload-block {
+  width: 100%;
+}
+
+.marker-detail-gallery__upload-block--state-no-images {
+  margin-top: 0;
+}
+
+.marker-detail-gallery__upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 180px;
+  padding: 16px;
+
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: hsl(0, 0%, 73%);
+
+  background-color: hsl(0, 0%, 98%);
+
+  transition: border .4s linear 0s;
+}
+
+.marker-detail-gallery__upload-drop-zone--state-active {
+  border-style: solid;
+  border-color: hsl(185, 90%, 40%);
+}
+
+.marker-detail-gallery__upload-icon {
+  margin-bottom: 16px;
+
+  fill: hsl(0, 0%, 73%);
+  fill-opacity: 1;
+}
+
+.marker-detail-gallery__link {
+  color: hsl(174, 92%, 36%);
+  text-decoration: underline;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.marker-detail-gallery__link:hover {
+  color: hsl(174, 92%, 36%);
+}
+
+.marker-detail-gallery__button {
+  display: none;
+}
+
+.marker-detail-gallery__row {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 60px;
+}
+
+.marker-detail-gallery__row--type-link {
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color: hsl(174, 92%, 36%);
+
+  outline: none;
+  cursor: pointer;
+}
+
+.marker-detail-gallery__row--type-link:hover {
+  color: hsl(174, 92%, 36%);
+}
+
+.marker-detail-gallery__row--type-link:hover .marker-detail-gallery__arrow-icon-right {
+  border-color: hsl(174, 92%, 36%);
+}
+
+.marker-detail-gallery__arrow-icon-right {
+  margin-left: 5px;
+
+  border: solid hsl(185, 98%, 41%);
+  border-width: 0 2px 2px 0;
+  padding: 3px;
+
+  transform: rotate(-45deg);
+  cursor: pointer;
+}
+
+[data-size=small] :host .marker-detail-gallery__image-grid,
+[data-size=xsmall] :host .marker-detail-gallery__image-grid {
+  flex-direction: column;
+  justify-content: flex-start;
+
+  height: fit-content;
+}
+
+[data-size=small] :host .marker-detail-gallery__image,
+[data-size=xsmall] :host .marker-detail-gallery__image {
+  max-width: 100%;
+}
+
+[data-size=small] :host .marker-detail-gallery__upload-icon,
+[data-size=xsmall] :host .marker-detail-gallery__upload-icon {
+  margin-bottom: 8px;
+}
+
+[data-size=small] :host .marker-detail-gallery__upload-icon + span,
+[data-size=xsmall] :host .marker-detail-gallery__upload-icon + span {
+  margin: 8px;
+}
+
+[data-size=small] :host .marker-detail-gallery__upload-drop-zone,
+[data-size=xsmall] :host .marker-detail-gallery__upload-drop-zone {
+  text-align: center;
+}
+
+.marker-detail-gallery__mobile-helper {
+  width: 100%;
+
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.31px;
+  line-height: 24px;
+  text-align: center;
+
+  color: var(--secondary-cta-default-color);
+}
+
+.marker-detail-gallery__mobile-error {
+  width: 100%;
+
+  font-size: 10px;
+  ltter-spacing: 0.25px;
+  line-height: 10px;
+  text-align: center;
+
+  color: var(--error-input-color2);
+}
+
+@media (max-width: 450px) {
+  .marker-detail-gallery__button {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 40px;
+    border: 2px solid currentColor;
+    border-radius: 2px;
+
+    color: hsl(185, 71%, 47%);
+
+    letter-spacing: 0.5px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    outline: 0;
+  }
+
+  .marker-detail-gallery__button:hover{
+    border-color: hsl(185, 100%, 33%);
+
+    color: hsl(0, 0%, 100%);
+
+    background-color: hsl(185, 100%, 33%);
+  }
+
+  .marker-detail-gallery__image {
+    max-width: 100%;
+  }
+
+  .marker-detail-gallery__image-grid {
+    flex-direction: column;
+    align-items: center;
+
+    flex-wrap: unset;
+  }
+
+  .marker-detail-gallery__upload-block {
+    display: none;
+  }
+
+  .marker-detail-gallery__row--type-link {
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: center;
+
+    height: unset;
+  }
+
+  .property-edit__gallery-block {
+    padding-bottom: 0;
+  }
+}
+

@@ -1,0 +1,704 @@
+:root {
+  /* App */
+  --font-family-app: "Nunito Sans";
+
+  /* COLORS */
+
+  /* Brand colors (for blocks' and buttons' background, borders, fonts color) */
+  --brand-light-blue-color: hsl(174, 92%, 45%);
+  --brand-green-blue-color: hsl(185, 100%, 23%); /* #006E77 */
+  --brand-dark-green-color: hsl(189, 100%, 14%); /* #003C47 */
+
+  --brand-dark-green-color-50: hsla(189, 100%, 14%, 0.5);
+
+  --brand-light-blue-light-color: hsl(174, 75%, 86%);
+  --brand-light-blue-middle-color: hsl(174, 76%, 73%);
+  --brand-light-blue-dark-color: hsl(174, 76%, 59%);
+
+  --brand-green-blue-light-color: hsl(184, 31%, 81%);
+  --brand-green-blue-middle-color: hsl(185, 31%, 62%);
+  --brand-green-blue-dark-color: hsl(184, 41%, 43%);
+
+  --brand-dark-green-light-color: hsl(190, 16%, 78%);
+  --brand-dark-green-middle-color: hsl(190, 16%, 57%);
+  --brand-dark-green-dark-color: hsl(189, 29%, 35%);
+
+  /* Neutrals */
+  --neutrals-white-color: hsl(0, 0%, 100%);
+  --neutrals-white-with-transparent-color: hsla(0, 0%, 100%, 0.3);
+  --neutrals-white-color-10: hsla(0, 0%, 100%, 0.1);
+  --neutrals-white-color-20: hsla(0, 0%, 100%, 0.2);
+  --neutrals-white-color-80: hsla(0, 0%, 100%, 0.8);
+  --neutrals-white-color-90: hsla(0, 0%, 100%, 0.9);
+  --neutrals-dark-light-with-transparent-color: hsla(0, 0%, 53%, 0.5);
+  --neutrals-primary-green-with-alpha-chanel: hsla(174, 92%, 36%, 0.9);
+  --neutrals-transparent-color: hsla(0, 0%, 0%, 0);
+
+  --neutrals-light-light-color: hsl(0, 0%, 98%);
+  --neutrals-light-middle-color: hsl(0, 0%, 95%); /* #F3F3F3 */
+  --neutrals-light-extreme-color: hsl(0, 0%, 96%); /* #F5F5F5 */
+
+  --neutrals-middle-light-color: hsl(0, 0%, 90%);
+  --neutrals-middle-middle-color: hsl(0, 0%, 85%);
+  --neutrals-middle-extreme-color: hsl(0, 0%, 73%);
+
+  --neutrals-dark-light-color: hsl(0, 0%, 57%); /* #919191 */
+  --neutrals-dark-light-color-50: hsla(0, 0%, 57%, 0.5);
+  --neutrals-dark-middle-color: hsl(0, 0%, 28%); /* #484848 */
+  --neutrals-dark-extreme-color: hsl(0, 0%, 18%);
+  --neutrals-dark-color: hsl(0, 0%, 0%);
+  --neutrals-dark-color-0: hsla(0, 0%, 0%, 0.0);
+  --neutrals-dark-color-10: hsla(0, 0%, 0%, 0.1);
+  --neutrals-dark-color-50: hsla(0, 0%, 0%, 0.5);
+  --neutrals-dark-color-65: hsla(0, 0%, 0%, 0.65);
+  --neutrals-dark-color-100: hsla(0, 0%, 0%, 1);
+
+  --neutrals-dark-middle-color-50: hsla(0, 0%, 28%, 0.5);
+
+  --neutrals-inactive-color: hsl(0, 1%, 64%);
+
+  /* Highlighting colors */
+  --highlighting-1-color: hsl(6, 88%, 61%);
+  --highlighting-2-color: hsl(52, 87%, 51%);
+
+  /* Feedback */
+  --feedback-error-color: hsl(0, 94%, 43%);
+  --feedback-error-light-color: hsl(0, 65%, 90%);
+  --feedback-success-color: hsl(134, 95%, 34%);
+  --feedback-success-light-color: hsl(144, 42%, 86%);
+
+  /* Immobilie statuses' colors */
+  --property-inactive-status-color:              hsl(0, 1%, 64%);      /* Deaktiviert */
+  --property-active-status-color:                hsl(207, 91%, 57%);   /* Aktiv */
+  --property-not-active-yet-status-color:        hsl(207, 91%, 57%);   /* Noch nicht aktiv */
+  --property-for-sale-status-color:              hsl(306, 83%, 43%);   /* Zum Verkauf */
+  --property-for-sale-status-light-color:        hsl(306, 83%, 54%);
+  --property-for-sale-status-lighter-color:      hsl(306, 100%, 61%);
+  --property-for-sale-status-lightest-color:     hsl(306, 97%, 70%);
+  --property-make-me-move-status-color:          hsl(214, 100%, 34%);  /* Offen für Gebote */
+  --property-make-me-move-status-color-dark:     hsl(214, 100%, 30%);
+  --property-make-me-move-status-color-light:    hsl(214, 100%, 41%);
+  --property-make-me-move-status-color-lighter:  hsl(214, 100%, 44%);
+  --property-make-me-move-status-color-lightest: hsl(214, 100%, 57%);
+
+  /* CTA (Call To Action) */
+  --primary-cta-default-color: hsl(189, 100%, 14%);
+  --primary-cta-hover-color: hsl(189, 36%, 31%);
+
+  --secondary-cta-default-color: hsl(174, 92%, 36%); /* #07B09F */
+  --secondary-cta-hover-color: hsl(174, 92%, 45%);
+
+  --error-input-color: hsl(352, 99%, 41%); /* #cf021a */
+  --error-input-color2: hsl(353, 98%, 41%); /* #D0021B */
+
+  /* Neutrals with alpha component */
+  --neutrals-white-color--opacity-90: hsla(0, 0%, 100%, 0.9);
+  --neutrals-black-color--opacity-20: hsla(0, 0%, 0%, 0.2);
+  --neutrals-black-color--opacity-30: hsla(0, 0%, 0%, 0.3);
+
+  /* ------------------------------------------------------------------------- */
+
+  /** TYPOGRAPHY STYLES */
+
+  /* Font colors */
+  --font-first-color:  var(--brand-dark-green-color);
+  --font-second-color: hsl(0, 0%, 28%);
+  --font-third-color:  hsl(0, 0%, 57%);
+
+  /* @FIXME: optional colors, later check when typography is updated */
+  --font-silver-color: hsl(0, 0%, 73%);
+  --font-white:        hsl(0, 0%, 100%);
+  --font-dark-gray:    hsl(0, 0%, 18%);
+
+
+  /* Fonts semibold */
+
+  /* 32 PKT */
+  --font-semibold-32pkt-size:           32px;
+  --font-semibold-32pkt-weight:         600;
+  --font-semibold-32pkt-letter-spacing: 1.5px;
+  --font-semibold-32pkt-line-height:    40px;
+  --font-semibold-32pkt-color:          var(--font-first-color);
+
+  /* 24 PKT */
+  --font-semibold-24pkt-size:           24px;
+  --font-semibold-24pkt-weight:         600;
+  --font-semibold-24pkt-letter-spacing: 1px;
+  --font-semibold-24pkt-line-height:    32px;
+  --font-semibold-24pkt-color:          var(--font-first-color);
+
+  /* 20 PKT */
+  --font-semibold-20pkt-size:           20px;
+  --font-semibold-20pkt-weight:         600;
+  --font-semibold-20pkt-letter-spacing: 1px;
+  --font-semibold-20pkt-line-height:    28px;
+  --font-semibold-20pkt-color:          var(--font-first-color);
+
+  /* 16 PKT */
+  --font-semibold-16pkt-size:           16px;
+  --font-semibold-16pkt-weight:         600;
+  --font-semibold-16pkt-letter-spacing: 0.7px;
+  --font-semibold-16pkt-line-height:    24px;
+  --font-semibold-16pkt-color:          var(--font-first-color);
+
+
+  /* Fonts bold */
+
+  /* 16 PKT */
+  --font-bold-16pkt-size:           16px;
+  --font-bold-16pkt-weight:         700;
+  --font-bold-16pkt-letter-spacing: 1px;
+  --font-bold-16pkt-line-height:    24px;
+  --font-bold-16pkt-color:          var(--font-first-color);
+
+  /* 12 PKT */
+  --font-bold-12pkt-size:           12px;
+  --font-bold-12pkt-weight:         700;
+  --font-bold-12pkt-letter-spacing: 0.7px;
+  --font-bold-12pkt-line-height:    16px;
+  --font-bold-12pkt-color:          var(--font-third-color);
+
+
+  /* Fonts light */
+
+  /* 20 PKT */
+  --font-light-20pkt-size:           20px;
+  --font-light-20pkt-weight:         300;
+  --font-light-20pkt-letter-spacing: 0.7px;
+  --font-light-20pkt-line-height:    28px;
+  --font-light-20pkt-color:          var(--font-second-color);
+
+  /* 16 PKT */
+  --font-light-16pkt-size:           16px;
+  --font-light-16pkt-weight:         300;
+  --font-light-16pkt-letter-spacing: 0.5px;
+  --font-light-16pkt-line-height:    24px;
+  --font-light-16pkt-color:          var(--font-second-color);
+
+  /* 12 PKT */
+  --font-light-12pkt-size:           12px;
+  --font-light-12pkt-weight:         300;
+  --font-light-12pkt-letter-spacing: 0.5px;
+  --font-light-12pkt-line-height:    16px;
+  --font-light-12pkt-color:          var(--font-second-color);
+
+  /* ------------------------------------------------------------------------- */
+
+  /** MAIN STYLEGUIDE */
+
+  /*primary buttons*/
+  --width-buttons-primary--large: 288px;
+  --height-buttons-primary--large: 48px;
+  --width-buttons-primary--middle: 288px;
+  --height-buttons-primary--middle: 44px;
+  --width-buttons-primary--small: 288px;
+  --height-buttons-primary--small: 24px;
+
+  --font-size-buttons-primary--large: 24px;
+  --font-size-buttons-primary--middle: 16px;
+  --font-size-buttons-primary--small: 12px;
+
+  --font-weight-buttons-primary: 600;
+
+  --letter-spacing-buttons-primary--large: 1.2px;
+  --letter-spacing-buttons-primary--middle: 1px;
+  --letter-spacing-buttons-primary--small: 0.5px;
+
+  --line-height-buttons-primary--large: 32px;
+  --line-height-buttons-primary--middle: 24px;
+  --line-height-buttons-primary--small: 20px;
+
+  --border-radius-buttons-primary: 2px;
+
+  --color-buttons-primary: hsl(0, 0%, 100%);
+
+  --background-color-buttons-primary-standart: hsl(354, 96%, 59%);
+  --background-color-buttons-primary-hover: hsl(349, 72%, 46%);
+  --background-color-buttons-primary-red: hsl(6, 83%, 63%);
+  --background-color-buttons-primary-red-hover: hsl(6, 61%, 54%);
+  --background-color-buttons-primary-disabled: hsl(0, 0%, 73%);
+  --background-color-buttons-primary-light-blue: hsl(185, 98%, 41%);
+
+  --background-color-buttons-primary-green: hsl(174, 92%, 36%);
+  --background-color-buttons-primary-green-hover: hsl(174, 92%, 45%);
+
+
+  /*secondary buttons*/
+  --width-buttons-secondary--large: 288px;
+  --height-buttons-secondary--large: 48px;
+  --width-buttons-secondary--middle: 288px;
+  --height-buttons-secondary--middle: 44px;
+  --width-buttons-secondary--small: 128px;
+  --height-buttons-secondary--small: 24px;
+
+  --font-size-buttons-secondary--large: 24px;
+  --font-size-buttons-secondary--middle: 16px;
+  --font-size-buttons-secondary--small: 12px;
+
+  --font-weight-buttons-secondary: 600;
+
+  --letter-spacing-buttons-secondary--large: 1.2px;
+  --letter-spacing-buttons-secondary--middle: 0.8px;
+  --letter-spacing-buttons-secondary--small: 0.5px;
+
+  --line-height-buttons-secondary--large: 24px;
+  --line-height-buttons-secondary--middle: 16px;
+  --line-height-buttons-secondary--small: 12px;
+
+  --border-radius-buttons-secondary-standart: 2px;
+  --border-radius-buttons-secondary-hover: 2px;
+  --border-radius-buttons-secondary-disabled: 2px;
+
+  --border-buttons-secondary-standart--large: 2px solid hsl(185, 71%, 47%);
+  --border-buttons-secondary-standart--middle: 2px solid hsl(185, 71%, 47%);
+  --border-buttons-secondary-standart--small: 2px solid hsl(185, 71%, 47%);
+
+  --border-buttons-secondary-hover--large: 2px solid hsl(185, 100%, 33%);
+  --border-buttons-secondary-hover--middle: 2px solid hsl(185, 100%, 33%);
+  --border-buttons-secondary-hover--small: 2px solid hsl(185, 100%, 33%);
+
+  --border-buttons-secondary-disabled--large: 2px solid hsl(0, 0%, 73%);
+  --border-buttons-secondary-disabled--middle: 2px solid hsl(0, 0%, 73%);
+  --border-buttons-secondary-disabled--small: 2px solid hsl(0, 0%, 73%);
+
+  --color-buttons-secondary-standart: hsl(185, 71%, 47%);
+  --color-buttons-secondary-hover: hsl(0, 0%, 100%);
+  --color-buttons-secondary-disabled: hsl(0, 0%, 73%);
+
+  --background-color-buttons-secondary-standart: hsl(0, 0%, 100%);
+  --background-color-buttons-secondary-hover: hsl(185, 100%, 33%);
+  --background-color-buttons-secondary-disabled: hsl(0, 0%, 100%);
+
+
+  /*secondary on map buttons*/
+  --width-buttons-map-secondary--large: 288px;
+  --height-buttons-map-secondary--large: 48px;
+  --width-buttons-map-secondary--middle: 288px;
+  --height-buttons-map-secondary--middle: 44px;
+  --width-buttons-map-secondary--small: 288px;
+  --height-buttons-map-secondary--small: 24px;
+
+  --font-size-buttons-map-secondary--large: 24px;
+  --font-size-buttons-map-secondary--middle: 16px;
+  --font-size-buttons-map-secondary--small: 12px;
+
+  --font-weight-buttons-map-secondary: 600;
+
+  --letter-spacing-buttons-map-secondary--large: 1.2px;
+  --letter-spacing-buttons-map-secondary--middle: 1px;
+  --letter-spacing-buttons-map-secondary--small: 0.5px;
+
+  --line-height-buttons-map-secondary--large: 24px;
+  --line-height-buttons-map-secondary--middle: 16px;
+  --line-height-buttons-map-secondary--small: 12px;
+
+  --border-radius-buttons-map-secondary-standart: 2px;
+  --border-radius-buttons-map-secondary-hover: 4px;
+  --border-radius-buttons-map-secondary-disabled: 4px;
+
+  --border-buttons-map-secondary-disabled--large: 2px solid hsl(0, 0%, 73%);
+  --border-buttons-map-secondary-disabled--middle: 2px solid hsl(0, 0%, 73%);
+  --border-buttons-map-secondary-disabled--small: 1px solid hsl(0, 0%, 73%);
+  --border-buttons-map-secondary-disabled--standart: 2px solid hsl(185, 71%, 47%);
+
+  --color-buttons-map-secondary-light-blue: hsl(185, 71%, 47%);
+  --color-buttons-map-secondary-standart: hsl(0, 0%, 100%);
+  --color-buttons-map-secondary-hover: hsl(0, 0%, 100%);
+  --color-buttons-map-secondary-disabled: hsl(0, 0%, 73%);
+
+  --background-color-buttons-map-secondary-standart: hsl(185, 71%, 47%);
+  --background-color-buttons-map-secondary-hover: hsl(185, 100%, 33%);
+  --background-color-buttons-map-secondary-disabled: hsl(0, 0%, 100%);
+
+  /* Property detail buttons */
+
+  --color-button-dynamic-empty: hsl(174, 92%, 36%);
+  --color-button-dynamic-standart: hsl(0, 0%, 100%);
+  --color-button-dynamic-hover: hsl(0, 0%, 100%);
+  --color-button-dynamic-disabled: hsl(0, 0%, 73%);
+
+  --border-button-dynamic-large: 3px solid hsl(174, 92%, 36%);
+  --border-button-dynamic-middle: 2px solid hsl(174, 92%, 36%);
+  --border-button-dynamic-small: 1px solid hsl(174, 92%, 36%);
+  --border-button-dynamic-standart: 2px solid hsl(174, 92%, 36%);
+
+  --background-color-button-dynamic: hsl(174, 92%, 36%);
+
+  /*input fields*/
+
+  /* @FIXME:
+  * Safari Mobile adds indent after placeholder in inputs
+  * so when line-height for the font is set,
+  * please add "line-height: normal;" inside a condition for safari-only
+
+  * for ex.
+
+      @supports (-webkit-overflow-scrolling: touch) {
+        .component__input {
+          line-height: normal;
+        }
+
+        .component__input::placeholder {
+          line-height: normal;
+        }
+      }
+
+   */
+
+  --width-input: 288px;
+  --height-input: 44px;
+
+  --padding-input: 5px 7px 11px; /* @FIXME: maybe  `5px 7px`  ??*/
+
+  --background-color-input: hsla(0, 0%, 0%, 0);
+
+  --border-radius-input: 2px;
+
+  --font-size-input:      16px;
+  --font-weight-input:    300;
+  --letter-spacing-input: 0.5px;
+  --line-height-input:    16px;
+
+  --font-size-feedback:      10px;
+  --font-weight-feedback:    600;
+  --letter-spacing-feedback: 0.25px;
+  --line-height-feedback:    10px;
+
+  /* Input */
+
+  --border-input-standart: 1px solid var(--neutrals-middle-extreme-color);
+  --border-input-active:   1px solid var(--secondary-cta-default-color);
+  --border-input-focus:    1px solid var(--secondary-cta-default-color);
+  --border-input-hover:    1px solid var(--brand-light-blue-color);
+  --border-input-filled:   1px solid var(--neutrals-dark-middle-color);
+  --border-input-error:    1px solid var(--feedback-error-color);
+
+  --color-input-standart: var(--neutrals-middle-extreme-color);
+  --color-input-active:   var(--neutrals-dark-middle-color);
+  --color-input-focus:    var(--neutrals-dark-middle-color);
+  --color-input-hover:    var(--neutrals-dark-middle-color);
+  --color-input-filled:   var(--neutrals-dark-middle-color);
+  --color-input-error:    var(--feedback-error-color);
+
+  --color-label-standart: var(--neutrals-dark-middle-color);
+  --color-label-active:   var(--neutrals-dark-middle-color);
+  --color-label-focus:    var(--neutrals-dark-middle-color);
+  --color-label-hover:    var(--neutrals-dark-middle-color);
+  --color-label-filled:   var(--neutrals-dark-middle-color);
+  --color-label-error:    var(--feedback-error-color);
+
+  --color-feedback-error: var(--feedback-error-color);
+
+  --margin-bottom-label: .05rem;
+
+  --width-volume-input-item: 38px;
+
+  --background-color-volume-input-item: hsl(185, 71%, 47%);
+
+  --border-radius-volume-input: 4px;
+  --border-radius-volume-input-item: 2px;
+
+  --font-size-volume-input: 20px;
+
+  --line-height-volume-input: 28px;
+
+  --border-volume-input: 1px solid hsl(0, 0%, 90%);
+
+  --color-volume-input: hsl(0, 0%, 28%);
+
+  --width-volume-input-item-icon: 16px;
+  --height-volume-input-item-icon: 2px;
+
+  --border-volume-input-item-icon: 2px solid hsl(0, 0%, 100%);
+
+  /*dropdowns*/
+  --width-dropdown--small: 128px;
+  --height-dropdown--small: 32px;
+  --width-dropdown--large: 288px;
+  --height-dropdown--large: 44px;
+
+  --border-radius-dropdown: 2px;
+
+  --font-size-dropdown--small: 14px;
+  --font-size-dropdown--large: 16px;
+  --font-weight-dropdown--small: 300;
+  --font-weight-dropdown--large: 300;
+  --letter-spacing-dropdown--small: 0.5px;
+  --letter-spacing-dropdown--large: 0.5px;
+  --line-height-dropdown--small: 16px;
+  --line-height-dropdown--large: 16px;
+
+  --font-size-label-dropdown--small: 12px;
+  --font-size-label-dropdown--large: 16px;
+  --font-weight-label-dropdown--small: 300;
+  --font-weight-label-dropdown--large: 300;
+  --letter-spacing-label-dropdown--small: 0.5px;
+  --letter-spacing-label-dropdown--large: 0.5px;
+  --line-height-label-dropdown--small: 12px;
+  --line-height-label-dropdown--large: 16px;
+
+  --font-size-feedback-dropdown-error: 10px;
+  --font-weight-feedback-dropdown-error: 600;
+  --letter-spacing-feedback-dropdown-error: 0.25px;
+  --line-height-feedback-dropdown-error: 10px;
+
+  --background-color-dropdown: hsl(0, 0%, 100%);
+  --background-color-dropdown-icon: hsl(185, 98%, 41%);
+
+  --box-shadow-dropdown-icon: 0 0 10px 0 hsla(0, 0%, 73%, 0.5);
+
+  --border-dropdown-white: 1px solid hsl(0, 0%, 100%);
+  --border-dropdown-standart: 1px solid hsl(0, 0%, 73%);
+  --border-dropdown-hover: 1px solid hsl(185, 71%, 47%);
+  --border-dropdown-active: 1px solid hsl(185, 100%, 33%);
+  --border-dropdown-filled: 1px solid hsl(0, 0%, 28%);
+  --border-dropdown-error: 1px solid var(--text-alert);
+
+  --color-dropdown-standart: hsl(0, 0%, 28%);
+  --color-dropdown-hover: hsl(0, 0%, 28%);
+  --color-dropdown-active: hsl(0, 0%, 28%);
+  --color-dropdown-filled: hsl(0, 0%, 28%);
+  --color-dropdown-error: var(--text-alert);
+
+  --color-label-dropdown-standart: hsl(0, 0%, 28%);
+  --color-label-dropdown-hover: hsl(0, 0%, 28%);
+  --color-label-dropdown-active: hsl(0, 0%, 28%);
+  --color-label-dropdown-filled: hsl(0, 0%, 28%);
+  --color-label-dropdown-error: var(--text-alert);
+
+  --color-feedback-dropdown-error: var(--text-alert);
+
+
+  /*links*/
+  --font-size-links--small: 12px;
+  --font-size-links--middle: 16px;
+  --font-size-links--large: 20px;
+
+  --font-weight-links--large: 600;
+
+  --letter-spacing-links-small: 0.5px;
+  --letter-spacing-links-middle: 0.7px;
+  --letter-spacing-links-large: 0.8px;
+
+  --line-height-links--large: 28px;
+  --line-height-links--middle: 24px;
+  --line-height-links--small: 16px;
+
+  --color-links-standart: hsl(174, 92%, 36%);
+  --color-links-hover: hsl(174, 92%, 45%);
+  --color-links-return-hover: hsl(185, 100%, 33%);
+  --color-links-disabled: hsl(0, 0%, 85%);
+  --color-links-tab-initial: hsl(189, 100%, 14%);
+  --color-links-navbar: hsl(0, 0%, 18%);
+  --color-links-red: var(--text-alert);
+
+
+  /*slider*/
+  --height-slider-active: 2px;
+  --height-slider-inactive: 3px;
+
+  --border-slider-active: 5px solid hsl(185, 100%, 33%);
+  --border-slider-inactive: 4px solid hsl(0, 0%, 90%);
+
+  --height-slider-point: 24px;
+  --width-slider-point: 24px;
+
+  --background-color-slider: hsl(185, 71%, 47%);
+
+
+  /*tags*/
+  --width-tags--large: 79px;
+  --width-tags--small: 37px;
+  --height-tags--large: 24px;
+  --height-tags--small: 20px;
+
+  --border-radius-tags: 16px;
+
+  --font-size-tags--large: 14px;
+  --font-size-tags--small: 12px;
+  --font-weight-tags: 600;
+  --letter-spacing-tags: 0.5px;
+  --line-height-tags--large: 16px;
+  --line-height-tags--small: 10px;
+
+  --background-color-tags: hsl(0, 0%, 95%);
+
+  /*accordion*/
+  --height-accordion: 40px;
+  --height-accordion-icon: 24px;
+  --width-accordion-icon: 24px;
+
+  --border-radius-accordion: 2px;
+
+  --font-size-accordion: 20px;
+  --font-weight-accordion: 600;
+  --letter-spacing-accordion: 1px;
+  --line-height-accordion: 20px;
+
+  --color-accordion: hsl(189, 100%, 14%);
+  --background-color-accordion: hsl(0, 0%, 96%);
+  --background-color-accordion-icon: hsl(185, 98%, 41%);
+  --box-shadow-accordion-icon: 0 0 10px 0 hsla(0, 0%, 73%, 0.5);
+
+
+  /*choice cards*/
+  --width-choice-cards: 288px;
+  --height-choice-cards: 44px;
+
+  --border-radius-choice-cards: 2px;
+
+  --font-size-choice-cards: 16px;
+  --font-weight-choice-cards: 300;
+  --letter-spacing-choice-cards: 0.5px;
+  --line-height-choice-cards: 16px;
+
+  --border-choice-cards-active: 2px solid hsl(185, 99%, 33%);
+  --border-choice-cards-hover: 2px solid hsl(185, 98%, 41%);
+  --border-choice-cards-inactive: 2px solid hsl(0, 0%, 95%);
+
+  --color-choice-cards-active: hsl(0, 0%, 100%);
+  --color-choice-cards-hover: hsl(0, 0%, 28%);
+  --color-choice-cards-inacive: hsl(0, 0%, 28%);
+  --background-choice-cards-active-50: hsla(185, 99%, 33%, 0.5);
+  --background-choice-cards-active: hsl(185, 99%, 33%);
+
+  --background-color-choice-cards-active: var(--secondary-cta-default-color);
+  --background-color-choice-cards-hover: var(--neutrals-light-middle-color);
+  --background-color-choice-cards-inactive: var(--neutrals-light-middle-color);
+
+
+  /* checkboxes*/
+  --width-checkbox--mini: 16px;
+  --height-checkbox--mini: 16px;
+  --width-checkbox--small: 20px;
+  --height-checkbox--small: 20px;
+  --width-checkbox--large: 28px;
+  --height-checkbox--large: 28px;
+
+  --border-radius-checkbox: 2px;
+  --border-radius-checkbox-icon: 1px;
+
+  --border-checkbox-active: 1px solid hsl(174, 92%, 36%);
+  --border-checkbox-hover: 1px solid hsl(174, 92%, 36%);
+  --border-checkbox-inactive: 1px solid hsl(0, 0%, 28%);
+  --border-checkbox-inactive-mini: 1px solid var(--neutrals-middle-extreme-color);
+
+  --font-size-checkbox-label--mini: 12px;
+  --font-size-checkbox-label--small: 14px;
+  --font-size-checkbox-label--large: 16px;
+  --font-weight-checkbox-label: 300;
+  --color-checkbox-label: hsl(0, 0%, 28%);
+  --letter-spacing-checkbox-label--small: 0.5px;
+  --letter-spacing-checkbox-label--mini: 0.5px;
+  --letter-spacing-checkbox-label--large: 0.8px;
+  --line-height-checkbox-label--mini: 16px;
+  --line-height-checkbox-label--small: 20px;
+  --line-height-checkbox-label--large: 28px;
+
+  --background-color-checkbox-active: hsl(174, 92%, 36%);
+  --background-color-checkbox-inactive: hsl(0, 0%, 100%);
+
+  --background-color-checkboxes-icon: hsl(0, 0%, 100%);
+
+  --box-shadow-checkbox: 0 0 10px 0 hsla(0, 0%, 73%, 0.5);
+
+  /*ratiobuttons*/
+  --width-ratiobuttons--small: 24px;
+  --height-ratiobuttons--small: 24px;
+  --width-ratiobuttons--large: 32px;
+  --height-ratiobuttons--large: 32px;
+
+  --border-ratiobuttons-active: 1px solid var(--secondary-cta-default-color);
+  --border-ratiobuttons-inactive: 1px solid hsl(0, 0%, 28%);
+
+  --border-radius-ratiobuttons: 50%;
+
+  --height-ratiobuttons-icon--small: 12px;
+  --width-ratiobuttons-icon--small: 12px;
+  --height-ratiobuttons-icon--large: 16px;
+  --width-ratiobuttons-icon--large: 16px;
+
+  --color-ratiobuttons-label: hsl(0, 0%, 28%);
+
+  --font-size-ratiobuttons-label--small: 14px;
+  --font-size-ratiobuttons-label--large: 16px;
+  --font-weight-ratiobuttons-label: 300;
+  --letter-spacing-ratiobuttons-label--small: 0.5px;
+  --letter-spacing-ratiobuttons-label--large: 0.8px;
+  --line-height-ratiobuttons-label--small: 16px;
+  --line-height-ratiobuttons-label--large: 24px;
+
+  --background-color-checkboxes-icon: var(--secondary-cta-default-color);
+  --background-color-checkboxes: hsla(0, 0%, 0%, 0);;
+
+  /*outdents*/
+  --outdent-xs: 8px;
+  --outdent-s: 16px;
+  --outdent-m: 32px;
+  --outdent-l: 64px;
+  --outdent-xl: 104px;
+  --outdent-xxl: 180px;
+
+
+  /*Typefaces*/
+  /* @FIXME: later add full-styled blocks above to the Typeface section
+  * when designer updates typefaces styleguide*/
+  --font-size-headline-h1: 32px;
+  --font-size-headline-h2: 24px;
+  --font-size-headline-h3: 20px;
+  --font-size-body: 16px;
+
+  /* Backgrounds (with partially transparent) */
+  --background-shade-lighter-10: hsla(0, 0%, 85%, 0.1);
+  --background-initial: hsl(0, 0%, 100%);
+  --background-initial-transparent-09: hsla(0, 0%, 100%, 0.9);
+  --background-initial-transparent-097: hsla(0, 0%, 100%, 0.97);
+  --background-initial-transparent-07: hsla(0, 0%, 100%, 0.7);
+  --background-shadow-silver: hsl(0, 0%, 73%);
+  --background-with-transparent-05: hsla(0, 0%, 0%, 0.5);
+  --background-with-transparent-04: hsla(0, 0%, 0%, 0.4);
+  --background-dark-grey-with-transparent: hsla(2, 2%, 2%, 0.25);
+  --background-blue-chill: hsl(185, 39%, 42%);
+  --background-genoa: hsl(185, 74%, 29%);
+  --background-daintree: var(--brand-dark-green-color);
+  --background-wild-sand: hsl(0, 0%, 96%);
+
+  /* Borders (with partially transparent) */
+  --border-genoa: hsl(185, 74%, 29%);
+  --border-wild-sand: hsl(0, 0%, 96%);
+
+  /* Text color */
+  --text-initial:        hsl(0, 0%, 100%);
+  --text-list:           hsl(185, 74%, 29%);
+  --text-menu-hover:     hsl(185, 100%, 33%);
+  --text-menu-red:       hsl(6, 83%, 63%);
+  --text-menu-red-hover: hsl(6, 61%, 54%);
+  --text-title:          hsl(0, 0%, 57%);
+  --text-alert:          hsl(0, 94%, 43%);
+
+
+  /* @TODO: styles for modals */
+
+  /* Box-shadows */
+  --box-shadow-modal: 0 0 16px 0 hsl(0, 0%, 85%);
+  --box-shadow-block: 0 4px 4px 0 hsl(0, 0%, 85%);
+  --box-shadow-property-block: 0 0 20px 0 hsl(0, 0%, 50%);
+  --box-shadow-cookie: 0 -2px 8px 0 hsla(0, 0%, 0%, 0.1);
+
+  /* Backdrop color */
+  --backdrop-color-modal: hsla(0, 0%, 28%, 0.5); /* @FIXME: ??  hsla(0, 0%, 0%, .2)  ?? */
+
+  /* Footer links style */
+  --color-footer-links-standart: hsl(0, 0%, 28%);
+  --color-footer-links-hover: hsl(0, 0%, 70%);
+
+  --color-footer-links-on-map-standart: var(--color-footer-links-standart);
+  --color-footer-links-on-map-hover: hsl(0, 0%, 10%);
+
+  --header-icon-right-arrow: hsl(185, 71%, 47%);
+  --header-icon-left-arrow: hsl(0, 94%, 43%);
+
+  --sidebar-blocker-gradient: linear-gradient(180deg, var(--neutrals-white-color) 0%, hsla(0, 0%, 100%, 0.57) 100%);
+
+  --soperty-plus-fields-box: hsl(175, 73%, 97%);
+}

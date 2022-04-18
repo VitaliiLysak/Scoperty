@@ -1,0 +1,86 @@
+<div [attr.class]="{block: name, element: 'container', mods: {'theme': theme}} | bem">
+  <!-- Mobile menu button, only visible on mobile -->
+  <div [attr.class]="{block: name, element: 'hamburger-container'} | bem">
+    <!-- Open menu button -->
+    <button
+      app-icon-button
+      [color]="iconButtonColor"
+      (click)="onMobileMenuOpen()"
+    >
+      <mat-icon
+        svgIcon="menu"
+        appSvgSize="24px"
+      ></mat-icon>
+    </button>
+  </div>
+
+  <!-- Mobile navigation, only visible on mobile -->
+  <div
+    *ngIf="isMobileMenuOpened"
+    [attr.class]="{block: name, element: 'mobile-menu-container'} | bem"
+  >
+    <app-start-page-navbar-mobile-menu (close)="onMobileMenuClose()"></app-start-page-navbar-mobile-menu>
+  </div>
+
+  <!-- Logo -->
+  <div [attr.class]="{block: name, element: 'logo-container'} | bem">
+    <a
+      app-icon-button
+      [color]="iconButtonColor"
+      routerLink="/"
+      queryParamsHandling="merge"
+      id="start-page-navbar-logo"
+    >
+      <app-logo [color]="theme"></app-logo>
+    </a>
+  </div>
+
+  <!-- Navigation, only visible on desktop -->
+  <div [attr.class]="{block: name, element: 'nav-container'} | bem">
+    <div
+      [attr.class]="{block: name, element: 'nav-item'} | bem"
+      [routerLink]="linkToMap"
+      queryParamsHandling="merge"
+    >
+      <button
+        app-button
+        id="header-navbar-back-to-map"
+        buttonStyle="link"
+        [color]="theme === 'dark' ? 'green' : 'white'"
+      >
+        <mat-icon svgIcon="chevron_left"></mat-icon>
+        Zur Karte
+      </button>
+    </div>
+    <div
+      *ngFor="let navItem of navItems"
+      [attr.class]="{block: name, element: 'nav-item'} | bem"
+    >
+      <a
+        app-button
+        buttonStyle="link"
+        [color]="getLinkColor(routerLink.isActive)"
+        [routerLink]="[ navItem.link ]"
+        [id]="navItem.id"
+        queryParamsHandling="merge"
+        routerLinkActive #routerLink="routerLinkActive"
+      >
+        {{ navItem.label }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Login -->
+  <div [attr.class]="{block: name, element: 'login-button-container', mods: {'mobile': (isMobileDevice$ | async), 'logged-in': true}} | bem">
+    <app-scoperty-plus-ad [mode]="theme === 'dark' ? 'default' : 'white'"></app-scoperty-plus-ad>
+    <app-start-page-navbar-login
+      [theme]="theme"
+      [isUserLoggedIn]="isUserLoggedIn"
+      (menuShow)="onLoginMenuShow()"
+      (menuHide)="onLoginMenuHide()"
+      (login)="openSignupModal()"
+      (logout)="logout()"
+      #login
+    ></app-start-page-navbar-login>
+  </div>
+</div>

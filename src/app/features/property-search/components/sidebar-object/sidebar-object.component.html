@@ -1,0 +1,109 @@
+<div [attr.class]="{block: _name, element: 'container'} | bem">
+  <button
+    [attr.class]="{
+      block: _name,
+      element: 'object',
+      mods: {'of': isStartPage? 'startpage' : 'default'}
+    } | bem"
+    (click)="goToMarkerDetail()"
+  >
+    <div [attr.class]="{block: _name, element: 'object-image'} | bem">
+      <ng-container *ngIf="!marker.hasImages; else imageTemplate">
+        <div [attr.class]="{block: _name, element: 'image-block'} | bem"></div>
+      </ng-container>
+      <ng-template #imageTemplate>
+        <div [attr.class]="{block: _name, element: 'preview'} | bem">
+          <button
+            app-icon-button
+            (click)="prevImage(marker, $event)"
+          >
+            <mat-icon svgIcon="chevron_left"></mat-icon>
+          </button>
+          <app-image
+            [attr.class]="{block: _name, element: 'image', mods: {'height': '100'}} | bem"
+            [src]="marker.images[activeImageIndex]"
+            [mods]="{'fit': 'cover'}"
+          >
+          </app-image>
+          <button
+            app-icon-button
+            (click)="nextImage(marker, $event)"
+          >
+            <mat-icon svgIcon="chevron_right"></mat-icon>
+          </button>
+        </div>
+      </ng-template>
+      <div
+        [attr.class]="{
+          block: _name,
+          element: 'object-status',
+          mods: {'background': !marker.hasImages ? 'light' : 'dark'}
+        } | bem"
+      >
+        <app-selling-status
+          [sellingStatus]="listing.sellingStatus"
+          size="small"
+          [theme]="sellingStatusTheme"
+        >
+        </app-selling-status>
+      </div>
+      <button *ngIf="!marker.isScraped" [attr.class]="{block: _name, element: 'favourite-container'} | bem" (click)="$event.stopPropagation()">
+        <app-favourite
+          [marker]="marker"
+          theme="light"
+          (markerUpdate)="changeIsFavoriteStatus($event)"
+        >
+        </app-favourite>
+      </button>
+    </div>
+    <div *ngIf="showPrePrice" [attr.class]="{block: _name, element: 'object-price'} | bem">
+      {{ textForPrePrice() }}
+      {{ marker.isPropertyOfTypeMFH ? ('ab ' + marker.PriceMin | cost) : marker.SalePrice | cost }}
+    </div>
+    <div
+      *ngIf="!marker.Url"
+      [attr.class]="{block: _name, element: 'object-estimate-price', mods: {'bold': listing.isStatusMakeMeMove}} | bem"
+    >
+      SCHÄTZWERT: {{ marker.EstimatedPrice | cost }}
+    </div>
+    <div
+      *ngIf="marker.hasUrl"
+      [attr.class]="{block: _name, element: 'object-price', mods: {'margin-top': '8px'}} | bem"
+    >
+      Kaufpreis: {{ marker.SalePrice | cost }}
+    </div>
+    <div [attr.class]="{block: _name, element: 'object-info'} | bem">
+      {{ listing.getAddressAsString }}
+    </div>
+    <div [attr.class]="{block: _name, element: 'row', mods: {'justify-content': 'start', 'flex': 'wrap'}} | bem">
+      <app-tag
+        *ngIf="marker.buildingType"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+        size="small"
+      >
+        {{marker.buildingType}}
+      </app-tag>
+      <app-tag
+        *ngIf="marker.LivingSurface"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+        size="small"
+      >
+        {{marker.LivingSurface | livingSurface}}
+      </app-tag>
+      <app-tag
+        *ngIf="marker.RoomsNumber"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+        size="small"
+      >
+        {{marker.RoomsNumber | numberOfRooms}}
+      </app-tag>
+    </div>
+    <div *ngIf="marker.Url" [attr.class]="{block: _name, element: 'object-info'} | bem">
+      Quelle: {{ marker.Source }}
+    </div>
+  </button>
+</div>
+<div [attr.class]="{block: _name, element: 'decor'} | bem"></div>

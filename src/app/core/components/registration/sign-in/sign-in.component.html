@@ -1,0 +1,104 @@
+<ng-container *ngIf="isNeedToShowMessage" app-base-modal-message>
+  <app-alert *ngIf="isConfirmUserPath" type="success">
+    Du hast deine E-Mail-Adresse erfolgreich bestätigt.
+    Melde dich jetzt mit deinen Zugangsdaten an!
+  </app-alert>
+
+  <ng-container [ngSwitch]="currentError">
+    <app-generic-error-alert *ngSwitchCase="AuthError.UnknownError"></app-generic-error-alert>
+  </ng-container>
+</ng-container>
+
+<form
+  [formGroup]="loginForm"
+  autocomplete="on"
+>
+  <!-- Email -->
+  <div
+    #emailInputContainer
+    *ngIf="!isEmailPredefined"
+    [attr.class]="{ block: name, element: 'form-field' } | bem"
+  >
+    <app-form-field label="E-Mail-Adresse">
+      <input
+        #emailInput
+        name="email"
+        type="email"
+        app-input
+        appValidateOnBlur [validateFormControl]="email"
+        [formControl]="email"
+      >
+
+      <ng-template app-form-field-error-message error="required">
+        Bitte eine E-Mail-Adresse eingeben
+      </ng-template>
+      <ng-template app-form-field-error-message error="pattern">
+        Falsche E-Mail-Adresse
+      </ng-template>
+    </app-form-field>
+  </div>
+
+  <!-- Password -->
+  <div
+    #passwordInputContainer
+    [attr.class]="{ block: name, element: 'form-field', mods: {'margin-bottom': '24px'} } | bem"
+  >
+    <app-form-field label="Passwort">
+      <input
+        #passwordInput
+        name="password"
+        type="password"
+        app-input
+        appValidateOnBlur [validateFormControl]="password"
+        [formControl]="password"
+        (keyup.enter)="login()"
+      >
+
+      <ng-template app-form-field-error-message error="required">
+        Passwort ist ein Pflichtfeld
+      </ng-template>
+
+      <ng-container [ngSwitch]="currentError">
+        <div *ngSwitchCase="AuthError.UserNotFound" class="auth-error-message">
+          Die E-Mail-Adresse oder das Passwort sind uns leider nicht bekannt.
+        </div>
+    
+        <div *ngSwitchCase="AuthError.NotAuthorizedException" class="auth-error-message">
+          Die E-Mail-Adresse oder das Passwort sind uns leider nicht bekannt.
+        </div>
+
+        <div *ngSwitchCase="AuthError.UnconfirmedEmail" class="auth-error-message">
+          Wir haben dir eine E-Mail zur Bestätigung deiner Daten gesendet.
+          Bitte bestätige zuerst deine E-Mail-Adresse, um dich erneut anzumelden.
+        </div>
+      </ng-container>
+    </app-form-field>
+  </div>
+
+  <!-- Actions -->
+  <div [attr.class]="{ block: name, element: 'action' } | bem">
+    <button
+      #loginButton
+      app-button
+      color="primary-green"
+      size="medium"
+      type="submit"
+      [stretch]="true"
+      (click)="login()"
+    >
+      Anmelden
+    </button>
+  </div>
+
+  <div [attr.class]="{ block: name, element: 'action' } | bem">
+    <button
+      app-button
+      buttonStyle="link"
+      color="green"
+      size="medium"
+      (click)="forgotPassword()"
+    >
+      Passwort vergessen
+    </button>
+  </div>
+</form>

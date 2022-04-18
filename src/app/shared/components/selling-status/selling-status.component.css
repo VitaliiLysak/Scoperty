@@ -1,0 +1,74 @@
+.selling-status__status-info {
+  display: flex;
+  align-items: center;
+}
+
+.selling-status__status-icon--type-ForSale {
+  background-color: var(--property-for-sale-status-color);
+}
+
+.selling-status__status-icon--type-Active {
+  background-color: var(--property-active-status-color);
+}
+
+.selling-status__status-icon--type-NotActiveYet {
+  background-color: var(--property-active-status-color);
+}
+
+.selling-status__status-icon--type-Idle {
+  background-color: var(--property-inactive-status-color);
+}
+
+.selling-status__status-icon--type-MakeMeMove {
+  background-color: var(--property-make-me-move-status-color);
+}
+
+.selling-status__status-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Theme */
+
+.selling-status__status-text--theme-light {
+  color: #fff; /* ??? */
+}
+
+.selling-status__status-text--theme-dark {
+  color: hsl(0, 0%, 18%);
+}
+
+.selling-status__status-text--theme-green {
+  color: hsl(189, 100%, 14%);
+}
+
+/* Size */
+/* Small */
+
+.selling-status__status-info--size-small .selling-status__status-icon {
+  margin-right: 6px;
+
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+.selling-status__status-info--size-small .selling-status__status-text {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* Large */
+
+.selling-status__status-info--size-large .selling-status__status-icon {
+  margin-right: 8px;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.selling-status__status-info--size-large .selling-status__status-text {
+  font-size: 16px;
+  line-height: 24px;
+}

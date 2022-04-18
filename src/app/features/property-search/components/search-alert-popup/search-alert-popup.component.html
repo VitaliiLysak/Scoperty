@@ -1,0 +1,24 @@
+<div [attr.class]="{block: _name, element: 'content'} | bem">
+  <div [attr.class]="{block: _name, element: 'wrapper'} | bem">
+    <div [attr.class]="{block: _name, element: 'wrapper-icon'} | bem">
+      <mat-icon
+        [attr.class]="{block: _name, element: 'icon'} | bem"
+        svgIcon="icon_bulb"
+        appSvgWidth="34px"
+        appSvgHeight="46px"
+      ></mat-icon>
+    </div>
+
+    <div [attr.class]="{block: _name, element: 'text'} | bem">
+      Als Erster erfahren, wenn deine Wunschimmobilie zum Verkauf steht – registriere dich jetzt für den Suchauftrag.
+    </div>
+  </div>
+
+  <button
+    app-icon-button
+    color="white"
+    (click)="dismiss()"
+  >
+    <mat-icon svgIcon="close" appSvgSize="16px"></mat-icon>
+  </button>
+</div>

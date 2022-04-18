@@ -1,0 +1,253 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: auto;
+
+  width: 100%;
+  height: 100%;
+
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  letter-spacing: 0.5px;
+
+  color: var(--neutrals-dark-middle-color);
+}
+
+.market-view-property__content {
+  margin-bottom: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: auto;
+  max-width: 947px;
+  width: 70%;
+  border-radius: 2px;
+  padding: 60px 96px;
+
+  background-color: var(--background-initial);
+}
+
+.market-view-property__content--margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.market-view-property__block--width-70 {
+  width: 70%;
+}
+
+.market-view-property__title {
+  margin-bottom: 20px;
+
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.market-view-property__title--type-statistics {
+  margin-bottom: 16px;
+}
+
+.market-view-property__header {
+  width: 70%;
+}
+
+.market-view-property__property-container {
+  display: flex;
+  flex-direction: row;
+
+  max-width: 947px;
+  width: 70%;
+}
+
+.market-view-property__property-valuation-container {
+  margin-bottom: 32px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  flex-grow: 1;
+}
+
+.market-view-property__property-valuation-title {
+  margin-bottom: 64px;
+
+  width: 100%;
+
+  color: var(--primary-cta-default-color);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+  text-align: left;
+}
+
+.market-view-property__sell-property-container {
+  margin-left: 16px;
+  margin-bottom: 32px;
+
+  width: 368px;
+}
+
+.market-view-property__sell-property-container,
+.market-view-property__property-valuation-container {
+  padding: 48px 24px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.market-view-property__disagreement-link {
+  margin-top: 48px;
+  margin-bottom: 16px;
+
+  width: 70%;
+  max-width: 947px;
+
+  text-align: left;
+}
+
+/* Responsive */
+
+@media (max-width: 1350px) {
+  .market-view-property__header,
+  .market-view-property__property-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .market-view-property__content {
+    padding: 30px 0;
+  }
+
+  .market-view-property__block--width-70,
+  .market-view-property__header {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1060px) {
+  .market-view-property__header,
+  .market-view-property__property-container {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1150px) {
+  .market-view-property__disagreement-link {
+    width: 90%;
+  }
+
+  .market-view-property__content {
+    width: 90%;
+    padding: 35px 20px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .market-view-property__content {
+    padding: 30px 10px;
+  }
+
+  .market-view-property__property-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .market-view-property__sell-property-container {
+    margin-left: 0;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 860px) {
+  .market-view-property__header {
+    width: 80%;
+    padding: 0;
+  }
+
+  .market-view-property__block {
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  .market-view-property__disagreement-link button {
+    display: flex;
+  }
+
+  .market-view-property__disagreement-link button > * {
+    display: block;
+  }
+}
+
+@media (max-width: 450px) {
+  .market-view-property__disagreement-link {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .market-view-property__content {
+    margin-bottom: 0;
+
+    width: 100%;
+    padding: 48px 0 0;
+
+    box-shadow: unset;
+  }
+
+  .market-view-property__content--padding-top-25px {
+    padding-top: 25px;
+  }
+
+  .market-view-property__property-valuation-title {
+    margin-bottom: 24px;
+  }
+
+  .market-view-property__header,
+  .market-view-property__block {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .market-view-property__property-container {
+    width: 100%;
+  }
+
+  .market-view-property__property-valuation-container {
+    margin-right: 0;
+
+    width: 100%;
+  }
+
+  .market-view-property__sell-property-container {
+    margin-left: 0;
+
+    width: 100%;
+  }
+
+  .market-view-property__sell-property-container,
+  .market-view-property__property-valuation-container {
+    margin-bottom: 16px;
+
+    padding: 32px 16px;
+  }
+
+  .market-view-property__content {
+    margin-bottom: 16px;
+
+    padding-top: 32px;
+    padding-bottom: 24px;
+  }
+}

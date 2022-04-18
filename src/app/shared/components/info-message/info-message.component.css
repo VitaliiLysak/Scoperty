@@ -1,0 +1,150 @@
+.message__container {
+  position: relative;
+  left: -15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 592px;
+  height: 236px;
+  border-radius: 32px 0 32px 0;
+  padding: 35px 20px 25px;
+
+  background-color: hsl(0, 0%, 90%);
+}
+
+.info-message__badge {
+  position: absolute;
+  top: -10px;
+  left: 82px;
+
+  display: flex;
+  justify-content: center;
+
+  height: 24px;
+  width: 80px;
+
+  font-weight: 600;
+  text-transform: uppercase;
+
+  border-radius: 2px;
+  color: var(--neutrals-white-color);
+  background-color: var(--brand-green-blue-color);
+}
+
+.info-message__close-button {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+
+  color: hsl(0, 0%, 100%);
+  cursor: pointer;
+}
+
+.info-message__close-button--style-dark {
+  color: hsl(185, 71%, 47%);
+}
+
+.info-message__close-button--position-absolute {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.info-message__close-button--style-dark:hover {
+  color: hsl(185, 100%, 33%);
+  text-decoration: none;
+}
+
+.info-message__close-icon {
+  font-size: 34px;
+  line-height: 24px;
+  font-weight: 400;
+
+  cursor: pointer;
+}
+
+.info-message__title {
+  margin-bottom: 15px;
+
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 0.63px;
+  line-height: 24px;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.info-message__message {
+  margin-bottom: 20px;
+
+  max-width: 367px;
+  width: 100%;
+
+  font-weight: 300;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.info-message__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.info-message__action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 40px;
+  width: 183px;
+  border: 2px solid hsl(189, 100%, 14%);
+  border-radius: 2px;
+
+  letter-spacing: 1px;
+  font-weight: 600;
+
+  color: hsl(189, 100%, 14%);
+  cursor: pointer;
+  outline: none;
+}
+
+.info-message__action:hover {
+  background-color: hsl(189, 100%, 14%);
+  color: hsl(0, 0%, 100%);
+}
+
+@media (max-width: 958px) {
+  .info-message__container {
+    left: 0;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 570px) {
+  .info-message__badge {
+    left: unset;
+  }
+}
+
+@media (max-width: 450px) {
+  .info-message__badge {
+    height: 20px;
+    width: 46px;
+
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .info-message__action {
+    width: 100%;
+  }
+}

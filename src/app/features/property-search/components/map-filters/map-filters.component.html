@@ -1,0 +1,348 @@
+<div
+  [attr.class]="{
+    block: name,
+    element: 'content',
+    mods: {
+      'state': isFilterShown || isInline ? 'shown': 'hidden',
+      'padding-top': !(isSmallDevice$ | async) ? 'calc' : 'default',
+      'inline': isInline
+    }
+  } | bem"
+  (scroll)="scrollContent()"
+>
+  <div *ngIf="isDefault" [attr.class]="{block: name, element: 'close-button-mobile'} | bem" (click)="_closeFilter()">
+    Filter schliessen
+    <div [attr.class]="{block: name, element: 'close-button-mobile-arrow'} | bem"></div>
+  </div>
+
+  <div [attr.class]="{block: name, element: 'wrapper', mods: {'state': 'shown'}} | bem">
+
+    <div
+      *ngIf="isDefault && isHighZoomLevel"
+      [attr.class]="{block: name, element: 'blocker'} | bem"
+    >
+      <div [attr.class]="{block: name, element: 'blocker-message'} | bem">
+        <div [attr.class]="{block: name, element: 'container-icon'} | bem">
+          <div [attr.class]="{block: name, element: 'wrapper-icon'} | bem">
+            <mat-icon
+              [attr.class]="{block: name, element: 'icon'} | bem"
+              svgIcon="search"
+              appSvgSize="24px"
+            ></mat-icon>
+          </div>
+        </div>
+        Zum Nutzen der Filter zoome bitte in die Karte!
+      </div>
+    </div>
+
+    <div [attr.class]="{block: name, element: 'container', mods: {'state': 'hidden', mode: mode}} | bem">
+      <div *ngIf="isInline" [attr.class]="{block: name, element: 'inline-title'} | bem">
+        Welche Immobilien möchtest du filtern?
+      </div>
+      <app-search-request-button
+        *ngIf="isDefault"
+        [isInDefaultFilters]="isDefault"
+        [showPopup]="!(isSmallDevice$ | async)"
+      ></app-search-request-button>
+
+      <div [attr.class]="{block: name, element: 'input-block', mods: {'type': 'sale'}} | bem">
+        <div [attr.class]="{block: name, element: 'input-block-title', mods: {'left': '127'}} | bem">
+          <div [attr.class]="{block: name, element: 'input-block-title-text'} | bem">
+            {{isDefault ? 'Welche Immobilien möchtest du filtern?' : 'Status'}}
+          </div>
+        </div>
+
+          <!-- Selling status filters -->
+          <ng-container *ngFor="let sellingStatus of sellingStatusItems">
+            <div
+              *ngIf="!isStatusActive(sellingStatus)"
+              [attr.class]="{block: name, element: 'input-block-content', mods: {'justify-content': isDefault ? 'between' : 'flex-start'}} | bem"
+            >
+              <div [attr.class]="{block: name, element: 'input-block-content-group'} | bem">
+                <div
+                  id="map-filters-status-{{sellingStatus}}-checkbox"
+                  [attr.class]="{
+                    block: name,
+                    element: 'input-block-content-btn',
+                    mods: {'state': filters.SellingStatus[sellingStatus] ? 'clicked': 'default'}
+                  } | bem"
+                  (click)="changeSellingStatus(sellingStatus)"
+                ></div>
+                <div [attr.class]="{block: name, element: 'input-block-content-label'} | bem">
+                  {{ getSellingStatusName(sellingStatus) }}
+                </div>
+                <div [attr.class]="{block: name, element: 'input-block-content-icon', mods: {'color': sellingStatus}} | bem"></div>
+              </div>
+              <div [attr.class]="{block: name, element: 'input-block-popper-icon'} | bem">i
+                <div [attr.class]="{block: name, element: 'input-block-popper-content'} | bem">
+                  {{ getSellingStatusHint(sellingStatus) }}
+                </div>
+              </div>
+            </div>
+          </ng-container>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'input-block', mods: {'type': 'realty'}} | bem">
+        <div [attr.class]="{block: name, element: 'input-block-title'} | bem">
+          <div [attr.class]="{block: name, element: 'input-block-title-text'} | bem">Immobilientyp</div>
+        </div>
+        <div>
+          <div [attr.class]="{block: name, element: 'input-block-content'} | bem">
+            <div
+              id="map-filters-status-alle-checkbox"
+              [attr.class]="{
+                block: name,
+                element: 'input-block-content-btn',
+                mods: {'state': isPropertyTypeNotExist ? 'clicked': 'default'}
+              } | bem"
+              (click)="changePropertyType(null)"
+            ></div>
+            <div [attr.class]="{block: name, element: 'input-block-content-label'} | bem">Alle Typen</div>
+          </div>
+          <div [attr.class]="{block: name, element: 'input-block-separator'} | bem"></div>
+          <div [attr.class]="{block: name, element: 'input-block-content'} | bem">
+            <div
+              id="map-filters-status-haus-checkbox"
+              [attr.class]="{
+                block: name,
+                element: 'input-block-content-btn',
+                mods: {'state': isEFHChecked ? 'clicked': 'default'}
+              } | bem"
+              (click)="changePropertyType(PropertyType.EFH)"
+            ></div>
+            <div [attr.class]="{block: name, element: 'input-block-content-label'} | bem">Haus</div>
+          </div>
+          <div [attr.class]="{block: name, element: 'input-block-content'} | bem">
+            <div
+              id="map-filters-status-wohnung-checkbox"
+              [attr.class]="{
+                block: name,
+                element: 'input-block-content-btn',
+                mods: {'state': isETWChecked ? 'clicked': 'default'}
+              } | bem"
+              (click)="changePropertyType(PropertyType.ETW)"
+            ></div>
+            <div [attr.class]="{block: name, element: 'input-block-content-label'} | bem">Wohnung</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Budget -->
+      <ng-container *ngIf="isInline || isBudgetLoaded || isHighZoomLevel; then histogram else loader"></ng-container>
+
+      <ng-template #loader>
+        <div [attr.class]="{block: name, element: 'loader-container'} | bem">
+          <div [attr.class]="{block: name, element: 'loader'} | bem"></div>
+        </div>
+      </ng-template>
+
+      <ng-template #histogram>
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'input-block',
+            mods: {'type': 'price', 'display' : isBudgetLoaded || isHighZoomLevel ? 'default' : 'none'}
+          } | bem"
+        >
+          <div [attr.class]="{block: name, element: 'input-block-title'} | bem">
+            <div [attr.class]="{block: name, element: 'input-block-title-text'} | bem">Budget</div>
+          </div>
+          <div>
+            <div [attr.class]="{block: name, element: 'input-block-inner'} | bem">
+              <div
+                [attr.class]="{
+                  block: name,
+                  element: 'input-wrapper',
+                  mods: {'state': isInvalidValues(filters.PriceFrom, filters.PriceTo) ? 'invalid' : 'valid'}
+                } | bem"
+              >
+                <input
+                  #priceFrom
+                  id="priceFrom"
+                  [attr.class]="{
+                    block: name,
+                    element: 'input',
+                    mods: {'state': isInvalidValues(filters.PriceFrom, filters.PriceTo)? 'invalid': 'valid'}
+                  } | bem"
+                  [ngClass]="{'map-filters__input--state-filled': priceFrom.value && priceFrom.value !== '0'}"
+                  placeholder="egal"
+                  maxlength="9"
+                  [(ngModel)]="priceFromStr"
+                  (keydown)="checkInputValues($event)"
+                  (input)="inputNumberFilter($event,'priceFromStr')"
+                  (focus)="handleFocusFilterPrice($event)"
+                  (blur)="changeFilterPriceFrom($event)"
+                />
+                <label
+                  *ngIf="!(isInvalidValues(filters.PriceFrom, filters.PriceTo))"
+                  for="priceFrom"
+                  [attr.class]="{
+                    block: name,
+                    element: 'input-label',
+                    mods: {'state': isInvalidValues(filters.PriceFrom, filters.PriceTo) ? 'invalid': 'valid'}
+                  } | bem"
+                  onselectstart="cancelSelectStart()"
+                  onmousedown="cancelMouseDown()"
+                >€</label>
+              </div>
+              <div [attr.class]="{block: name, element: 'separator'} | bem"></div>
+              <div
+                [attr.class]="{
+                  block: name,
+                  element: 'input-wrapper'
+                } | bem"
+              >
+                <input
+                  #priceTo
+                  id="priceTo"
+                  [attr.class]="{
+                    block: name,
+                    element: 'input'
+                  } | bem"
+                  [ngClass]="{'map-filters__input--state-filled': priceTo.value && priceTo.value !== '1.000.000'}"
+                  placeholder="egal"
+                  maxlength="9"
+                  [(ngModel)]="priceToStr "
+                  (keydown)="checkInputValues($event)"
+                  (input)="inputNumberFilter($event, 'priceToStr')"
+                  (focus)="handleFocusFilterPrice($event)"
+                  (blur)="changeFilterPriceTo($event)"
+                />
+                <label
+                  *ngIf="priceToStr === '3.000.000' || priceToStr === '3000000'"
+                  [attr.class]="{block: name, element: 'plus-label'} | bem"
+                  onselectstart="cancelSelectStart()"
+                  onmousedown="cancelMouseDown()"
+                >+</label>
+                <label
+                  for="priceTo"
+                  [attr.class]="{
+                    block: name,
+                    element: 'input-label',
+                    mods: {
+                      'display': !filters.PriceTo ? 'hidden' : 'shown'
+                    }
+                  } | bem"
+                  onselectstart="cancelSelectStart()"
+                  onmousedown="cancelMouseDown()"
+                >€</label>
+              </div>
+            </div>
+            <div *ngIf="isInvalidValues(filters.PriceFrom, filters.PriceTo)" [attr.class]="{block: name, element: 'error-message'} | bem">
+              der Mindestpreis darf nicht höher als der Höchstpreis sein!
+            </div>
+            <div [attr.class]="{block: name, element: 'average-value'} | bem" *ngIf="isDefault">Durchschnitt: {{averagePrice}} €</div>
+          </div>
+        </div>
+      </ng-template>
+
+      <!-- Living area -->
+      <div [attr.class]="{block: name, element: 'input-block', mods: {'type': 'qm'}} | bem">
+        <div [attr.class]="{block: name, element: 'input-block-title', mods: {'margin-bottom': isInline ? 'inline' : '11'}} | bem">
+          <div [attr.class]="{block: name, element: 'input-block-title-text'} | bem">Wohnfläche</div>
+        </div>
+        <div [attr.class]="{block: name, element: 'input-block-inner'} | bem">
+          <div
+            [attr.class]="{
+              block: name,
+              element: 'input-wrapper',
+              mods: {
+                'state': (isInvalidValues(filters.AreaSize, filters.AreaSize2) || filters.AreaSize > 9999) ? 'invalid' : 'valid'
+              }
+            } | bem"
+            >
+            <input
+              #areaSize1
+              id="areaSize1"
+              [attr.class]="{
+                block: name,
+                element: 'input',
+                mods: {
+                  'state': (isInvalidValues(filters.AreaSize, filters.AreaSize2) || filters.AreaSize > 9999) ? 'invalid': 'valid'
+                }
+              } | bem"
+              [ngClass]="{'map-filters__input--state-filled': areaSize1.value}"
+              placeholder="egal"
+              maxlength="4"
+              [ngModel]="areaSize1Str"
+              (keydown)="checkInputValues($event)"
+              (input)="inputNumberFilter($event, 'areaSize1Str')"
+              (focus)="handleFocusAreaSize($event)"
+              (blur)="changeFilterArea($event)"
+            />
+            <label
+              *ngIf="!( isInvalidValues(filters.AreaSize, filters.AreaSize2) || filters.AreaSize > 9999)"
+              for="areaSize1"
+              [attr.class]="{
+                  block: name,
+                  element: 'input-label',
+                  mods: {'display': !filters.AreaSize ? 'hidden' : 'shown'}
+              }| bem"
+            >
+              m&#xB2;
+            </label>
+          </div>
+          <div [attr.class]="{block: name, element: 'separator'} | bem"></div>
+          <div
+            [attr.class]="{block: name, element: 'input-wrapper', mods: {'state': filters.AreaSize2 > 9999 ? 'invalid' : 'valid'}} | bem"
+          >
+            <input
+              #areaSize2
+              id="areaSize2"
+              [attr.class]="{block: name, element: 'input', mods: {'state': filters.AreaSize2 > 9999 ? 'invalid': 'valid'}} | bem"
+              [ngClass]="{'map-filters__input--state-filled': areaSize2.value}"
+              placeholder="egal"
+              maxlength="4"
+              [ngModel]="areaSize2Str"
+              (keydown)="checkInputValues($event)"
+              (input)="inputNumberFilter($event, 'areaSize2Str')"
+              (focus)="handleFocusAreaSize($event)"
+              (blur)="changeFilterArea($event)"
+            />
+            <label
+              *ngIf="!(filters.AreaSize2 > 9999)"
+              for="areaSize2"
+              [attr.class]="{
+                  block: name,
+                  element: 'input-label',
+                  mods: {'display': !filters.AreaSize2 ? 'hidden' : 'shown'}
+               }| bem"
+            >
+              m&#xB2;
+            </label>
+          </div>
+        </div>
+        <div
+          *ngIf="isInvalidValues(filters.AreaSize, filters.AreaSize2) || filters.AreaSize2 > 9999"
+          [attr.class]="{block: name, element: 'error-message'} | bem"
+        >
+          die Mindestwohnfläche darf nicht höher als die Höchstwohnfläche sein!
+        </div>
+        <div *ngIf="filters.AreaSize2 > 9999" [attr.class]="{block: name, element: 'error-message'} | bem">
+          zu große Wohnfläche!
+        </div>
+      </div>
+      <div id="map-filters-clear-button" *ngIf="isDefault" [attr.class]="{block: name, element: 'link'} | bem" (click)="clearFilters()">
+        Filter zurücksetzen
+      </div>
+      <div *ngIf="isDefault" [attr.class]="{block: name, element: 'legal-text'} | bem" (click)="clearFilters()">
+        Die dargestellten Werte stellen
+        lediglich Schätzwerte und keine rechtsverbindlichen Marktwerte dar.
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  *ngIf="(isSmallDevice$ | async) && isDefault"
+  [attr.class]="{block: name, element: 'min'} | bem"
+  (click)="_openFilter()"
+>
+  <mat-icon
+    svgIcon="filter"
+    [attr.class]="{block: name, element: 'icon-filter'} | bem"
+    appSvgSize="24px"
+  ></mat-icon>
+  <div [attr.class]="{block: name, element: 'min-title'} | bem">
+    Filter
+  </div>
+</div>

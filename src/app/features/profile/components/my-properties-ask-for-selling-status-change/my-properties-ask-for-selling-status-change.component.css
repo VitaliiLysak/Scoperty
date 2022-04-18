@@ -1,0 +1,54 @@
+.my-properties-ask-for-selling-status-change__hint {
+  margin-bottom: 32px;
+}
+
+.my-properties-ask-for-selling-status-change__heading {
+  margin-bottom: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif';
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+.my-properties-ask-for-selling-status-change__open-for-offers {
+  margin-bottom: 24px;
+
+  display: flex;
+
+  color: var(--brand-dark-green-color);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+}
+
+.my-properties-ask-for-selling-status-change__open-for-offers-label {
+  margin-right: 24px;
+  margin-bottom: 0;
+}
+
+.my-properties-ask-for-selling-status-change__message {
+  margin-bottom: 16px;
+
+  color: var(--brand-dark-green-color);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive*/
+
+@media (max-width: 767px) {
+  .my-properties-ask-for-selling-status-change__hint,
+  .my-properties-ask-for-selling-status-change__heading,
+  .my-properties-ask-for-selling-status-change__open-for-offers {
+    margin-bottom: 16px;
+  }
+
+  .my-properties-ask-for-selling-status-change__message {
+    margin-bottom: 0;
+  }
+}

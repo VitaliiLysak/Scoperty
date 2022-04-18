@@ -1,0 +1,127 @@
+:host {
+  justify-content: center;
+
+  display: flex;
+
+  width: 100%;
+  padding: 0 16px 304px;
+
+  background-color: var(--neutrals-white-color);
+}
+
+.property-valuation-transparency-with-scoperty__container {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 1224px;
+}
+
+.property-valuation-transparency-with-scoperty__explanation {
+  margin-left: 416px;
+  position: relative;
+  z-index: 1;
+
+  margin-top: 96px;
+
+  display: flex;
+  flex-direction: column;
+
+  max-width: 704px;
+}
+
+.property-valuation-transparency-with-scoperty__explanation-heading {
+  margin-bottom: 24px;
+
+  color: var(--brand-dark-green-color);
+  font-family: 'PT Serif';
+  font-weight: normal;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+}
+
+.property-valuation-transparency-with-scoperty__explanation-message {
+  color: var(--brand-dark-green-color);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 28px;
+}
+
+.property-valuation-transparency-with-scoperty__image {
+  position: absolute;
+  bottom: -200px;
+  left: -208px;
+  z-index: 0;
+
+  display: block;
+
+  width: 694px;
+  height: auto;
+}
+
+/* Responsive */
+
+@media (max-width: 1672px) {
+  .property-valuation-transparency-with-scoperty__image {
+    position: static;
+    margin-top: 8px;
+    margin-left: 416px;
+
+    width: 704px;
+  }
+}
+
+@media (max-width: 1224px) {
+  .property-valuation-transparency-with-scoperty__container {
+    flex-direction: column;
+  }
+
+  .property-valuation-transparency-with-scoperty__explanation {
+    margin-left: 0;
+    margin-bottom: 24px;
+  }
+
+  .property-valuation-transparency-with-scoperty__image {
+    margin-left: 0;
+    position: static;
+  }
+}
+
+@media (max-width: 790px) {
+  :host {
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .property-valuation-transparency-with-scoperty__explanation-heading {
+    margin-bottom: 16px;
+  }
+
+  .property-valuation-transparency-with-scoperty__image {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .property-valuation-transparency-with-scoperty__explanation {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .property-valuation-transparency-with-scoperty__explanation-heading {
+    font-size: 24px;
+    letter-spacing: 1px;
+    line-height: 32px;
+  }
+
+  .property-valuation-transparency-with-scoperty__explanation-message {
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 24px;
+  }
+}

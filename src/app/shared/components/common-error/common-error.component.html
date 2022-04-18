@@ -1,0 +1,43 @@
+<app-base-modal (dismiss)="dismiss()">
+  <ng-container app-base-modal-header>
+    <button
+      app-button
+      buttonStyle="link"
+      color="green"
+      (click)="onLogoClick()"
+    >
+      <app-logo></app-logo>
+    </button>
+  </ng-container>
+
+  <ng-container app-base-modal-title>
+    {{title}}
+  </ng-container>
+
+  <ng-container app-base-modal-body>
+    {{text}}
+    <a
+      app-button
+      buttonStyle="link"
+      size="medium"
+      color="green"
+      href="mailto:kontakt@scoperty.com"
+    >
+      Kontakt über E-Mail-Adresse
+    </a>
+  </ng-container>
+
+  <ng-container app-base-modal-footer>
+    <app-base-modal-actions>
+      <button
+        app-button
+        color="secondary-green"
+        size="medium"
+        [stretch]="true"
+        (click)="apply()"
+      >
+        Weiter
+      </button>
+    </app-base-modal-actions>
+  </ng-container>
+</app-base-modal>

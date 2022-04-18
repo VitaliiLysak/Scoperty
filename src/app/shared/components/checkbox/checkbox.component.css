@@ -1,0 +1,168 @@
+/* The container */
+.checkbox__container {
+  position: relative;
+  margin-bottom: 0;
+
+  display: block;
+
+  padding-left: 40px;
+
+  font-size: var(--font-size-checkbox-label--large);
+  font-weight: var(--font-weight-checkbox-label);
+  letter-spacing: var(--letter-spacing-checkbox-label--large);
+  line-height: var(--line-height-checkbox-label--large);
+
+  color: var(--color-checkbox-label);
+
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox__container ::ng-deep a[href] {
+  color: var(--color-links-standart);
+  text-decoration: none;
+}
+
+.checkbox__container ::ng-deep a[href]:hover {
+  color: var(--color-links-hover);
+  text-decoration: none;
+}
+
+.checkbox__container--size-small {
+  font-size: var(--font-size-checkbox-label--small);
+  letter-spacing: var(--letter-spacing-checkbox-label--small);
+  line-height: var(--line-height-checkbox-label--small);
+}
+
+.checkbox__container--size-large {
+  font-size: var(--font-size-checkbox-label--large);
+  letter-spacing: var(--letter-spacing-checkbox-label--large);
+  line-height: var(--line-height-checkbox-label--large);
+}
+
+.checkbox__container--size-mini {
+  padding-left: 32px;
+
+  font-size: var(--font-size-checkbox-label--mini);
+  letter-spacing: var(--letter-spacing-checkbox-label--mini);
+  line-height: var(--line-height-checkbox-label--mini);
+
+  color: var(--neutrals-dark-light-color);
+}
+
+.checkbox__container--font-size-12px {
+  font-size: 12px;
+}
+
+.checkbox__container--line-height-18px {
+  line-height: 18px;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox__container input {
+  position: absolute;
+
+  height: 0;
+  width: 0;
+
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkbox__checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: var(--height-checkbox--large);
+  width: var(--width-checkbox--large);
+  border: var(--border-checkbox-inactive);
+  border-radius: var(--border-radius-checkbox);
+
+  background-color: var(--background-color-checkbox-inactive);
+}
+
+.checkbox__container--size-small .checkbox__checkmark {
+  height: var(--height-checkbox--small);
+  width: var(--width-checkbox--small);
+}
+
+.checkbox__container--size-large .checkbox__checkmark {
+  height: var(--height-checkbox--large);
+  width: var(--width-checkbox--large);
+}
+
+.checkbox__container--size-mini .checkbox__checkmark {
+  height: var(--height-checkbox--mini);
+  width: var(--width-checkbox--mini);
+  border: var(--border-checkbox-inactive-mini);
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox__container:hover input ~ .checkbox__checkmark {
+  border: var(--border-checkbox-hover);
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox__container input:checked ~ .checkbox__checkmark {
+  border: var(--border-checkbox-active);
+
+  background-color: var(--background-color-checkbox-active);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox__checkmark:after {
+  position: absolute;
+
+  display: none;
+
+  content: "";
+}
+
+/* Show the checkmark when checked */
+.checkbox__container input:checked ~ .checkbox__checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox__container .checkbox__checkmark:after {
+  left: 10px;
+  top: 6px;
+
+  width: 7px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 1px 1px 0;
+
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox__container--size-small .checkbox__checkmark:after {
+  left: 6px;
+  top: 3px;
+
+  width: 6px;
+  height: 10px;
+}
+.checkbox__container--size-large .checkbox__checkmark:after {
+   left: 8px;
+   top: 4px;
+
+   width: 8px;
+   height: 14px;
+ }
+
+.checkbox__container--size-mini .checkbox__checkmark:after {
+  left: 5px;
+  top: 2px;
+
+  width: 4px;
+  height: 7px;
+}

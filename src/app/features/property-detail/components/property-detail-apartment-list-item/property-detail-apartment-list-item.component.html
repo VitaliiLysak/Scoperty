@@ -1,0 +1,107 @@
+<button
+  [attr.class]="{block: _name, element: 'body'} | bem"
+  (click)="goToApartment()"
+>
+  <div [attr.class]="{block: _name, element: 'image'} | bem">
+    <div [attr.class]="{block: _name, element: 'image-block'} | bem">
+      <app-image
+        [attr.class]="{block: _name, element: 'first-image'} | bem"
+        [src]="apartment.firstImage"
+        [mods]="{'fit': 'container', 'size': apartment.hasImage ? 'default' : 'small'}"
+      >
+      </app-image>
+    </div>
+  </div>
+  <div
+    [attr.class]="{
+      block: _name,
+      element: 'content',
+      mods: {
+        'padding-top': !apartment.isStatusNotActiveYet ? 'default' : '16px'
+      }
+    } | bem"
+  >
+    <div [attr.class]="{ block: _name, element: 'info-head' } | bem"
+    >
+      <app-selling-status-tag
+        *ngIf="!apartment.isStatusForHide"
+        [sellingStatus]="apartment.sellingStatus">
+      </app-selling-status-tag>
+      <a
+        *ngIf="apartment.hasUrl"
+        app-button
+        buttonStyle="link"
+        size="small"
+        color="dark"
+        target="_blank"
+        [href]="apartment.Url"
+      >
+        Quelle: {{apartment.source}}
+      </a>
+    </div>
+    <div
+      appMultilineTruncate
+      [numberOfLines]="numberOfLines"
+      [text]="title"
+      [attr.class]="{
+        block: _name,
+        element: 'content-header' ,
+        mods: {
+          'margin-top': !apartment.isStatusNotActiveYet ? 'default' : '0'
+        }
+      } | bem"
+    >
+    </div>
+    <div
+      [attr.class]="{
+        block: _name,
+        element: 'content-price',
+        mods: {
+          'margin-top': !apartment.isStatusNotActiveYet ? 'default' : '48px'
+        }
+      } | bem"
+    >
+      <div [attr.class]="{block: _name, element: 'price-label'} | bem">
+        {{priceLabel}}
+      </div>
+      <div [attr.class]="{block: _name, element: 'price-value'} | bem">
+        {{apartment.apartmentPrice | cost}}
+      </div>
+    </div>
+    <div
+      *ngIf="!apartment.isStatusNotActiveYet"
+      [attr.class]="{block: _name, element: 'content-tags'} | bem"
+    >
+      <app-tag
+        *ngIf="apartment.RoomsNumber"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+      >
+        {{apartment.RoomsNumber | numberOfRooms}}
+      </app-tag>
+
+      <app-tag
+        *ngIf="apartment.LivingSurface"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+      >
+        {{apartment.LivingSurface | livingSurface}}
+      </app-tag>
+
+      <app-tag
+        *ngIf="apartment.hasFloor"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+      >
+        {{ apartment.Floor | floor }}
+      </app-tag>
+      <app-tag
+        *ngFor="let feature of apartment.Features"
+        [attr.class]="{block: _name, element: 'tag'} | bem"
+        color="light"
+      >
+        {{feature}}
+      </app-tag>
+    </div>
+  </div>
+</button>

@@ -1,0 +1,162 @@
+.scoperty-plus-ad__wrapper {
+  position: relative;
+  margin-right: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 135px;
+
+  height: 56px;
+  padding-top: 6px;
+
+  color: var(--brand-dark-green-color);
+
+  cursor: pointer;
+
+  fill: var(--brand-dark-green-color);
+}
+
+.scoperty-plus-ad__wrapper.scoperty-plus-ad__wrapper--mode-white {
+  color: white;
+
+  fill: white;
+}
+
+.scoperty-plus-ad__wrapper:not(.scoperty-plus-ad__wrapper--mode-white):hover {
+  color: var(--text-list);
+
+  fill: var(--text-list);
+}
+
+.scoperty-plus-ad__smalllabel {
+  height: 12px;
+
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.3px;
+}
+
+.scoperty-plus-ad__biglabel {
+  display: flex;
+
+  height: 24px;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.7px;
+}
+
+.scoperty-plus-ad__biglabel.scoperty-plus-ad__biglabel--mode-mobile {
+  height: 28px;
+
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: 1px;
+}
+
+
+@media(max-width: 450px) {
+  .scoperty-plus-ad__biglabel.scoperty-plus-ad__biglabel--mode-mobile.scoperty-plus-ad__biglabel--smaller-true {
+    font-size: 16px;
+    letter-spacing: 0.7px;
+  }
+}
+
+.scoperty-plus-ad__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.scoperty-plus-ad__popup {
+  position: absolute;
+  top: 60%;
+  left: -72px;
+  z-index: 1001;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 288px;
+  height: 356px;
+
+  color: white;
+
+  background-size: cover;
+  cursor: default;
+}
+
+.scoperty-plus-ad__logo {
+  margin-top: 40px;
+  align-self: center;
+
+  height: 34px;
+  width: 186px;
+}
+
+.scoperty-plus-ad__list-head {
+  margin-top: 24px;
+  margin-left: 40px;
+
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.7px;
+  line-height: 16px;
+}
+
+.scoperty-plus-ad__list {
+  margin-top: 16px;
+  margin-left: -5px;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+}
+
+.scoperty-plus-ad__list li {
+  padding-left: 5px;
+}
+
+.scoperty-plus-ad__link-container {
+  margin-top: 8px;
+  align-self: center;
+
+  width: 256px;
+  height: 44px;
+
+  color: var(--brand-dark-green-color);
+}
+
+.scoperty-plus-ad__link-container a {
+  width: 256px;
+  height: 44px;
+}
+
+.scoperty-plus-ad__link-container a:hover {
+  color: unset;
+
+  background-color: white;
+}
+
+.ad-background {
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.ad-background-sign {
+  opacity: 0.154273624 !important;
+
+  fill: hsl(0, 0%, 100%) !important;
+}

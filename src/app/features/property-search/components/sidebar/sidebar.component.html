@@ -1,0 +1,142 @@
+<ng-container *ngIf="!isSidebarShown; then closedBlock else openedBlock"></ng-container>
+
+<ng-template #closedBlock>
+  <div
+    id="map-sidebar-toggle-button"
+    [attr.class]="{
+      block: name,
+      element: 'button',
+      mods: {'disabled': !isSidebarActive}
+    } | bem"
+    (click)="toggleSidebar()"
+  >
+    <ng-container *ngIf="!(isSmallDevice$ | async)">
+      Alle Angebote
+    </ng-container>
+    <ng-container *ngIf="(isSmallDevice$ | async)">
+      Ergebnisse
+    </ng-container>
+    <mat-icon
+      [attr.class]="{block: name, element: 'icon-arrow'} | bem"
+      svgIcon="sort-down-white"
+      appSvgSize="12px"
+    ></mat-icon>
+  </div>
+</ng-template>
+
+<ng-template #openedBlock>
+  <div
+    [attr.class]="{block: name, element: 'container'} | bem"
+    [style.height.px]="displayHeight"
+  >
+    <div [attr.class]="{block: name, element: 'row', mods: {'height': '80px'}} | bem">
+      <div [attr.class]="{block: name, element: 'title'} | bem">
+        <ng-container *ngIf="!(isSmallDevice$ | async)">
+          Alle Angebote in dieser Gegend ({{ possiblePropertiesCount }})
+        </ng-container>
+        <ng-container *ngIf="(isSmallDevice$ | async)">
+          Ergebnisse ({{ possiblePropertiesCount }})
+        </ng-container>
+      </div>
+      <div
+        [attr.class]="{block: name, element: 'button-close'} | bem"
+        *ngIf="(isSmallMobileDevice$ | async) || isHighZoomLevel"
+      >
+        <button
+          id="map-sidebar-close-button"
+          app-icon-button
+          color="primary-green"
+          size="small-medium"
+          (click)="toggleSidebar()"
+        >
+          <mat-icon svgIcon="close" appSvgSize="10px"></mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div
+      *ngIf='isHighZoomLevel'
+      [attr.class]="{block: name, element: 'zoom-message-container'} | bem"
+    >
+      <hr [attr.class]="{block: name, element: 'divider'} | bem">
+      <p [attr.class]="{block: name, element: 'zoom-message'} | bem">
+        Hier findest du Immobilen zum Verkauf. Zoom weiter in die Karte hinein um diese zu sehen!
+      </p>
+    </div>
+
+    <div [attr.class]="{block: name, element: 'content-block'} | bem">
+      <app-accordion [verticalAlignment]="accordionVerticalAlignment">
+        <ng-container *ngIf="isHighZoomLevel; then reverseOrder else strictOrder"></ng-container>
+      </app-accordion>
+    </div>
+
+  </div>
+</ng-template>
+
+<ng-template #strictOrder>
+  <ng-container *ngTemplateOutlet="listingWithAddress"></ng-container>
+  <ng-container *ngTemplateOutlet="listingWithoutAddress"></ng-container>
+</ng-template>
+
+<ng-template #reverseOrder>
+  <ng-container *ngTemplateOutlet="listingWithoutAddress"></ng-container>
+  <ng-container *ngTemplateOutlet="listingWithAddress"></ng-container>
+</ng-template>
+
+<ng-template #listingWithAddress>
+  <app-panel
+    [attr.class]="{
+      block: name,
+      element: 'panel',
+      mods: {'expanded': carouselObj.topTab ? 'true' : 'false'}
+    } | bem"
+    locationPrefix="map-listings-with-address"
+    [opened]="carouselObj.topTab"
+    [isLoaded]="isLoaded"
+    (toggle)="toggle($event, 'topTab')"
+    (scrolled)="onScroll()"
+  >
+    <ng-container app-panel-title>
+      {{titleWithAddress}} <u>MIT</u> ADRESSE
+    </ng-container>
+    <ng-container *ngIf="isLoaded" app-panel-content>
+      <ng-container *ngFor="let marker of markers; trackBy: trackByFn">
+        <app-sidebar-object
+          *ngIf="!marker.isPropertyOfTypeMFH"
+          [listing]="marker"
+          [isShortDetailPageOpened]="listingsIsOpenedStates[marker.id]"
+          (click)="onListingObjectClick(marker)"
+          (closeSidebar)="closeSidebar()"
+        ></app-sidebar-object>
+      </ng-container>
+    </ng-container>
+  </app-panel>
+</ng-template>
+
+<ng-template #listingWithoutAddress>
+  <app-panel
+    [attr.class]="{
+      block: name,
+      element: 'panel',
+      mods: {'expanded': carouselObj.bottomTab ? 'true' : 'false'}
+    } | bem"
+    locationPrefix="map-listings-without-address"
+    [opened]="carouselObj.bottomTab"
+    [isLoaded]="isLoaded"
+    (toggle)="toggle($event, 'bottomTab')"
+    (scrolled)="onScroll()"
+  >
+    <ng-container app-panel-title>
+      {{titleWithoutAddress}} <u>OHNE</u> ADRESSE
+    </ng-container>
+    <ng-container *ngIf="isLoaded" app-panel-content>
+      <ng-container *ngFor="let marker of markersWithoutAddress; trackBy: trackByFn">
+        <app-sidebar-object
+          *ngIf="!marker.isPropertyOfTypeMFH"
+          [listing]="marker"
+          (closeSidebar)="closeSidebar()"
+        ></app-sidebar-object>
+      </ng-container>
+    </ng-container>
+  </app-panel>
+</ng-template>

@@ -1,0 +1,311 @@
+:host {
+  width: 100%;
+  min-height: 700px;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+
+  background-color: hsl(60, 7%, 97%);
+}
+
+.profile__tab-list-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i {
+  font-family: 'icomoon' !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.profile__title-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  padding-top: 30px;
+
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 8px 0 hsl(0, 0%, 85%);
+}
+
+.profile__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 945px;
+  height: 40px;
+
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+
+  color: hsl(189, 100%, 14%);
+}
+
+.profile__tab-list {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  width: 945px;
+  height: 56px;
+}
+
+.profile__tab-item-wrapper {
+  margin-right: 30px;
+
+  display: flex;
+  flex-direction: row;
+
+  outline: none;
+}
+
+.profile__tab-item-wrapper--tab-offers,
+.profile__tab-item-wrapper--tab-chat {
+  margin-right: 10px;
+}
+
+.profile__tab-item-wrapper--tab-search {
+  margin-right: 0;
+}
+
+.profile__tab-item {
+  width: 100%;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  text-align: center;
+  line-height: 40px;      /* for top-padding of active underline */
+
+  color: hsl(189, 100%, 14%);
+  outline: none;
+  cursor: pointer;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.profile__tab-item-wrapper--tab-offers {
+  width: 126px;
+}
+
+.profile__tab-item--tab-offers {
+  width: 108px;
+}
+
+.profile__tab-item-wrapper--tab-property,
+.profile__tab-item--tab-property {
+  width: 135px
+}
+
+.profile__tab-item-wrapper--tab-chat {
+  width: 115px;
+}
+
+.profile__tab-item--tab-chat {
+  width: 94px;
+}
+
+.profile__tab-item-wrapper--tab-favorites,
+.profile__tab-item--tab-favorites {
+  width: 68px;
+}
+
+.profile__tab-item-wrapper--tab-search {
+  width: 125px;
+}
+
+.profile__tab-item--tab-search {
+  width: 103px;
+}
+
+.profile__tab-item--state-active {
+  position: relative;
+
+  font-weight: 600;
+  letter-spacing: 0.45px;
+}
+
+.profile__tab-item--state-active:after {
+  position: absolute;
+
+  display: block;
+
+  width: 100%;
+  height: 4px;
+
+  content: '';
+
+  background-color: hsl(174, 92%, 45%);
+}
+
+.profile__notif-budget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;    /* fix bug for iOS, circle becomes oval ? */
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  line-height: 12px;
+  text-align: center;
+
+  box-shadow: none;
+  background-color: hsl(174, 92%, 45%);
+}
+
+.profile__notif-budget--visible-false {
+  display: none;
+}
+
+.profile__content {
+  margin-bottom: 90px;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: hsl(60, 7%, 97%);
+}
+
+.profile__tab-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 auto; */
+}
+
+@media (max-width: 998px) {
+  .profile__tab-content {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .profile__tab-list {
+    justify-content: center;
+
+    width: 100%
+  }
+
+  .profile__title {
+    width: 100%;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile__content {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .profile__tab-item-wrapper {
+    width: auto!important;
+  }
+}
+
+@media (max-width: 670px) {
+  .profile__title-wrapper {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  /*
+  * Fix scroolbar appearense on iPhones
+  * parent div's height should be less than scrollable-child div
+  */
+  :host {
+    min-height: 200px;
+  }
+
+  .profile__tab-list-wrapper {
+    overflow-y: hidden;
+
+    height: 56px;
+  }
+
+  .profile__tab-list--scroll-horizontal {
+    margin: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    flex-wrap: nowrap;
+    width: 100vw;
+    height: 62px;
+    padding: 0;
+  }
+
+  /* parent div has less height, to center */
+  .profile__tab-list--scroll-horizontal .profile__tab-item {
+    margin-top: -6px;
+  }
+
+  .profile__tab-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .profile__tab-item {
+    margin: 0!important;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0!important;
+    padding-left: 17px!important;
+    width: 100vw;
+
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 28px;
+
+    color: hsl(0, 0%, 100%);
+  }
+
+  .profile__tab-item-wrapper {
+    margin-right: 0;
+
+    width: 100%;
+  }
+
+  .profile__tab-list-wrapper {
+    justify-content: flex-start;
+
+    height: 48px;
+
+    background-color: hsl(189, 100%, 14%);
+  }
+
+  .profile__tab-list {
+    height: 100%;
+  }
+
+  .profile__tab-item--state-active:after {
+    content: unset
+  }
+
+}

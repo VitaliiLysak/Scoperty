@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>E_15_Icon_magnifying_glass</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="E_15_Icon_magnifying_glass" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="magnifying-glass" transform="translate(4.000000, 4.000000)" stroke="#137982">
+            <circle id="Oval" cx="16" cy="16" r="15.5"></circle>
+            <path d="M11.6408875,14.1810489 C11.6408875,10.7716771 14.4125246,8.00003999 17.8217746,8 C21.2311463,8 24.0027834,10.7716371 24.0027834,14.1810089 C24.0027834,17.5903806 21.2311463,20.3620177 17.8217746,20.3620177 C16.2474353,20.3620177 14.8123141,19.766223 13.7201298,18.7940412 L8.62425159,23.8899194 C8.5560787,23.9602229 8.46304724,23.9999905 8.36504917,23.9999905 C8.26775827,24.0007013 8.17402145,23.9616428 8.10513774,23.8920501 C8.03625585,23.8224592 7.9986186,23.7287187 8.00003878,23.6307206 C8.00145859,23.5334261 8.04193693,23.4403983 8.11294945,23.3729362 L13.203192,18.2826936 C12.2324282,17.1906548 11.6408875,15.7546974 11.6408875,14.1810489 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

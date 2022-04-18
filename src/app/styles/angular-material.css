@@ -1,0 +1,10 @@
+/* MatIcon */
+
+mat-icon {
+  flex-shrink: 0;
+}
+
+/* Overriding bootstrap's svg definition to fix wrong vertical alignment */
+mat-icon > svg {
+  vertical-align: initial;
+}

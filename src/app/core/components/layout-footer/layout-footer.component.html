@@ -1,0 +1,278 @@
+<ng-container *ngIf="!isMapPage">
+  <div [attr.class]="{block: name, element: 'content'} | bem">
+    <div [attr.class]="{block: name, element: 'wrapper'} | bem">
+      <div
+        *ngIf="featureToggleService.socialSharing"
+        [attr.class]="{block: name, element: 'column-icons'} | bem"
+      >
+        <a
+          [attr.class]="{block: name, element: 'icon'} | bem"
+          href="https://www.facebook.com/Scoperty-1410365902414643/"
+          target="_blank"
+        >
+          <mat-icon
+            [attr.class]="{block: name, element: 'icon'} | bem"
+            svgIcon="facebook"
+          ></mat-icon>
+        </a>
+
+        <!-- @FIXME: later change Scoperty-profile link to XING or add twitter button -->
+        <a
+          [attr.class]="{block: name, element: 'icon'} | bem"
+          href="https://twitter.com/scoperty"
+          target="_blank"
+        >
+          <mat-icon
+            [attr.class]="{block: name, element: 'icon'} | bem"
+            svgIcon="xing"
+          ></mat-icon>
+        </a>
+      </div>
+      <div [attr.class]="{block: name, element: 'column'} | bem">
+        <ng-container *ngIf="!(isSmallMobileDevice$ | async)">
+          <div [attr.class]="{block: name, element: 'subtitle'} | bem">
+            Services
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="(isSmallMobileDevice$ | async)">
+          <div
+            [attr.class]="{block: name, element: 'subtitle', mods: {'with': 'border-bottom'}} | bem"
+            (click)="toggleTab('services')"
+          >
+            Services
+            <i
+              [attr.class]="{
+                block: name,
+                element: 'arrow',
+                mods: {state: userTargetTabs.services? 'opened' : 'default'}
+              } | bem"
+            ></i>
+          </div>
+        </ng-container>
+
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'links',
+            mods: {'state': !userTargetTabs.services? 'hidden': 'default'}
+          } | bem"
+        >
+          <a
+            *ngIf="isUserNotAuthorized"
+            id="footer-sign-in-link"
+            [attr.class]="{block: name, element: 'text'} | bem"
+            (click)="openSignupModal()"
+          >
+            Anmelden
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-realtor-search-link"
+            [routerLink]="linkToSearchBroker"
+            queryParamsHandling="merge"
+          >
+            Maklersuche
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-property-finance-link"
+            [routerLink]="linkToBroker"
+            queryParamsHandling="merge"
+          >
+            Baufinanzierung
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-for-brokers-link"
+            [routerLink]="linkToProfessionals"
+            queryParamsHandling="merge"
+          >
+            Für Makler
+          </a>
+        </div>
+      </div>
+
+      <div [attr.class]="{block: name, element: 'column'} | bem">
+        <ng-container *ngIf="!(isSmallMobileDevice$ | async)">
+          <div [attr.class]="{block: name, element: 'subtitle'} | bem">
+            Support
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="(isSmallMobileDevice$ | async)">
+          <div
+            [attr.class]="{block: name, element: 'subtitle', mods: {'with': 'border-bottom'}} | bem"
+            (click)="toggleTab('support')"
+          >
+            Support
+            <i
+              [attr.class]="{
+                block: name,
+                element: 'arrow',
+                mods: {state: userTargetTabs.support? 'opened' : 'default'}
+              } | bem"
+            ></i>
+          </div>
+        </ng-container>
+
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'links',
+            mods: {'state': !userTargetTabs.support? 'hidden': 'default'}
+          } | bem"
+        >
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-contact-link"
+            [routerLink]="linkToImpressum"
+            queryParamsHandling="merge"
+            fragment="contact"
+          >
+            Kontakt
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-how-it-works-link"
+            [routerLink]="linkToHowItWorks"
+            queryParamsHandling="merge"
+          >
+            So funktioniert's
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-availability-link"
+            [routerLink]="linkToHowItWorks"
+            queryParamsHandling="merge"
+            fragment="availability"
+          >
+            Verfügbarkeit
+          </a>
+          <div
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-contestation-link"
+            (click)="openContradictionPossibility()"
+          >
+            Widerspruchsmöglichkeit
+          </div>
+        </div>
+      </div>
+      <div [attr.class]="{block: name, element: 'column'} | bem">
+        <ng-container *ngIf="!(isSmallMobileDevice$ | async)">
+          <div [attr.class]="{block: name, element: 'subtitle'} | bem">
+            Unternehmen
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="(isSmallMobileDevice$ | async)">
+          <div [attr.class]="{block: name, element: 'subtitle'} | bem" (click)="toggleTab('unternehmen')">
+            Unternehmen
+            <i
+              [attr.class]="{
+                block: name,
+                element: 'arrow',
+                mods: {state: userTargetTabs.unternehmen? 'opened' : 'default'}
+              } | bem"
+            ></i>
+          </div>
+        </ng-container>
+
+        <div
+          [attr.class]="{
+            block: name,
+            element: 'links',
+            mods: {'state': !userTargetTabs.unternehmen? 'hidden': 'default'}
+          } | bem"
+        >
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-advantages-link"
+            [routerLink]="linkToHowItWorks"
+            queryParamsHandling="merge"
+            fragment="advantages"
+          >
+            Vorteile
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-about-us-link"
+            [routerLink]="linkToAbout"
+            queryParamsHandling="merge"
+          >
+            Über uns
+          </a>
+          <a
+            [attr.class]="{block: name, element: 'text'} | bem"
+            id="footer-career-link"
+            href="https://scoperty-jobs.personio.de/"
+            target="_blank"
+          >
+            Karriere
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div [attr.class]="{block: name, element: 'footnote'} | bem">
+    <span [attr.class]="{block: name, element: 'footnote-text', mods: {'margin-right': '99', 'cursor': 'default'}} | bem">
+      ©2018 Scoperty
+    </span>
+
+    <div [attr.class]="{block: name, element: 'footnote-text-inner'} | bem">
+      <span
+        [attr.class]="{block: name, element: 'footnote-text'} | bem"
+        id="footer-terms-of-use-link"
+        [routerLink]="linkToTermsOfService"
+        queryParamsHandling="merge"
+      >
+        Nutzungsbedingungen
+      </span>
+
+      <!-- @FIXME: later remove modifier and apply hover styles for all spans when all links are ready -->
+      <span
+        [attr.class]="{block: name, element: 'footnote-text'} | bem"
+        id="footer-data-protection-link"
+        [routerLink]="linkToDataProtection"
+        queryParamsHandling="merge"
+      >
+        Datenschutz
+      </span>
+      <span
+        [attr.class]="{block: name, element: 'footnote-text'} | bem"
+        id="footer-imprint-link"
+        [routerLink]="linkToImpressum"
+        queryParamsHandling="merge"
+      >
+        Impressum
+      </span>
+    </div>
+    <div
+      *ngIf="(isSmallMobileDevice$ | async)"
+      [attr.class]="{block: name, element: 'footnote-text'} | bem"
+      (click)="openContradictionPossibility()"
+    >
+      Widerspruchsmöglichkeit
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isMapPage">
+  <div [attr.class]="{block: name, element: 'container'} | bem">
+    <span
+      [attr.class]="{block: name, element: 'link-text'} | bem"
+      [routerLink]="linkToImpressum"
+      queryParamsHandling="merge"
+    >
+      Impressum
+    </span>
+    <span
+      [attr.class]="{block: name, element: 'link-text'} | bem"
+      [routerLink]="linkToDataProtection"
+      queryParamsHandling="merge"
+    >
+      Datenschutz
+    </span>
+  </div>
+</ng-container>

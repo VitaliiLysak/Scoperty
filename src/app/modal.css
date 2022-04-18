@@ -1,0 +1,300 @@
+.green-modal {
+  position: relative;
+
+  max-width: 946px;
+  border-radius: 16px;
+
+  -webkit-font-smoothing: antialiased;
+
+  color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
+}
+
+.green-modal__content {
+  background-color: #137982;
+  color: #ffffff;
+  padding: 2rem;
+  /*padding-left: 6rem;*/
+  /*padding-top: 4rem;*/
+}
+
+.green-modal__title {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  padding-bottom: 2rem;
+}
+
+.green-modal__button {
+  float: right;
+}
+
+.green-modal__button--left {
+  float: left;
+}
+
+.green-modal__text {
+  font-size: 1.5rem;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+.green-modal__link {
+  color: #d3f3f5 !important;
+  text-decoration: none !important;
+  text-transform: uppercase;
+}
+
+.modal-dialog {
+  z-index: 1000000;
+}
+
+.modal-backdrop {
+  opacity: 0.7;
+}
+
+.close{
+  color: #23C1CF;
+  text-shadow: none;
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.close:hover {
+  color: #009BA9;
+}
+
+.close:focus {
+  outline: none;
+}
+
+.my-modal {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+
+.my-modal .modal-header, .my-modal__header {
+  background-color: #f7f7f7;
+  padding: 1rem 1.5625rem;
+}
+
+.my-modal__title {
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  color: #484848;
+  margin-right: auto;
+  max-width: 100%;
+  /*text-overflow: ellipsis;*/
+  /*overflow: hidden;*/
+  /*white-space: nowrap;*/
+}
+
+/*.my-modal__body {*/
+  /*padding: 1rem 0;*/
+/*}*/
+
+.my-modal .modal-footer, .my-modal__footer{
+  justify-content: stretch;
+  border: none;
+}
+
+.my-modal__text{
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  text-align: left;
+  color: #484848;
+  margin: 0;
+  /*padding-top: 40px;*/
+  /*padding-bottom: 42px;*/
+}
+
+.my-modal__text_light {
+  font-weight: 200;
+}
+
+.verify-form__text {
+  margin-bottom: 1rem;
+}
+
+.verify-form__footer{
+  margin-top: 1.23rem;
+}
+
+.icon-Warning_l {
+  font-size: 3.9375rem;
+}
+
+.first-time__modal-content {
+  padding: 1rem 0;
+}
+
+.first-time__modal-header{
+  border: none;
+  text-align: left;
+}
+
+.first-time__modal-title{
+  margin-right: auto;
+  padding-bottom: 0;
+}
+
+.first-time__block {
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  padding: 1rem 1rem 1.25rem;
+}
+
+@media (max-width: 767px) {
+  .modal-dialog.my-modal, .green-modal{
+    margin: 0;
+    height: 100%;
+    border-radius: 0;
+    max-width: 100%;
+  }
+  .modal-backdrop {
+    /*opacity: 0;*/
+    /*pointer-events: none;*/
+    display: none !important;
+  }
+  .modal-content {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .my-modal .modal-header, .my-modal__header {
+    min-height: 88px;
+    /*height: 88px;*/
+    border-bottom: 0;
+    padding: 2rem 1rem;
+    /*display: block;*/
+  }
+
+  .modal-body {
+    height: calc(100% - 88px);
+    min-height: 300px;
+  }
+
+  .modal-body_without-top-padding {
+    padding-top: 0;
+  }
+
+  .login-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .row_big{
+    flex: 2;
+    align-content: space-between;
+  }
+
+  .modal-close {
+    position: fixed;
+    top: 0;
+    right: 1rem;
+    width: 30px;
+    height: 48px;
+    background-color: white;
+    opacity: 1;
+  }
+
+  .green-modal__content {
+    display: flex;
+  }
+
+  .green-modal__bottom-row {
+    margin-top: auto;
+  }
+
+  .modal-footer_with-padding {
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+
+  .sign-up__modal-content{
+    top: 0;
+
+    height: 100%;
+  }
+
+  .signup-close-button{
+    position: absolute;
+
+    background-color: #f7f7f7;
+  }
+
+  .login-modal-content{
+    top: 0;
+
+    height: 100%;
+  }
+
+  .green-modal__title {
+    font-size: 1.7rem;
+  }
+}
+
+@media only screen
+and (device-height : 568px)
+and (device-width : 320px)
+and (-webkit-min-device-pixel-ratio: 2){
+  /* iPhone 5 & 5S in portrait & landscape*/
+  .row_fix-for-iphone-5 {
+    display: block !important;
+  }
+}
+
+/*col-md*/
+@media (min-width: 768px) {
+  .my-modal {
+    width: 80%;
+    max-width: 80%;
+    /*height: 100%;*/
+    max-height: calc(100% - 60px)
+  }
+
+  .sign-up__modal {
+    height: 100%;
+    max-height: calc(100% - 60px)
+  }
+  .sign-up__modal-content {
+    height: 100%;
+  }
+
+  .sign-up__modal-body{
+    max-height: calc(100% - 70px);
+    overflow-y: auto;
+  }
+
+  .error-modal__button{
+    margin: 1.5rem 0;
+  }
+
+  .modal-footer_with-padding {
+    padding: 0 32px 32px 15px;
+  }
+}
+
+/*col-lg, col-xl*/
+@media (min-width: 992px) {
+  .my-modal {
+    width: 80%;
+    max-width: 80%;
+  }
+}
+
+/*col-xl*/
+@media (min-width: 1200px) {
+  .my-modal {
+    width: 944px;
+    max-width: 944px;
+  }
+}

@@ -1,0 +1,365 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Nunito Sans';
+  -webkit-font-smoothing: antialiased;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.property-overview__sale-status-container {
+  margin: 20px 0 64px;
+}
+
+.property-overview__container {
+  max-width: 560px;
+  padding: 0 0 50px;
+}
+
+/* Price trend block styles */
+.property-overview__content--price-trend {
+  width: 100%;
+}
+
+.property-overview__link {
+  display: flex;
+  align-items: center;
+
+  color: hsl(185, 98%, 41%);
+
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.property-overview__link--state-inactive {
+  color: hsl(0, 0%, 84%);
+}
+
+.property-overview__link:hover {
+  color: hsl(185, 100%, 33%);
+}
+
+.property-overview__link--state-inactive:hover {
+  color: hsl(0, 0%, 84%);
+
+  cursor: default;
+}
+
+.property-overview__title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 32px;
+  color: hsl(189, 100%, 14%);
+}
+
+.property-overview__estimated-value-container {
+  margin-bottom: 24px;
+
+  width: 592px;
+}
+
+.property-overview__sub-title {
+  font-family: 'Nunito Sans';
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 24px;
+
+  color:var(--brand-dark-green-color);
+}
+
+.property-overview__sub-title--margin-top-30px {
+  margin-top: 30px;
+}
+
+.property-overview__sub-title--margin-bottom-5px {
+  margin-bottom: 5px;
+}
+
+.property-overview__headline {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: hsl(0, 0%, 46%);
+}
+
+.property-overview__headline:first-child {
+  flex-basis: 37%;
+}
+
+.property-overview__bids-block {
+  margin-bottom: 60px;
+}
+
+.property-overview__bids-block-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 50px;
+}
+
+.property-overview__row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  height: 50px;
+
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+
+.property-overview__row:last-child {
+  border-bottom: none;
+}
+
+.property-overview__row--state-active {
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+}
+
+.property-overview__row--state-inactive {
+  color: hsl(0, 0%, 28%);
+}
+
+.property-overview__key {
+  display: flex;
+
+  flex-basis: 37%;
+  flex-wrap: wrap;
+
+  width: 37%;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: hsl(0, 0%, 28%);
+}
+
+.property-overview__key span {
+  display: inline-block;
+
+  max-width: 45%;
+}
+
+.property-overview__link img {
+  width: 18px;
+}
+
+.property-overview__key--state-inactive {
+  color: hsl(0, 0%, 84%);
+}
+
+.property-overview__value {
+  margin-right: auto;
+
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color: hsl(0, 0%, 28%);
+}
+
+.property-overview__value--state-inactive {
+  color: hsl(0, 0%, 84%);
+}
+
+.property-overview__mortgage-block {
+  position: relative;
+  left: -15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 592px;
+  height: 236px;
+  border-radius: 32px 0 32px 0;
+  padding: 35px 80px 15px;
+
+  background-color: hsl(0, 0%, 90%);
+}
+
+.property-overview__content {
+  margin-bottom: 70px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.property-overview__statistics-block {
+  margin-bottom: 50px;
+}
+
+.property-overview__close-button {
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+
+  color: hsl(0, 0%, 100%);
+
+  cursor: pointer;
+}
+
+.property-overview__close-icon {
+  float: right;
+
+  font-size: 26px;
+  line-height: 1;
+  font-weight: 300;
+
+  cursor: pointer;
+}
+
+.property-overview__close-icon:before {
+  content: "\e90d";
+}
+
+.property-overview__close-button--style-dark {
+  color: hsl(185, 71%, 47%);
+}
+
+.property-overview__close-button--position-absolute {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.property-overview__close-button--style-dark:hover {
+  color: hsl(185, 100%, 33%);
+  text-decoration: none;
+}
+
+.property-overview__alert {
+  position: relative;
+  left: -15px;
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 68px;
+  width: 592px;
+  border-radius: 2px;
+
+  background-color: hsl(185, 100%, 23%);
+}
+
+.property-overview__alert-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.property-overview__alert-text {
+  flex-basis: 90%;
+
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  line-height: 24px;
+
+  color:  hsl(0, 0%, 100%);
+}
+
+/* Responsive */
+
+@media (max-width: 958px) {
+  .property-overview__alert,
+  .property-overview__mortgage-block {
+    left: 0;
+
+    width: 100%;
+  }
+
+  .property-overview__alert {
+    height: auto;
+    padding: 10px;
+  }
+
+  .property-overview__container {
+    width: 95%;
+  }
+
+  .property-overview__mortgage-block {
+    padding: 35px 20px 25px;
+  }
+
+  .property-overview__sale-status-container {
+    margin-bottom: 48px;
+  }
+
+  .property-overview__estimated-value-container {
+    margin-bottom: 48px;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 785px) {
+  .property-overview__mortgage-block {
+    height: auto;
+    padding: 25px 20px 20px;
+  }
+}
+
+@media (max-width: 450px) {
+  .property-overview__container {
+    width: calc(100% - 34px);
+    padding: 0 0 60px;
+  }
+
+  .property-overview__title--type-address {
+    margin-bottom: 5px;
+
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .property-overview__headline:first-child {
+    flex-basis: 53%;
+  }
+
+  .property-overview__key {
+    flex-basis: 53%;
+
+    width: 53%;
+  }
+}
+
+@media (max-width: 350px) {
+  .property-overview__container {
+    max-width: 288px;
+  }
+}
